@@ -66,7 +66,7 @@
                 if($output->toBool() && $this->module_info->admin_mail) {
                     $oMail = new Mail();
                     $oMail->setTitle($obj->title);
-                    $oMail->setContent( sprintf("From : <a href=\"%s\">%s</a><br/>\r\n%s", getUrl('','document_srl',$obj->document_srl), getUrl('','document_srl',$obj->document_srl), $obj->content));
+                    $oMail->setContent( sprintf("From : <a href=\"%s\">%s</a><br/>\r\n%s", getFullUrl('','document_srl',$obj->document_srl), getFullUrl('','document_srl',$obj->document_srl), $obj->content));
                     $oMail->setSender($obj->user_name, $obj->email_address);
 
                     $target_mail = explode(',',$this->module_info->admin_mail);
@@ -194,7 +194,7 @@
                 if($output->toBool() && $this->module_info->admin_mail) {
                     $oMail = new Mail();
                     $oMail->setTitle($oDocument->getTitleText());
-                    $oMail->setContent( sprintf("From : <a href=\"%s#comment_%d\">%s#comment_%d</a><br/>\r\n%s", $oDocument->getPermanentUrl(), $obj->comment_srl, $oDocument->getPermanentUrl(), $obj->comment_srl, $obj->content));
+                    $oMail->setContent( sprintf("From : <a href=\"%s#comment_%d\">%s#comment_%d</a><br/>\r\n%s", getFullUrl('','document_srl',$obj->document_srl),$obj->comment_srl, getFullUrl('','document_srl',$obj->document_srl), $obj->comment_srl, $obj->content));
                     $oMail->setSender($obj->user_name, $obj->email_address);
 
                     $target_mail = explode(',',$this->module_info->admin_mail);
