@@ -53,6 +53,7 @@
 
             // 이미 존재하는 경우 수정
             if($oDocument->isExists() && $oDocument->document_srl == $obj->document_srl) {
+				if(!$oDocument->isGranted()) return new Object(-1,'msg_not_permitted');
                 $output = $oDocumentController->updateDocument($oDocument, $obj);
                 $msg_code = 'success_updated';
 
@@ -208,6 +209,9 @@
 
             // comment_srl이 있으면 수정으로
             } else {
+				// 다시 권한체크
+				if(!$comment->isGranted()) return new Object(-1,'msg_not_permitted');
+
                 $obj->parent_srl = $comment->parent_srl;
                 $output = $oCommentController->updateComment($obj, $this->grant->manager);
                 $comment_srl = $obj->comment_srl;
