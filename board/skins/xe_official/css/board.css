@@ -284,8 +284,6 @@
 .attachedFile ul.files a:focus .bubble{ display:block;}
 
 /* Board Write */
-.boardWrite *{ margin:0; padding:0;}
-.boardWrite li{ list-style:none;}
 .boardWrite fieldset{ border:0;}
 .boardWrite legend{ position:absolute; width:0; height:0; overflow:hidden; font:0/0 Sans-serif; visibility:hidden;}
 .boardWrite .boardWriteHeader{ margin:0 0 1em 0;}
@@ -297,7 +295,7 @@
 .boardWrite .tag{ clear:both; margin-bottom:10px; *zoom:1;}
 .boardWrite .tag:after{ content:""; display:block; float:none; clear:both;}
 .boardWrite .tag .inputText{ float:left; width:330px; padding:4px 4px 2px 4px; margin-right:10px; font-size:12px;}
-.boardWrite .tag p{ float:left;}
+.boardWrite .tag p{ float:left; margin:3px 0;}
 
 /* Editor */
 .board .boardEditor{ border:1px solid; margin-bottom:20px; -moz-border-radius:5px; -webkit-border-radius:5px; }
