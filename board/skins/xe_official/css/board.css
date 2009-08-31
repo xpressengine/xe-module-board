@@ -148,7 +148,7 @@
 /* Search Form */
 .boardSearchForm{ position:relative; margin:0; padding:1px 0; line-height:normal;}
 .boardSearchForm *{ margin:0; padding:0;}
-.boardSearchForm fieldset{ border:0; clear:both; text-align:center;}
+.boardSearchForm fieldset{ border:0; clear:both; text-align:center; position:relative;}
 .boardSearchForm fieldset:after{ content:""; display:block; float:none; clear:both;}
 .boardSearchForm fieldset *{ vertical-align:top;}
 .boardSearchForm legend{ position:absolute; width:0; height:0; overflow:hidden; font:0/0 Sans-serif; visibility:hidden;}
