@@ -11,9 +11,9 @@
     $lang->cmd_manage_menu = '選單管理';
     $lang->list_target_item = '目標項目';
     $lang->list_display_item = '顯示項目';
-    $lang->summary = '요약';
-    $lang->thumbnail = '썸네일';
-    $lang->last_post = '최종 글';
+    $lang->summary = '概要';
+    $lang->thumbnail = '縮圖';
+    $lang->last_post = '最新發表';
 
 
     // 項目
@@ -30,7 +30,7 @@
     $lang->cmd_list_setting = '列表設定';
 
     // 其他
-    $lang->about_layout_setup = '可直接編輯部落格版面設計原始碼。可把控件原始碼插入到您喜歡的位置。';
+    $lang->about_layout_setup = '可直接編輯部落格版面設計原始碼。可把Widget原始碼插入到您喜歡的位置。';
     $lang->about_board_category = '可以新增/刪除分類項目<br />分類有異常情況時，可以嘗試重新建立暫存檔。';
     $lang->about_except_notice = '設置公告列表項目，不再重複顯示到普通列表當中。';
     $lang->about_use_anonymous = '討論板可使用匿名功能。可在面板設定中設置隱藏作者的資料。';
