@@ -34,7 +34,7 @@
     $lang->about_layout_setup = 'You can manually modify board layout code. Insert or manage the widget code anywhere you want';
     $lang->about_board_category = 'You can make board categories.<br />When board category is broken, try rebuilding the cache file manually.';
     $lang->about_except_notice = 'Notice articles will not be displayed on normal list.';
-    $lang->about_use_anonymous = 'Make a board into anonymous board by hiding the author\'s information.';
+    $lang->about_use_anonymous = 'Make this board into an anonymous board by hiding the author\'s information.<br /><strong>Please turn off history at additional setup. If not, editing document might show the author\'s info.</strong>';
     $lang->about_board = 'This module is for creating and managing boards.';
     $lang->about_consultation = "Non-administrator members would see their own articles.\nNon-members would not be able to write articles when using consultation.";
     $lang->about_secret = 'Users will be able to write secret articles or comments.';
