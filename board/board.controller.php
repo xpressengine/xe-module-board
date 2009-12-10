@@ -49,6 +49,14 @@
             if($this->module_info->use_anonymous == 'Y') {
                 $obj->notify_message = 'N';
                 $this->module_info->admin_mail = '';
+                $obj->member_srl = -1*$logged_info->member_srl;
+                $obj->email_address = $obj->homepage = $obj->user_id = '';
+                $obj->user_name = $obj->nick_name = 'anonymous';
+                $bAnonymous = true;
+            }
+            else
+            {
+                $bAnonymous = false;
             }
 
             // 이미 존재하는 경우 수정
@@ -59,7 +67,7 @@
 
             // 그렇지 않으면 신규 등록
             } else {
-                $output = $oDocumentController->insertDocument($obj);
+                $output = $oDocumentController->insertDocument($obj, $bAnonymous);
                 $msg_code = 'success_registed';
                 $obj->document_srl = $output->get('document_srl');
 
@@ -82,21 +90,6 @@
 
             // 오류 발생시 멈춤
             if(!$output->toBool()) return $output;
-
-            // 익명 사용시 글의 글쓴이 정보를 모두 제거 
-            if($this->module_info->use_anonymous == 'Y' && Context::get('is_logged')) {
-                $logged_info = Context::get('logged_info');
-                $document_args->document_srl = $output->get('document_srl');
-                $document = executeQuery('document.getDocument', $document_args);
-                if($document->toBool() && $document->data) {
-                    $obj = $document->data;
-                    $obj->member_srl = -1*$logged_info->member_srl;
-                    $obj->email_address = $obj->homepage = $obj->user_id = '';
-                    $obj->user_name = $obj->nick_name = 'anonymous';
-                    $anonymous_output = executeQuery('document.updateDocument', $obj);
-                    if(!$anonymous_output->toBool()) return $output;
-                }
-            }
 
             // 결과를 리턴
             $this->add('mid', Context::get('mid'));
@@ -156,10 +149,19 @@
             $oDocument = $oDocumentModel->getDocument($obj->document_srl);
             if(!$oDocument->isExists()) return new Object(-1,'msg_not_permitted');
 
-            // 익명 설정일 경우 여러가지 요소를 미리 제거 (알림용 정보들 제거)
+            // For anonymous use, remove writer's information and notifying information
             if($this->module_info->use_anonymous == 'Y') {
                 $obj->notify_message = 'N';
                 $this->module_info->admin_mail = '';
+
+                $obj->member_srl = -1*$logged_info->member_srl;
+                $obj->email_address = $obj->homepage = $obj->user_id = '';
+                $obj->user_name = $obj->nick_name = 'anonymous';
+                $bAnonymous = true;
+            }
+            else
+            {
+                $bAnonymous = false;
             }
 
             // comment 모듈의 model 객체 생성
@@ -184,11 +186,11 @@
                     $parent_comment = $oCommentModel->getComment($obj->parent_srl);
                     if(!$parent_comment->comment_srl) return new Object(-1, 'msg_invalid_request');
 
-                    $output = $oCommentController->insertComment($obj);
+                    $output = $oCommentController->insertComment($obj, $bAnonymous);
 
                 // 없으면 신규
                 } else {
-                    $output = $oCommentController->insertComment($obj);
+                    $output = $oCommentController->insertComment($obj, $bAnonymous);
                 }
 
                 // 문제가 없고 모듈 설정에 관리자 메일이 등록되어 있으면 메일 발송
@@ -217,18 +219,6 @@
                 $comment_srl = $obj->comment_srl;
             }
             if(!$output->toBool()) return $output;
-
-            // 익명 사용시 글의 글쓴이 정보를 모두 제거 
-            if($this->module_info->use_anonymous == 'Y' && Context::get('is_logged')) {
-                $logged_info = Context::get('logged_info');
-                $comment = $oCommentModel->getComment($output->get('comment_srl'), $this->grant->manager);
-                $obj = $comment->getObjectVars();
-                $obj->member_srl = -1*$logged_info->member_srl;
-                $obj->email_address = $obj->homepage = $obj->user_id = '';
-                $obj->user_name = $obj->nick_name = 'anonymous';
-                $output = executeQuery('comment.updateComment', $obj);
-                if(!$output->toBool()) return $output;
-            }
 
             $this->setMessage('success_registed');
             $this->add('mid', Context::get('mid'));
