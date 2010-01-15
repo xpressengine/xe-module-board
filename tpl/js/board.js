@@ -43,7 +43,7 @@ function completeDeleteDocument(ret_obj) {
 }
 
 /* 검색 실행 */
-function completeSearch(fo_obj, params) {
+function completeSearch(ret_obj, response_tags, params, fo_obj) {
     fo_obj.submit();
 }
 
