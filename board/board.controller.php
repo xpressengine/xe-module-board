@@ -18,6 +18,7 @@
          **/
         function procBoardInsertDocument() {
             // 권한 체크
+			if(!$this->module_info->module != "board") return new Object(-1, "msg_invalid_request");
             if(!$this->grant->write_document) return new Object(-1, 'msg_not_permitted');
             $logged_info = Context::get('logged_info');
 
