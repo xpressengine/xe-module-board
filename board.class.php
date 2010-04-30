@@ -73,6 +73,18 @@
             return new Object(0, 'success_updated');
         }
 
+		function moduleUninstall() {
+			$output = executeQueryArray("board.getAllBoard");
+			if(!$output->data) return new Object();
+			set_time_limit(0);
+			$oModuleController =& getController('module');
+			foreach($output->data as $board)
+			{
+				$oModuleController->deleteModule($board->module_srl);
+			}
+			return new Object();
+		}
+
         /**
          * @brief 캐시 파일 재생성
          **/
