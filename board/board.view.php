@@ -371,6 +371,7 @@
             $document_srl = Context::get('document_srl');
             $oDocument = $oDocumentModel->getDocument(0, $this->grant->manager);
             $oDocument->setDocument($document_srl);
+			if($oDocument->get('module_srl') == $oDocument->get('member_srl')) $savedDoc = true;
             $oDocument->add('module_srl', $this->module_srl);
 
             // 글을 수정하려고 할 경우 권한이 없는 경우 비밀번호 입력화면으로
@@ -395,7 +396,7 @@
             $oDocumentController->addXmlJsFilter($this->module_info->module_srl);
 
             // 존재하는 글이면 확장변수 값을 context set
-            if($oDocument->isExists()) Context::set('extra_keys', $oDocument->getExtraVars());
+            if($oDocument->isExists() && !$savedDoc) Context::set('extra_keys', $oDocument->getExtraVars());
 
             /** 
              * 사용되는 javascript 필터 추가
