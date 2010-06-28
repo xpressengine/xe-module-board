@@ -1,0 +1,30 @@
+<!--@if($oDocument->isExists() && $module_info->default_style != 'blog')-->
+<!--#include("read.html")-->
+<!--@else-->
+
+	<h2 class="h2">{$module_info->browser_title} <em>{number_format($total_count)}</em> <!--@if($module_info->use_category == "Y")--><a href="{getUrl('page','','act','dispBoardCategory','')}" class="bn">{$lang->category}</a><!--@endif--></h2>
+	<ul class="lt">
+		<!--@foreach($document_list as $no => $document)-->
+		<li>
+			<a href="{getUrl('document_srl', $document->document_srl)}">
+				<span class="title"><!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->{$category_list[$document->get('category_srl')]->title} &rsaquo;<!--@end--><strong>{$document->getTitle($module_info->subject_cut_size)}</strong> <!--@if($document->getCommentCount())--><span>[{$document->getCommentCount()}]</span><!--@endif--></span>
+				<span class="auth"><em>{$document->getNickName()}</em> <span>{$document->getRegDate("Y.m.d")}</span></span>
+			</a>
+		</li>
+		<!--@end-->
+	</ul>
+	<div class="pn">
+		<a href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division,'entry','')}">&lsaquo; {$lang->first_page}</a> 
+		<!--@while($page_no = $page_navigation->getNextPage())-->
+			<!--@if($page == $page_no)-->
+				<strong>{$page_no}</strong> 
+			<!--@else-->
+				<a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">{$page_no}</a>
+			<!--@end-->
+		<!--@end-->
+		<a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">{$lang->last_page} &rsaquo;</a>
+	</div>
+<!--@end-->
+	<div class="cm">
+		<a href="{getUrl('act','dispBoardWrite')}" class="bn">{$lang->cmd_write}</a>
+	</div>

@@ -92,5 +92,7 @@
         <action name="procBoardAdminInsertBoard" type="controller" standalone="true" />
         <action name="procBoardAdminDeleteBoard" type="controller" standalone="true" />
         <action name="procBoardAdminInsertListConfig" type="controller" standalone="true" />
+
+		<action name="dispBoardCategory" type="mobile" />
     </actions>
 </module>
