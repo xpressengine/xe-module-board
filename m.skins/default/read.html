@@ -47,7 +47,9 @@
 				<p>{$val->excerpt}</p>
 				<em>{htmlspecialchars($val->title)} - {htmlspecialchars($val->blog_name)}</em>
 				<span>zdate($val->regdate, "Y.m.d")</span>
+				<!--@if($grant->manager)-->
 				<a href="07_password.html" class="md">삭제</a>
+				<!--@endif-->
 			</li>
 			<!--@end-->
 		</ul>
@@ -61,8 +63,10 @@
 				<p>{$comment->getContent(false)}</p>
 				<em>{$comment->getNickName()}</em>
 				<span>{$comment->getRegdate("Y.m.d")}</span>
+				<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
 				<a href="07_password.html" class="md">수정</a>
 				<a href="07_password.html" class="md">삭제</a>
+				<!--@endif-->
 			</li>
 			<!--@end-->
 			<li class="ar"><button type="button">&rsaquo; 댓글 더보기</button></li>
