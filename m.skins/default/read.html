@@ -1,0 +1,118 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/js_app.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/common.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_handler.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
+<!--%import("js/mboard.js")-->
+<!--%import("css/mboard.css")-->
+	<div class="rd">
+		<div class="hx">
+			<h2><a href="{getUrl('document_srl','')}">{$module_info->browser_title}</a> 
+				<!--@if($module_info->use_category == "Y" && $oDocument->get('category_srl'))-->&rsaquo; <a href="{getUrl('document_srl','','category_srl',$oDocument->get('category_srl'))}">{$category_list[$oDocument->get('category_srl')]->title}</a><!--@end--> &rsaquo; {$oDocument->getTitle()}</h2>
+			<em><a href="#">{$oDocument->getNickName()}</a></em>
+			<span>{$oDocument->getRegdate()}</span>
+		</div>
+		<div class="co">
+                <!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+                    <div class="secretContent">
+                        <form action="./" method="get" onsubmit="return procFilter(this, input_password)">
+                        <input type="hidden" name="mid" value="{$mid}" />
+                        <input type="hidden" name="page" value="{$page}" />
+                        <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+
+                            <div class="title">{$lang->msg_is_secret}</div>
+                            <div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
+
+                        </form>
+                    </div>
+                <!--@else-->
+			{$oDocument->getContent(false)}
+				<!--@end-->
+		</div>
+		<!--@if($oDocument->hasUploadedFiles())-->
+		{@ $uploaded_list = $oDocument->getUploadedFiles() }
+		<h3 class="h3">{$lang->uploaded_file} <em>[{count($uploaded_list)}]</em> <button type="button" class="tg">열기</button></h3>
+		<ul class="sn tgo open">
+			<!--@foreach($uploaded_list as $key => $file)-->
+			<li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename}</a></li>
+			<!--@end-->
+		</ul>
+		<!--@endif-->
+		<!--@if($oDocument->allowTrackback() && $oDocument->getTrackbackCount())-->
+		<h3 class="h3">{$lang->trackback} <em>[{$oDocument->getTrackbackCount()}]</em> <button type="button" class="tg">열기</button></h3>
+		<ul class="rp tgo open">
+			{@ $_trackback_list = $oDocument->getTrackbacks() }
+			<!--@foreach($_trackback_list as $key => $val)-->
+			<li>
+				<p>{$val->excerpt}</p>
+				<em>{htmlspecialchars($val->title)} - {htmlspecialchars($val->blog_name)}</em>
+				<span>zdate($val->regdate, "Y.m.d")</span>
+				<a href="07_password.html" class="md">삭제</a>
+			</li>
+			<!--@end-->
+		</ul>
+		<!--@endif-->
+		<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
+		<h3 class="h3">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg">열기</button></h3>
+		<ul class="rp tgo open">
+			{@ $_comment_list = $oDocument->getComments() }
+			<!--@foreach($_comment_list as $key => $comment)-->
+			<li>
+				<p>{$comment->getContent(false)}</p>
+				<em>{$comment->getNickName()}</em>
+				<span>{$comment->getRegdate("Y.m.d")}</span>
+				<a href="07_password.html" class="md">수정</a>
+				<a href="07_password.html" class="md">삭제</a>
+			</li>
+			<!--@end-->
+			<li class="ar"><button type="button">&rsaquo; 댓글 더보기</button></li>
+		</ul>
+		<!--@endif-->
+		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
+		<h3 class="h3">댓글쓰기 <button type="button" class="tg">열기</button></h3>
+		<form action="./" method="POST" class="sn tgo open" onsubmit="return procFilter(this, insert_comment);">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+		<input type="hidden" name="comment_srl" value="" />
+		<ul>
+			<li>
+				<label for="rText" class="db fb">{$lang->comment}</label>
+				<textarea name="content" cols="20" rows="5" id="rText" class="itxx"></textarea>
+			</li>
+			<!--@if(!$is_logged)-->
+			<li>
+				<label for="uName" class="db fb">{$lang->writer}</label>
+				<input name="nick_name" type="text" id="uName" class="itx" />
+			</li>
+			<li>
+				<label for="uMail" class="db fb">{$lang->email_address}</label>
+				<input name="email_address" type="text" id="uMail" class="itx" />
+			</li>
+			<li>
+				<label for="uPw" class="db fb">{$lang->password}</label>
+				<input name="password" type="password" id="uPw" class="itx" />
+			</li>
+			<li>
+				<label for="uSite" class="db fb">{$lang->homepage}</label>
+				<input name="homepage" type="text" id="uSite" class="itx" value="http://" />
+			</li>
+			<!--@endif-->
+		</ul>
+		<div class="ar">
+			<input name="" type="submit" value="{$lang->cmd_comment_registration}" />
+		</div>
+		</form>
+		<!--@end-->
+	</div>
+<script type="text/javascript">
+//<![CDATA[
+jQuery(function($){
+	$('.co .mm').next().hide();
+	$('.mm').click(function(){ $(this).hide().next().show();});
+	$('.tgo').removeClass('open');
+	$('.tg').click(function(){
+		$(this).parent('.h3').next('.tgo').toggleClass('open');
+	});
+});
+//]]>
+</script>
