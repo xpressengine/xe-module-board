@@ -1,10 +1,12 @@
-<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> &rsaquo; {$lang->cmd_write}</h2>
 {@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
 {@ Context::addJsFile("./common/js/js_app.js", true, '', -100000) }
 {@ Context::addJsFile("./common/js/common.js", true, '', -100000) }
 {@ Context::addJsFile("./common/js/xml_handler.js", true, '', -100000) }
 {@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
 <!--%import("js/mboard.js")-->
+<!--%import("css/mboard.css")-->
+<div class="bd">
+<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> &rsaquo; {$lang->cmd_write}</h2>
 <form action="./" method="POST" onsubmit="return procFilter(this, insert)">
 <input type="hidden" name="mid" value="{$mid}" />
 <input type="hidden" name="document_srl" value="{$document_srl}" />
@@ -51,3 +53,4 @@
 		<div class="cm">
 			<button type="submit" class="bn">{$lang->cmd_registration}</button>
 		</div>
+</div>
