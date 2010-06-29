@@ -45,8 +45,10 @@ select{width:90%}
 .rd .tgo a{color:#333}
 /* Reply */
 .rp{margin:0;padding:0;list-style:none}
+.rp ul{margin:0;padding:10px 0 0 0}
 .rp li{border-bottom:1px solid #ccc;padding:10px;overflow:hidden}
-.rp li:last-child{border:0}
+.rp li li{border-bottom:0;border-left:1px solid #ccc}
+.rp li:last-child{border-bottom:0}
 .rp p{display:inline}
 .rp em,.rp span{color:#666;font-size:12px}
 .rp span,.rp .md{padding:0 0 0 5px;border-left:1px solid #ccc}

@@ -58,7 +58,22 @@
 		<h3 class="h3">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg">열기</button></h3>
 		<ul class="rp tgo open">
 			{@ $_comment_list = $oDocument->getComments() }
+			{@ debugPrint($_comment_list) }
+			{@ $start = true }
+			{@ $depth = 0 }
 			<!--@foreach($_comment_list as $key => $comment)-->
+			<!--@if(!$start && $comment->get('depth') == $depth)-->
+			</li>
+			<!--@end-->
+			<!--@if($comment->get('depth') > $depth)-->
+			<ul>
+			<!--@else-->
+			<!--@while($comment->get('depth') < $depth)-->
+			</li>
+			</ul>
+			{@ $depth -= 1 }
+			<!--@end-->
+			<!--@endif-->
 			<li>
 				<p>{$comment->getContent(false)}</p>
 				<em>{$comment->getNickName()}</em>
@@ -67,8 +82,15 @@
 				<a href="07_password.html" class="md">수정</a>
 				<a href="07_password.html" class="md">삭제</a>
 				<!--@endif-->
+				{@ $start = false }
+				{@ $depth = $comment->get('depth') }
+			<!--@endforeach-->
+			<!--@while($depth > 0)-->
 			</li>
+			</ul>
+			{@ $depth -= 1}
 			<!--@end-->
+			</li>
 			<li class="ar"><button type="button">&rsaquo; 댓글 더보기</button></li>
 		</ul>
 		<!--@endif-->
