@@ -1,3 +1,4 @@
+		<ul id="cl" class="rp tgo open">
 			{@ $_comment_list = $oDocument->getComments() }
 			{@ $start = true }
 			{@ $depth = 0 }
@@ -31,9 +32,9 @@
 			{@ $depth -= 1}
 			<!--@end-->
 			</li>
+		</ul>
 			<!--@if($oDocument->comment_page_navigation)-->
-			<li>
-				<div class="pn">
+				<div id="clpn" class="pn">
 				<!--@if($oDocument->comment_page_navigation->cur_page != 1)-->
 				<a href="#" onclick="loadPage({$oDocument->document_srl}, {$oDocument->comment_page_navigation->cur_page-1}); return false;">&lsaquo; {$lang->cmd_prev}</a>
 				<!--@endif-->
@@ -42,5 +43,4 @@
 				<a href="#" onclick="loadPage({$oDocument->document_srl}, {$oDocument->comment_page_navigation->cur_page+1}); return false;">{$lang->cmd_next} &rsaquo;</a>
 				<!--@endif-->
 				</div>
-			</li>
 			<!--@endif-->
