@@ -55,43 +55,8 @@
 		</ul>
 		<!--@endif-->
 		<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
-		<h3 class="h3">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg">열기</button></h3>
-		<ul class="rp tgo open">
-			{@ $_comment_list = $oDocument->getComments() }
-			{@ debugPrint($_comment_list) }
-			{@ $start = true }
-			{@ $depth = 0 }
-			<!--@foreach($_comment_list as $key => $comment)-->
-			<!--@if(!$start && $comment->get('depth') == $depth)-->
-			</li>
-			<!--@end-->
-			<!--@if($comment->get('depth') > $depth)-->
-			<ul>
-			<!--@else-->
-			<!--@while($comment->get('depth') < $depth)-->
-			</li>
-			</ul>
-			{@ $depth -= 1 }
-			<!--@end-->
-			<!--@endif-->
-			<li>
-				<p>{$comment->getContent(false)}</p>
-				<em>{$comment->getNickName()}</em>
-				<span>{$comment->getRegdate("Y.m.d")}</span>
-				<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
-				<a href="07_password.html" class="md">수정</a>
-				<a href="07_password.html" class="md">삭제</a>
-				<!--@endif-->
-				{@ $start = false }
-				{@ $depth = $comment->get('depth') }
-			<!--@endforeach-->
-			<!--@while($depth > 0)-->
-			</li>
-			</ul>
-			{@ $depth -= 1}
-			<!--@end-->
-			</li>
-			<li class="ar"><button type="button">&rsaquo; 댓글 더보기</button></li>
+		<h3 class="h3">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr">열기</button></h3>
+		<ul id="comment_list" class="rp tgo open">
 		</ul>
 		<!--@endif-->
 		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
@@ -138,6 +103,18 @@ jQuery(function($){
 	$('.tgo').removeClass('open');
 	$('.tg').click(function(){
 		$(this).parent('.h3').next('.tgo').toggleClass('open');
+	});
+	var loaded = false;
+	$('.tgr').click(function(){
+		if(!loaded) {
+			loaded = true;
+			{@ $lastpage = 1; }
+			{@ $temp = $oDocument->getComments() }
+			<!--@if($oDocument->comment_page_navigation)-->
+			{@ $lastpage = $oDocument->comment_page_navigation->last_page }
+			<!--@endif-->
+			loadPage({$oDocument->document_srl}, {$lastpage});
+		}
 	});
 });
 //]]>

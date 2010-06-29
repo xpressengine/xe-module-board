@@ -39,6 +39,18 @@ class boardMobile extends boardView {
 			$category_list = Context::get('category_list');
 			$this->setTemplateFile('category.html');
 		}
+
+		function getBoardCommentPage() {
+			$document_srl = Context::get('document_srl');
+			$oDocumentModel =& getModel('document');
+			if(!$document_srl) return new Object(-1, "msg_invalid_request");
+			$oDocument = $oDocumentModel->getDocument($document_srl);
+			if(!$oDocument->isExists()) return new Object(-1, "msg_invalid_request");
+			Context::set('oDocument', $oDocument);
+			$oTemplate = new TemplateHandler;
+			$html = $oTemplate->compile($this->getTemplatePath(), "comment.html");
+			$this->add("html", $html);
+		}
 }
 
 
