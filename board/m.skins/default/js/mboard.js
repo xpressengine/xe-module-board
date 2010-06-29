@@ -36,7 +36,9 @@ function completeDocumentInserted(ret_obj) {
 }
 
 function completeGetPage(ret_val) {
-	jQuery("#comment_list").empty().append(ret_val['html']);
+	jQuery("#cl").remove();
+	jQuery("#clpn").remove();
+	jQuery("#clb").after(ret_val['html']);
 }
 
 function loadPage(document_srl, page) {
