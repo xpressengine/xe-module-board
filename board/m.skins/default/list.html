@@ -16,15 +16,13 @@
 		<!--@end-->
 	</ul>
 	<div class="pn">
-		<a href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division,'entry','')}">&lsaquo; {$lang->first_page}</a> 
-		<!--@while($page_no = $page_navigation->getNextPage())-->
-			<!--@if($page == $page_no)-->
-				<strong>{$page_no}</strong> 
-			<!--@else-->
-				<a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">{$page_no}</a>
-			<!--@end-->
-		<!--@end-->
-		<a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">{$lang->last_page} &rsaquo;</a>
+        <!--@if($page != 1)-->
+		<a href="{getUrl('page',$page-1,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">&lsaquo; {$lang->cmd_prev}</a> 
+        <!--@endif-->
+        <strong>{$page} / {$page_navigation->last_page}</strong>
+        <!--@if($page != $page_navigation->last_page)-->
+		<a href="{getUrl('page',$page+1,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">{$lang->cmd_next} &rsaquo;</a>
+        <!--@endif-->
 	</div>
 <!--@end-->
 	<div class="cm">
