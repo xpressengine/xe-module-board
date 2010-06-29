@@ -1,8 +1,10 @@
+<!--%import("css/mboard.css")-->
+<div class="bd">
 <!--@if($oDocument->isExists() && $module_info->default_style != 'blog')-->
 <!--#include("read.html")-->
 <!--@else-->
 
-	<h2 class="h2">{$module_info->browser_title} <em>{number_format($total_count)}</em> <!--@if($module_info->use_category == "Y")--><a href="{getUrl('page','','act','dispBoardCategory','')}" class="bn">{$lang->category}</a><!--@endif--></h2>
+	<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> <em>{number_format($total_count)}</em> <!--@if($module_info->use_category == "Y")--><a href="{getUrl('page','','act','dispBoardCategory','')}" class="bn">{$lang->category}</a><!--@endif--></h2>
 	<ul class="lt">
 		<!--@foreach($document_list as $no => $document)-->
 		<li>
@@ -28,3 +30,4 @@
 	<div class="cm">
 		<a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}</a>
 	</div>
+</div>
