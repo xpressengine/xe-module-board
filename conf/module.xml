@@ -94,5 +94,6 @@
         <action name="procBoardAdminInsertListConfig" type="controller" standalone="true" />
 
 		<action name="dispBoardCategory" type="mobile" />
+		<action name="getBoardCommentPage" type="mobile" />
     </actions>
 </module>

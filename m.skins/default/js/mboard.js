@@ -35,3 +35,14 @@ function completeDocumentInserted(ret_obj) {
     location.href = url;
 }
 
+function completeGetPage(ret_val) {
+	jQuery("#comment_list").empty().append(ret_val['html']);
+}
+
+function loadPage(document_srl, page) {
+	var params = {};
+	params["cpage"] = page; 
+	params["document_srl"] = document_srl 
+	exec_xml("board", "getBoardCommentPage", params, completeGetPage, ['html','error','message'], params);
+}
+
