@@ -25,10 +25,10 @@ class boardMobile extends boardView {
             $extra_keys = $oDocumentModel->getExtraKeys($this->module_info->module_srl);
             Context::set('extra_keys', $extra_keys);
 
-            $template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->skin);
-            if(!is_dir($template_path)||!$this->module_info->skin) {
-                $this->module_info->skin = 'default';
-                $template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->skin);
+            $template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
+            if(!is_dir($template_path)||!$this->module_info->mskin) {
+                $this->module_info->mskin = 'default';
+                $template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
             }
             $this->setTemplatePath($template_path);
 		}
