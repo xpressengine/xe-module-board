@@ -58,6 +58,7 @@ select{width:90%}
 .lt,.lt ul{margin:0;padding:0;list-style:none}
 .lt li{border-bottom:1px solid #999}
 .lt li:last-child{border:0}
+.lt .notice{background:#000;color:#fff; padding:0 3px}
 .lt a{display:block;text-decoration:none;padding:10px;color:#000;*zoom:1}
 .lt a:after{content:"";display:block;clear:both}
 .lt a:visited{color:#666}

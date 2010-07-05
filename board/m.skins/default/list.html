@@ -6,6 +6,14 @@
 
 	<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> <em>{number_format($total_count)}</em> <!--@if($module_info->use_category == "Y")--><a href="{getUrl('page','','act','dispBoardCategory','')}" class="bn">{$lang->category}</a><!--@endif--></h2>
 	<ul class="lt">
+		<!--@foreach($notice_list as $no => $document)-->
+		<li>
+			<a href="{getUrl('document_srl', $document->document_srl)}">
+				<span class="notice">{$lang->notice}</span> <span class="title"><!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->{$category_list[$document->get('category_srl')]->title} &rsaquo;<!--@end--><strong>{$document->getTitle($module_info->subject_cut_size)}</strong> <!--@if($document->getCommentCount())--><span>[{$document->getCommentCount()}]</span><!--@endif--></span>
+				<span class="auth"><em>{$document->getNickName()}</em> <span>{$document->getRegDate("Y.m.d")}</span></span>
+			</a>
+		</li>
+		<!--@end-->
 		<!--@foreach($document_list as $no => $document)-->
 		<li>
 			<a href="{getUrl('document_srl', $document->document_srl)}">
