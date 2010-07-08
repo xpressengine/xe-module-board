@@ -27,6 +27,14 @@
 				<label for="nTitle" class="db fb">{$lang->title}</label>
 				<input name="title" type="text" id="nTitle" class="itx" />
 			</li>
+			<!--@if(count($extra_keys))-->
+			<!--@foreach($extra_keys as $key=> $val)-->
+			<li class="exvar">
+				<label for="ex_{$val->name}" class="db fb">{$val->name} <!--@if($val->is_required=="Y")-->*<!--@end--></label>
+				{$val->getFormHTML()}
+			</li>
+			<!--@endforeach-->
+			<!--@end-->
 			<li>
 				<label for="nText" class="db fb">{$lang->content}</label>
 				<textarea name="content" cols="20" rows="8" id="nText" class="itxx" value="{$oDocument->getContentText()}"></textarea>

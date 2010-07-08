@@ -101,3 +101,10 @@ select{width:90%}
 .gn li li a{padding:0 10px 0 20px}
 .gn li li li a{padding:0 10px 0 30px}
 .gn li li li li a{padding:0 10px 0 50px}
+/* Extension Vars */
+.xv{background:#eee;border:1px solid #999;padding:10px}
+.xv dt{margin:0;padding:0;font-weight:bold}
+.xv dd{margin:0 0 10px 0;padding:0;color:#666}
+.exvar input[type=text] {border:1px solid #ccc; font-size:20px;height:30px; padding:5px 10px}
+.exvar input[type=text].text {width:90%;}
+.exvar textarea {border:1px solid #ccc;width:90%;font-size:20px;padding:5px 10px;height:200px;resize:vertical}
