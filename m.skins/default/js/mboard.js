@@ -45,6 +45,7 @@ function loadPage(document_srl, page) {
 	var params = {};
 	params["cpage"] = page; 
 	params["document_srl"] = document_srl 
+	params["mid"] = current_mid;
 	exec_xml("board", "getBoardCommentPage", params, completeGetPage, ['html','error','message'], params);
 }
 
