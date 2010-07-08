@@ -26,6 +26,15 @@
                         </form>
                     </div>
                 <!--@else-->
+				<!--@if($oDocument->isExtraVarsExists())-->
+					{@ $_extra_vars = $oDocument->getExtraVars(); }
+					<dl class="xv">
+					<!--@foreach($_extra_vars as $key => $val)-->
+						<dt>{$val->name}</dt>
+						<dd>{$val->getValueHTML()}</dd>
+					<!--@end-->
+					</dl>
+				<!--@end-->
 			    {$oDocument->getContent(false)}
 				<!--@end-->
 		</div>
