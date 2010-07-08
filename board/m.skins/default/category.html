@@ -17,7 +17,7 @@
 	{@ $depth -= 1}
 	<!--@end-->
 	<!--@endif-->
-		<li><a href="{getUrl('act','','category_srl',$category->category_srl)}">&raquo; {$category->title} <em>[{$category->document_count}]</em></a>
+		<li><a href="{getUrl('act','','category',$category->category_srl)}">&raquo; {$category->title} <em>[{$category->document_count}]</em></a>
 		{@ $start = false }
 		{@ $depth = $category->depth }
 	<!--@endforeach-->
