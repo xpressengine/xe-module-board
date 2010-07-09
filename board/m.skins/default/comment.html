@@ -21,7 +21,7 @@
 				<span>{$comment->getRegdate("Y.m.d")}</span>
 				<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
 				<a href="07_password.html" class="md">수정</a>
-				<a href="07_password.html" class="md">삭제</a>
+				<a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}" class="md">{$lang->cmd_delete}</a>
 				<!--@endif-->
 				{@ $start = false }
 				{@ $depth = $comment->get('depth') }
