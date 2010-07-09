@@ -40,7 +40,7 @@
 		</div>
 		<!--@if($oDocument->hasUploadedFiles())-->
 		{@ $uploaded_list = $oDocument->getUploadedFiles() }
-		<h3 class="h3">{$lang->uploaded_file} <em>[{count($uploaded_list)}]</em> <button type="button" class="tg">열기</button></h3>
+		<h3 class="h3">{$lang->uploaded_file} <em>[{count($uploaded_list)}]</em> <button type="button" class="tg" title="open/close"></button></h3>
 		<ul class="sn tgo open">
 			<!--@foreach($uploaded_list as $key => $file)-->
 			<li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename}</a></li>
@@ -48,7 +48,7 @@
 		</ul>
 		<!--@endif-->
 		<!--@if($oDocument->allowTrackback() && $oDocument->getTrackbackCount())-->
-		<h3 class="h3">{$lang->trackback} <em>[{$oDocument->getTrackbackCount()}]</em> <button type="button" class="tg">열기</button></h3>
+		<h3 class="h3">{$lang->trackback} <em>[{$oDocument->getTrackbackCount()}]</em> <button type="button" class="tg" title="open/close"></button></h3>
 		<ul class="rp tgo open">
 			{@ $_trackback_list = $oDocument->getTrackbacks() }
 			<!--@foreach($_trackback_list as $key => $val)-->
@@ -64,10 +64,10 @@
 		</ul>
 		<!--@endif-->
 		<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
-		<h3 class="h3" id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr">열기</button></h3>
+		<h3 class="h3" id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr" title="open/close"></button></h3>
 		<!--@endif-->
 		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
-		<h3 class="h3">댓글쓰기 <button type="button" class="tg">열기</button></h3>
+		<h3 class="h3">댓글쓰기 <button type="button" class="tg" title="open/close"></button></h3>
 		<form action="./" method="POST" class="sn tgo open" onsubmit="return procFilter(this, insert_comment);">
 		<input type="hidden" name="mid" value="{$mid}" />
 		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
