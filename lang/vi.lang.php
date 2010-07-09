@@ -44,4 +44,5 @@
     $lang->about_list_config = 'Nếu sử dụng danh sách giao diện, bạn có thể sắp xếp các mục hiển thị.<br />Tuy nhiên, tính năng này không sử dụng được cho giao diện chính thức.<br />Nếu bạn bấm 2 lần vào các mục sẽ kích hoạt chức năng thêm hay xóa chúng.';
 
     $lang->msg_not_enough_point = 'Điểm của bạn chưa đủ để gửi bài tại đây!';
+	$lang->write_comment = 'Write a comment';
 ?>
