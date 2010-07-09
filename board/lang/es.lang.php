@@ -44,4 +44,5 @@
     $lang->about_list_config = 'Boletín de la lista, utilice el tipo de elemento que desee, puede colocar. <br /> Si no está sólo apoyada por la piel no puede ser apoyada <br /> meta de entrada y mostrar el tema cuando hace doble clic en la entrada en Agregar o quitar es.';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';
+	$lang->write_comment = 'Write a comment';
 ?>

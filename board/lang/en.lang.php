@@ -42,4 +42,6 @@
     $lang->about_list_config = 'If using list-style skin, you may arrange items to display.<br />However, this feature might not be availble for non-official skins.<br />If you double-click target items and display items, then you can add / remove them';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';
+
+	$lang->write_comment = 'Write a comment';
 ?>

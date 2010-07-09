@@ -41,4 +41,5 @@
     $lang->about_list_config = '设置使用目录型目录页面时要显示的项目。<br />前提是使用的皮肤也支持此功能。<br />添加/删除项目，双击备选项/显示项即可。';
 
     $lang->msg_not_enough_point = '很遗憾！您的积分不够。';
+	$lang->write_comment = 'Write a comment';
 ?>

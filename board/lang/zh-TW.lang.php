@@ -40,4 +40,5 @@
     $lang->about_list_config = '可以放置想要的項目種類。<br />當所使用的面板支援此功能時才會正常實現。<br />對目標項目/顯示項目中的物件按兩下可新增或移除。';
 
     $lang->msg_not_enough_point = '你的點數不夠在此討論板發表主題。';
+	$lang->write_comment = 'Write a comment';
 ?>

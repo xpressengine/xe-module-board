@@ -41,4 +41,5 @@
     $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다.<br />단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다<br />대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';
+	$lang->write_comment = 'Write a comment';
 ?>
