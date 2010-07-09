@@ -49,3 +49,17 @@ function loadPage(document_srl, page) {
 	exec_xml("board", "getBoardCommentPage", params, completeGetPage, ['html','error','message'], params);
 }
 
+function completeDeleteComment(ret_obj) {
+    var error = ret_obj['error'];
+    var message = ret_obj['message'];
+    var mid = ret_obj['mid'];
+    var document_srl = ret_obj['document_srl'];
+    var page = ret_obj['page'];
+
+    var url = current_url.setQuery('mid',mid).setQuery('document_srl',document_srl).setQuery('act','');
+    if(page) url = url.setQuery('page',page);
+
+    //alert(message);
+
+    location.href = url;
+}
