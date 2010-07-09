@@ -31,6 +31,7 @@ class boardMobile extends boardView {
                 $template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
             }
             $this->setTemplatePath($template_path);
+            Context::addJsFilter($this->module_path.'tpl/filter', 'input_password.xml');
 		}
 
 		function dispBoardCategory()
