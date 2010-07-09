@@ -102,6 +102,13 @@
 		</form>
 		<!--@end-->
 	</div>
+	<ul class="cm">
+		<li class="fl"><a href="{getUrl('document_srl','')}" class="bn">{$lang->cmd_list}</a></li>
+		<li class="fr"><a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}</a></li>
+        <!--@if($oDocument->isEditable())-->
+		<li class="fr"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="bn">{$lang->cmd_delete}</a></li>
+		<!--@end-->
+	</ul>
 <script type="text/javascript">
 //<![CDATA[
 jQuery(function($){
