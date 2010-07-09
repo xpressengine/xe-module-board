@@ -67,7 +67,7 @@
 		<h3 class="h3" id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr" title="open/close"></button></h3>
 		<!--@endif-->
 		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
-		<h3 class="h3">댓글쓰기 <button type="button" class="tg" title="open/close"></button></h3>
+		<h3 class="h3">{$lang->write_comment} <button type="button" class="tg" title="open/close"></button></h3>
 		<form action="./" method="POST" class="sn tgo open" onsubmit="return procFilter(this, insert_comment);">
 		<input type="hidden" name="mid" value="{$mid}" />
 		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
