@@ -63,3 +63,18 @@ function completeDeleteComment(ret_obj) {
 
     location.href = url;
 }
+
+function completeDeleteDocument(ret_obj) {
+    var error = ret_obj['error'];
+    var message = ret_obj['message'];
+    var mid = ret_obj['mid'];
+    var page = ret_obj['page'];
+
+    var url = current_url.setQuery('mid',mid).setQuery('act','').setQuery('document_srl','');
+    if(page) url = url.setQuery('page',page);
+
+    //alert(message);
+
+    location.href = url;
+}
+
