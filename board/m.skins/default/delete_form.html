@@ -6,18 +6,16 @@
 <!--%import("js/mboard.js")-->
 <!--%import("css/mboard.css")-->
 <div class="bd">
-    <div class="header">
-        <h3>{$lang->confirm_delete}</h3>
-    </div>
+	<h2 class="ac">{$lang->confirm_delete}</h2>
     <form action="./" method="get" onsubmit="return procFilter(this, delete_document)">
     <input type="hidden" name="mid" value="{$mid}" />
     <input type="hidden" name="page" value="{$page}" />
     <input type="hidden" name="document_srl" value="{$document_srl}" />
 
-        <div class="inputPassword tCenter">
-            <button type="submit" class="bn">{$lang->cmd_delete}</button>
-            <a href="{getUrl('act','')}" class="bn"><span>{$lang->cmd_cancel}</span></a>
-        </div>
+	<div class="cm">
+		<button type="submit" class="bn">{$lang->cmd_delete}</button>
+		<a href="{getUrl('act','')}" class="bn"><span>{$lang->cmd_cancel}</span></a>
+	</div>
 
     </form>
 </div>
