@@ -16,7 +16,7 @@
 			<!--@end-->
 			<!--@endif-->
 			<li>
-				<p>{$comment->getContent(false)}</p>
+				{$comment->getContent(false)}
 				<em>{$comment->getNickName()}</em>
 				<span>{$comment->getRegdate("Y.m.d")}</span>
 				<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
