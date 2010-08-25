@@ -38,7 +38,7 @@ function completeDocumentInserted(ret_obj) {
 function completeGetPage(ret_val) {
 	jQuery("#cl").remove();
 	jQuery("#clpn").remove();
-	jQuery("#clb").after(ret_val['html']);
+	jQuery("#clb").parent().after(ret_val['html']);
 }
 
 function loadPage(document_srl, page) {
