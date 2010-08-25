@@ -6,43 +6,46 @@
 <!--%import("js/mboard.js")-->
 <!--%import("css/mboard.css")-->
 <div class="bd rd">
+	<div class="hx h2">
+		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a></h2>
+	</div>
 
-<!--@if($oSourceComment->isExists())-->
-<div class="origin">{$oSourceComment->getContent(false)}</div>
-<!--@end-->
+	<!--@if($oSourceComment->isExists())-->
+	<div class="origin">{$oSourceComment->getContent(false)}</div>
+	<!--@end-->
 
-		<form action="./" method="POST" class="sn tgo open" onsubmit="return procFilter(this, insert_comment);">
+	<form action="./" method="post" class="ff tgo open" onsubmit="return procFilter(this, insert_comment);">
 		<input type="hidden" name="mid" value="{$mid}" />
 		<input type="hidden" name="document_srl" value="{$oComment->get('document_srl')}" />
 		<input type="hidden" name="comment_srl" value="{$oComment->get('comment_srl')}" />
 		<input type="hidden" name="parent_srl" value="{$oComment->get('parent_srl')}" />
 		<ul>
 			<li>
-				<label for="rText" class="db fb">{$lang->comment}</label>
-				<textarea name="content" cols="20" rows="5" id="rText" class="itxx"></textarea>
+				<label for="rText">{$lang->comment}</label>
+				<textarea name="content" cols="20" rows="5" id="rText"></textarea>
 			</li>
 			<!--@if(!$is_logged)-->
 			<li>
-				<label for="uName" class="db fb">{$lang->writer}</label>
-				<input name="nick_name" type="text" id="uName" class="itx" />
+				<label for="uName">{$lang->writer}</label>
+				<input name="nick_name" type="text" id="uName" />
 			</li>
 			<li>
-				<label for="uMail" class="db fb">{$lang->email_address}</label>
-				<input name="email_address" type="text" id="uMail" class="itx" />
+				<label for="uMail">{$lang->email_address}</label>
+				<input name="email_address" type="text" id="uMail" />
 			</li>
 			<li>
-				<label for="uPw" class="db fb">{$lang->password}</label>
-				<input name="password" type="password" id="uPw" class="itx" />
+				<label for="uPw">{$lang->password}</label>
+				<input name="password" type="password" id="uPw" />
 			</li>
 			<li>
-				<label for="uSite" class="db fb">{$lang->homepage}</label>
-				<input name="homepage" type="text" id="uSite" class="itx" value="http://" />
+				<label for="uSite">{$lang->homepage}</label>
+				<input name="homepage" type="text" id="uSite" value="http://" />
 			</li>
 			<!--@endif-->
 		</ul>
-		<div class="ar">
-			<input name="" type="submit" value="{$lang->cmd_comment_registration}" />
+		<div class="bna">
+			<input name="" type="submit" class="bn dark" value="{$lang->cmd_comment_registration}" />
 		</div>
-		</form>
+	</form>
 
 </div>

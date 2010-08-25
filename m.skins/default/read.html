@@ -5,110 +5,125 @@
 {@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
 <!--%import("js/mboard.js")-->
 <!--%import("css/mboard.css")-->
-	<div class="rd">
-		<div class="hx">
-			<h2><a href="{getUrl('document_srl','','category','','page','')}">{$module_info->browser_title}</a> 
-				<!--@if($module_info->use_category == "Y" && $oDocument->get('category_srl'))-->&rsaquo; <a href="{getUrl('document_srl','','category',$oDocument->get('category_srl'))}">{$category_list[$oDocument->get('category_srl')]->title}</a><!--@end--> &rsaquo; {$oDocument->getTitle()}</h2>
-			<em><a href="#">{$oDocument->getNickName()}</a></em>
-			<span>{$oDocument->getRegdate()}</span>
-		</div>
-		<div class="co">
-                <!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
-                    <div class="secretContent">
-                        <form action="./" method="get" onsubmit="return procFilter(this, input_password)">
-                        <input type="hidden" name="mid" value="{$mid}" />
-                        <input type="hidden" name="page" value="{$page}" />
-                        <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+<div class="hx h2">
+	<h2><a href="{getUrl('document_srl','','category','','page','')}">{$module_info->browser_title}</a> 
+		<!--@if($module_info->use_category == "Y" && $oDocument->get('category_srl'))-->&rsaquo; <a href="{getUrl('document_srl','','category',$oDocument->get('category_srl'))}">{$category_list[$oDocument->get('category_srl')]->title}</a><!--@end--> &rsaquo; {$oDocument->getTitle()}</h2>
+	<span class="ex">{$oDocument->getNickName()} | {$oDocument->getRegdate()} | <a href="#skip_co">본문 건너뛰기</a></span>
+	<a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="write">{$lang->cmd_write}</a>
+</div>
+<div class="co">
+		<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+			<div class="secretContent">
+				<form action="./" method="get" onsubmit="return procFilter(this, input_password)">
+				<input type="hidden" name="mid" value="{$mid}" />
+				<input type="hidden" name="page" value="{$page}" />
+				<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
-                            <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
+					<div class="title">{$lang->msg_is_secret}</div>
+					<div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
 
-                        </form>
-                    </div>
-                <!--@else-->
-				<!--@if($oDocument->isExtraVarsExists())-->
-					{@ $_extra_vars = $oDocument->getExtraVars(); }
-					<dl class="xv">
-					<!--@foreach($_extra_vars as $key => $val)-->
-						<dt>{$val->name}</dt>
-						<dd>{$val->getValueHTML()}</dd>
-					<!--@end-->
-					</dl>
-				<!--@end-->
-			    {$oDocument->getContent(false)}
-				<!--@end-->
-		</div>
-		<!--@if($oDocument->hasUploadedFiles())-->
-		{@ $uploaded_list = $oDocument->getUploadedFiles() }
-		<h3 class="h3">{$lang->uploaded_file} <em>[{count($uploaded_list)}]</em> <button type="button" class="tg" title="open/close"></button></h3>
-		<ul class="sn tgo open">
-			<!--@foreach($uploaded_list as $key => $file)-->
-			<li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename}</a></li>
+				</form>
+			</div>
+		<!--@else-->
+		<!--@if($oDocument->isExtraVarsExists())-->
+			{@ $_extra_vars = $oDocument->getExtraVars(); }
+			<dl class="xv">
+			<!--@foreach($_extra_vars as $key => $val)-->
+				<dt>{$val->name}</dt>
+				<dd>{$val->getValueHTML()}</dd>
 			<!--@end-->
-		</ul>
-		<!--@endif-->
-		<!--@if($oDocument->allowTrackback() && $oDocument->getTrackbackCount())-->
-		<h3 class="h3">{$lang->trackback} <em>[{$oDocument->getTrackbackCount()}]</em> <button type="button" class="tg" title="open/close"></button></h3>
-		<ul class="rp tgo open">
-			{@ $_trackback_list = $oDocument->getTrackbacks() }
-			<!--@foreach($_trackback_list as $key => $val)-->
-			<li>
-				<p>{$val->excerpt}</p>
-				<em>{htmlspecialchars($val->title)} - {htmlspecialchars($val->blog_name)}</em>
-				<span>zdate($val->regdate, "Y.m.d")</span>
-				<!--@if($grant->manager)-->
-				<a href="07_password.html" class="md">삭제</a>
-				<!--@endif-->
-			</li>
-			<!--@end-->
-		</ul>
-		<!--@endif-->
-		<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
-		<h3 class="h3" id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr" title="open/close"></button></h3>
-		<!--@endif-->
-		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
-		<h3 class="h3">{$lang->write_comment} <button type="button" class="tg" title="open/close"></button></h3>
-		<form action="./" method="POST" class="sn tgo open" onsubmit="return procFilter(this, insert_comment);">
-		<input type="hidden" name="mid" value="{$mid}" />
-		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
-		<input type="hidden" name="comment_srl" value="" />
-		<ul>
-			<li>
-				<label for="rText" class="db fb">{$lang->comment}</label>
-				<textarea name="content" cols="20" rows="5" id="rText" class="itxx"></textarea>
-			</li>
-			<!--@if(!$is_logged)-->
-			<li>
-				<label for="uName" class="db fb">{$lang->writer}</label>
-				<input name="nick_name" type="text" id="uName" class="itx" />
-			</li>
-			<li>
-				<label for="uMail" class="db fb">{$lang->email_address}</label>
-				<input name="email_address" type="text" id="uMail" class="itx" />
-			</li>
-			<li>
-				<label for="uPw" class="db fb">{$lang->password}</label>
-				<input name="password" type="password" id="uPw" class="itx" />
-			</li>
-			<li>
-				<label for="uSite" class="db fb">{$lang->homepage}</label>
-				<input name="homepage" type="text" id="uSite" class="itx" value="http://" />
-			</li>
+			</dl>
+		<!--@end-->
+		{$oDocument->getContent(false)}
+		<!--@end-->
+</div>
+<div id="skip_co"></div>
+<!--@if($oDocument->hasUploadedFiles())-->
+{@ $uploaded_list = $oDocument->getUploadedFiles() }
+<div class="hx h3">
+	<h3>{$lang->uploaded_file} <em>[{count($uploaded_list)}]</em></h3> 
+	<button type="button" class="tg" title="open/close"></button>
+</div>
+<ul class="file tgo open">
+	<!--@foreach($uploaded_list as $key => $file)-->
+	<li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename} <span class="size">{FileHandler::filesize($file->file_size)}</span></a></li>
+	<!--@end-->
+</ul>
+<!--@endif-->
+<!--@if($oDocument->allowTrackback() && $oDocument->getTrackbackCount())-->
+<div class="hx h3">
+	<h3>{$lang->trackback} <em>[{$oDocument->getTrackbackCount()}]</em></h3>
+	<button type="button" class="tg" title="open/close"></button>
+</div>
+<ul class="rp tgo open">
+	{@ $_trackback_list = $oDocument->getTrackbacks() }
+	<!--@foreach($_trackback_list as $key => $val)-->
+	<li>
+		<p>{$val->excerpt}</p>
+		<span class="auth">
+			<em>{htmlspecialchars($val->title)} - {htmlspecialchars($val->blog_name)}</em>
+			<span class="time">{zdate($val->regdate, "Y.m.d")}</span>
+			<!--@if($grant->manager)-->
+			<a href="07_password.html" class="btn de">삭제</a>
 			<!--@endif-->
-		</ul>
-		<div class="ar">
-			<input name="" type="submit" value="{$lang->cmd_comment_registration}" />
-		</div>
-		</form>
-		<!--@end-->
-	</div>
-	<ul class="cm">
-		<li class="fl"><a href="{getUrl('document_srl','')}" class="bn">{$lang->cmd_list}</a></li>
-		<li class="fr"><a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}</a></li>
-        <!--@if($oDocument->isEditable())-->
-		<li class="fr"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="bn">{$lang->cmd_delete}</a></li>
-		<!--@end-->
+		</span>
+	</li>
+	<!--@end-->
+</ul>
+<!--@endif-->
+<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
+<div class="hx h3">
+	<h3 id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em></h3> 
+	<button type="button" class="tg tgr" title="open/close"></button>
+</div>
+<!--@endif-->
+<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
+<div class="hx h3">
+	<h3>{$lang->write_comment}</h3>
+	<button type="button" class="tg" title="open/close"></button>
+</div>
+<form action="./" method="post" class="ff tgo open" onsubmit="return procFilter(this, insert_comment);">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+	<input type="hidden" name="comment_srl" value="" />
+	<ul>
+		<li>
+			<label for="rText">{$lang->comment}</label>
+			<textarea name="content" cols="20" rows="5" id="rText"></textarea>
+		</li>
+		<!--@if(!$is_logged)-->
+		<li>
+			<label for="uName">{$lang->writer}</label>
+			<input name="nick_name" type="text" id="uName" />
+		</li>
+		<li>
+			<label for="uMail">{$lang->email_address}</label>
+			<input name="email_address" type="text" id="uMail" />
+		</li>
+		<li>
+			<label for="uPw">{$lang->password}</label>
+			<input name="password" type="password" id="uPw" />
+		</li>
+		<li>
+			<label for="uSite">{$lang->homepage}</label>
+			<input name="homepage" type="text" id="uSite" value="http://" />
+		</li>
+		<!--@endif-->
 	</ul>
+	<div class="bna">
+		<input name="" type="submit" value="{$lang->cmd_comment_registration}" class="bn dark" />
+	</div>
+</form>
+<!--@end-->
+<div style="height:1px;overflow:hidden;background:#ddd"></div>
+<div class="bna">
+	<span class="fl"><a href="{getUrl('document_srl','')}" class="bn white">{$lang->cmd_list}</a></span>
+	<span class="fr">
+		<!--@if($oDocument->isEditable())-->
+		<a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="bn white">{$lang->cmd_delete}</a>
+		<!--@end-->
+	</span>
+</ul>
 <script type="text/javascript">
 //<![CDATA[
 jQuery(function($){

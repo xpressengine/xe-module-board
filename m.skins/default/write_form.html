@@ -7,17 +7,22 @@
 <!--%import("js/mboard.js")-->
 <!--%import("css/mboard.css")-->
 <div class="bd">
-<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> &rsaquo; {$lang->cmd_write}</h2>
-<form action="./" method="POST" onsubmit="return procFilter(this, insert)">
-<input type="hidden" name="mid" value="{$mid}" />
-<input type="hidden" name="document_srl" value="{$document_srl}" />
-		<ul class="sn">
+	<div class="hx h2">
+		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a></h2>
+	</div>
+	<div class="hx h3">
+		<h3>{$lang->cmd_write}</h3>
+	</div>
+	<form action="./" method="post" class="ff" onsubmit="return procFilter(this, insert)">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$document_srl}" />
+		<ul>
 			<!--@if($module_info->use_category == "Y")-->
 			<li>
-				<label for="nCategory" class="db fb">{$lang->category}</label>
+				<label for="nCategory">{$lang->category}</label>
 				<select name="category_srl" id="nCategory">
 					<!--@foreach($category_list as $val)-->	
-					<option <!--@if(!$val->grant)-->disabled="disabled"<!--@endif--> value="{$val->category_srl}" <!--@if($val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl'))-->selected=="selected"<!--@endif-->>
+					<option <!--@if(!$val->grant)-->disabled="disabled"<!--@endif--> value="{$val->category_srl}" <!--@if($val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl'))-->selected="selected"<!--@endif-->>
 					{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} ({$val->document_count})
 					</option>
 					<!--@end-->
@@ -25,37 +30,37 @@
 			</li>
 			<!--@end-->
 			<li>
-				<label for="nTitle" class="db fb">{$lang->title}</label>
-				<input name="title" type="text" id="nTitle" class="itx" />
+				<label for="nTitle">{$lang->title}</label>
+				<input name="title" type="text" id="nTitle" />
 			</li>
 			<!--@if(count($extra_keys))-->
 			<!--@foreach($extra_keys as $key=> $val)-->
 			<li class="exvar">
-				<label for="ex_{$val->name}" class="db fb">{$val->name} <!--@if($val->is_required=="Y")-->*<!--@end--></label>
+				<label for="ex_{$val->name}">{$val->name} <!--@if($val->is_required=="Y")-->*<!--@end--></label>
 				{$val->getFormHTML()}
 			</li>
 			<!--@endforeach-->
 			<!--@end-->
 			<li>
-				<label for="nText" class="db fb">{$lang->content}</label>
-				<textarea name="content" cols="20" rows="8" id="nText" class="itxx" value="{$oDocument->getContentText()}"></textarea>
+				<label for="nText">{$lang->content}</label>
+				<textarea name="content" cols="20" rows="8" id="nText"></textarea>
 			</li>
 			<!--@if(!$is_logged)-->
 			<li>
-				<label for="uName" class="db fb">{$lang->writer}</label>
-				<input name="nick_name" type="text" id="uName" class="itx" />
+				<label for="uName">{$lang->writer}</label>
+				<input name="nick_name" type="text" id="uName" />
 			</li>
 			<li>
-				<label for="uMail" class="db fb">{$lang->email_address}</label>
-				<input name="email_address" type="text" id="uMail" class="itx" />
+				<label for="uMail">{$lang->email_address}</label>
+				<input name="email_address" type="text" id="uMail" />
 			</li>
 			<li>
-				<label for="uPw" class="db fb">{$lang->password}</label>
-				<input name="password" type="password" id="uPw" class="itx" />
+				<label for="uPw">{$lang->password}</label>
+				<input name="password" type="password" id="uPw" />
 			</li>
 			<li>
-				<label for="uSite" class="db fb">{$lang->homepage}</label>
-				<input name="homepage" type="text" id="uSite" class="itx" value="http://" />
+				<label for="uSite">{$lang->homepage}</label>
+				<input name="homepage" type="text" id="uSite" value="http://" />
 			</li>
 			<!--@endif-->
 			<li>
@@ -69,7 +74,8 @@
 				<!--@end-->
 			</li>
 		</ul>
-		<div class="cm">
-			<button type="submit" class="bn">{$lang->cmd_registration}</button>
+		<div class="bna">
+			<button type="submit" class="bn dark">{$lang->cmd_registration}</button>
 		</div>
+</form>
 </div>
