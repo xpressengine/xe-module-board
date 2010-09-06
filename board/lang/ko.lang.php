@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   ko.lang.php
-     * @author zero (zero@nzeo.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  게시판(board) 모듈의 기본 언어팩
      **/
 

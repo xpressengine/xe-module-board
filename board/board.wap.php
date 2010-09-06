@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  boardWAP
-     * @author zero (zero@nzeo.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  board 모듈의 WAP class
      **/
 
