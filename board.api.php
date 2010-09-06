@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  boardAPI
-     * @author sol(sol@ngleader.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  board 모듈의 View Action에 대한 API 처리
      **/
 

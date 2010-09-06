@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  boardAdminView
-     * @author zero (zero@nzeo.com)
+     * @author NHN (developers@xpressengine.com)
      * @brief  board 모듈의 admin view class
      **/
 

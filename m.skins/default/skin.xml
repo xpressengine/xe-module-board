@@ -4,18 +4,18 @@
     <title xml:lang="en">XE Basic Board Skin</title>
     <description xml:lang="ko">
         XE 게시판의 기본 스킨입니다.
-        디자인, HTML/CSS : 전영선, 정찬명
+        NHN (developers@xpressengine.com) 
     </description>
     <description xml:lang="en">
         This is the basic board skin of XE.
-        Design, HTML/CSS : Jeon Young Seon, Jeong Chan-Myeong 
+        NHN (developers@xpressengine.com) 
     </description>
     <version>0.1</version>
     <date>2010-06-10</date>
 
-    <author email_address="developers@xpressengine.com" link="http://xpressengine.com">
-        <name xml:lang="ko">zero</name>
-        <name xml:lang="en">zero</name>
+    <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
+        <name xml:lang="ko">NHN</name>
+        <name xml:lang="en">NHN</name>
     </author>
 	<extra_vars />
 </skin>
