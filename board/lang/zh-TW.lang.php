@@ -27,6 +27,7 @@
     $lang->cmd_module_config = '討論板共同設置';
     $lang->cmd_view_info = '討論板資料';
     $lang->cmd_list_setting = '列表設定';
+    $lang->cmd_create_board = '게시판 등록';
 
     // 其他
     $lang->about_layout_setup = '可直接編輯部落格版面設計原始碼。可把 Widget 原始碼插入到您喜歡的位置。';

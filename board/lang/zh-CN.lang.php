@@ -28,6 +28,7 @@
     $lang->cmd_module_config = '版面共同设置';
     $lang->cmd_view_info = '版面信息';
     $lang->cmd_list_setting = '列表设置';
+    $lang->cmd_create_board = '게시판 등록';
 
     // 信息、提示..
     $lang->about_layout_setup = '可直接编辑博客布局代码。可以把控件代码插入到您喜欢的位置。';

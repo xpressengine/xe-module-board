@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   ko.lang.php
-     * @author NHN (developers@xpressengine.com)
+     * @author zero (zero@nzeo.com)
      * @brief  게시판(board) 모듈의 기본 언어팩
      **/
 
@@ -27,6 +27,7 @@
     $lang->cmd_module_config = '게시판 공통 설정';
     $lang->cmd_view_info = '게시판 정보';
     $lang->cmd_list_setting = '목록설정';
+    $lang->cmd_create_board = '게시판 등록';
 
     // 주절 주절..
     $lang->about_layout_setup = '블로그의 레이아웃 코드를 직접 수정할 수 있습니다. 위젯 코드를 원하는 곳에 삽입하시거나 관리하세요';

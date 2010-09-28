@@ -28,6 +28,7 @@
     $lang->cmd_module_config = 'Configuration commun pour les Panneaux';
     $lang->cmd_view_info = 'Information des Panneaux';
     $lang->cmd_list_setting = 'List Setting';
+    $lang->cmd_create_board = '게시판 등록';
 
     // murmure..
     $lang->about_layout_setup = 'Vous pouvez manuellement modifier le code de Mise en Page du blogue. Insérez ou administrez le code de Gadget n\'importe où vous voulez.';

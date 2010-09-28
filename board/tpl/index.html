@@ -1,5 +1,21 @@
 <!--#include("./header.html")-->
 
+<form action="./" method="get" class="adminSearch">
+	<input type="hidden" name="module" value="{$module}" />
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="vid" value="{$vid}" />
+	<input type="hidden" name="act" value="dispBoardAdminContent" />
+
+        <fieldset>
+			{$lang->mid} <input type="text" name="s_mid" value="{$s_mid}" class="inputTypeText" />
+			{$lang->browser_title} <input type="text" name="s_browser_title" value="{$s_browser_title}" class="inputTypeText" />
+            <span class="button blue"><input type="submit" value="{$lang->cmd_search}" /></span>
+            <a href="{getUrl('s_mid','','s_browser_title','','page','')}" class="button black"><span>{$lang->cmd_cancel}</span></a>
+        </fieldset>
+</form>
+
+
+
 <!-- 정보 -->
 <div class="summary">
     <strong>Total</strong> <em>{number_format($total_count)}</em>, Page <strong>{number_format($page)}</strong>/{number_format($total_page)}
