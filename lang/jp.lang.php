@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   modules/board/lang/jp.lang.php
-     * @author NHN (developers@xpressengine.com) 翻訳：RisaPapa、ミニミ // 細かい修正：liahona
+     * @author zero (zero@nzeo.com) 翻訳：RisaPapa、ミニミ // 細かい修正：liahona
      * @brief  掲示板(board)モジュールの基本言語パッケージ
      **/
 
@@ -27,6 +27,7 @@
     $lang->cmd_module_config = '掲示板共通設定';
     $lang->cmd_view_info = '掲示板情報';
     $lang->cmd_list_setting = 'リストの設定';
+    $lang->cmd_create_board = '게시판 등록';
 
     // その他
     $lang->about_layout_setup = 'ブログのレイアウトのコードを直接修正します。ウィジェットコードを好きなところに入力、又は管理して下さい。';

@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  boardAdminController
-     * @author NHN (developers@xpressengine.com)
+     * @author zero (zero@nzeo.com)
      * @brief  board 모듈의 admin controller class
      **/
 
