@@ -18,6 +18,7 @@
     $lang->summary = 'Sơ lược';
     $lang->thumbnail = 'Hình nhỏ';
     $lang->last_post = 'Bài gửi trước';
+	$lang->board_management = '게시판 관리';
 
     // Item
     $lang->search_result = 'Kết quả tìm kiếm';

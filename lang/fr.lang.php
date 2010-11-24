@@ -16,8 +16,10 @@
     $lang->summary = '요약';
     $lang->thumbnail = '썸네일';
     $lang->last_post = '최종 글';
+	$lang->board_management = '게시판 관리';
+
     // Item
-    $lang->search_result = 'Résultat de la Recherche';
+	$lang->search_result = 'Résultat de la Recherche';
     $lang->consultation = 'Consultation';
     $lang->secret = '비밀글 기능';
     $lang->thisissecret = '비밀글입니다.';

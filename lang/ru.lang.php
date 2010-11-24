@@ -21,6 +21,7 @@
     $lang->cmd_remake_cache = 'Перепостроить файл кеша';
     $lang->cmd_layout_setup = 'Конфигурировать лейаут';
     $lang->cmd_layout_edit = 'Редактировать лейаут';
+	$lang->board_management = '게시판 관리';
 
     // Объект
     $lang->search_result = 'Результат поиска';

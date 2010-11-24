@@ -14,6 +14,7 @@
     $lang->summary = '概要';
     $lang->thumbnail = '縮圖';
     $lang->last_post = '最新發表';
+	$lang->board_management = '게시판 관리';
 
     // 項目
     $lang->search_result = '搜尋結果';

@@ -15,6 +15,9 @@
     $lang->summary = '요약';
     $lang->thumbnail = '썸네일';
     $lang->last_post = '최종 글';
+	$lang->board_management = '게시판 관리';
+	
+
     $lang->cmd_remake_cache = 'Rehacer archivo caché';
     $lang->cmd_layout_setup = 'Configuración del diseño';
     $lang->cmd_layout_edit = 'Editar el diseño';
