@@ -16,6 +16,7 @@
     $lang->summary = 'Summary';
     $lang->thumbnail = 'Thumbnail';
     $lang->last_post = 'Last post';
+	$lang->board_management = 'Board Management';
 
     // Item
     $lang->search_result = 'Search Result';

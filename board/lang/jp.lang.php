@@ -14,6 +14,8 @@
     $lang->summary = '要約';
     $lang->thumbnail = 'サムネール';
     $lang->last_post = '最新投稿';
+	$lang->board_management = '게시판 관리';
+	
 
     // 項目
     $lang->search_result = '検索結果';
