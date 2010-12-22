@@ -13,7 +13,7 @@
     $lang->list_target_item = 'Target Item';
     $lang->list_display_item = 'Display Item';
     $lang->summary = '요약';
-    $lang->thumbnail = '썸네일';
+    $lang->thumbnail = '섬네일';
     $lang->last_post = '최종 글';
 	$lang->board_management = '게시판 관리';
 	

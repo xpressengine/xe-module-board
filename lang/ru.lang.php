@@ -14,7 +14,7 @@
     $lang->list_target_item = 'Target Item';
     $lang->list_display_item = 'Display Item';
     $lang->summary = '요약';
-    $lang->thumbnail = '썸네일';
+    $lang->thumbnail = '섬네일';
     $lang->last_post = '최종 글';
     $lang->cmd_make_child = 'Добавить дочернюю категорию';
     $lang->cmd_enable_move_category = "Изменить позицию категории (Перетащите верхнее меню после выделения)";
