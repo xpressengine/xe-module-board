@@ -12,7 +12,7 @@
     $lang->list_target_item = '备选项';
     $lang->list_display_item = '显示项';
     $lang->summary = '요약';
-    $lang->thumbnail = '썸네일';
+    $lang->thumbnail = '섬네일';
     $lang->last_post = '최종 글';
 	$lang->board_management = '게시판 관리';
 	
