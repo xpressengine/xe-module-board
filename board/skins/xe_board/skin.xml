@@ -693,13 +693,13 @@
             <description xml:lang="zh-TW">可設置最新更新主題的new圖案顯示時間。</description>
         </var>
         <var name="thumbnail_type" type="select">
-            <title xml:lang="ko">썸네일 생성 방법</title>
+            <title xml:lang="ko">섬네일 생성 방법</title>
             <title xml:lang="jp">サムネール生成方法</title>
             <title xml:lang="zh-CN">缩略图生成方式</title>
             <title xml:lang="en">Type of Thumbnail</title>
 			<title xml:lang="vi">Định dạng của hình nhỏ</title>
             <title xml:lang="zh-TW">縮圖建立方式</title>
-            <description xml:lang="ko">썸네일 생성 방법을 선택할 수 있습니다.</description>
+            <description xml:lang="ko">섬네일 생성 방법을 선택할 수 있습니다.</description>
             <description xml:lang="jp">サムネールの生成方法を選択します。</description>
             <description xml:lang="zh-CN">可以选择缩略图生成方式。</description>
             <description xml:lang="en">Choose the type to create the thumnail.</description>
@@ -723,13 +723,13 @@
             </options>
         </var>
         <var name="thumbnail_width" type="text" default="100">
-            <title xml:lang="ko">썸네일 가로크기</title>
+            <title xml:lang="ko">섬네일 가로크기</title>
             <title xml:lang="jp">サムネールの横サイズ</title>
             <title xml:lang="zh-CN">缩略图宽度</title>
             <title xml:lang="en">Width of Thumbnail</title>
 			<title xml:lang="vi">Độ rộng</title>
             <title xml:lang="zh-TW">縮圖寬度</title>
-            <description xml:lang="ko">썸네일의 가로 크기를 지정할 수 있습니다. (기본 100px)</description>
+            <description xml:lang="ko">섬네일의 가로 크기를 지정할 수 있습니다. (기본 100px)</description>
             <description xml:lang="jp">サムネールの横サイズを指定します(デフォルト 100px)。</description>
             <description xml:lang="zh-CN">可以指定缩略图宽度(默认为 100px)。</description>
             <description xml:lang="en">Set the width of thumbnail. Default is 100px.</description>
@@ -737,13 +737,13 @@
             <description xml:lang="zh-TW">可指定縮圖寬度(預設是 100px)。</description>
         </var>
         <var name="thumbnail_height" type="text" default="100">
-            <title xml:lang="ko">썸네일 세로크기</title>
+            <title xml:lang="ko">섬네일 세로크기</title>
             <title xml:lang="jp">サムネールの縦サイズ</title>
             <title xml:lang="zh-CN">缩略图高度</title>
             <title xml:lang="en">Height of Thumbnail</title>
 			<title xml:lang="vi">Độ cao</title>
             <title xml:lang="zh-TW">縮圖高度</title>
-            <description xml:lang="ko">썸네일의 세로 크기를 지정할 수 있습니다. (기본 100px)</description>
+            <description xml:lang="ko">섬네일의 세로 크기를 지정할 수 있습니다. (기본 100px)</description>
             <description xml:lang="jp">サムネールの縦サイズを指定します(デフォルト 100px)。</description>
             <description xml:lang="zh-CN">可以指定缩略图高度(默认为 100px)。</description>
             <description xml:lang="en">Set the height of thumbnail. Default is 100px.</description>
