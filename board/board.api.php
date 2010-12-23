@@ -1,7 +1,7 @@
 <?php
     /**
      * @class  boardAPI
-     * @author NHN (developers@xpressengine.com)
+     * @author sol(sol@ngleader.com)
      * @brief  board 모듈의 View Action에 대한 API 처리
      **/
 
@@ -81,8 +81,16 @@
 
         function arrangeContent($content) {
             $output = null;
-            if($content){
-                $output= $content->gets('document_srl','category_srl','is_secret','nick_name','user_id','user_name','title','content','tags','voted_count','blamed_count','comment_count','regdate','last_update','extra_vars');
+            if($content){			
+                $output = $content->gets('document_srl','category_srl','is_secret','member_srl','nick_name','user_id','user_name','title','content','tags','readed_count','voted_count','blamed_count','comment_count','regdate','last_update','extra_vars');
+				
+				$t_width  = Context::get('thumbnail_width');
+				$t_height = Context::get('thumbnail_height');
+				$t_type   = Context::get('thumbnail_type');
+
+				if ($t_width && $t_height && $t_type && $content->thumbnailExists($t_width, $t_height, $t_type)) {
+					$output->thumbnail_src = $content->getThumbnail($t_width, $t_height, $t_type);
+				}
             }
             return $output;
         }
