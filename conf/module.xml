@@ -9,6 +9,7 @@
 			<title xml:lang="vi">Danh sách</title>
             <title xml:lang="es">Lista</title>
             <title xml:lang="zh-TW">列表</title>
+            <title xml:lang="tr">Liste</title>
         </grant>
         <grant name="view" default="guest">
             <title xml:lang="ko">열람</title>
@@ -18,6 +19,7 @@
 			<title xml:lang="vi">Xem</title>
             <title xml:lang="es">Opinión</title>
             <title xml:lang="zh-TW">檢視</title>
+            <title xml:lang="tr">görüş</title>
         </grant>
         <grant name="write_document" default="guest">
             <title xml:lang="ko">글 작성</title>
@@ -27,6 +29,7 @@
 			<title xml:lang="vi">Gửi bài viết</title>
             <title xml:lang="es">Escribir el documento</title>
             <title xml:lang="zh-TW">發表主題</title>
+            <title xml:lang="tr">belge yaz</title>
         </grant>
         <grant name="write_comment" default="guest">
             <title xml:lang="ko">댓글 작성</title>
@@ -36,6 +39,7 @@
 			<title xml:lang="vi">Gửi bình luận</title>
             <title xml:lang="es">Escribir comentario</title>
             <title xml:lang="zh-TW">發表評論</title>
+            <title xml:lang="es">yorum yaz</title>
         </grant>
     </grants>
     <permissions>
