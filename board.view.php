@@ -210,11 +210,14 @@
             $comment_list = $oDocument->getComments();
 
             // 비밀글일때 컨텐츠를 보여주지 말자.
-            foreach($comment_list as $key => $val){
-                if(!$val->isAccessible()){
-                    $val->add('content',Context::getLang('thisissecret'));
-                }
-            }
+			if(is_array($comment_list))
+			{
+				foreach($comment_list as $key => $val){
+					if(!$val->isAccessible()){
+						$val->add('content',Context::getLang('thisissecret'));
+					}
+				}
+			}
             Context::set('comment_list',$comment_list);
         }
 
