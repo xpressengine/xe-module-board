@@ -17,7 +17,7 @@
     <description xml:lang="jp">掲示板の機能を担うモジュールです。掲示板の生成・追加・管理などの管理者機能も含まれています。</description>
     <description xml:lang="ru">Модуль для функционирования форума. Также включает в себя функции администратора такие как создание/управление форумами.</description>
     <description xml:lang="zh-TW">提供用戶相對應的討論板功能，包含建立/新增及管理等功能。</description>
-    <description xml:lang="tr">Pano özelliğinden sorumlu olan modüldür. Ayrıca oluşturma/yönetme gibi yönetici özellikleri de içerir.</description>
+    <description xml:lang="tr">Pano yapılandırmaları için kullanılan modüldür. Ayrıca oluşturma/yönetme gibi yönetici özellikleri de içerir.</description>
     <version>1.2</version>
     <date>2010-09-28</date>
     <category>service</category>
