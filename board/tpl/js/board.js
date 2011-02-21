@@ -149,7 +149,7 @@ jQuery(function($){
 				var l = data.voted_member_list;
 				var ul = [];
 
-				if(l.length==0) return;
+				if(!l || l.length==0) return;
 				
 				$.each(l,function(){
 					ul.push(this.nick_name);
