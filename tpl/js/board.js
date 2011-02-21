@@ -122,3 +122,44 @@ function doScrap(document_srl) {
     params["document_srl"] = document_srl;
     exec_xml("member","procMemberScrapDocument", params, null);
 }
+
+
+jQuery(function($){
+	$(document.body).click(function(e){
+		var t=$(e.target),act,params={};
+
+		if(t.parents('.layer_voted_member').length==0 && !t.is('.layer_voted_member')){
+			$('.layer_voted_member').hide().remove();
+		}
+
+		if(!t.is('a[class^=voted_member_]')) return;
+
+		var srl = parseInt(t.attr('class').replace(/[^0-9]/g,''));
+		if(!srl) return;
+
+		if(t.hasClass('comment')){
+			act = 'comment.getCommentVotedMemberList';
+			params = {'comment_srl':srl,'point':(t.hasClass('votedup')?1:-1)};
+		}else{
+			act = 'document.getDocumentVotedMemberList';
+			params = {'document_srl':srl,'point':(t.hasClass('votedup')?1:-1)};
+		}
+
+		$.exec_json(act, params, function(data){
+				var l = data.voted_member_list;
+				var ul = [];
+
+				if(l.length==0) return;
+				
+				$.each(l,function(){
+					ul.push(this.nick_name);
+				});
+				
+				t.after($('<ul>')
+					.addClass('layer_voted_member')
+					.css({'position':'absolute','top':e.pageY+5,'left':e.pageX})
+					.append('<li>'+ul.join('</li><li>')+'</li>'));
+			});
+	});
+});
+
