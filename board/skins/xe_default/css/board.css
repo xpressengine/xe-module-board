@@ -322,3 +322,7 @@
 .extraVarsList tr td ul li input { margin-right:5px; vertical-align:middle;}
 .extraVarsList tr td .date { border:1px solid; border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6; padding:3px;  margin-right:10px; width:100px; }
 .extraVarsList tr td .address { border:1px solid; border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6; padding:3px;  margin-right:10px; width:300px; }
+
+.layer_voted_member { position:relative; overflow:hidden; margin:0; padding:0; list-style:none; background:#eee; border:2px solid #999; }
+.layer_voted_member li { position:relative; top:-1px; padding:2px 10px; border-top:1px dotted #999; font-size:12px; }
+

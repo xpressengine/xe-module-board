@@ -43,7 +43,7 @@
 
                 <!--@if($oDocument->get('voted_count')!=0 || $oDocument->get('blamed_count')!=0)-->
                 <div class="votedCount" title="{$lang->voted_count}">
-                    <strong>{$oDocument->get('voted_count')} / {$oDocument->get('blamed_count')}</strong>
+					<a href="#layer_voted_member" class="voted_member_{$oDocument->document_srl} document votedup">{$oDocument->get('voted_count')}</a> / <a href="#layer_voted_member" class="voted_member_{$oDocument->document_srl} document voteddown">{$oDocument->get('blamed_count')}</a>
                 </div>
                 <!--@end-->
 
