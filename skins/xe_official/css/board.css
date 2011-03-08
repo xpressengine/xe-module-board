@@ -222,11 +222,11 @@
 .feedbackList .item .indent:after{ content:""; display:block; clear:both;}
 .feedbackList .item.itemReply .indent{ padding-left:15px; background-repeat:no-repeat; background-position:0 1.2em;}
 
-.feedbackList .item .header{ margin:0 0 5px 0;}
-.feedbackList .item .header a{ font-size:12px; text-decoration:none;}
-.feedbackList .item .header a:hover,
-.feedbackList .item .header a:active,
-.feedbackList .item .header a:focus{ text-decoration:underline;}
+.feedbackList .item .author{ margin:0 0 5px 0;}
+.feedbackList .item .author a{ font-size:12px; text-decoration:none;}
+.feedbackList .item .author a:hover,
+.feedbackList .item .author a:active,
+.feedbackList .item .author a:focus{ text-decoration:underline;}
 
 .feedbackList .item .itemContent { position:relative; padding:1em 0 1em 120px; *zoom:1; z-index:1;}
 .feedbackList .item .itemContent:after{ content:""; display:block; clear:both;}
@@ -249,7 +249,7 @@
 .feedbackList .item .itemAside a:hover,
 .feedbackList .item .itemAside a:active,
 .feedbackList .item .itemAside a:focus{ text-decoration:underline;}
-.feedbackList .item .itemAside img.profile{ display:block; border:1px solid; margin-bottom:5px;}
+.feedbackList .item .itemAside img.profile{ display:block; border:1px solid; margin-bottom:5px; width:80px; height:80px}
 .feedbackList .item .itemAside .meta{ font-size:9px; margin:0 0 5px 0; white-space:nowrap;}
 .feedbackList .item .itemAside .vote{ margin:0; *zoom:1; overflow:hidden;}
 .feedbackList .item .itemAside .vote:after{ content:""; display:block; clear:both;}

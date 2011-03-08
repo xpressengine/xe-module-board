@@ -19,7 +19,7 @@
                         <!--@if($comment->getProfileImage())-->
                             <img src="{$comment->getProfileImage()}" alt="profile" class="profile" />
                         <!--@end-->
-						<h4 class="header">
+						<h4 class="author">
 						<!--@if(!$comment->member_srl)-->
 							<!--@if($comment->homepage)-->
 								<a href="{$comment->homepage}" onclick="window.open(this.href);return false;">{$comment->getNickName()}</a>
