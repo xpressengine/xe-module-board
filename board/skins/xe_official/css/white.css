@@ -83,8 +83,8 @@
 .feedbackList .trackbackURL a{ color:#adadad;}
 .feedbackList .item{ border-color:#f0f0f0;}
 .feedbackList .item.itemReply .indent{ background-image:url(../img/common/iconReply.gif);}
-.feedbackList .item .header{ color:#8b8b8b;}
-.feedbackList .item .header a{ color:#262626;}
+.feedbackList .item .author{ color:#8b8b8b;}
+.feedbackList .item .author a{ color:#262626;}
 .feedbackList .item .itemContent .option li{ background-image:url(../img/white/lineVr9.gif);}
 .feedbackList .item .itemContent .option li a{ color:#666;}
 .feedbackList .item .itemContent .delete{ background-image:url(../img/common/buttonDelete.gif);}

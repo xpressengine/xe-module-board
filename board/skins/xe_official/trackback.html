@@ -23,7 +23,7 @@
 					</p>
 				</div>
 				<div class="itemContent">
-					<h4 class="header"><a href="{$val->url}" onclick="winopen(this.href);return false;">{htmlspecialchars($val->title)} - {htmlspecialchars($val->blog_name)}</a></h4>
+					<h4 class="author"><a href="{$val->url}" onclick="winopen(this.href);return false;">{htmlspecialchars($val->title)} - {htmlspecialchars($val->blog_name)}</a></h4>
 					<p>{$val->excerpt} <!--@if($grant->manager)--><a href="{getUrl('act','dispBoardDeleteTrackback','trackback_srl',$val->trackback_srl)}" class="delete"><span>{$lang->cmd_delete}</span></a><!--@end--></p>
 				</div>
 			</div>
