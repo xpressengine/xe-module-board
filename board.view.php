@@ -63,6 +63,8 @@
             /**
              * 목록보기 권한 체크 (모든 권한은 ModuleObject에서 xml 정보와 module_info의 grant 값을 비교하여 미리 설정하여 놓음)
              **/
+
+
             if(!$this->grant->access || !$this->grant->list) return $this->dispBoardMessage('msg_not_permitted');
 
             /**
@@ -244,7 +246,7 @@
                 Context::set('page_navigation', new PageHandler(0,0,1,10));
                 return;
             }
-
+	
             $oDocumentModel = &getModel('document');
 
             // 목록을 구하기 위한 대상 모듈/ 페이지 수/ 목록 수/ 페이지 목록 수에 대한 옵션 설정
