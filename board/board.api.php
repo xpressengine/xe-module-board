@@ -24,7 +24,22 @@
          * @brief 컨텐츠 목록
          **/
         function dispBoardContentList(&$oModule) {
+			$api_type = Context::get('api_type');
             $document_list = $this->arrangeContentList(Context::get('document_list'));
+			
+			if($api_type =='summary')
+			{
+				$content_cut_size = Context::get('content_cut_size');
+				$content_cut_size = $content_cut_size?$content_cut_size:50;
+				foreach($document_list as $k=>$v)
+				{
+					$oDocument = new documentItem();
+					$oDocument->setAttribute($v, false);
+					$document_list[$k]->content = $oDocument->getSummary($content_cut_size);
+					unset($oDocument);
+				}
+			}
+
             $oModule->add('document_list',$document_list);
             $oModule->add('page_navigation',Context::get('page_navigation'));
         }
