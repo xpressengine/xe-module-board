@@ -288,18 +288,40 @@
                 $args->member_srl = $logged_info->member_srl;
             }
 
+            // 목록 설정값을 세팅
+            $oBoardModel = &getModel('board');
+			$listConfig = $oBoardModel->getListConfig($this->module_info->module_srl);
+			$columnList = $this->_makeColumnList(&$listConfig);
+            Context::set('list_config', $listConfig);
+
             // 일반 글을 구해서 context set
-            $output = $oDocumentModel->getDocumentList($args, $this->except_notice);
+            $output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $columnList);
             Context::set('document_list', $output->data);
             Context::set('total_count', $output->total_count);
             Context::set('total_page', $output->total_page);
             Context::set('page', $output->page);
             Context::set('page_navigation', $output->page_navigation);
-
-            // 목록 설정값을 세팅
-            $oBoardModel = &getModel('board');
-            Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
         }
+
+		function _makeColumnList(&$listConfig)
+		{
+			$configColumList = array_keys($listConfig);
+			$tableColumnList = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'is_notice',
+					'is_secret', 'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
+					'blamed_count', 'comment_count', 'trackback_count', 'uploaded_count', 'password', 'user_id',
+					'user_name', 'nick_name', 'member_srl', 'email_address', 'homepage', 'tags', 'extra_vars',
+					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order', 'allow_comment',
+					'lock_comment', 'allow_trackback', 'notify_message');
+			$columnList = array_intersect($configColumList, $tableColumnList);
+
+			// default column list add
+			array_push($columnList, 'document_srl');
+			array_push($columnList, 'module_srl');
+			if(in_array('last_post', $configColumList)) array_push($columnList, 'last_update');
+			if(in_array('summary', $configColumList)) array_push($columnList, 'content');
+
+			return $columnList;
+		}
 
         /**
          * @brief 태그 목록 모두 보기
