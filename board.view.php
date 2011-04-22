@@ -6,6 +6,8 @@
      **/
 
     class boardView extends board {
+		var $listConfig;
+		var $columnList;
 
         /**
          * @brief 초기화
@@ -89,6 +91,11 @@
             // 게시글을 가져옴
             $this->dispBoardContentView();
 
+			// list config, columnList setting
+            $oBoardModel = &getModel('board');
+			$this->listConfig = $oBoardModel->getListConfig($this->module_info->module_srl);
+			$this->_makeListColumnList();
+
             // 공지사항 목록을 구해서 context set (공지사항을 매페이지 제일 상단에 위치하기 위해서)
             $this->dispBoardNoticeList();
 
@@ -130,10 +137,10 @@
              * 요청된 문서 번호가 있다면 문서를 구함
              **/
             if($document_srl) {
-				$columnList = array('document_srl', 'module_srl', 'category_srl', 'is_secret', 'title', 'title_bold',
+				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'is_secret', 'title', 'title_bold',
 						'title_color', 'content', 'readed_count', 'voted_count', 'trackback_count', 'uploaded_count',
 						'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'allow_comment', 'lock_comment');
-                $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $columnList);
+                $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $this->columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
                 if($oDocument->isExists()) {
@@ -232,7 +239,7 @@
         function dispBoardNoticeList(){
             $oDocumentModel = &getModel('document');
             $args->module_srl = $this->module_srl; 
-            $notice_output = $oDocumentModel->getNoticeList($args);
+            $notice_output = $oDocumentModel->getNoticeList($args, $this->columnList);
             Context::set('notice_list', $notice_output->data);
         }
 
@@ -292,13 +299,10 @@
             }
 
             // 목록 설정값을 세팅
-            $oBoardModel = &getModel('board');
-			$listConfig = $oBoardModel->getListConfig($this->module_info->module_srl);
-			$columnList = $this->_makeColumnList(&$listConfig);
-            Context::set('list_config', $listConfig);
+            Context::set('list_config', $this->listConfig);
 
             // 일반 글을 구해서 context set
-            $output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $columnList);
+            $output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $this->columnList);
             Context::set('document_list', $output->data);
             Context::set('total_count', $output->total_count);
             Context::set('total_page', $output->total_page);
@@ -306,24 +310,22 @@
             Context::set('page_navigation', $output->page_navigation);
         }
 
-		function _makeColumnList(&$listConfig)
+		function _makeListColumnList()
 		{
-			$configColumList = array_keys($listConfig);
+			$configColumList = array_keys($this->listConfig);
 			$tableColumnList = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'is_notice',
 					'is_secret', 'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
 					'blamed_count', 'comment_count', 'trackback_count', 'uploaded_count', 'password', 'user_id',
 					'user_name', 'nick_name', 'member_srl', 'email_address', 'homepage', 'tags', 'extra_vars',
 					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order', 'allow_comment',
 					'lock_comment', 'allow_trackback', 'notify_message');
-			$columnList = array_intersect($configColumList, $tableColumnList);
+			$this->columnList = array_intersect($configColumList, $tableColumnList);
+
+			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			array_push($columnList, 'document_srl');
-			array_push($columnList, 'module_srl');
-			if(in_array('last_post', $configColumList)) array_push($columnList, 'last_update');
-			if(in_array('summary', $configColumList)) array_push($columnList, 'content');
-
-			return $columnList;
+			$defaultColumn = array('document_srl', 'module_srl', 'last_update', 'comment_count', 'uploaded_count');
+			$this->columnList = array_merge($this->columnList, $defaultColumn);
 		}
 
         /**
