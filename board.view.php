@@ -130,7 +130,10 @@
              * 요청된 문서 번호가 있다면 문서를 구함
              **/
             if($document_srl) {
-                $oDocument = $oDocumentModel->getDocument($document_srl);
+				$columnList = array('document_srl', 'module_srl', 'category_srl', 'is_secret', 'title', 'title_bold',
+						'title_color', 'content', 'readed_count', 'voted_count', 'trackback_count', 'uploaded_count',
+						'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'allow_comment', 'lock_comment');
+                $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
                 if($oDocument->isExists()) {
