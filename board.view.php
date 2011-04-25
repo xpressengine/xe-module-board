@@ -138,8 +138,9 @@
              **/
             if($document_srl) {
 				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'is_secret', 'title', 'title_bold',
-						'title_color', 'content', 'readed_count', 'voted_count', 'trackback_count', 'uploaded_count',
-						'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'allow_comment', 'lock_comment');
+						'title_color', 'content', 'readed_count', 'voted_count', 'comment_count', 'trackback_count',
+						'uploaded_count', 'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'allow_comment',
+						'lock_comment');
                 $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $this->columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
