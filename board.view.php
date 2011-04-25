@@ -324,7 +324,7 @@
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			$defaultColumn = array('document_srl', 'module_srl', 'last_update', 'comment_count', 'uploaded_count');
+			$defaultColumn = array('document_srl', 'module_srl', 'member_srl', 'last_update', 'comment_count', 'uploaded_count');
 			$this->columnList = array_merge($this->columnList, $defaultColumn);
 		}
 
