@@ -314,7 +314,8 @@
 
             // 호출된 모듈의 정보 구함
             $oModuleModel = &getModel('module');
-            $cur_module_info = $oModuleModel->getModuleInfoByMid($mid);
+			$columnList = array('module');
+            $cur_module_info = $oModuleModel->getModuleInfoByMid($mid, 0, $columnList);
 
             if($cur_module_info->module != 'board') return new Object();
 

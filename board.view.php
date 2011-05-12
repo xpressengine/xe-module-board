@@ -140,7 +140,7 @@
 				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'is_secret', 'title', 'title_bold',
 						'title_color', 'content', 'readed_count', 'voted_count', 'comment_count', 'trackback_count',
 						'uploaded_count', 'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'allow_comment',
-						'lock_comment');
+						'allow_trackback', 'lock_comment');
                 $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $this->columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
@@ -619,13 +619,14 @@
 
             // 삭제하려는 댓글가 있는지 확인
             $oTrackbackModel = &getModel('trackback');
-            $output = $oTrackbackModel->getTrackback($trackback_srl);
+			$columnList = array('trackback_srl');
+            $output = $oTrackbackModel->getTrackback($trackback_srl, $columnList);
             $trackback = $output->data;
 
             // 삭제하려는 글이 없으면 에러
             if(!$trackback) return $this->dispBoardContent();
 
-            Context::set('trackback',$trackback);
+            //Context::set('trackback',$trackback);	//perhaps trackback variables not use in UI
 
             /** 
              * 필요한 필터 추가
