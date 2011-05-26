@@ -51,6 +51,14 @@
             $extra_keys = $oDocumentModel->getExtraKeys($this->module_info->module_srl);
             Context::set('extra_keys', $extra_keys);
 
+			/**
+			 * 확장 병수를 통한 소트 기능을 추가하기위해 order_target에 확장변수 키값 추가
+			 **/
+			if (is_array($extra_keys)){
+				foreach($extra_keys as $val){
+					$this->order_target[] = $val->eid;
+				}
+			}
             /** 
              * 게시판 전반적으로 사용되는 javascript, JS 필터 추가
              **/
