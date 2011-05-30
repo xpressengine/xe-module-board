@@ -33,7 +33,7 @@
 	
     <div class="editor">{$oComment->getEditor()}</div>
 	
-	<div class="editorOption">
+	<div class="editOption">
 	<!--@if(!$is_logged)-->
 	   <input type="text" name="nick_name" class="inputText userName" value="{htmlspecialchars($oComment->get('nick_name'))}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
 	   <input type="password" name="password" class="inputText userPw" value="" title="{$lang->password}" onfocus="if(this.value==this.title)this.value='';return false;" />
