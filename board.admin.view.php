@@ -32,6 +32,7 @@
                 } else {
                     ModuleModel::syncModuleToSite($module_info);
                     $this->module_info = $module_info;
+					$this->module_info->use_status = explode('|@|', $module_info->use_status);
                     Context::set('module_info',$module_info);
                 }
             }
@@ -115,6 +116,11 @@
 
 			$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
 			Context::set('mlayout_list', $mobile_layout_list);
+
+			// get document status list
+			$oDocumentModel = &getModel('document');
+			$documentStatusConfigList = $oDocumentModel->getStatusConfigList();
+			Context::set('document_status_config_list', $documentStatusConfigList);
 
             // 템플릿 파일 지정
             $this->setTemplateFile('board_insert');

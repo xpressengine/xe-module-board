@@ -96,6 +96,10 @@
             }
             Context::set('search_option', $search_option);
 
+			$oDocumentModel = &getModel('document');
+			$statusList = $this->_getStatusList(&$oDocumentModel);
+			if(count($statusList) > 0) Context::set('status_list', $statusList);
+
             // 게시글을 가져옴
             $this->dispBoardContentView();
 
@@ -145,10 +149,10 @@
              * 요청된 문서 번호가 있다면 문서를 구함
              **/
             if($document_srl) {
-				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'is_secret', 'title', 'title_bold',
+				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'title', 'title_bold',
 						'title_color', 'content', 'readed_count', 'voted_count', 'comment_count', 'trackback_count',
-						'uploaded_count', 'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'allow_comment',
-						'allow_trackback', 'lock_comment');
+						'uploaded_count', 'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'list_order',
+						'allow_comment', 'allow_trackback', 'lock_comment', 'status');
                 $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $this->columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
@@ -323,17 +327,17 @@
 		{
 			$configColumList = array_keys($this->listConfig);
 			$tableColumnList = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'is_notice',
-					'is_secret', 'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
+					'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
 					'blamed_count', 'comment_count', 'trackback_count', 'uploaded_count', 'password', 'user_id',
 					'user_name', 'nick_name', 'member_srl', 'email_address', 'homepage', 'tags', 'extra_vars',
 					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order', 'allow_comment',
-					'lock_comment', 'allow_trackback', 'notify_message');
+					'lock_comment', 'allow_trackback', 'notify_message', 'status');
 			$this->columnList = array_intersect($configColumList, $tableColumnList);
 
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			$defaultColumn = array('document_srl', 'module_srl', 'member_srl', 'last_update', 'comment_count', 'uploaded_count');
+			$defaultColumn = array('document_srl', 'module_srl', 'member_srl', 'last_update', 'comment_count', 'uploaded_count', 'status');
 			$this->columnList = array_merge($this->columnList, $defaultColumn);
 		}
 
@@ -415,9 +419,9 @@
             $oDocument->add('module_srl', $this->module_srl);
 
             // 글을 수정하려고 할 경우 권한이 없는 경우 비밀번호 입력화면으로
+			$oModuleModel = &getModel('module');
             if($oDocument->isExists()&&!$oDocument->isGranted()) return $this->setTemplateFile('input_password_form');
             if(!$oDocument->isExists()) {
-                $oModuleModel = &getModel('module');
                 $point_config = $oModuleModel->getModulePartConfig('point',$this->module_srl);
                 $logged_info = Context::get('logged_info');
                 $oPointModel = &getModel('point');
@@ -428,6 +432,9 @@
                 }
             }
 
+			$statusList = $this->_getStatusList(&$oDocumentModel);
+			if(count($statusList) > 0) Context::set('status_list', $statusList);
+			// get Document status config value
             Context::set('document_srl',$document_srl);
             Context::set('oDocument', $oDocument);
 
@@ -445,6 +452,25 @@
 
             $this->setTemplateFile('write_form');
         }
+
+		function _getStatusList(&$oDocumentModel)
+		{
+			$resultList = array();
+			if(!empty($this->module_info->use_status))
+			{
+				$statusNameList = $oDocumentModel->getStatusConfigList();
+				$statusList = array_flip(explode('|@|', $this->module_info->use_status));
+
+				if(is_array($statusList))
+				{
+					foreach($statusList AS $key=>$value)
+					{
+						$resultList[$key] = $statusNameList[$key];
+					}
+				}
+			}
+			return $resultList;
+		}
 
         /**
          * @brief 문서 삭제 화면 출력

@@ -97,7 +97,7 @@
         function arrangeContent($content) {
             $output = null;
             if($content){			
-                $output = $content->gets('document_srl','category_srl','is_secret','member_srl','nick_name','user_id','user_name','title','content','tags','readed_count','voted_count','blamed_count','comment_count','regdate','last_update','extra_vars');
+                $output = $content->gets('document_srl','category_srl','member_srl','nick_name','user_id','user_name','title','content','tags','readed_count','voted_count','blamed_count','comment_count','regdate','last_update','extra_vars','status');
 				
 				$t_width  = Context::get('thumbnail_width');
 				$t_height = Context::get('thumbnail_height');

@@ -63,9 +63,14 @@
 				<label for="reAllow">{$lang->allow_comment}</label>
 				<input type="checkbox" name="allow_trackback" value="Y" <!--@if($oDocument->allowTrackback())-->checked="checked"<!--@end--> id="trAllow" />
 				<label for="trAllow">{$lang->allow_trackback}</label>
-				<!--@if($module_info->secret=="Y")-->
-				<input type="checkbox" name="is_secret" value="Y" <!--@if($oDocument->isSecret())-->checked="checked"<!--@end--> id="secret" />
-				<label for="secret">{$lang->secret}</label>
+
+				<!--@if(is_array($status_list))-->
+				<div>
+					{$lang->status}
+					<!--@foreach($status_list AS $key=>$value)-->
+					<input type="radio" name="status" value="{$key}" <!--@if($oDocument->get('status') == $key)-->checked<!--@end--> /> {$value}
+					<!--@end-->
+				</div>
 				<!--@end-->
 			</li>
 		</ul>

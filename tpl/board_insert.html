@@ -164,10 +164,11 @@
         </td>
     </tr>
     <tr>
-        <th scope="row"><div>{$lang->secret}</div></th>
+        <th scope="row"><div>{$lang->status}</div></th>
         <td>
-            <input type="checkbox" name="secret" value="Y" <!--@if($module_info->secret=='Y')-->checked="checked"<!--@end--> />
-            <p>{nl2br($lang->about_secret)}</p>
+			<!--@foreach($document_status_config_list AS $key=>$value)-->
+			<!--@if($key != 'PRIVATE' && $key != 'TEMP')--><input type="checkbox" name="use_status" value="{$key}" <!--@if(in_array($key, $module_info->use_status))-->checked<!--@end--> /> {$value}<!--@end-->
+			<!--@end-->
         </td>
     </tr>
     <tr>
