@@ -94,8 +94,10 @@
 
 		<div class="fl gap1">
 			<!--@if($is_logged)-->
+			<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
 			<span class="button {$btn_class}"><input type="button" value="{$lang->cmd_temp_save}"  onclick="doDocumentSave(this); return false;" /></span>
 			<span class="button {$btn_class}"><input type="button" value="{$lang->cmd_load}"  onclick="doDocumentLoad(this); return false;" /></span>
+			<!--@end-->
 			<span class="button {$btn_class}"><input type="button" value="{$lang->cmd_back}" onclick="location.href='{getUrl('act','')}'" /></span>
 			<!--@end-->
 		</div>

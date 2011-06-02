@@ -90,8 +90,10 @@
 
 	<div class="boardNavigation">
 		<span class="buttonOfficial"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+		<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
 		<span class="buttonOfficial"><button type="button" onclick="doDocumentSave(this);">{$lang->cmd_temp_save}</button></span>
 		<span class="buttonOfficial"><button type="button" onclick="doDocumentLoad(this);">{$lang->cmd_load}</button></span>
+		<!--@end-->
 	</div>
 
     </form>
