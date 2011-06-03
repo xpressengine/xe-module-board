@@ -431,6 +431,7 @@
                     else if (($oPointModel->getPoint($logged_info->member_srl) + $pointForInsert )< 0 ) return $this->dispBoardMessage('msg_not_enough_point');
                 }
             }
+			if(!$oDocument->get('status')) $oDocument->add('status', $oDocumentModel->getDefaultStatus());
 
 			$statusList = $this->_getStatusList(&$oDocumentModel);
 			if(count($statusList) > 0) Context::set('status_list', $statusList);
@@ -458,14 +459,14 @@
 			$resultList = array();
 			if(!empty($this->module_info->use_status))
 			{
-				$statusNameList = $oDocumentModel->getStatusConfigList();
-				$statusList = array_flip(explode('|@|', $this->module_info->use_status));
+				$statusNameList = $oDocumentModel->getStatusNameList();
+				$statusList = explode('|@|', $this->module_info->use_status);
 
 				if(is_array($statusList))
 				{
 					foreach($statusList AS $key=>$value)
 					{
-						$resultList[$key] = $statusNameList[$key];
+						$resultList[$value] = $statusNameList[$value];
 					}
 				}
 			}
