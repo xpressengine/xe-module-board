@@ -119,8 +119,8 @@
 
 			// get document status list
 			$oDocumentModel = &getModel('document');
-			$documentStatusConfigList = $oDocumentModel->getStatusConfigList();
-			Context::set('document_status_config_list', $documentStatusConfigList);
+			$documentStatusList = $oDocumentModel->getStatusNameList();
+			Context::set('document_status_list', $documentStatusList);
 
             // 템플릿 파일 지정
             $this->setTemplateFile('board_insert');

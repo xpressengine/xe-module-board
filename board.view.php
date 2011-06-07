@@ -97,8 +97,8 @@
             Context::set('search_option', $search_option);
 
 			$oDocumentModel = &getModel('document');
-			$statusList = $this->_getStatusList(&$oDocumentModel);
-			if(count($statusList) > 0) Context::set('status_list', $statusList);
+			$statusNameList = $this->_getStatusNameList(&$oDocumentModel);
+			if(count($statusNameList) > 0) Context::set('status_list', $statusNameList);
 
             // 게시글을 가져옴
             $this->dispBoardContentView();
@@ -454,7 +454,7 @@
             $this->setTemplateFile('write_form');
         }
 
-		function _getStatusList(&$oDocumentModel)
+		function _getStatusNameList(&$oDocumentModel)
 		{
 			$resultList = array();
 			if(!empty($this->module_info->use_status))
