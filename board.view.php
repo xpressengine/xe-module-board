@@ -433,7 +433,7 @@
             }
 			if(!$oDocument->get('status')) $oDocument->add('status', $oDocumentModel->getDefaultStatus());
 
-			$statusList = $this->_getStatusList(&$oDocumentModel);
+			$statusList = $this->_getStatusNameList(&$oDocumentModel);
 			if(count($statusList) > 0) Context::set('status_list', $statusList);
 			// get Document status config value
             Context::set('document_srl',$document_srl);
