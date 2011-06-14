@@ -64,7 +64,7 @@
 			</li>
 			<!--@endif-->
 			<li>
-				<input type="checkbox" name="allow_comment" value="Y" <!--@if($oDocument->allowComment())-->checked="checked"<!--@end--> id="reAllow" />
+				<input type="checkbox" name="comment_status" value="ALLOW" <!--@if($oDocument->allowComment())-->checked="checked"<!--@end--> id="reAllow" />
 				<label for="reAllow">{$lang->allow_comment}</label>
 				<input type="checkbox" name="allow_trackback" value="Y" <!--@if($oDocument->allowTrackback())-->checked="checked"<!--@end--> id="trAllow" />
 				<label for="trAllow">{$lang->allow_trackback}</label>

@@ -26,6 +26,7 @@
             $obj = Context::getRequestVars();
             $obj->module_srl = $this->module_srl;
             if($obj->is_notice!='Y'||!$this->grant->manager) $obj->is_notice = 'N';
+			$obj->commentStatus = $obj->comment_status;
 
             settype($obj->title, "string");
             if($obj->title == '') $obj->title = cut_str(strip_tags($obj->content),20,'...');

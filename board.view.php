@@ -152,7 +152,7 @@
 				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'title', 'title_bold',
 						'title_color', 'content', 'readed_count', 'voted_count', 'comment_count', 'trackback_count',
 						'uploaded_count', 'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'list_order',
-						'allow_comment', 'allow_trackback', 'lock_comment', 'status');
+						'allow_trackback', 'status', 'comment_status');
                 $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $this->columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
@@ -330,8 +330,8 @@
 					'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
 					'blamed_count', 'comment_count', 'trackback_count', 'uploaded_count', 'password', 'user_id',
 					'user_name', 'nick_name', 'member_srl', 'email_address', 'homepage', 'tags', 'extra_vars',
-					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order', 'allow_comment',
-					'lock_comment', 'allow_trackback', 'notify_message', 'status');
+					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order',
+					'allow_trackback', 'notify_message', 'status', 'comment_status');
 			$this->columnList = array_intersect($configColumList, $tableColumnList);
 
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
