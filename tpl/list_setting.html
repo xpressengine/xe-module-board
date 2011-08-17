@@ -8,7 +8,7 @@
     <strong>{$lang->list_target_item}</strong>
     <select size="{count($extra_vars)}" name="targetItem" id="targetItem" ondblclick="doInsertItem(); return false;">
     <!--@foreach($extra_vars as $key => $val)-->
-    <option value="{$key}">{$val->name}</option>
+    <option value="{htmlspecialchars($key)}">{htmlspecialchars($val->name)}</option>
     <!--@end-->
     </select>
 </div>
@@ -24,7 +24,7 @@
     <strong>{$lang->list_display_item}</strong>
     <select size="{count($extra_vars)}" name="displayItem" id="displayItem" ondblclick="doDeleteItem();">
     <!--@foreach($list_config as $key => $val)-->
-    <option value="{$key}">{$val->name}</option>
+    <option value="{htmlspecialchars($key)}">{htmlspecialchars($val->name)}</option>
     <!--@end-->
     </select>
 
