@@ -85,8 +85,6 @@
             Context::set('board_list', $output->data);
             Context::set('page_navigation', $output->page_navigation);
 			
-			debugPrint($output->data);
-			
 			$security = new Security();
 			$security->encodeHTML('board_list..browser_title','board_list..mid');
 
