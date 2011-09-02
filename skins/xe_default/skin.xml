@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skin version="0.2">
-    <title xml:lang="ko">XE Default Skin</title>
-    <title xml:lang="zh-CN">XE Default Skin</title>
-	<title xml:lang="vi">Skin mặc định XE</title>
-	<title xml:lang="en">XE Default Skin</title>
-    <title xml:lang="zh-TW">XE 預設面板</title>
-    <title xml:lang="jp">XEデフォルトスキン</title>
-    <title xml:lang="tr">XE Varsayılan Dış görünüm</title>
+    <title xml:lang="ko">XE Default 2008</title>
+	<title xml:lang="en">XE Default 2008</title>
     <description xml:lang="ko">
-        XE Default Skin
-        NHN (developers@xpressengine.com)
-    </description>
-	<description xml:lang="vi">
-        Skin mặc định XE
-        NHN (developers@xpressengine.com)
-    </description>
-    <description xml:lang="jp">
-        XEデフォルトスキン
-        NHN (developers@xpressengine.com)
-    </description>
-    <description xml:lang="zh-CN">
-        XE Default Skin
+        XE Default 2008
         NHN (developers@xpressengine.com)
     </description>
     <description xml:lang="en">
-        XE Default Skin
-        NHN (developers@xpressengine.com)
-    </description>
-    <description xml:lang="es">
-        XE Default Skin
-        NHN (developers@xpressengine.com)
-    </description>
-    <description xml:lang="zh-TW">
-        XE 預設面板。
-        NHN (developers@xpressengine.com)
-    </description>
-    <description xml:lang="TR">
-        XE Varsayılan Dış Görünümü
+        XE Default 2008
         NHN (developers@xpressengine.com)
     </description>
     <version>0.1</version>

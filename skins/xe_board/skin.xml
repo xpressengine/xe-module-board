@@ -1,36 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skin version="0.2">
-    <title xml:lang="ko">XE 게시판 기본 스킨</title>
-    <title xml:lang="jp">XE掲示板のデフォルトスキン</title>
-    <title xml:lang="zh-CN">XE版面默认皮肤</title>
-    <title xml:lang="en">XE Basic Board Skin</title>
-	<title xml:lang="vi">Giao diện cơ bản XE Board</title>
-    <title xml:lang="es">XE Basic Board Skin</title>
-    <title xml:lang="zh-TW">XE 基本面板</title>
-    <title xml:lang="tr">XE Temel Pano Dış Görünümü</title>
+    <title xml:lang="ko">XE Default 2007</title>
+    <title xml:lang="en">XE Default 2007</title>
     <description xml:lang="ko">
-        XE 게시판의 기본 스킨입니다.
-    </description>
-    <description xml:lang="jp">
-        XE掲示板の デフォルトスキンです。
-    </description>
-    <description xml:lang="zh-CN">
-        XE版面默认皮肤。
+        XE 게시판의 2007 기본 스킨입니다.
     </description>
     <description xml:lang="en">
-        This is the basic board skin of XE.
-    </description>
-	<description xml:lang="vi">
-        Đây là giao diện cơ bản của XE Board.
-    </description>
-    <description xml:lang="es">
-        Esta es la base bordo de la piel de XE.
-    </description>
-    <description xml:lang="zh-TW">
-        XE 基本面板。
-    </description>
-    <description xml:lang="tr">
-        XE/'nin temel pano dış görünümüdür.
+        This is the 2007 basic board skin of XE.
     </description>
     <version>0.1</version>
     <date>2007-10-22</date>
