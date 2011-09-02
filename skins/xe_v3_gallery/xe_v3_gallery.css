@@ -346,7 +346,7 @@
 .xev3gallery .btn25,
 .xev3gallery .btn25 a,
 .xev3gallery .btn25 button,
-.xev3gallery .btn25 input{display:inline-block;height:25px;line-height:25px;padding:0;margin:0;overflow:visible;position:relative;background:url(img/btn25.gif) no-repeat;cursor:pointer}
+.xev3gallery .btn25 input{display:inline-block;height:25px;line-height:25px;padding:0;margin:0;overflow:visible;position:relative;background:url(img/btn25.gif) no-repeat;cursor:pointer;vertical-align:top}
 .xev3gallery .btn25{background-position:0 0;margin:0 2px 0 0;vertical-align:top}
 .xev3gallery .btn25 a,
 .xev3gallery .btn25 button,
