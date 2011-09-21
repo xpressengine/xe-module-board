@@ -53,7 +53,12 @@
 
         }
 
-
-
+        /** 
+         * @brief return module name in sitemap
+         **/
+		function triggerModuleListInSitemap(&$obj)
+		{
+			array_push($obj, 'board');
+		}
     }
 ?>
