@@ -41,8 +41,12 @@
 
             // 모듈 카테고리 목록을 구함
             $module_category = $oModuleModel->getModuleCategories();
-            Context::set('module_category', $module_category);
-
+            Context::set('module_category', $module_category);			
+			
+			$security = new Security();
+			$security->encodeHTML('module_info.browser_title');
+			$security->encodeHTML('module_category..title');						
+			
             // 템플릿 경로 지정 (board의 경우 tpl에 관리자용 템플릿 모아놓음)
             $template_path = sprintf("%stpl/",$this->module_path);
             $this->setTemplatePath($template_path);
@@ -81,6 +85,9 @@
             Context::set('page', $output->page);
             Context::set('board_list', $output->data);
             Context::set('page_navigation', $output->page_navigation);
+			
+			$security = new Security();
+			$security->encodeHTML('board_list..browser_title','board_list..mid');
 
             // 템플릿 파일 지정
             $this->setTemplateFile('index');
@@ -116,7 +123,12 @@
 
 			$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
 			Context::set('mlayout_list', $mobile_layout_list);
-
+						
+			$security = new Security();
+			$security->encodeHTML('skin_list..title','mskin_list..title');
+			$security->encodeHTML('layout_list..title','layout_list..layout');
+			$security->encodeHTML('mlayout_list..title','mlayout_list..layout');
+						
 			// get document status list
 			$oDocumentModel = &getModel('document');
 			$documentStatusList = $oDocumentModel->getStatusNameList();
@@ -160,6 +172,9 @@
             $module_info->document_count = $document_count;
 
             Context::set('module_info',$module_info);
+			
+			$security = new Security();
+			$security->encodeHTML('module_info..mid','module_info..module','module_info..document_count');			
 
             // 템플릿 파일 지정
             $this->setTemplateFile('board_delete');
@@ -177,6 +192,9 @@
             // 설정 항목 추출 (설정항목이 없을 경우 기본 값을 세팅)
             Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
 
+			$security = new Security();
+			$security->encodeHTML('extra_vars..name','list_config..name');			
+			
             $this->setTemplateFile('list_setting');
         }
 
