@@ -152,7 +152,7 @@
 				$this->columnList = array('document_srl', 'module_srl', 'category_srl', 'title', 'title_bold',
 						'title_color', 'content', 'readed_count', 'voted_count', 'comment_count', 'trackback_count',
 						'uploaded_count', 'nick_name', 'member_srl', 'homepage', 'regdate', 'ipaddress', 'list_order',
-						'allow_trackback', 'status', 'comment_status');
+						'allow_trackback', 'status', 'comment_status', 'update_order');
                 $oDocument = $oDocumentModel->getDocument($document_srl, false, true, $this->columnList);
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
