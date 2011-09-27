@@ -14,7 +14,7 @@
                             <option value="{$val->category_srl}" <!--@if($category==$val->category_srl)-->selected="selected"<!--@end-->>{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} <!--@if($val->document_count)-->({$val->document_count})<!--@end--></option>
                             <!--@end-->
                         </select>
-                        <button type="button" name="go_button" id="go_button" onclick="doChangeCategory(); return false;" class="button">Go</button>
+                        <button type="button" name="go_button" id="go_button" onclick="doChangeCategory(); return false;">Go</button>
                     </span>
                     <!--@end-->
                 </div>
