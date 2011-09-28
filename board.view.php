@@ -313,7 +313,6 @@
 
             // 목록 설정값을 세팅
             Context::set('list_config', $this->listConfig);
-
             // 일반 글을 구해서 context set
             $output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $this->columnList);
             Context::set('document_list', $output->data);
@@ -337,7 +336,7 @@
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			$defaultColumn = array('document_srl', 'module_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status');
+			$defaultColumn = array('document_srl', 'module_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate');
 			$this->columnList = array_merge($this->columnList, $defaultColumn);
 		}
 
