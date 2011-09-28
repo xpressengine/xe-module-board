@@ -333,7 +333,7 @@
             // 아이디로 검색기능 추가
             $url = getUrl('','mid',$mid,'search_target','nick_name','search_keyword',$member_info->nick_name);
             $oMemberController = &getController('member');
-            $oMemberController->addMemberPopupMenu($url, 'cmd_view_own_document', './modules/member/tpl/images/icon_view_written.gif');
+            $oMemberController->addMemberPopupMenu($url, 'cmd_view_own_document', '');
 
             return new Object();
         }
