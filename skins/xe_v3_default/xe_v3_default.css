@@ -183,7 +183,7 @@
 .feedback .author a{text-decoration:none;color:#666}
 .feedback .author a img{margin:0 6px 0 0 !important;vertical-align:top !important}
 .feedback .time{margin:0;font:11px Tahoma, Geneva, sans-serif;color:#8e8e8e}
-.feedback .xe_content{margin:0;color:#666;line-height:1.5}
+.feedback .xe_content{margin:0 0 0 200px;color:#666;line-height:1.5}
 .feedback .xe_content *:first-child{margin-top:0}
 #trackback .xe_content{color:#888}
 #trackback .xe_content strong{color:#666;display:block;font-weight:normal}
