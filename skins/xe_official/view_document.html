@@ -129,10 +129,10 @@
 <!--@if($oDocument->allowTrackback())-->
     <!--#include("./trackback.html")-->
 <!--@end-->
-<!--@if($oDocument->allowComment())-->
-    <a name="comment"></a>
-    <!--#include("./comment.html")-->
+<a name="comment"></a>
+<!--#include("./comment.html")-->
 
+<!--@if($oDocument->allowComment())-->
     <!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
         <form action="./" method="post" onsubmit="jQuery(this).find('input').each(function(){if(this.title==this.value)this.value='';});return procFilter(this, insert_comment)" class="boardEditor" >
         <input type="hidden" name="mid" value="{$mid}" />
