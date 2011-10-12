@@ -32,17 +32,15 @@
 					<block cond="$document_srl!=$document->document_srl">{$lang->notice}</block>
 				</td>
 				<td class="title" cond="$val->type=='title' && $val->idx==-1">
-					<span class="tx">
-						<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">
-							{$document->getTitle()}
-						</a>
-						<a cond="$document->getCommentCount()" href="{getUrl('document_srl', $document->document_srl)}#comment" class="replyNum" title="Replies">
-							[{$document->getCommentCount()}]
-						</a>
-						<a cond="$document->getTrackbackCount()" href="{getUrl('document_srl', $document->document_srl)}#trackback" class="trackbackNum" title="Trackbacks">
-							[{$document->getTrackbackCount()}]
-						</a>
-					</span>
+					<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">
+						{$document->getTitle()}
+					</a>
+					<a cond="$document->getCommentCount()" href="{getUrl('document_srl', $document->document_srl)}#comment" class="replyNum" title="Replies">
+						[{$document->getCommentCount()}]
+					</a>
+					<a cond="$document->getTrackbackCount()" href="{getUrl('document_srl', $document->document_srl)}#trackback" class="trackbackNum" title="Trackbacks">
+						[{$document->getTrackbackCount()}]
+					</a>
 				</td>
 				<td class="author" cond="$val->type=='nick_name' && $val->idx==-1"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a></td>
 				<td class="author" cond="$val->type=='user_id' && $val->idx==-1">{$document->getUserID()}</td>
@@ -76,12 +74,10 @@
 					<block cond="$document_srl!=$document->document_srl">{$no}</block>
 				</td>
 				<td class="title" cond="$val->type=='title' && $val->idx==-1">
-					<span class="tx">
-						<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}" class="hx">{$document->getTitle()}</a>
-						<a cond="$document->getCommentCount()" href="{getUrl('document_srl', $document->document_srl)}#comment" class="replyNum" title="Replies">[{$document->getCommentCount()}]</a>
-						<a cond="$document->getTrackbackCount()" href="{getUrl('document_srl', $document->document_srl)}#trackback" class="trackbackNum" title="Trackbacks">[{$document->getTrackbackCount()}]</a>
-						{$document->printExtraImages(60*60*$module_info->duration_new)}
-					</span>
+					<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle()}</a>
+					<a cond="$document->getCommentCount()" href="{getUrl('document_srl', $document->document_srl)}#comment" class="replyNum" title="Replies">[{$document->getCommentCount()}]</a>
+					<a cond="$document->getTrackbackCount()" href="{getUrl('document_srl', $document->document_srl)}#trackback" class="trackbackNum" title="Trackbacks">[{$document->getTrackbackCount()}]</a>
+					{$document->printExtraImages(60*60*$module_info->duration_new)}
 				</td>
 				<td class="author" cond="$val->type=='nick_name' && $val->idx==-1"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a></td>
 				<td class="author" cond="$val->type=='user_id' && $val->idx==-1">{$document->getUserID()}</td>

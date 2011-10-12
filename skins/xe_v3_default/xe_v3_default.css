@@ -8,6 +8,7 @@
 .xev3board textarea,
 .xev3board select{font-size:12px;font-family:돋움, Dotum, Tahoma, Geneva, sans-serif}
 .xev3board .iCheck{width:13px;height:13px;margin:0;vertical-align:middle}
+.xev3board .iCheck+label{vertical-align:middle}
 .xev3board .iText{position:relative;padding:3px 4px;_margin:-1px 0;height:17px;line-height:17px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8;background:transparent}
 .xev3board textarea{margin:0;padding:3px 4px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
 
@@ -43,12 +44,12 @@
 .board_list th:first-child span{border:0}
 .board_list th span{display:block;border-left:1px solid #c7c7c7;padding:0 15px;height:14px}
 .board_list tr.notice{background:#f6f6f6}
-.board_list td{border:0;border-bottom:1px solid #e6e6e6;padding:8px 10px;white-space:nowrap}
+.board_list tr.notice td.title a{font-weight:bold}
+.board_list td{border:0;border-bottom:1px solid #e6e6e6;padding:8px 10px;white-space:nowrap;vertical-align:top}
 .board_list tr:last-child td{border:0}
 .board_list td.notice{text-align:center}
 .board_list td.no{text-align:center;font:11px Tahoma, Geneva, sans-serif}
-.board_list td.title .tx{display:inline-block;width:360px;overflow:hidden}
-.board_list td.title .hx{display:inline-block;max-width:280px;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;vertical-align:middle}
+.board_list td.title{white-space:normal;line-height:1.4}
 .board_list td.author img{position:relative;top:-1px}
 .board_list td.time,
 .board_list td.readNum,
@@ -74,10 +75,10 @@
 .write_header select{height:23px;width:140px}
 .write_header .iText{width:500px;margin:0 10px 0 0;background:#fff}
 .write_editor .xd{margin-top:-3px}
-.write_footer{overflow:hidden;display:inline}
+.write_footer{overflow:hidden;margin:1em 0}
 .write_footer:after{content:"";display:block;clear:both}
-.write_footer .btnArea{float:right}
-.write_option{margin:10px 0}
+.write_footer .btnArea{float:right;margin:0}
+.write_option{margin:0 0 1em 0}
 .write_option label{margin:0 10px 0 0}
 
 /* Extra Form */
@@ -241,7 +242,7 @@
 /* _read.html | write_form.html | comment_form.html */
 .write_author{float:left;margin:0 4px 0 0}
 .write_author .item{position:relative;display:inline-block;_margin:0 4px 0 0;zoom:1}
-.write_author .iLabel{top:6px;left:5px;color:#666}
+.write_author .iLabel{top:4px;left:8px;color:#666}
 .write_author label{margin:0 10px 0 0}
 
 /* Write Comment */
