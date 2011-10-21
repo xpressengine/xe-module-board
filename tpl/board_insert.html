@@ -1,208 +1,167 @@
-<!--%import("filter/insert_board.xml")-->
-<!--%import("js/board_admin.js")-->
-<!--#include("header.html")-->
-<form action="./" method="post" onsubmit="return procFilter(this, insert_board)" enctype="multipart/form-data" class="form">
+<include target="header.html" />
+
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<form ruleset="insertBoard" class="form" action="./" method="post" enctype="multipart/form-data" class="form">
+	<input type="hidden" name="module" value="board" />
+	<input type="hidden" name="act" value="procBoardAdminInsertBoard" />
 	<input type="hidden" name="page" value="{$page}" />
 	<input type="hidden" name="module_srl" value="{$module_info->module_srl}" />
-	<div class="table">
-		<table width="100%" border="1" cellspacing="0">
-			
-			<!--@if($logged_info->is_admin!='Y')-->
-			<input type="hidden" name="mid" value="{$module_info->mid}" />
-		<!--@else-->
-		<tr>
-			<th scope="row">{$lang->mid}</th>
-			<td>
-				<input type="text" name="mid" value="{$module_info->mid}" />
-				<p>{$lang->about_mid}</p>
-			</td>
-		</tr>
-		<!--@end-->
-		<tr>
-			<th scope="row">{$lang->module_category}</th>
-			<td>
-				<select name="module_category_srl">
+	<input cond="$logged_info->is_admin != 'Y'" type="hidden" name="board_name" value="{$module_info->mid}" />
+
+	<ul>
+		<li cond="$logged_info->is_admin == 'Y'">
+			<p class="q"><label for="board_name">{$lang->mid}</label></p>
+			<p class="a"><input type="text" name="board_name" id="board_name" value="{$module_info->mid}" />
+			<p class="desc">{$lang->about_mid}</p>
+		</li>
+		<li>
+			<p class="q"><label for="module_category_srl">{$lang->module_category}</label></p>
+			<p class="a">
+				<select name="module_category_srl" id="module_category_srl">
 					<option value="0">{$lang->notuse}</option>
-					<!--@foreach($module_category as $key => $val)-->
-					<option value="{$key}" <!--@if($module_info->module_category_srl==$key)-->selected="selected"<!--@end-->>{$val->title}</option>
-					<!--@end-->
+					<option loop="$module_category => $key, $val" value="{$key}" selected="selected"|cond="$module_info->module_category_srl == $key">{$val->title}</option>
 				</select>
-				<p>{$lang->about_module_category}</p>
-			</td>
-		</tr>
-	
-		<tr>
-			<th scope="row">{$lang->browser_title}</th>
-			<td>
-				<input type="text" name="browser_title" value="{$module_info->browser_title}" id="browser_title"/>
-				<a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','browser_title')}" onclick="popopen(this.href);return false;">{$lang->cmd_find_langcode}</a>
-				<p>{$lang->about_browser_title}</p>
-			</td>
-		</tr>
-	
-		<tr>
-			<th scope="row">{$lang->layout}</th>
-			<td>
-				<select name="layout_srl">
-				<option value="0">{$lang->notuse}</option>
-				<!--@foreach($layout_list as $key => $val)-->
-				<option value="{$val->layout_srl}" <!--@if($module_info->layout_srl==$val->layout_srl)-->selected="selected"<!--@end-->>{$val->title} ({$val->layout})</option>
-				<!--@end-->
+			</p>
+			<p class="desc">{$lang->about_module_category}</p>
+		</li>
+		<li>
+			<p class="q"><label for="browser_title">{$lang->browser_title}</label></p>
+			<p class="a multiLangEdit">
+				{@$use_multilang = true}
+				<input type="hidden" name="browser_title" value="<!--@if(strpos($module_info->browser_title, '$user_lang->') === false)-->{$module_info->browser_title}<!--@else-->{htmlspecialchars($module_info->browser_title)}<!--@end-->" class="vLang" />
+				<input type="text" id="browser_title" value="{$module_info->browser_title}" class="vLang" />
+				<span class="desc"><a href="#langEdit" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
+			</p>
+			<p class="desc">{$lang->about_browser_title}</p>
+		</li>
+		<li>
+			<p class="q"><label for="layout_srl">{$lang->layout}</label></p>
+			<p class="a">
+				<select name="layout_srl" id="layout_srl">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$layout_list => $key, $val" value="{$key}" selected="selected"|cond="$module_info->layout_srl== $key">{$val->title} ({$val->layout})</option>
 				</select>
-				<p>{$lang->about_layout}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->skin}</th>
-			<td>
-				<select name="skin">
-					<!--@foreach($skin_list as $key=>$val)-->
-					<option value="{$key}" <!--@if($module_info->skin==$key ||(!$module_info->skin && $key=='xe_board'))-->selected="selected"<!--@end-->>{$val->title}</option>
-					<!--@end-->
+			</p>
+			<p class="desc">{$lang->about_layout}</p>
+		</li>
+		<li>
+			<p class="q"><label for="skin">{$lang->skin}</label></p>
+			<p class="a">
+				<select name="skin" id="skin">
+					<option loop="$skin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->skin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
 				</select>
-				<p>{$lang->about_skin}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->mobile_view}</th>
-			<td>
-				<input type="checkbox" name="use_mobile" value="Y" <!--@if($module_info->use_mobile == "Y")-->checked="checked"<!--@end--> />
-				<p>{$lang->about_mobile_view}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->mobile_layout}</th>
-			<td>
-				<select name="mlayout_srl">
-				<option value="0">{$lang->notuse}</option>
-				<!--@foreach($mlayout_list as $key => $val)-->
-				<option value="{$val->layout_srl}" <!--@if($module_info->mlayout_srl==$val->layout_srl)-->selected="selected"<!--@end-->>{$val->title} ({$val->layout})</option>
-				<!--@end-->
+			</p>
+			<p class="desc">{$lang->about_skin}</p>
+		</li>
+		<li>
+			<p class="q">{$lang->mobile_view}</p>
+			<p class="a"><input type="checkbox" name="use_mobile" id="use_mobile" value="Y" checked="checked"|cond="$module_info->use_mobile == 'Y'" /> <label for="use_mobile">{$lang->about_mobile_view}</label></p>
+		</li>
+		<li>
+			<p class="q"><label for="mlayout_srl">{$lang->mobile_layout}</label></p>
+			<p class="a">
+				<select name="mlayout_srl" id="layout_srl">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$mlayout_list => $key, $val" value="{$key}" selected="selected"|cond="$module_info->mlayout_srl== $key">{$val->title} ({$val->layout})</option>
 				</select>
-				<p>{$lang->about_layout}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->mobile_skin}</th>
-			<td>
-				<select name="mskin">
-					<!--@foreach($mskin_list as $key=>$val)-->
-					<option value="{$key}" <!--@if($module_info->mskin==$key ||(!$module_info->mskin && $key=='default'))-->selected="selected"<!--@end-->>{$val->title}</option>
-					<!--@end-->
+			</p>
+			<p class="desc">{$lang->about_layout}</p>
+		</li>
+		<li>
+			<p class="q"><label for="mskin">{$lang->mobile_skin}</label></p>
+			<p class="a">
+				<select name="mskin" id="mskin">
+					<option loop="$mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->mskin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
 				</select>
-				<p>{$lang->about_skin}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->use_category}</th>
-			<td>
-				<input type="checkbox" name="use_category" value="Y" <!--@if($module_info->use_category=='Y')-->checked="checked"<!--@end-->  class="checkbox" id="fld_for_category" />
-				<label for="fld_for_category">{$lang->about_use_category}</label>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->order_target}</th>
-			<td>
-				<select name="order_target">
-					<!--@foreach($order_target as $key => $val)-->
-					<option value="{$key}" <!--@if($module_info->order_target == $key)-->selected="selected"<!--@end-->>{$val}</option>
-					<!--@end-->
+			</p>
+			<p class="desc">{$lang->about_skin}</p>
+		</li>
+		<li>
+			<p class="q">{$lang->use_category}</p>
+			<p class="a"><input type="checkbox" name="use_category" id="use_category" value="Y" checked="checked"|cond="$module_info->use_category == 'Y'" /> <label for="use_category">{$lang->about_use_category}</label></p>
+		</li>
+		<li>
+			<p class="q"><label for="order_target">{$lang->order_target}</label></p>
+			<p class="a">
+				<select name="order_target" id="order_target">
+					<option loop="$order_target=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->order_target== $key">{$val}</option>
 				</select>
-	
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->order_type}</th>
-			<td>
-				<select name="order_type">
-					<option value="asc" <!--@if($module_info->order_type != 'desc')-->selected="selected"<!--@end-->>{$lang->order_asc}</option>
-					<option value="desc" <!--@if($module_info->order_type == 'desc')-->selected="selected"<!--@end-->>{$lang->order_desc}</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->list_count}</th>
-			<td>
-				<input type="text" name="list_count" value="{$module_info->list_count?$module_info->list_count:20}"  />
-				<p>{$lang->about_list_count}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->search_list_count}</th>
-			<td>
-				<input type="text" name="search_list_count" value="{$module_info->search_list_count?$module_info->search_list_count:20}"  />
-				<p>{$lang->about_search_list_count}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->page_count}</th>
-			<td>
-				<input type="text" name="page_count" value="{$module_info->page_count?$module_info->page_count:10}"  />
-				<p>{$lang->about_page_count}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->except_notice}</th>
-			<td>
-				<input type="checkbox" name="except_notice" value="Y" <!--@if($module_info->except_notice!='N')-->checked="checked"<!--@end--> />
-				<p>{$lang->about_except_notice}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->use_anonymous}</th>
-			<td>
-				<input type="checkbox" name="use_anonymous" value="Y" <!--@if($module_info->use_anonymous=='Y')-->checked="checked"<!--@end--> />
-				<p>{$lang->about_use_anonymous}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->consultation}</th>
-			<td>
-				<input type="checkbox" name="consultation" value="Y" <!--@if($module_info->consultation=='Y')-->checked="checked"<!--@end--> />
-				<p>{nl2br($lang->about_consultation)}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->status}</th>
-			<td>
-				<!--@foreach($document_status_list AS $key=>$value)-->
-				<!--@if($key != 'PRIVATE' && $key != 'TEMP')--><input type="checkbox" name="use_status" value="{$key}" <!--@if(in_array($key, $module_info->use_status))-->checked<!--@end--> /> {$value}<!--@end-->
-				<!--@end-->
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->admin_mail}</th>
-			<td>
-				<input type="text" name="admin_mail" value="{$module_info->admin_mail}"  />
-				<p>{$lang->about_admin_mail}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->description}</th>
-			<td>
-				<textarea name="description">{htmlspecialchars($module_info->description)}</textarea>
-				<p>{$lang->about_description}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->header_text}</th>
-			<td>
-				<textarea name="header_text" id="header_text">{htmlspecialchars($module_info->header_text)}</textarea>
-				<a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','header_text')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting"><span>{$lang->cmd_find_langcode}</span></a>
-				<p>{$lang->about_header_text}</p>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->footer_text}</th>
-			<td>
-				<textarea name="footer_text" id="footer_text">{htmlspecialchars($module_info->footer_text)}</textarea>
-				<a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','footer_text')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting"><span>{$lang->cmd_find_langcode}</span></a>
-				<p>{$lang->about_footer_text}</p>
-			</td>
-		</tr>
-		</table>
-	</div>
+			</p>
+		</li>
+		<li>
+			<p class="q"><label for="list_count">{$lang->list_count}</label></p>
+			<p class="a"><input type="text" name="list_count" id="list_count" value="{$module_info->list_count?$module_info->list_count:20}" /></p>
+			<p class="desc">{$lang->about_list_count}</p>
+		</li>
+		<li>
+			<p class="q"><label for="search_list_count">{$lang->search_list_count}</label></p>
+			<p class="a"><input type="text" name="search_list_count" id="search_list_count" value="{$module_info->search_list_count?$module_info->search_list_count:20}" /></p>
+			<p class="desc">{$lang->about_search_list_count}</p>
+		</li>
+		<li>
+			<p class="q"><label for="page_count">{$lang->page_count}</label></p>
+			<p class="a"><input type="text" name="page_count" id="page_count" value="{$module_info->page_count?$module_info->page_count:20}" /></p>
+			<p class="desc">{$lang->about_page_count}</p>
+		</li>
+		<li>
+			<p class="q">{$lang->except_notice}</p>
+			<p class="a"><input type="checkbox" name="except_notice" id="except_notice" value="Y" checked="checked"|cond="$module_info->except_notice != 'N'" /> <label for="except_notice">{$lang->about_except_notice}</label></p>
+		</li>
+		<li>
+			<p class="q">{$lang->use_anonymous}</p>
+			<p class="a"><input type="checkbox" name="use_anonymous" id="use_anonymous" value="Y" checked="checked"|cond="$module_info->use_anonymous == 'Y'" /> <label for="use_anonymous">{$lang->about_use_anonymous}</label></p>
+		</li>
+		<li>
+			<p class="q">{$lang->consultation}</p>
+			<p class="a"><input type="checkbox" name="consultation" id="consultation" value="Y" checked="checked"|cond="$module_info->consultation == 'Y'" /> <label for="consultation">{$lang->about_consultation}</label></p>
+		</li>
+		<li>
+			<p class="q">{$lang->status}</p>
+			<p class="a">
+				<block loop="$document_status_list => $key, $value">
+					<block cond="$key != 'PRIVATE' && $key != 'TEMP'">
+						<input type="checkbox" name="use_status" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status)" /> <label for="{$key}">{$value}</label>
+					</block>
+				</block>
+			</p>
+			<p class="desc">글 작성 시 선택할 수 있는 상태를 지정해주세요.</p>
+		</li>
+		<li>
+			<p class="q"><label for="admin_mail">{$lang->admin_mail}</label></p>
+			<p class="a"><input type="text" name="admin_mail" id="admin_mail" value="{$module_info->admin_mail}" /></p>
+			<p class="desc">{$lang->about_admin_mail}</p>
+		</li>
+		<li>
+			<p class="q"><label for="description">{$lang->description}</label></p>
+			<p class="a"><textarea name="description" id="description">{htmlspecialchars($module_info->description)}</textarea></p>
+			<p class="desc">{$lang->about_description}</p>
+		</li>
+		<li>
+			<p class="q"><label for="header_text">{$lang->header_text}</label></p>
+			<p class="a multiLangEdit">
+				{@$use_multilang_textarea = true}
+				<input type="hidden" name="header_text" value="<!--@if(strpos($module_info->header_text, '$user_lang->') === false)-->{$module_info->header_text}<!--@else-->{htmlspecialchars($module_info->header_text)}<!--@end-->" class="vLang" />
+				<textarea id="header_text" class="vLang">{$module_info->header_text}</textarea>
+				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
+			</p>
+			<p class="desc">{$lang->about_header_text}</p>
+		</li>
+		<li>
+			<p class="q"><label for="footer_text">{$lang->footer_text}</label></p>
+			<p class="a multiLangEdit">
+				<input type="hidden" name="footer_text" value="<!--@if(strpos($module_info->footer_text, '$user_lang->') === false)-->{$module_info->footer_text}<!--@else-->{htmlspecialchars($module_info->footer_text)}<!--@end-->" class="vLang" />
+				<textarea id="footer_text" class="vLang">{$module_info->footer_text}</textarea>
+				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
+			</p>
+			<p class="desc">{$lang->about_footer_text}</p>
+		</li>
+	</ul>
+
 	<div class="btnArea">
 		<span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
 	</div>
+	<include target="../../module/tpl/include.multilang.html" />
+	<include target="../../module/tpl/include.multilang.textarea.html" />
 </form>

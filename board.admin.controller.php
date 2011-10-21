@@ -52,9 +52,8 @@
 
             if(!$output->toBool()) return $output;
 
-            $this->add('page',Context::get('page'));
-            $this->add('module_srl',$output->get('module_srl'));
             $this->setMessage($msg_code);
+			$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
         }
 
         /**
