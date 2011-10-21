@@ -73,8 +73,6 @@
             /**
              * 목록보기 권한 체크 (모든 권한은 ModuleObject에서 xml 정보와 module_info의 grant 값을 비교하여 미리 설정하여 놓음)
              **/
-
-
             if(!$this->grant->access || !$this->grant->list) return $this->dispBoardMessage('msg_not_permitted');
 
             /**
@@ -336,7 +334,7 @@
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			$defaultColumn = array('document_srl', 'module_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate');
+			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate');
 			if (in_array('last_post', $configColumList)){
 				array_push($this->columnList, 'last_updater');
 			}
