@@ -90,6 +90,8 @@
 
             $oModuleController = &getController('module');
             $oModuleController->insertModulePartConfig('board', $module_srl, $list_arr);
+
+			$this->setRedirectUrl(Context::get('success_return_url'));
         }
     }
 ?>

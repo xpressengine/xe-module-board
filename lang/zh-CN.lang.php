@@ -15,7 +15,7 @@
     $lang->thumbnail = '섬네일';
     $lang->last_post = '최종 글';
 	$lang->board_management = '게시판 관리';
-	
+
 
 
     // 项目
@@ -31,6 +31,7 @@
     $lang->cmd_view_info = '版面信息';
     $lang->cmd_list_setting = '列表设置';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // 信息、提示..
     $lang->about_layout_setup = '可直接编辑博客布局代码。可以把控件代码插入到您喜欢的位置。';
@@ -42,6 +43,7 @@
     $lang->about_secret = '设置主题及评论当中使用密帖与否。';
     $lang->about_admin_mail = '有新的主题或评论时，将自动发电子邮件来通知管理员。<br />多数电子邮件由逗号(,)来分隔。';
     $lang->about_list_config = '设置使用目录型目录页面时要显示的项目。<br />前提是使用的皮肤也支持此功能。<br />添加/删除项目，双击备选项/显示项即可。';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = '很遗憾！您的积分不够。';
 	$lang->write_comment = 'Write a comment';

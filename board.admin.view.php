@@ -69,15 +69,49 @@
             $args->page_count = 10;
             $args->s_module_category_srl = Context::get('module_category_srl');
 
-			$s_mid = Context::get('s_mid');
-			if($s_mid) $args->s_mid = $s_mid;
+			$search_target = Context::get('search_target');
+			$search_keyword = Context::get('search_keyword');
 
-			$s_browser_title = Context::get('s_browser_title');
-			if($s_browser_title) $args->s_browser_title = $s_browser_title;
+			switch ($search_target){
+				case 'mid':
+					$args->s_mid = $search_keyword;
+					break;
+				case 'browser_title':
+					$args->s_browser_title = $search_keyword;
+					break;
+			}
 
             $output = executeQueryArray('board.getBoardList', $args);
             ModuleModel::syncModuleToSite($output->data);
 
+			// 스킨 목록을 구해옴
+            $oModuleModel = &getModel('module');
+            $skin_list = $oModuleModel->getSkins($this->module_path);
+            Context::set('skin_list',$skin_list);
+
+			$mskin_list = $oModuleModel->getSkins($this->module_path, "m.skins");
+			Context::set('mskin_list', $mskin_list);
+
+            // 레이아웃 목록을 구해옴
+            $oLayoutModel = &getModel('layout');
+            $layout_list = $oLayoutModel->getLayoutList();
+            Context::set('layout_list', $layout_list);
+
+			$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
+			Context::set('mlayout_list', $mobile_layout_list);
+
+			Context::set('module_srls', 'dummy');
+			// pre-define variables because you can get contents from other module (call by reference)
+            $content = '';
+            // Call a trigger for additional settings
+            // Considering uses in the other modules, trigger name cen be publicly used
+            ModuleHandler::triggerCall('module.dispAdditionSetup', 'before', $content);
+            ModuleHandler::triggerCall('module.dispAdditionSetup', 'after', $content);
+            Context::set('setup_content', $content);
+
+			$oModuleAdminModel = &getAdminModel('module');
+            $grant_content = $oModuleAdminModel->getModuleGrantHTML($this->module_info->module_srl, $this->xml_info->grant);
+            Context::set('grant_content', $grant_content);
 
             // 템플릿에 쓰기 위해서 context::set
             Context::set('total_count', $output->total_count);
@@ -88,6 +122,9 @@
 
 			$security = new Security();
 			$security->encodeHTML('board_list..browser_title','board_list..mid');
+			$security->encodeHTML('skin_list..title','mskin_list..title');
+			$security->encodeHTML('layout_list..title','layout_list..layout');
+			$security->encodeHTML('mlayout_list..title','mlayout_list..layout');
 
             // 템플릿 파일 지정
             $this->setTemplateFile('index');

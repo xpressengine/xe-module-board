@@ -36,6 +36,7 @@
     $lang->cmd_view_info = 'Информация форума';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // blah blah.. или чушь всякая... ;)
     $lang->about_layout_setup = 'Вы можете вручную изменять лейаут код блога. Вставляйте или управляйте кодом виджетов везде, где хотите';
@@ -47,6 +48,7 @@
     $lang->about_secret = '게시판 및 댓글의 비밀글 사용할 수 있도록 합니다.';
     $lang->about_admin_mail = '글이나 댓글이 등록될때 등록된 메일주소로 메일이 발송됩니다<br /> ,(콤마)로 연결시 다수의 메일주소로 발송할 수 있습니다.';
     $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다.<br />단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다<br />대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';
 	$lang->write_comment = 'Write a comment';

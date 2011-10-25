@@ -29,6 +29,7 @@
     $lang->cmd_view_info = '討論板資料';
     $lang->cmd_list_setting = '列表設定';
     $lang->cmd_create_board = '建立討論板';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // 其他
     $lang->about_layout_setup = '可直接編輯部落格版面設計原始碼。可把 Widget 原始碼插入到您喜歡的位置。';
@@ -40,6 +41,7 @@
     $lang->about_secret = '可用於討論板或回覆時選擇是否使用。';
     $lang->about_admin_mail = '有新的主題或評論時，將自動發電子郵件來通知管理員。<br />多數電子郵件由逗號(,)區隔。';
     $lang->about_list_config = '可以放置想要的項目種類。<br />當所使用的面板支援此功能時才會正常實現。<br />對目標項目/顯示項目中的物件按兩下可新增或移除。';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = '你的點數不夠在此討論板發表主題。';
 

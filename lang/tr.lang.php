@@ -30,6 +30,7 @@
     $lang->cmd_view_info = 'Pano Bilgisi';
     $lang->cmd_list_setting = 'Liste Ayarları';
     $lang->cmd_create_board = 'Yeni pano oluştur';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // blah blah..
     $lang->about_layout_setup = 'Pano yerleşim düzeni kodunu kendiniz değiştirebilirsiniz. Widget kodunu, istediğiniz yere yerleştirebilir veya yönetebilirsiniz.';
@@ -41,6 +42,7 @@
     $lang->about_secret = 'Kullanıcılar gizli makaleler veya gizli yorumlar yazabileceklerdir.';
     $lang->about_admin_mail = 'Makale ya da yorum gönderildiğinde e-posta gönderilecektir.<br />Çoklu mailler noktalarla(,) ayrılıp gönderilecektir.';
     $lang->about_list_config = 'Eğer liste-tarzı dış görünüm kullanıyorsanız, gösterilecek parçaları düzenleyebilirsiniz.<br />Fakat; bu özellik resmi olmayan dış görünümler için mevcut olmayabilir.<br />Parçalara çift tıklamak ekleme/çıkarma özelliği sağlayacaktır.';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Bu panoya makele yazmak için yeterli puanınız bulunmamaktadır.';
 

@@ -31,6 +31,7 @@
     $lang->cmd_view_info = 'Information des Panneaux';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // murmure..
     $lang->about_layout_setup = 'Vous pouvez manuellement modifier le code de Mise en Page du blogue. Insérez ou administrez le code de Gadget n\'importe où vous voulez.';
@@ -42,6 +43,7 @@
     $lang->about_secret = '게시판 및 댓글의 비밀글 사용할 수 있도록 합니다.';
     $lang->about_admin_mail = 'Un message éléctronique sera envoyé à l\'adresse inscrite quand un article ou commentaire se soumet. <br />On peut inscrire multiple adresses délimité par les virgules.';
     $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다.<br />단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다<br />대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';
 	$lang->write_comment = 'Write a comment';

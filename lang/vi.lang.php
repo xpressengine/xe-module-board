@@ -6,7 +6,7 @@
 			░░	* @Website:  http://xpressengine.vn												  ░░
 			░░  * @Brief  :  Vietnamese Language Pack (Only basic words are included here)        ░░
 			░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░	   		*/
-			
+
     $lang->board = 'Board';
 
     $lang->except_notice = 'Trừ những thông báo';
@@ -33,6 +33,7 @@
     $lang->cmd_view_info = 'Xem thông tin Board';
     $lang->cmd_list_setting = 'Điều chỉnh danh sách';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // blah blah..
     $lang->about_layout_setup = 'Bạn có thể tự sửa đổi code trong giao diện của Board. Chèn hay tùy chỉnh vị trí, code của các Widget nếu bạn muốn.';
@@ -44,6 +45,7 @@
     $lang->about_secret = 'Người dùng được phép đặt bí mật cho bài viết hay bình luận của mình.';
     $lang->about_admin_mail = 'Một Email sẽ được gửi khi có bài viết hay bình luận mới.<br />Có thể gửi cho nhiều Email cách nhau bằng dấu (,).';
     $lang->about_list_config = 'Nếu sử dụng danh sách giao diện, bạn có thể sắp xếp các mục hiển thị.<br />Tuy nhiên, tính năng này không sử dụng được cho giao diện chính thức.<br />Nếu bạn bấm 2 lần vào các mục sẽ kích hoạt chức năng thêm hay xóa chúng.';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Điểm của bạn chưa đủ để gửi bài tại đây!';
 	$lang->write_comment = 'Write a comment';

@@ -29,6 +29,7 @@
     $lang->cmd_view_info = '게시판 정보';
     $lang->cmd_list_setting = '목록설정';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = '선택한 게시판 관리...';
 
     // 주절 주절..
     $lang->about_layout_setup = '블로그의 레이아웃 코드를 직접 수정할 수 있습니다. 위젯 코드를 원하는 곳에 삽입하시거나 관리하세요';
@@ -40,6 +41,7 @@
     $lang->about_secret = '게시판 및 댓글의 비밀글 사용할 수 있도록 합니다.';
     $lang->about_admin_mail = '글이나 댓글이 등록될때 등록된 메일주소로 메일이 발송됩니다. 콤마(,)로 연결시 다수의 메일주소로 발송할 수 있습니다.';
     $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다. 단 스킨에서 지원하지 않는 경우 불가능합니다.';
+	$lang->about_use_status = '글 작성 시 선택할 수 있는 상태를 지정해주세요.';
 
     $lang->msg_not_enough_point = '포인트가 부족합니다';
 

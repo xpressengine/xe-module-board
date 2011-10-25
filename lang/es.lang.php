@@ -16,7 +16,7 @@
     $lang->thumbnail = '섬네일';
     $lang->last_post = '최종 글';
 	$lang->board_management = '게시판 관리';
-	
+
 
     $lang->cmd_remake_cache = 'Rehacer archivo caché';
     $lang->cmd_layout_setup = 'Configuración del diseño';
@@ -35,6 +35,7 @@
     $lang->cmd_view_info = 'Información del Tablero';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // bla bla...
     $lang->about_layout_setup = 'Puede modificar manualmente el código del diseño de tableros. Insertar o modificar el código de widget.';
@@ -46,6 +47,7 @@
     $lang->about_secret = 'Boletín y los comentarios de bimilgeul utilizar.';
     $lang->about_admin_mail = 'Comentarios por e-mail registrado geulyina cuando la inscripción se enviará a <br />, (coma) como una conexión, puede enviar a varios e-mail.';
     $lang->about_list_config = 'Boletín de la lista, utilice el tipo de elemento que desee, puede colocar. <br /> Si no está sólo apoyada por la piel no puede ser apoyada <br /> meta de entrada y mostrar el tema cuando hace doble clic en la entrada en Agregar o quitar es.';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';
 	$lang->write_comment = 'Write a comment';

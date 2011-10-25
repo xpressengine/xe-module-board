@@ -15,7 +15,7 @@
     $lang->thumbnail = 'サムネール';
     $lang->last_post = '最新投稿';
 	$lang->board_management = '게시판 관리';
-	
+
 
     // 項目
     $lang->search_result = '検索結果';
@@ -30,6 +30,7 @@
     $lang->cmd_view_info = '掲示板情報';
     $lang->cmd_list_setting = 'リストの設定';
     $lang->cmd_create_board = '게시판 등록';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
 
     // その他
     $lang->about_layout_setup = 'ブログのレイアウトのコードを直接修正します。ウィジェットコードを好きなところに入力、又は管理して下さい。';
@@ -41,6 +42,7 @@
     $lang->about_secret = '掲示板およびコメントの非公開文を登録出来るようにします。';
     $lang->about_admin_mail = '書き込みやコメントが掲載される時、登録メールアドレス宛にメールが送信されます。<br /> 複数のメールアドレスへ送信する場合は「,」(半額コンマ)区切りで登録して下さい。';
     $lang->about_list_config = '掲示板スタイルが「リスト型」の場合、好きな列の項目配置・表示が出来ます。<br />ただし、スキンによってはサポートしない場合もあります。<br />ターゲットアイテム／表示アイテムをダブルクリックすると追加・削除が出来ます。';
+	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = '書き込みするためのポイントが足りません。';
 	$lang->write_comment = 'Write a comment';

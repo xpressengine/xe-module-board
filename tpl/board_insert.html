@@ -3,6 +3,7 @@
 <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
 	<p>{$XE_VALIDATOR_MESSAGE}</p>
 </div>
+
 <form ruleset="insertBoard" class="form" action="./" method="post" enctype="multipart/form-data" class="form">
 	<input type="hidden" name="module" value="board" />
 	<input type="hidden" name="act" value="procBoardAdminInsertBoard" />
@@ -41,7 +42,7 @@
 			<p class="a">
 				<select name="layout_srl" id="layout_srl">
 					<option value="0">{$lang->notuse}</option>
-					<option loop="$layout_list => $key, $val" value="{$key}" selected="selected"|cond="$module_info->layout_srl== $key">{$val->title} ({$val->layout})</option>
+					<option loop="$layout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$module_info->layout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
 				</select>
 			</p>
 			<p class="desc">{$lang->about_layout}</p>
@@ -122,11 +123,11 @@
 			<p class="a">
 				<block loop="$document_status_list => $key, $value">
 					<block cond="$key != 'PRIVATE' && $key != 'TEMP'">
-						<input type="checkbox" name="use_status" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status)" /> <label for="{$key}">{$value}</label>
+						<input type="checkbox" name="use_status" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status) || ($key == 'PUBLIC' && !$module_srl)" /> <label for="{$key}">{$value}</label>
 					</block>
 				</block>
 			</p>
-			<p class="desc">글 작성 시 선택할 수 있는 상태를 지정해주세요.</p>
+			<p class="desc">{$lang->about_use_status}</p>
 		</li>
 		<li>
 			<p class="q"><label for="admin_mail">{$lang->admin_mail}</label></p>
