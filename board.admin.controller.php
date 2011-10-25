@@ -53,7 +53,11 @@
             if(!$output->toBool()) return $output;
 
             $this->setMessage($msg_code);
-			$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
+			if (Context::get('success_return_url')){
+				$this->setRedirectUrl(Context::get('success_return_url'));
+			}else{
+				$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
+			}
         }
 
         /**
