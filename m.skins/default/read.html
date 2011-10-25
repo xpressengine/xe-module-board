@@ -3,12 +3,13 @@
 {@ Context::addJsFile("./common/js/common.js", true, '', -100000) }
 {@ Context::addJsFile("./common/js/xml_handler.js", true, '', -100000) }
 {@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
+{@ Context::loadLang('./modules/board/m.skins/default/lang')}
 <!--%import("js/mboard.js")-->
 <!--%import("css/mboard.css")-->
 <div class="hx h2">
 	<h2><a href="{getUrl('document_srl','','category','','page','')}">{$module_info->browser_title}</a> 
 		<!--@if($module_info->use_category == "Y" && $oDocument->get('category_srl'))-->&rsaquo; <a href="{getUrl('document_srl','','category',$oDocument->get('category_srl'))}">{$category_list[$oDocument->get('category_srl')]->title}</a><!--@end--> &rsaquo; {$oDocument->getTitle()}</h2>
-	<span class="ex">{$oDocument->getNickName()} | {$oDocument->getRegdate()} | <a href="#skip_co">본문 건너뛰기</a></span>
+	<span class="ex">{$oDocument->getNickName()} | {$oDocument->getRegdate()} | <a href="#skip_co">{$lang->skip_to_content}</a></span>
 	<a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="write">{$lang->cmd_write}</a>
 </div>
 <div class="co">
