@@ -338,6 +338,11 @@
 			if (in_array('last_post', $configColumList)){
 				array_push($this->columnList, 'last_updater');
 			}
+
+			// add is_notice
+			if ($this->except_notice) {
+				array_push($this->columnList, 'is_notice');
+			}
 			$this->columnList = array_merge($this->columnList, $defaultColumn);
 		}
 
