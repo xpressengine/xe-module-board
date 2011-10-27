@@ -25,6 +25,7 @@
             $args = Context::getRequestVars();
             $args->module = 'board';
             $args->mid = $args->board_name;
+			if(is_array($args->use_status)) $args->use_status = implode('|@|', $args->use_status);
             unset($args->board_name);
 
             // 기본 값외의 것들을 정리

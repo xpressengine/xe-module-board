@@ -131,9 +131,11 @@
 		<li>
 			<p class="q">{$lang->status}</p>
 			<p class="a">
+				<input type="hidden" name="use_status[]" value="PUBLIC" />
+				<input type="checkbox" name="" value="" checked="checked" disabled="disabled" /> {$document_status_list['PUBLIC']}
 				<block loop="$document_status_list => $key, $value">
-					<block cond="$key != 'PRIVATE' && $key != 'TEMP'">
-						<input type="checkbox" name="use_status" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status) || ($key == 'PUBLIC' && !$module_srl)" /> <label for="{$key}">{$value}</label>
+					<block cond="$key != 'PRIVATE' && $key != 'TEMP' && $key != 'PUBLIC'">
+						<input type="checkbox" name="use_status[]" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status) || ($key == 'PUBLIC' && !$module_srl)" /> <label for="{$key}">{$value}</label>
 					</block>
 				</block>
 			</p>

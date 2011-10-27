@@ -45,7 +45,7 @@
 			</block>
 		<!--@if(is_array($status_list))-->
 			<!--@foreach($status_list AS $key=>$value)-->
-			<input type="radio" name="status" value="{$key}" id="{$key}" <!--@if($oDocument->get('status') == $key)-->checked="checked"<!--@end--> /> 
+			<input type="radio" name="status" value="{$key}" id="{$key}" <!--@if($oDocument->get('status') == $key || ($key == 'PUBLIC' && !$document_srl))-->checked="checked"<!--@end--> /> 
 			<label for="{$key}">{$value}</label>
 			<!--@end-->
 		<!--@end-->
