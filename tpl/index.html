@@ -4,29 +4,6 @@
 	<p>{$XE_VALIDATOR_MESSAGE}</p>
 </div>
 
-<div cond="count($module_category)" class="easyNav">
-	<div class="category">
-		<h2>{$lang->module_category}</h2>
-		<ul>
-			<li>
-				<strong cond="!isset($module_category_srl)">{$lang->all}</strong>
-				<a cond="isset($module_category_srl)" href="{getUrl('module_category_srl', '')}">{$lang->all}</a>
-			</li>
-			<li>
-				<strong cond="$module_category_srl==='0'">{$lang->not_exists}</strong>
-				<a cond="$module_category_srl!=='0'" href="{getUrl('module_category_srl', '0')}">{$lang->not_exists}</a>
-			</li>
-			<li loop="$module_category => $key, $val">
-				<strong cond="$module_category_srl==$key">{$val->title}</strong>
-				<a cond="$module_category_srl!=$key" href="{getUrl('module_category_srl', $key)}">{$val->title}</a>
-			</li>
-		</ul>
-	</div>
-	<p class="filter">
-		<a href="{getUrl('', 'module', 'admin', 'act', 'dispModuleAdminCategory')}">{$lang->cmd_management}</a>
-	</p>
-</div>
-
 <div class="table even">
 	<form class="form">
 		<table width="100%" border="1" cellspacing="0">
@@ -127,6 +104,11 @@
 	<input type="hidden" name="module" value="{$module}" />
 	<input type="hidden" name="act" value="{$act}" />
 	<input type="hidden" name="error_return_url" value="" />
+		<select  cond="count($module_category)"name="module_category_srl">
+			<option value="">{$lang->module_category}</option>
+			<option value="0" selected="selected"|cond="$module_category_srl==='0'">{$lang->not_exists}</option>
+			<option value="{$key}" loop="$module_category => $key,$val"  selected="selected"|cond="$module_category==$key">{$val->title}</option>
+		</select>
 		<select name="search_target">
 			<option value="">{$lang->search_target}</option>
 			<option value="mid" selected="selected"|cond="$search_target=='mid'">{$lang->mid}</option>
