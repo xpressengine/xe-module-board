@@ -49,7 +49,7 @@
 .board_list tr:last-child td{border:0}
 .board_list td.notice{text-align:center}
 .board_list td.no{text-align:center;font:11px Tahoma, Geneva, sans-serif}
-.board_list td.title{white-space:normal;line-height:1.4}
+.board_list td.title{white-space:normal;line-height:1.4;word-break:break-all}
 .board_list td.author img{position:relative;top:-1px}
 .board_list td.time,
 .board_list td.readNum,
