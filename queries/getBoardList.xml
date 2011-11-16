@@ -6,7 +6,7 @@
         <column name="*" />
     </columns>
     <conditions>
-        <condition operation="in" column="module" default="'board','guestbook','blog'" />
+        <condition operation="equal" column="module" default="board" />
         <group pipe="and">
             <condition operation="like" column="mid" var="s_mid" pipe="or" />
             <condition operation="like" column="browser_title" var="s_browser_title" pipe="or" />
