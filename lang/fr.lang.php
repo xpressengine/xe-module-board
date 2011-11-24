@@ -41,8 +41,8 @@
     $lang->about_board = 'Ce module se sert à créer et à administrer des Panneaux d\'Affichage.';
     $lang->about_consultation = "Les membres non-administratifs verront seulement les ariticles d\'eux-même.\nNon-membres ne pourraient pas écrire des articles quand la Consultation est appliqué.";
     $lang->about_secret = '게시판 및 댓글의 비밀글 사용할 수 있도록 합니다.';
-    $lang->about_admin_mail = 'Un message éléctronique sera envoyé à l\'adresse inscrite quand un article ou commentaire se soumet. <br />On peut inscrire multiple adresses délimité par les virgules.';
-    $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다.<br />단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다<br />대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.';
+    $lang->about_admin_mail = 'Un message éléctronique sera envoyé à l\'adresse inscrite quand un article ou commentaire se soumet.  On peut inscrire multiple adresses délimité par les virgules.';
+    $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다. 단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다 대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.';
 	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Your point is not enough to write an article in this board.';

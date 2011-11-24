@@ -34,14 +34,14 @@
 
     // blah blah..
     $lang->about_layout_setup = 'Pano yerleşim düzeni kodunu kendiniz değiştirebilirsiniz. Widget kodunu, istediğiniz yere yerleştirebilir veya yönetebilirsiniz.';
-    $lang->about_board_category = 'Pano kategorileri oluşturabilirsiniz.<br />Pano kategorisi bozulduğunda, önbellek dosyasını yeniden kurmayı deneyiniz.';
+    $lang->about_board_category = 'Pano kategorileri oluşturabilirsiniz. Pano kategorisi bozulduğunda, önbellek dosyasını yeniden kurmayı deneyiniz.';
     $lang->about_except_notice = 'Bildiri makaleleri normal listede görüntülenmeyecektir.';
-    $lang->about_use_anonymous = 'Bu panoyu, yazar bilgisini saklayarak anonim pano haline dönüştür.<br /><strong>Lütfen ek ayarlardan geçmiş\'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.</strong>';
+    $lang->about_use_anonymous = 'Bu panoyu, yazar bilgisini saklayarak anonim pano haline dönüştür. <strong>Lütfen ek ayarlardan geçmiş\'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.</strong>';
     $lang->about_board = 'Bu modül, pano oluşturmak ve panoları yönetmek içindir.';
     $lang->about_consultation = "Yönetici olmayan üyeler, kendi makalelerini görebileceklerdir.\nÜye olmayan kullanıcılar başvuruyu kullanıp, makale yazamayacaklardır.";
     $lang->about_secret = 'Kullanıcılar gizli makaleler veya gizli yorumlar yazabileceklerdir.';
-    $lang->about_admin_mail = 'Makale ya da yorum gönderildiğinde e-posta gönderilecektir.<br />Çoklu mailler noktalarla(,) ayrılıp gönderilecektir.';
-    $lang->about_list_config = 'Eğer liste-tarzı dış görünüm kullanıyorsanız, gösterilecek parçaları düzenleyebilirsiniz.<br />Fakat; bu özellik resmi olmayan dış görünümler için mevcut olmayabilir.<br />Parçalara çift tıklamak ekleme/çıkarma özelliği sağlayacaktır.';
+    $lang->about_admin_mail = 'Makale ya da yorum gönderildiğinde e-posta gönderilecektir. Çoklu mailler noktalarla(,) ayrılıp gönderilecektir.';
+    $lang->about_list_config = 'Eğer liste-tarzı dış görünüm kullanıyorsanız, gösterilecek parçaları düzenleyebilirsiniz. Fakat; bu özellik resmi olmayan dış görünümler için mevcut olmayabilir. Parçalara çift tıklamak ekleme/çıkarma özelliği sağlayacaktır.';
 	$lang->about_use_status = 'Please select status that can be selected when write article.';
 
     $lang->msg_not_enough_point = 'Bu panoya makele yazmak için yeterli puanınız bulunmamaktadır.';
