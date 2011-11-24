@@ -30,7 +30,7 @@
     $lang->cmd_view_info = 'Pano Bilgisi';
     $lang->cmd_list_setting = 'Liste Ayarları';
     $lang->cmd_create_board = 'Yeni pano oluştur';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // blah blah..
     $lang->about_layout_setup = 'Pano yerleşim düzeni kodunu kendiniz değiştirebilirsiniz. Widget kodunu, istediğiniz yere yerleştirebilir veya yönetebilirsiniz.';

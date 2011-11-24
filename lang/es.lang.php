@@ -35,7 +35,7 @@
     $lang->cmd_view_info = 'Información del Tablero';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = '게시판 등록';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // bla bla...
     $lang->about_layout_setup = 'Puede modificar manualmente el código del diseño de tableros. Insertar o modificar el código de widget.';

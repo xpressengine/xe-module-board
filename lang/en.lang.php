@@ -31,7 +31,7 @@
     $lang->cmd_view_info = 'Board Info';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = 'Create a new board';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // blah blah..
     $lang->about_layout_setup = 'You can manually modify board layout code. Insert or manage the widget code anywhere you want';

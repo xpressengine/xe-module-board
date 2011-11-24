@@ -31,7 +31,7 @@
     $lang->cmd_view_info = 'Information des Panneaux';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = '게시판 등록';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // murmure..
     $lang->about_layout_setup = 'Vous pouvez manuellement modifier le code de Mise en Page du blogue. Insérez ou administrez le code de Gadget n\'importe où vous voulez.';

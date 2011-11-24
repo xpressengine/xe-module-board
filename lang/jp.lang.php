@@ -30,7 +30,7 @@
     $lang->cmd_view_info = '掲示板情報';
     $lang->cmd_list_setting = 'リストの設定';
     $lang->cmd_create_board = '게시판 등록';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // その他
     $lang->about_layout_setup = 'ブログのレイアウトのコードを直接修正します。ウィジェットコードを好きなところに入力、又は管理して下さい。';

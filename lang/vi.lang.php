@@ -33,7 +33,7 @@
     $lang->cmd_view_info = 'Xem thông tin Board';
     $lang->cmd_list_setting = 'Điều chỉnh danh sách';
     $lang->cmd_create_board = '게시판 등록';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // blah blah..
     $lang->about_layout_setup = 'Bạn có thể tự sửa đổi code trong giao diện của Board. Chèn hay tùy chỉnh vị trí, code của các Widget nếu bạn muốn.';

@@ -36,7 +36,7 @@
     $lang->cmd_view_info = 'Информация форума';
     $lang->cmd_list_setting = 'List Setting';
     $lang->cmd_create_board = '게시판 등록';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board...';
+	$lang->cmd_manage_selected_board = 'Manage Selected Board';
 
     // blah blah.. или чушь всякая... ;)
     $lang->about_layout_setup = 'Вы можете вручную изменять лейаут код блога. Вставляйте или управляйте кодом виджетов везде, где хотите';
