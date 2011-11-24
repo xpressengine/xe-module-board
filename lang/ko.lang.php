@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   ko.lang.php
-     * @author zero (zero@nzeo.com)
+     * @author NHN(developers@xpressengine.com)
      * @brief  게시판(board) 모듈의 기본 언어팩
      **/
 
@@ -42,8 +42,6 @@
     $lang->about_admin_mail = '글이나 댓글이 등록될때 등록된 메일주소로 메일이 발송됩니다. 콤마(,)로 연결시 다수의 메일주소로 발송할 수 있습니다.';
     $lang->about_list_config = '게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다. 단 스킨에서 지원하지 않는 경우 불가능합니다.';
 	$lang->about_use_status = '글 작성 시 선택할 수 있는 상태를 지정해주세요.';
-
     $lang->msg_not_enough_point = '포인트가 부족합니다';
-
 	$lang->write_comment = '댓글 쓰기';
 ?>

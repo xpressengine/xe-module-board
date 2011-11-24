@@ -1,7 +1,7 @@
 <?php
     /**
      * @archivo   es.lang.php
-     * @autor NHN (developers@xpressengine.com)
+     * @autor NHN(developers@xpressengine.com)
      * @sumario  Paquete del idioma español para el Módulo de Teblero
      **/
 

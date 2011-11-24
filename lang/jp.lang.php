@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   modules/board/lang/jp.lang.php
-     * @author zero (zero@nzeo.com) 翻訳：RisaPapa、ミニミ // 細かい修正：liahona
+     * @author NHN(developers@xpressengine.com) 翻訳：RisaPapa、ミニミ // 細かい修正：liahona
      * @brief  掲示板(board)モジュールの基本言語パッケージ
      **/
 
@@ -14,7 +14,7 @@
     $lang->summary = '要約';
     $lang->thumbnail = 'サムネール';
     $lang->last_post = '最新投稿';
-	$lang->board_management = '게시판 관리';
+	$lang->board_management = '掲示板の管理';
 
 
     // 項目
@@ -29,8 +29,8 @@
     $lang->cmd_module_config = '掲示板共通設定';
     $lang->cmd_view_info = '掲示板情報';
     $lang->cmd_list_setting = 'リストの設定';
-    $lang->cmd_create_board = '게시판 등록';
-	$lang->cmd_manage_selected_board = 'Manage Selected Board';
+    $lang->cmd_create_board = '掲示板の登録';
+	$lang->cmd_manage_selected_board = '選択された掲示板の管理';
 
     // その他
     $lang->about_layout_setup = 'ブログのレイアウトのコードを直接修正します。ウィジェットコードを好きなところに入力、又は管理して下さい。';
@@ -42,8 +42,7 @@
     $lang->about_secret = '掲示板およびコメントの非公開文を登録出来るようにします。';
     $lang->about_admin_mail = '書き込みやコメントが掲載される時、登録メールアドレス宛にメールが送信されます。<br /> 複数のメールアドレスへ送信する場合は「,」(半額コンマ)区切りで登録して下さい。';
     $lang->about_list_config = '掲示板スタイルが「リスト型」の場合、好きな列の項目配置・表示が出来ます。<br />ただし、スキンによってはサポートしない場合もあります。<br />ターゲットアイテム／表示アイテムをダブルクリックすると追加・削除が出来ます。';
-	$lang->about_use_status = 'Please select status that can be selected when write article.';
-
+	$lang->about_use_status = '記事作成時に選択することができる状態を指定してください。';
     $lang->msg_not_enough_point = '書き込みするためのポイントが足りません。';
-	$lang->write_comment = 'Write a comment';
+	$lang->write_comment = 'コメントを投稿';
 ?>

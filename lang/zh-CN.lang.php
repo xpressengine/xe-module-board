@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   zh-CN.lang.php
-     * @author NHN (developers@xpressengine.com)
+     * @author NHN(developers@xpressengine.com)
      * @brief  版面(board) 模块语言包
      **/
 

@@ -1,7 +1,7 @@
 <?php
     /**
      * @file   modules/board/lang/zh-TW.lang.php
-     * @author NHN (developers@xpressengine.com) 翻譯：royallin
+     * @author NHN(developers@xpressengine.com) 翻譯：royallin
      * @brief  討論板(board)模組正體中文語言
      **/
 

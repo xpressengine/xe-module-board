@@ -1,11 +1,11 @@
 <?php
-/*			░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-			░░  * @File   :  common/lang/vi.lang.php                                              ░░
-			░░  * @Author :  NHN (developers@xpressengine.com)                                                 ░░
-			░░  * @Trans  :  Đào Đức Duy (webmaster@xpressengine.vn)							  ░░
-			░░	* @Website:  http://xpressengine.vn												  ░░
-			░░  * @Brief  :  Vietnamese Language Pack (Only basic words are included here)        ░░
-			░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░	   		*/
+	/*
+	* @File   :  common/lang/vi.lang.php                                              ░░
+	* @Author :  NHN(developers@xpressengine.com)                                                 ░░
+	* @Trans  :  Đào Đức Duy (webmaster@xpressengine.vn)							  ░░
+	* @Website:  http://xpressengine.vn												  ░░
+	* @Brief  :  Vietnamese Language Pack (Only basic words are included here)
+	*/
 
     $lang->board = 'Board';
 
