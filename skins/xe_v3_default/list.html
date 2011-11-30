@@ -120,7 +120,7 @@
 		<span class="btn25" cond="$grant->manager"><a href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a></span>
 	</div>
 	<button type="button" class="bsToggle" title="{$lang->cmd_search}">{$lang->cmd_search}</button>
-	<form cond="$grant->view" action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="board_search" class="board_search">
+	<form cond="$grant->view" action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="board_search" class="board_search" no-error-return-url="true">
 		<input type="hidden" name="vid" value="{$vid}" />
 		<input type="hidden" name="mid" value="{$mid}" />
 		<input type="hidden" name="category" value="{$category}" />

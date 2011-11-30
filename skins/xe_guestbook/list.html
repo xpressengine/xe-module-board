@@ -49,7 +49,7 @@
 
     <!-- 검색 -->
         <div class="boardSearch">
-            <form action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search">
+            <form action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search" no-error-return-url="true">
                 <input type="hidden" name="mid" value="{$mid}" />
                 <input type="hidden" name="category" value="{$category}" />
 

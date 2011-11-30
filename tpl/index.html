@@ -100,7 +100,7 @@
 		</span>
 	</form>
 
-	<form action="./" method="get" class="adminSearch" onsubmit="return checkSearch(this)">
+	<form action="./" method="get" class="adminSearch" onsubmit="return checkSearch(this)" no-error-return-url="true">
 	<input type="hidden" name="module" value="{$module}" />
 	<input type="hidden" name="act" value="{$act}" />
 	<input type="hidden" name="error_return_url" value="" />

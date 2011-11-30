@@ -47,7 +47,7 @@
 </div>
 
 <!--@if($grant->view && $module_info->default_style != 'blog')-->
-<form action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search" class="boardSearchForm">
+<form action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search" class="boardSearchForm" no-error-return-url="true">
     <fieldset>
         <legend>Board Search</legend>
         <input type="hidden" name="vid" value="{$vid}" />

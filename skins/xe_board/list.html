@@ -55,7 +55,7 @@
     <!-- 검색 -->
         <!--@if($grant->view && $module_info->default_style != 'blog')-->
         <div class="boardSearch">
-            <form action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search">
+            <form action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search" no-error-return-url="true">
                 <!--@if($vid)-->
                 <input type="hidden" name="vid" value="{$vid}" />
                 <!--@end-->
