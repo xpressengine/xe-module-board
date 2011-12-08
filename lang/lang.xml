@@ -268,7 +268,7 @@ Non-members would not be able to write articles when using consultation.]]></val
 使用咨询功能时系统将自动禁止非会员的发表主题权限。]]></value>
 		<value xml:lang="zh-TW"><![CDATA[咨詢功能是指除有管理權限的會員以外，其他會員只能瀏覽自己發表的主題。
 使用咨詢功能時系統將自動禁止非會員的發表主題權限。]]></value>
-		<value xml:lang="fr"><![CDATA[Les membres non-administratifs verront seulement les ariticles d\'eux-même.
+		<value xml:lang="fr"><![CDATA[Les membres non-administratifs verront seulement les ariticles d'eux-même.
 Non-membres ne pourraient pas écrire des articles quand la Consultation est appliqué.]]></value>
 		<value xml:lang="ru"><![CDATA[상담 기능은 관리권한이 없는 회원은 자신이 쓴 글만 보이도록 하는 기능입니다
 단 상담기능 사용시 비회원 글쓰기는 자동으로 금지됩니다.]]></value>
