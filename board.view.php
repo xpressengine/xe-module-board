@@ -330,7 +330,7 @@
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate');
+			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate', 'ipaddress');
 			if (in_array('last_post', $configColumList)){
 				array_push($this->columnList, 'last_updater');
 			}
