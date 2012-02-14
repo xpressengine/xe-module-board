@@ -14,6 +14,9 @@
          * board 모듈은 일반 사용과 관리자용으로 나누어진다.\n
          **/
         function init() {
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('document_srl', 'comment_srl', 'vid', 'mid', 'page', 'category', 'search_target', 'search_keyword', 'sort_index', 'order_type', 'trackback_srl');
+
             /**
              * 기본 모듈 정보들 설정 (list_count, page_count는 게시판 모듈 전용 정보이고 기본 값에 대한 처리를 함)
              **/
@@ -117,6 +120,9 @@
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'search.xml');
 
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('search_option.');
+
             // template_file을 list.html로 지정
             $this->setTemplateFile('list');
         }
@@ -129,6 +135,9 @@
             if($this->module_info->use_category=='Y') {
                 $oDocumentModel = &getModel('document');
                 Context::set('category_list', $oDocumentModel->getCategoryList($this->module_srl));
+
+				$oSecurity = new Security();
+				$oSecurity->encodeHTML('category_list.', 'category_list.childs.');
             }
         }
 
@@ -217,6 +226,9 @@
             $document_srl = Context::get('document_srl');
             $oDocument = $oDocumentModel->getDocument($document_srl);
             Context::set('file_list',$oDocument->getUploadedFiles());
+
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('file_list..source_filename');
         }
 
         /**
@@ -238,6 +250,7 @@
 				}
 			}
             Context::set('comment_list',$comment_list);
+
         }
 
         /**
@@ -370,6 +383,9 @@
 
             Context::set('tag_list', $tag_list);
 
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('tag_list.');
+
             $this->setTemplateFile('tag_list');
         }
         
@@ -451,6 +467,9 @@
              * 사용되는 javascript 필터 추가
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert.xml');
+
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('category_list.text', 'category_list.title');
 
             $this->setTemplateFile('write_form');
         }
