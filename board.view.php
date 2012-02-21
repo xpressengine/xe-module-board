@@ -353,6 +353,12 @@
 				array_push($this->columnList, 'is_notice');
 			}
 			$this->columnList = array_merge($this->columnList, $defaultColumn);
+
+			// add table name
+			foreach($this->columnList as $no => $value)
+			{
+				$this->columnList[$no] = 'documents.' . $value;
+			}
 		}
 
         /**
