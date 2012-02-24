@@ -290,3 +290,6 @@ h5{padding:2px}
 .extraVarsList tr td ul li{display:inline-block;margin-right:10px}
 .extraVarsList tr td .date{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:100px}
 .extraVarsList tr td .address{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
+
+/* lecagy */
+.clear { clear: both; }
