@@ -22,6 +22,8 @@
 
         <!--@if($module_info->display_voted_count!='N')--><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}<!--@if($sort_index=='voted_count')--> <img src="./images/common/{$order_icon}" alt="" width="5" height="3" class="sort" /><!--@end--></a><!--@end-->
 
+        <!--@if($module_info->display_blamed_count!='N')--><a href="{getUrl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}<!--@if($sort_index=='blamed_count')--> <img src="./images/common/{$order_icon}" alt="" width="5" height="3" class="sort" /><!--@end--></a><!--@end-->
+
         <!--@if($module_info->display_regdate != 'N')--><a href="{getUrl('sort_index','regdate','order_type',$order_type)}">{$lang->date}<!--@if($sort_index=='regdate')--> <img src="./images/common/{$order_icon}" alt="" width="5" height="3" class="sort" /><!--@end--></a><!--@end-->
 
         <!--@if($module_info->display_last_update=='Y')--><a href="{getUrl('sort_index','last_update','order_type',$order_type)}">{$lang->last_update}<!--@if($sort_index=='last_update')--> <img src="./images/common/{$order_icon}" alt="" width="5" height="3" class="sort" /><!--@end--></a><!--@end-->
@@ -50,6 +52,7 @@
                 <!--@if($module_info->display_author!='N')--><col width="120" />{@ $_col_count++}<!--@end-->
                 <!--@if($module_info->display_readed_count!='N')--><col width="70" />{@ $_col_count++}<!--@end-->
                 <!--@if($module_info->display_voted_count!='N')--><col width="70" />{@ $_col_count++}<!--@end-->
+                <!--@if($module_info->display_blamed_count!='N')--><col width="70" />{@ $_col_count++}<!--@end-->
                 <!--@if($module_info->display_regdate != 'N')--><col width="90" />{@ $_col_count++}<!--@end-->
                 <!--@if($module_info->display_last_update == 'Y')--><col width="90" />{@ $_col_count++}<!--@end-->
                 <tbody>
@@ -76,6 +79,7 @@
                         <!--@if($module_info->display_author!='N')--><td class="author"><div class="member_{$document->get('member_srl')}">{$document->getNickName()}</div></td><!--@end-->
                         <!--@if($module_info->display_readed_count!='N')--><td class="reading">{$document->get('readed_count')>0?$document->get('readed_count'):'&nbsp;'}</td><!--@end-->
                         <!--@if($module_info->display_voted_count!='N')--><td class="recommend">{$document->get('voted_count')!=0?$document->get('voted_count'):'&nbsp;'}</td><!--@end-->
+                        <!--@if($module_info->display_blamed_count!='N')--><td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td><!--@end-->
                         <!--@if($module_info->display_regdate!='N')--><td class="date">{$document->getRegdate('Y-m-d')}</td><!--@end-->
                         <!--@if($module_info->display_last_update=='Y')--><td class="date">{zdate($document->get('last_update'),'Y-m-d H:i')}</td><!--@end-->
                     </tr>
@@ -87,7 +91,7 @@
             {@ $height = $module_info->thumbnail_height + 50; }
             <!--@if($module_info->use_category=='Y')-->{@ $height += 20 }<!--@end-->
             <!--@if($module_info->display_author!='N' || $module_info->display_regdate!='N')-->{@ $height += 25 }<!--@end-->
-            <!--@if($module_info->display_readed_count !='N' || $module_info->display_voted_count!='N')-->{@ $height += 25 }<!--@end-->
+            <!--@if($module_info->display_readed_count !='N' || $module_info->display_voted_count!='N' || $module_info->display_blamed_count!='N')-->{@ $height += 25 }<!--@end-->
 
             <div class="thumbnailBox">
 
@@ -130,6 +134,10 @@
                         <!--@if($document->get('voted_count')!=0 && $module_info->display_voted_count!='N')-->
                             <!--@if($module_info->display_readed_count!='N')--><br /><!--@end-->
                             {$lang->voted_count} <strong class="num">{$document->get('voted_count')}</strong>
+                        <!--@end-->
+                        <!--@if($document->get('blamed_count')!=0 && $module_info->display_blamed_count!='N')-->
+                            <!--@if($module_info->display_readed_count!='N' || $module_info->display_voted_count!='N')--><br /><!--@end-->
+                            {$lang->blamed_count} <strong class="num">{$document->get('blamed_count')}</strong>
                         <!--@end-->
                     </div>
                 </div>

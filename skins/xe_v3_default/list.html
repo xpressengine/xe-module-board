@@ -17,6 +17,7 @@
 				<th scope="col" cond="$val->type=='last_post' && $val->idx==-1"><span><a href="{getUrl('sort_index','last_update','order_type',$order_type)}">{$lang->last_post}</a></span></th>
 				<th scope="col" cond="$val->type=='readed_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','readed_count','order_type',$order_type)}">{$lang->readed_count}</a></span></th>
 				<th scope="col" cond="$val->type=='voted_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}</a></span></th>
+				<th scope="col" cond="$val->type=='blamed_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}</a></span></th>
 				<th scope="col" cond="$val->idx!=-1"><span>{$val->name}</span></th>
 				</block>
 				<th scope="col" cond="$grant->manager"><span><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true });" class="iCheck" title="Check All" /></span></th>
@@ -61,6 +62,7 @@
 				</td>
 				<td class="readNum" cond="$val->type=='readed_count' && $val->idx==-1">{$document->get('readed_count')>0?$document->get('readed_count'):'0'}</td>
 				<td class="voteNum" cond="$val->type=='voted_count' && $val->idx==-1">{$document->get('voted_count')!=0?$document->get('voted_count'):'0'}</td>
+				<td class="voteNum" cond="$val->type=='blamed_count' && $val->idx==-1">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'0'}</td>
 				<td cond="$val->idx!=-1">{$document->getExtraValueHTML($val->idx)}&nbsp;</td>
 				</block>
 				<td cond="$grant->manager" class="check"><input type="checkbox" name="cart" value="{$document->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" /></td>
@@ -98,6 +100,7 @@
 				</td>
 				<td class="readNum" cond="$val->type=='readed_count' && $val->idx==-1">{$document->get('readed_count')>0?$document->get('readed_count'):'0'}</td>
 				<td class="voteNum" cond="$val->type=='voted_count' && $val->idx==-1">{$document->get('voted_count')!=0?$document->get('voted_count'):'0'}</td>
+				<td class="voteNum" cond="$val->type=='blamed_count' && $val->idx==-1">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'0'}</td>
 				<td cond="$val->idx!=-1">{$document->getExtraValueHTML($val->idx)}&nbsp;</td>
 				</block>
 				<td cond="$grant->manager" class="check"><input type="checkbox" name="cart" value="{$document->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" /></td>

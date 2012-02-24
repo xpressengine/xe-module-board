@@ -8,6 +8,7 @@
         <!--@if($module_info->display_author!='N')-->{@ $_col_count++ }<!--@end-->
         <!--@if($module_info->display_readed_count!='N')-->{@ $_col_count++ }<!--@end-->
         <!--@if($module_info->display_voted_count!='N')-->{@ $_col_count++ }<!--@end-->
+        <!--@if($module_info->display_blamed_count!='N')-->{@ $_col_count++ }<!--@end-->
         <!--@if($module_info->display_regdate != 'N')-->{@ $_col_count++ }<!--@end-->
         <!--@if($module_info->display_last_update == 'Y')-->{@ $_col_count++ }<!--@end-->
 
@@ -38,6 +39,7 @@
                 <!--@if($module_info->display_author!='N')--><th scope="col">{$lang->writer}</th><!--@end-->
                 <!--@if($module_info->display_readed_count!='N')--><th scope="col"><a href="{getUrl('sort_index','readed_count','order_type',$order_type)}">{$lang->readed_count}<!--@if($sort_index=='readed_count')--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th><!--@end-->
                 <!--@if($module_info->display_voted_count!='N')--><th scope="col"><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}<!--@if($sort_index=='voted_count')--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th><!--@end-->
+                <!--@if($module_info->display_blamed_count!='N')--><th scope="col"><a href="{getUrl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}<!--@if($sort_index=='blamed_count')--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th><!--@end-->
                 <!--@if($module_info->display_regdate != 'N')--><th scope="col"><a href="{getUrl('sort_index','regdate','order_type',$order_type)}">{$lang->date}<!--@if($sort_index=='regdate')--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th><!--@end-->
                 <!--@if($module_info->display_last_update=='Y')--><th scope="col"><a href="{getUrl('sort_index','last_update','order_type',$order_type)}">{$lang->last_update}<!--@if($sort_index=='last_update')--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th><!--@end-->
             </tr>
@@ -78,6 +80,7 @@
             <!--@if($module_info->display_author!='N')--><td class="author"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a></td><!--@end-->
             <!--@if($module_info->display_readed_count!='N')--><td class="reading">{$document->get('readed_count')>0?$document->get('readed_count'):'&nbsp;'}</td><!--@end-->
             <!--@if($module_info->display_voted_count!='N')--><td class="recommend">{$document->get('voted_count')!=0?$document->get('voted_count'):'&nbsp;'}</td><!--@end-->
+            <!--@if($module_info->display_blamed_count!='N')--><td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td><!--@end-->
             <!--@if($module_info->display_regdate!='N')--><td class="date">{$document->getRegdate('Y-m-d')}</td><!--@end-->
             <!--@if($module_info->display_last_update=='Y')--><td class="date">{zdate($document->get('last_update'),'Y-m-d H:i')}</td><!--@end-->
         </tr>
@@ -111,6 +114,7 @@
                 <!--@if($module_info->display_author!='N')--><td class="author"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a></td><!--@end-->
                 <!--@if($module_info->display_readed_count!='N')--><td class="reading">{$document->get('readed_count')>0?$document->get('readed_count'):'&nbsp;'}</td><!--@end-->
                 <!--@if($module_info->display_voted_count!='N')--><td class="recommend">{$document->get('voted_count')!=0?$document->get('voted_count'):'&nbsp;'}</td><!--@end-->
+                <!--@if($module_info->display_blamed_count!='N')--><td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td><!--@end-->
                 <!--@if($module_info->display_regdate!='N')--><td class="date">{$document->getRegdate('Y-m-d')}</td><!--@end-->
                 <!--@if($module_info->display_last_update=='Y')--><td class="date">{zdate($document->get('last_update'),'Y-m-d H:i')}</td><!--@end-->
             </tr>
@@ -119,6 +123,7 @@
             <!--@if($module_info->display_author!='N')-->{@ $_col_count++ }<!--@end-->
             <!--@if($module_info->display_readed_count!='N')-->{@ $_col_count++ }<!--@end-->
             <!--@if($module_info->display_voted_count!='N')-->{@ $_col_count++ }<!--@end-->
+            <!--@if($module_info->display_blamed_count!='N')-->{@ $_col_count++ }<!--@end-->
             <!--@if($module_info->display_regdate != 'N')-->{@ $_col_count++ }<!--@end-->
             <!--@if($module_info->display_last_update == 'Y')-->{@ $_col_count++ }<!--@end-->
             <tr class="bg{($no+1)%2+1}">
