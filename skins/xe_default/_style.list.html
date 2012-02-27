@@ -49,7 +49,7 @@
                         <!--@end-->
                     <!--// 사용자 선언 확장변수일 경우 -->
                     <!--@else-->
-                            <th scope="col"><div>{$val->name}</div></th>
+                            <th scope="col"><div><a href="{geturl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}<!--@if($sort_index == $val->eid)--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></div></th>
                     <!--@end-->
                 <!--@end-->
             </tr>

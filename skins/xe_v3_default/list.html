@@ -18,7 +18,7 @@
 				<th scope="col" cond="$val->type=='readed_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','readed_count','order_type',$order_type)}">{$lang->readed_count}</a></span></th>
 				<th scope="col" cond="$val->type=='voted_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}</a></span></th>
 				<th scope="col" cond="$val->type=='blamed_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}</a></span></th>
-				<th scope="col" cond="$val->idx!=-1"><span>{$val->name}</span></th>
+				<th scope="col" cond="$val->idx!=-1"><span><a href="{getUrl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}</a></span></th>
 				</block>
 				<th scope="col" cond="$grant->manager"><span><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true });" class="iCheck" title="Check All" /></span></th>
 			</tr>

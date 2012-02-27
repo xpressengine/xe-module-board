@@ -49,7 +49,7 @@
 							<!--@end-->
 							<!--// 사용자 선언 확장변수일 경우 -->
 							<!--@else-->
-								<th scope="col">{$val->name}</th>
+								<th scope="col"><a href="{getUrl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}<!--@if($sort_index == $val->eid)--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@end-->
 						<!--@end-->
 						<!--@if($grant->manager)--><th scope="col"><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true }); return false;" title="Check All" /></th><!--@end-->
