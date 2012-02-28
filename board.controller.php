@@ -26,6 +26,7 @@
             $obj = Context::getRequestVars();
             $obj->module_srl = $this->module_srl;
             if($obj->is_notice!='Y'||!$this->grant->manager) $obj->is_notice = 'N';
+			$obj->commentStatus = $obj->comment_status;
 
             settype($obj->title, "string");
             if($obj->title == '') $obj->title = cut_str(strip_tags($obj->content),20,'...');
@@ -55,6 +56,7 @@
                 $obj->email_address = $obj->homepage = $obj->user_id = '';
                 $obj->user_name = $obj->nick_name = 'anonymous';
                 $bAnonymous = true;
+				$oDocument->add('member_srl', $obj->member_srl);
             }
             else
             {
@@ -314,7 +316,8 @@
 
             // 호출된 모듈의 정보 구함
             $oModuleModel = &getModel('module');
-            $cur_module_info = $oModuleModel->getModuleInfoByMid($mid);
+			$columnList = array('module');
+            $cur_module_info = $oModuleModel->getModuleInfoByMid($mid, 0, $columnList);
 
             if($cur_module_info->module != 'board') return new Object();
 
@@ -331,7 +334,7 @@
             // 아이디로 검색기능 추가
             $url = getUrl('','mid',$mid,'search_target','nick_name','search_keyword',$member_info->nick_name);
             $oMemberController = &getController('member');
-            $oMemberController->addMemberPopupMenu($url, 'cmd_view_own_document', './modules/member/tpl/images/icon_view_written.gif');
+            $oMemberController->addMemberPopupMenu($url, 'cmd_view_own_document', '');
 
             return new Object();
         }

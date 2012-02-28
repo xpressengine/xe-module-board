@@ -98,7 +98,7 @@
                     <!--@elseif($val->type == 'title')-->
                         <td class="title">
                             <!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->
-                            <strong class="category" <!--@if($category_list[$document->get('category_srl')]->color)-->style="color:{$category_list[$document->get('category_srl')]->color};"<!--@end-->>{$category_list[$document->get('category_srl')]->title}</strong>
+                            <strong class="category" <!--@if($category_list[$document->get('category_srl')]->color && $category_list[$document->get('category_srl')]->color != 'transparent')-->style="color:{$category_list[$document->get('category_srl')]->color};"<!--@end-->>{$category_list[$document->get('category_srl')]->title}</strong>
                             <!--@end-->
 
                             <a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle($module_info->subject_cut_size)}</a>
@@ -159,7 +159,7 @@
                     <!--@elseif($val->type == 'title')-->
                         <td class="title">
                             <!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->
-                            <strong class="category" <!--@if($category_list[$document->get('category_srl')]->color)-->style="color:{$category_list[$document->get('category_srl')]->color};"<!--@end-->>{$category_list[$document->get('category_srl')]->title}</strong>
+                            <strong class="category" <!--@if($category_list[$document->get('category_srl')]->color && $category_list[$document->get('category_srl')]->color != 'transparent')-->style="color:{$category_list[$document->get('category_srl')]->color};"<!--@end-->>{$category_list[$document->get('category_srl')]->title}</strong>
                             <!--@end-->
 
                             <a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle($module_info->subject_cut_size)}</a>

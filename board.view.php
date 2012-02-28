@@ -6,12 +6,17 @@
      **/
 
     class boardView extends board {
+		var $listConfig;
+		var $columnList;
 
         /**
          * @brief 초기화
          * board 모듈은 일반 사용과 관리자용으로 나누어진다.\n
          **/
         function init() {
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('document_srl', 'comment_srl', 'vid', 'mid', 'page', 'category', 'search_target', 'search_keyword', 'sort_index', 'order_type', 'trackback_srl');
+
             /**
              * 기본 모듈 정보들 설정 (list_count, page_count는 게시판 모듈 전용 정보이고 기본 값에 대한 처리를 함)
              **/
@@ -49,6 +54,14 @@
             $extra_keys = $oDocumentModel->getExtraKeys($this->module_info->module_srl);
             Context::set('extra_keys', $extra_keys);
 
+			/**
+			 * 확장 병수를 통한 소트 기능을 추가하기위해 order_target에 확장변수 키값 추가
+			 **/
+			if (is_array($extra_keys)){
+				foreach($extra_keys as $val){
+					$this->order_target[] = $val->eid;
+				}
+			}
             /** 
              * 게시판 전반적으로 사용되는 javascript, JS 필터 추가
              **/
@@ -63,8 +76,6 @@
             /**
              * 목록보기 권한 체크 (모든 권한은 ModuleObject에서 xml 정보와 module_info의 grant 값을 비교하여 미리 설정하여 놓음)
              **/
-
-
             if(!$this->grant->access || !$this->grant->list) return $this->dispBoardMessage('msg_not_permitted');
 
             /**
@@ -86,8 +97,17 @@
             }
             Context::set('search_option', $search_option);
 
+			$oDocumentModel = &getModel('document');
+			$statusNameList = $this->_getStatusNameList(&$oDocumentModel);
+			if(count($statusNameList) > 0) Context::set('status_list', $statusNameList);
+
             // 게시글을 가져옴
             $this->dispBoardContentView();
+
+			// list config, columnList setting
+            $oBoardModel = &getModel('board');
+			$this->listConfig = $oBoardModel->getListConfig($this->module_info->module_srl);
+			$this->_makeListColumnList();
 
             // 공지사항 목록을 구해서 context set (공지사항을 매페이지 제일 상단에 위치하기 위해서)
             $this->dispBoardNoticeList();
@@ -99,6 +119,9 @@
              * 사용되는 javascript 필터 추가
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'search.xml');
+
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('search_option.');
 
             // template_file을 list.html로 지정
             $this->setTemplateFile('list');
@@ -112,6 +135,9 @@
             if($this->module_info->use_category=='Y') {
                 $oDocumentModel = &getModel('document');
                 Context::set('category_list', $oDocumentModel->getCategoryList($this->module_srl));
+
+				$oSecurity = new Security();
+				$oSecurity->encodeHTML('category_list.', 'category_list.childs.');
             }
         }
 
@@ -130,7 +156,7 @@
              * 요청된 문서 번호가 있다면 문서를 구함
              **/
             if($document_srl) {
-                $oDocument = $oDocumentModel->getDocument($document_srl);
+                $oDocument = $oDocumentModel->getDocument($document_srl, false, true); 
 
                 // 해당 문서가 존재할 경우 필요한 처리를 함
                 if($oDocument->isExists()) {
@@ -200,6 +226,9 @@
             $document_srl = Context::get('document_srl');
             $oDocument = $oDocumentModel->getDocument($document_srl);
             Context::set('file_list',$oDocument->getUploadedFiles());
+
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('file_list..source_filename');
         }
 
         /**
@@ -221,6 +250,7 @@
 				}
 			}
             Context::set('comment_list',$comment_list);
+
         }
 
         /**
@@ -229,7 +259,7 @@
         function dispBoardNoticeList(){
             $oDocumentModel = &getModel('document');
             $args->module_srl = $this->module_srl; 
-            $notice_output = $oDocumentModel->getNoticeList($args);
+            $notice_output = $oDocumentModel->getNoticeList($args, $this->columnList);
             Context::set('notice_list', $notice_output->data);
         }
 
@@ -288,18 +318,42 @@
                 $args->member_srl = $logged_info->member_srl;
             }
 
+            // 목록 설정값을 세팅
+            Context::set('list_config', $this->listConfig);
             // 일반 글을 구해서 context set
-            $output = $oDocumentModel->getDocumentList($args, $this->except_notice);
+            $output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $this->columnList);
             Context::set('document_list', $output->data);
             Context::set('total_count', $output->total_count);
             Context::set('total_page', $output->total_page);
             Context::set('page', $output->page);
             Context::set('page_navigation', $output->page_navigation);
-
-            // 목록 설정값을 세팅
-            $oBoardModel = &getModel('board');
-            Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
         }
+
+		function _makeListColumnList()
+		{
+			$configColumList = array_keys($this->listConfig);
+			$tableColumnList = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'is_notice',
+					'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
+					'blamed_count', 'comment_count', 'trackback_count', 'uploaded_count', 'password', 'user_id',
+					'user_name', 'nick_name', 'member_srl', 'email_address', 'homepage', 'tags', 'extra_vars',
+					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order',
+					'allow_trackback', 'notify_message', 'status', 'comment_status');
+			$this->columnList = array_intersect($configColumList, $tableColumnList);
+
+			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
+
+			// default column list add
+			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate', 'ipaddress');
+			if (in_array('last_post', $configColumList)){
+				array_push($this->columnList, 'last_updater');
+			}
+
+			// add is_notice
+			if ($this->except_notice) {
+				array_push($this->columnList, 'is_notice');
+			}
+			$this->columnList = array_merge($this->columnList, $defaultColumn);
+		}
 
         /**
          * @brief 태그 목록 모두 보기
@@ -328,6 +382,9 @@
             }
 
             Context::set('tag_list', $tag_list);
+
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('tag_list.');
 
             $this->setTemplateFile('tag_list');
         }
@@ -379,9 +436,9 @@
             $oDocument->add('module_srl', $this->module_srl);
 
             // 글을 수정하려고 할 경우 권한이 없는 경우 비밀번호 입력화면으로
+			$oModuleModel = &getModel('module');
             if($oDocument->isExists()&&!$oDocument->isGranted()) return $this->setTemplateFile('input_password_form');
             if(!$oDocument->isExists()) {
-                $oModuleModel = &getModel('module');
                 $point_config = $oModuleModel->getModulePartConfig('point',$this->module_srl);
                 $logged_info = Context::get('logged_info');
                 $oPointModel = &getModel('point');
@@ -391,7 +448,11 @@
                     else if (($oPointModel->getPoint($logged_info->member_srl) + $pointForInsert )< 0 ) return $this->dispBoardMessage('msg_not_enough_point');
                 }
             }
+			if(!$oDocument->get('status')) $oDocument->add('status', $oDocumentModel->getDefaultStatus());
 
+			$statusList = $this->_getStatusNameList(&$oDocumentModel);
+			if(count($statusList) > 0) Context::set('status_list', $statusList);
+			// get Document status config value
             Context::set('document_srl',$document_srl);
             Context::set('oDocument', $oDocument);
 
@@ -407,8 +468,30 @@
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert.xml');
 
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('category_list.text', 'category_list.title');
+
             $this->setTemplateFile('write_form');
         }
+
+		function _getStatusNameList(&$oDocumentModel)
+		{
+			$resultList = array();
+			if(!empty($this->module_info->use_status))
+			{
+				$statusNameList = $oDocumentModel->getStatusNameList();
+				$statusList = explode('|@|', $this->module_info->use_status);
+
+				if(is_array($statusList))
+				{
+					foreach($statusList AS $key=>$value)
+					{
+						$resultList[$value] = $statusNameList[$value];
+					}
+				}
+			}
+			return $resultList;
+		}
 
         /**
          * @brief 문서 삭제 화면 출력
@@ -591,13 +674,14 @@
 
             // 삭제하려는 댓글가 있는지 확인
             $oTrackbackModel = &getModel('trackback');
-            $output = $oTrackbackModel->getTrackback($trackback_srl);
+			$columnList = array('trackback_srl');
+            $output = $oTrackbackModel->getTrackback($trackback_srl, $columnList);
             $trackback = $output->data;
 
             // 삭제하려는 글이 없으면 에러
             if(!$trackback) return $this->dispBoardContent();
 
-            Context::set('trackback',$trackback);
+            //Context::set('trackback',$trackback);	//perhaps trackback variables not use in UI
 
             /** 
              * 필요한 필터 추가

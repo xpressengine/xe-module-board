@@ -8,9 +8,9 @@
 <!--%import("css/mboard.css")-->
 <div class="bd">
 <h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> &rsaquo; {$lang->cmd_write}</h2>
-<form action="./" method="POST" onsubmit="return procFilter(this, insert)">
-<input type="hidden" name="mid" value="{$mid}" />
-<input type="hidden" name="document_srl" value="{$document_srl}" />
+	<form action="./" method="POST" onsubmit="return procFilter(this, insert)">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$document_srl}" />
 		<ul class="sn">
 			<!--@if($module_info->use_category == "Y")-->
 			<li>
@@ -55,21 +55,27 @@
 			</li>
 			<li>
 				<label for="uSite" class="db fb">{$lang->homepage}</label>
-				<input name="homepage" type="text" id="uSite" class="itx" value="http://" />
+				<input name="homepage" type="text" id="uSite" class="itx" value="" />
 			</li>
 			<!--@endif-->
 			<li>
-				<input type="checkbox" name="allow_comment" value="Y" <!--@if($oDocument->allowComment())-->checked="checked"<!--@end--> id="reAllow" />
+				<input type="checkbox" name="comment_status" value="ALLOW" <!--@if($oDocument->allowComment())-->checked="checked"<!--@end--> id="reAllow" />
 				<label for="reAllow">{$lang->allow_comment}</label>
 				<input type="checkbox" name="allow_trackback" value="Y" <!--@if($oDocument->allowTrackback())-->checked="checked"<!--@end--> id="trAllow" />
 				<label for="trAllow">{$lang->allow_trackback}</label>
-				<!--@if($module_info->secret=="Y")-->
-				<input type="checkbox" name="is_secret" value="Y" <!--@if($oDocument->isSecret())-->checked="checked"<!--@end--> id="secret" />
-				<label for="secret">{$lang->secret}</label>
+
+				<!--@if(is_array($status_list))-->
+				<div>
+					{$lang->status}
+					<!--@foreach($status_list AS $key=>$value)-->
+					<input type="radio" name="status" value="{$key}" <!--@if($oDocument->get('status') == $key)-->checked<!--@end--> /> {$value}
+					<!--@end-->
+				</div>
 				<!--@end-->
 			</li>
 		</ul>
 		<div class="cm">
 			<button type="submit" class="bn">{$lang->cmd_registration}</button>
 		</div>
+	</form>
 </div>

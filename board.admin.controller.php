@@ -25,6 +25,7 @@
             $args = Context::getRequestVars();
             $args->module = 'board';
             $args->mid = $args->board_name;
+			if(is_array($args->use_status)) $args->use_status = implode('|@|', $args->use_status);
             unset($args->board_name);
 
             // 기본 값외의 것들을 정리
@@ -52,9 +53,12 @@
 
             if(!$output->toBool()) return $output;
 
-            $this->add('page',Context::get('page'));
-            $this->add('module_srl',$output->get('module_srl'));
             $this->setMessage($msg_code);
+			if (Context::get('success_return_url')){
+				$this->setRedirectUrl(Context::get('success_return_url'));
+			}else{
+				$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
+			}
         }
 
         /**
@@ -91,6 +95,8 @@
 
             $oModuleController = &getController('module');
             $oModuleController->insertModulePartConfig('board', $module_srl, $list_arr);
+
+			$this->setRedirectUrl(Context::get('success_return_url'));
         }
     }
 ?>
