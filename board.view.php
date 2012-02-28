@@ -67,6 +67,17 @@
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'input_password.xml');
             Context::addJsFile($this->module_path.'tpl/js/board.js');
+
+			// remove [document_srl]_cpage from get_vars
+			$args = Context::getRequestVars();
+			foreach($args as $name => $value)
+			{
+				if(preg_match('/[0-9]+_cpage/', $name))
+				{
+					Context::set($name, '', TRUE);
+					Context::set($name, $value);
+				}
+			}
         }
 
         /**
