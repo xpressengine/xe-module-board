@@ -109,7 +109,7 @@
             Context::set('search_option', $search_option);
 
 			$oDocumentModel = &getModel('document');
-			$statusNameList = $this->_getStatusNameList(&$oDocumentModel);
+			$statusNameList = $this->_getStatusNameList($oDocumentModel);
 			if(count($statusNameList) > 0) Context::set('status_list', $statusNameList);
 
             // 게시글을 가져옴
@@ -467,7 +467,7 @@
             }
 			if(!$oDocument->get('status')) $oDocument->add('status', $oDocumentModel->getDefaultStatus());
 
-			$statusList = $this->_getStatusNameList(&$oDocumentModel);
+			$statusList = $this->_getStatusNameList($oDocumentModel);
 			if(count($statusList) > 0) Context::set('status_list', $statusList);
 			// get Document status config value
             Context::set('document_srl',$document_srl);
