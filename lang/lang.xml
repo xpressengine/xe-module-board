@@ -333,4 +333,7 @@ Không phải là thành viên thì không thể gửi bài hay bình luận.]]>
 		<value xml:lang="zh-TW"><![CDATA[發表評論]]></value>
 		<value xml:lang="tr"><![CDATA[Yorum Yaz]]></value>
 	</item>
+	<item name="msg_not_allow_comment">
+		<value xml:lang="ko"><![CDATA[해당 글의 댓글 쓰기가 잠겨있습니다.]]></value>
+	</item>
 </lang>

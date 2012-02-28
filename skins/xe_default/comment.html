@@ -79,7 +79,7 @@
 							<a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}" class="button small"><span>{$lang->cmd_delete}</span></a>
 							<a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}" class="button small"><span>{$lang->cmd_modify}</span></a> 
 						<!--@end-->
-							<a href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}" class="button small green"><span>{$lang->cmd_reply}</span></a> 
+							<a cond="$oDocument->allowComment()" href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}" class="button small green"><span>{$lang->cmd_reply}</span></a> 
 					</div>
 		
 					<!--@if($comment->get('voted_count')!=0 || $comment->get('blamed_count') != 0)-->

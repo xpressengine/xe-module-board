@@ -545,6 +545,12 @@
             $oDocument = $oDocumentModel->getDocument($document_srl);
             if(!$oDocument->isExists()) return $this->dispBoardMessage('msg_invalid_request');
 
+			// Check allow comment
+			if(!$oDocument->allowComment())
+			{
+				return $this->dispBoardMessage('msg_not_allow_comment');
+			}
+
             // 해당 댓글를 찾아본다 (comment_form을 같이 쓰기 위해서 빈 객체 생성)
             $oCommentModel = &getModel('comment');
             $oSourceComment = $oComment = $oCommentModel->getComment(0);
@@ -584,6 +590,14 @@
             // 댓글이 없다면 오류
             if(!$oSourceComment->isExists()) return $this->dispBoardMessage('msg_invalid_request');
             if(Context::get('document_srl') && $oSourceComment->get('document_srl') != Context::get('document_srl')) return $this->dispBoardMessage('msg_invalid_request');
+
+			// Check allow comment
+			$oDocumentModel = getModel('document');
+			$oDocument = $oDocumentModel->getDocument($oSourceComment->get('document_srl'));
+			if(!$oDocument->allowComment())
+			{
+				return $this->dispBoardMessage('msg_not_allow_comment');
+			}
 
             // 대상 댓글을 생성
             $oComment = $oCommentModel->getComment();
