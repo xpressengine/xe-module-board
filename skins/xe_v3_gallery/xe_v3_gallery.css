@@ -25,7 +25,7 @@
 .board_header{position:relative;zoom:1;margin:0 0 22px 0}
 .board_header:after{content:"";display:block;clear:both}
 .board_header h2{margin:0;float:left}
-.board_header .setup{float:right;width:16px;height:0;padding:16px 0 0 0;overflow:hidden;background:url(icoSet.gif) no-repeat 1px -239px}
+.board_header .setup{float:right;width:16px;height:0;padding:16px 0 0 0;overflow:hidden;background:url(img/icoSet.gif) no-repeat 1px -239px}
 /* Category Tab */
 .cTab{position:relative;margin:0 0 35px 0;padding:0;list-style:none;zoom:1;border-bottom:1px solid #999}
 .cTab:after{content:"";display:block;clear:both}
@@ -264,7 +264,6 @@
 .feedback .action a.modify{background-position:0 -150px}
 .feedback .action a.delete{background-position:0 -180px}
 .feedback .action a.this{background:none;padding:0;margin:0 0 0 10px;text-decoration:underline}
-.feedback .pagination{padding:10px 0}
 .feedback .indent1{padding-left:20px;background-position:6px 15px}
 .feedback .indent2{padding-left:40px;background-position:26px 15px}
 .feedback .indent3{padding-left:60px;background-position:46px 15px}
@@ -280,22 +279,22 @@
 .fbFooter{margin:-10px 0 10px 0}
 /* Pagination */
 /* comment_form.html */
-.feedbacks .pagination{margin:0;padding:4px 0;text-align:center;line-height:normal}
-.feedbacks .pagination a,
-.feedbacks .pagination strong{position:relative;color:#767676;font:bold 12px/16px Tahoma, Sans-serif;vertical-align:top;display:inline-block;text-decoration:none;padding:1px 8px;margin:0 -3px;border-left:1px solid #ccc;border-right:1px solid #ccc;background-color:#fff;z-index:2}
-.feedbacks .pagination a:hover,
-.feedbacks .pagination a:active,
-.feedbacks .pagination a:focus{background-color:#f8f8f8}
-.feedbacks .pagination strong{color:#4e3db4}
-.feedbacks .pagination .direction{font-weight:normal;color:#767676;text-decoration:none !important;border:0;z-index:1}
-.feedbacks .pagination .direction:hover,
-.feedbacks .pagination .direction:active,
-.feedbacks .pagination .direction:focus{color:#333;background-color:#fff}
-.feedbacks .pagination .prev{border-left:0}
-.feedbacks .pagination .next{border-right:0}
-.feedbacks .pagination .direction span{position:relative;display:inline-block;width:0;height:0;font-size:0;line-height:0;vertical-align:top;top:4px}
-.feedbacks .pagination .prev span{border:3px solid;border-top:solid #fff;border-bottom:solid #fff;border-left:0;margin-right:1px;*left:-4px}
-.feedbacks .pagination .next span{border:3px solid;border-top:solid #fff;border-bottom:solid #fff;border-right:0;margin-left:1px}
+.feedback .pagination{margin:0;padding:10px 0;text-align:center;line-height:normal}
+.feedback .pagination a,
+.feedback .pagination strong{position:relative;color:#767676;font:bold 12px/16px Tahoma, Sans-serif;vertical-align:top;display:inline-block;text-decoration:none;padding:1px 8px;margin:0 -3px;border-left:1px solid #ccc;border-right:1px solid #ccc;background-color:#fff;z-index:2}
+.feedback .pagination a:hover,
+.feedback .pagination a:active,
+.feedback .pagination a:focus{background-color:#f8f8f8}
+.feedback .pagination strong{color:#4e3db4}
+.feedback .pagination .direction{font-weight:normal;color:#767676;text-decoration:none !important;border:0;z-index:1}
+.feedback .pagination .direction:hover,
+.feedback .pagination .direction:active,
+.feedback .pagination .direction:focus{color:#333;background-color:#fff}
+.feedback .pagination .prev{border-left:0}
+.feedback .pagination .next{border-right:0}
+.feedback .pagination .direction span{position:relative;display:inline-block;width:0;height:0;font-size:0;line-height:0;vertical-align:top;top:4px}
+.feedback .pagination .prev span{border:3px solid;border-top:solid #fff;border-bottom:solid #fff;border-left:0;margin-right:1px;*left:-4px}
+.feedback .pagination .next span{border:3px solid;border-top:solid #fff;border-bottom:solid #fff;border-right:0;margin-left:1px}
 /* Write Author */
 /* _read.html | write_form.html | comment_form.html */
 .write_author{float:left;margin:0 4px 0 0}
