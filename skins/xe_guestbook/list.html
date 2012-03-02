@@ -16,7 +16,7 @@
             <!--@foreach($notice_list as $no => $oDocument)-->
                 <div class="viewDocument">
                 <!--#include("./view_document.html")-->
-                <div class="clear"></div>
+                
                 </div>
             <!--@end-->
         <!--@end-->
@@ -25,7 +25,7 @@
         <!--@foreach($document_list as $no => $oDocument)-->
             <div class="viewDocument">
             <!--#include("./view_document.html")-->
-            <div class="clear"></div>
+            
             </div>
         <!--@end-->
     <!--@end-->
@@ -58,12 +58,12 @@
                     <option value="{$key}" <!--@if($search_target==$key)-->selected="selected"<!--@end-->>{$val}</option>
                     <!--@end-->
                 </select>
-                <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="inputTypeText"/>
+                <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="iText"/>
                 <!--@if($last_division)-->
-                    <a href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}" class="button"><span>{$lang->cmd_search_next}</span></a>
+                <span class="btn"><a href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}">{$lang->cmd_search_next}</a></span>
                 <!--@end-->
-                <a href="#" onclick="xGetElementById('fo_search').submit();return false;" class="button"><span>{$lang->cmd_search}</span></a>
-                <a href="{getUrl('','mid',$mid,'listStyle',$listStyle)}" class="button"><span>{$lang->cmd_cancel}</span></a>
+                <span class="btn"><input type="submit" value="{$lang->cmd_search}" /></span>
+                <span class="btn"><a href="{getUrl('','mid',$mid,'listStyle',$listStyle)}">{$lang->cmd_cancel}</a></span>
             </form>
         </div>
     </div>

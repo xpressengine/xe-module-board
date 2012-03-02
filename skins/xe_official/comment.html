@@ -60,7 +60,7 @@
 							<p>&quot;{$lang->msg_is_secret}&quot;</p>
 							<dl>
 								<dt><label for="cpw">{$lang->password}</label> :</dt>
-								<dd><input type="password" id="cpw" name="password" class="inputText" /><span class="buttonOfficial"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
+								<dd><input type="password" id="cpw" name="password" class="iText" /><span class="buttonOfficial"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
 							</dl>
 						</form>
 					<!--@else-->
@@ -86,7 +86,7 @@
 					<!--@end-->
 						<li cond="$oDocument->allowComment()"><a href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_reply}</a></li> 
 					<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
-						<li><a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_modify}</a></li> 
+						<li><a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_modify}...</a></li> 
 						<li><a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_delete}</a></li>
 					<!--@end-->
 					</ul>

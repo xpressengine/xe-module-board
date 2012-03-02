@@ -11,9 +11,9 @@
                 ({$oSourceComment->get('ipaddress')})
             <!--@end-->
         </div>
-        <div class="clear"></div>
+        
 
-        <div class="replyContent gap1">
+        <div class="replyContent">
             {$oSourceComment->getContent(false)}
         </div>
     </div>
@@ -33,16 +33,16 @@
     <div class="userNameAndPw">
         <!--@if(!$is_logged)-->
         <label for="userName">{$lang->writer}</label>
-        <input type="text" name="nick_name" value="{$oComment->get('nick_name')}" class="userName inputTypeText" id="userName"/>
+        <input type="text" name="nick_name" value="{$oComment->get('nick_name')}" class="userName iText" id="userName"/>
 
         <label for="userPw">{$lang->password}</label>
-        <input type="password" name="password" value="" id="userPw" class="userPw inputTypeText" />
+        <input type="password" name="password" value="" id="userPw" class="userPw iText" />
 
         <label for="emailAddress">{$lang->email_address}</label>
-        <input type="text" name="email_address" value="{htmlspecialchars($oComment->get('email_address'))}" id="emailAddress" class="emailAddress inputTypeText"/>
+        <input type="text" name="email_address" value="{htmlspecialchars($oComment->get('email_address'))}" id="emailAddress" class="emailAddress iText"/>
 
         <label for="homePage">{$lang->homepage}</label>
-        <input type="text" name="homepage" value="{htmlspecialchars($oComment->get('homepage'))}" id="homePage" class="homePage inputTypeText"/>
+        <input type="text" name="homepage" value="{htmlspecialchars($oComment->get('homepage'))}" id="homePage" class="homePage iText"/>
         <!--@else-->
         <input type="checkbox" name="notify_message" value="Y" <!--@if($oComment->useNotify())-->checked="checked"<!--@end--> id="notify_message" />
         <label for="notify_message">{$lang->notify}</label>
@@ -56,9 +56,9 @@
     <div class="editor">{$oComment->getEditor()}</div>
 </div>
 
-<div class="commentButton tRight">
-    <span class="button {$btn_class}"><input type="button" value="{$lang->cmd_back}" onclick="location.href='{getUrl('act','')}'"/></span>
-    <span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_comment_registration}" accesskey="s" /></span>
+<div class="btnArea">
+    <span class="btn"><input type="button" value="{$lang->cmd_back}" onclick="location.href='{getUrl('act','')}'"/></span>
+    <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
 </div>
 
 </form>

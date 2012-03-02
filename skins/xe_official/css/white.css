@@ -5,7 +5,7 @@
 
 /* Board Reset */
 .board{background:#fff;color:#333}
-.board .inputText,
+.board .iText,
 .board textarea,
 .board select{background:#fff;color:#333;border-top-color:#a6a6a6;border-left-color:#a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
 .board .document_popup_menu a,

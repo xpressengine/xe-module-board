@@ -18,7 +18,7 @@
 			<!--@if(!$comment->isAccessible())-->
 			<form action="./" method="get" class="xe_content" onsubmit="return procFilter(this, input_password)">
 				<p><label for="cpw_{$comment->comment_srl}">{$lang->msg_is_secret} {$lang->msg_input_password}</label></p>
-				<p><input type="password" name="password" id="cpw_{$comment->comment_srl}" class="iText" /><span class="btn25"><input type="submit" value="{$lang->cmd_input}" /></span></p>
+				<p><input type="password" name="password" id="cpw_{$comment->comment_srl}" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></p>
 				<input type="hidden" name="mid" value="{$mid}" />
 				<input type="hidden" name="page" value="{$page}" />
 				<input type="hidden" name="document_srl" value="{$comment->get('document_srl')}" />
@@ -36,7 +36,7 @@
 			<p class="action">
 				<span class="vote" cond="$comment->get('voted_count')!=0">{$lang->cmd_vote}:{$comment->get('voted_count')?$comment->get('voted_count'):0}</span>
 				<a cond="$oDocument->allowComment()" href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}" class="reply">{$lang->cmd_reply}</a>
-				<a cond="$comment->isGranted()||!$comment->get('member_srl')" href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}" class="modify">{$lang->cmd_modify}</a>
+				<a cond="$comment->isGranted()||!$comment->get('member_srl')" href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}" class="modify">{$lang->cmd_modify}...</a>
 				<a cond="$comment->isGranted()||!$comment->get('member_srl')" href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}" class="delete">{$lang->cmd_delete}</a>
 				<a cond="$is_logged" class="comment_{$comment->comment_srl} this" href="#popup_menu_area" onclick="return false">{$lang->cmd_comment_do}</a>
 			</p>
@@ -75,12 +75,12 @@
 			<label cond="$module_info->secret=='Y'" for="is_secret">{$lang->secret}</label>
 		</div>
 		<div class="btnArea">
-			<span class="btn25 blue"><button type="submit">{$lang->cmd_comment_registration}</button></span>
-			<span class="btn25 black"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
+			<span class="btn"><button type="submit">{$lang->cmd_comment_registration}</button></span>
+			<span class="btn"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
 		</div>
 	</form>
 </div>
 <div class="fbFooter">
-	<span class="btn25 black"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
+	<span class="btn"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
 </div>
 <!-- /COMMENT -->

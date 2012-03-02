@@ -51,7 +51,7 @@
 				<p>&quot;{$lang->msg_is_secret}&quot;</p>
 				<dl>
 					<dt><label for="cpw">{$lang->password}</label> :</dt>
-					<dd><input type="password" name="password" id="cpw" class="inputText" /><span class="buttonOfficial"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
+					<dd><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
 				</dl>
 
 			</form>
@@ -109,25 +109,22 @@
 		
 	</div>
 
-    <div class="boardNavigation">
-		<!--@if($module_info->default_style != 'blog')-->
-        <div class="buttonLeft">
-			<a href="{getUrl('document_srl','')}" class="buttonOfficial"><span>{$lang->cmd_list}</span></a>
-		</div>
-        <!--@end-->
-		
+    <div class="btnArea">
         <!--@if($oDocument->isEditable())-->
-		<div class="buttonRight">
-			<a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}" class="buttonOfficial"><span>{$lang->cmd_modify}</span></a>
-			<a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="buttonOfficial"><span>{$lang->cmd_delete}</span></a>
-		</div>
+		<span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}...</a></span>
+		<span class="btn"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
+        <!--@end-->
+		<!--@if($module_info->default_style != 'blog')-->
+        <span class="etc">
+			<span class="btn"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
+		</span>
         <!--@end-->
     </div>
 
 </div>
 
 <!--@if($oDocument->allowTrackback())-->
-    <!--#include("./trackback.html")-->
+<!--#include("./trackback.html")-->
 <!--@end-->
 <a name="comment"></a>
 <!--#include("./comment.html")-->
@@ -144,10 +141,10 @@
 
                 <div class="editOption">
                 <!--@if(!$is_logged)-->
-                   <input type="text" name="nick_name" class="inputText userName" value="{$lang->writer}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
-                   <input type="password" name="password" class="inputText userPw" value="{$lang->password}" title="{$lang->password}" onfocus="if(this.value==this.title)this.value='';return false;" />
-                   <input type="text" name="email_address" class="inputText emailAddress" value="{$lang->email_address}" title="{$lang->email_address}" onfocus="if(this.value==this.title)this.value='';return false;" />
-                   <input type="text" name="homepage" class="inputText homePage" value="{$lang->homepage}" title="{$lang->homepage}" onfocus="if(this.value==this.title)this.value='';return false;" />
+                   <input type="text" name="nick_name" class="iText userName" value="{$lang->writer}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
+                   <input type="password" name="password" class="iText userPw" value="{$lang->password}" title="{$lang->password}" onfocus="if(this.value==this.title)this.value='';return false;" />
+                   <input type="text" name="email_address" class="iText emailAddress" value="{$lang->email_address}" title="{$lang->email_address}" onfocus="if(this.value==this.title)this.value='';return false;" />
+                   <input type="text" name="homepage" class="iText homePage" value="{$lang->homepage}" title="{$lang->homepage}" onfocus="if(this.value==this.title)this.value='';return false;" />
                 <!--@end-->
 
 				<!--@if($is_logged)-->
@@ -158,8 +155,8 @@
 					<label for="is_secret">{$lang->secret}</label>
                 </div>
         
-                <div class="boardNavigation">
-                    <span class="buttonOfficial"><input type="submit" value="{$lang->cmd_comment_registration}" accesskey="s" /></span>
+                <div class="btnArea">
+                    <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
                 </div>
 
             </div>

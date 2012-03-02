@@ -10,7 +10,7 @@
 .boardHeader h4,
 .boardHeader h5,
 .boardHeader h6{margin:0;float:left;padding:15px 15px 12px 15px;font-size:1.2em;background:#ffffff url(../images/common/lineH3.gif) no-repeat right bottom}/* board Description */
-.boardDescription{color:#AEAEAE;border:1px solid #DDDDDD;overflow:hidden;padding:10px;margin: 5px 0;background-color:#FFFFFF}
+.boardDescription{color:#AEAEAE;border:1px solid #DDDDDD;overflow:hidden;padding:10px;margin:5px 0;background-color:#FFFFFF}
 /* board Information */
 .boardInformation{width:100%;clear:both;margin:5px 0 2px 0;overflow:hidden;color:#666666}
 .articleNum{float:left;padding:0 0 0 15px}
@@ -79,7 +79,7 @@
 .boardRead .fileAttached li{padding-left:15px;display:block;float:left;white-space:nowrap;list-style:none;margin:0 10px 5px 0}
 .boardRead .fileAttached li a{text-decoration:none;font-size:.9em;white-space:nowrap;color:#444444}
 .boardRead .fileAttached li a:visited{color:#777777}
-.boardRead .contentButton{text-align:right;margin:10px 0 5px 0;border-top:1px solid #DDDDDD;padding-top:10px}
+.boardRead .btnArea{border-top:1px solid #ddd;padding:10px 0 0 0}
 .trackbackBox{padding:.6em .6em;color:#666666;border:1px solid #e0e1db;;margin-top:.5em}
 .trackbackBox .trackbackUrl{color:#1F3DAE;font-size:.9em;background:url("../images/common/iconTrackback.gif") no-repeat left top;padding-left:18px;margin:0}
 .trackbackBox .trackbackItem{background-color:#F3F3F3;padding:.6em .8em .6em .6em;line-height:1.25em;border-top:1px dotted #EEEEEE;list-style:none}
@@ -108,7 +108,6 @@
 .replyBox .fileAttached li{padding-left:15px;display:block;float:left;white-space:nowrap;list-style:none;margin:0px 10px 5px 0}
 .replyBox .fileAttached li a{text-decoration:none;font-size:.9em;white-space:nowrap;color:#444444}
 .replyBox .fileAttached li a:visited{color:#777777}
-.commentButton{margin-top:.5em}
 /* gallery sub menu */
 .boardSubMenu{margin:0 0 .5em 0;padding:1em 0 .5em .5em;border-bottom:1px solid #e0e1db}
 .boardSubMenu a{text-decoration:none;color:#666666;vertical-align:bottom;background:url(../images/common/line_1x10_e0e0e0.gif) no-repeat right 5px;padding-left:10px;padding-right:10px;_padding-top:5px;position:relative;top:5px}
@@ -207,13 +206,10 @@ th.date{white-space:nowrap}
 .thumbnailBox div.readAndRecommend strong.num{font:bold .8em Tahoma;color:#ff6600}
 /* board Bottom */
 .boardBottom{margin-top:10px}
-/* list button */
-.leftButtonBox{float: left}
-.rightButtonBox{float: right}
 /* Search Form */
 .boardSearch{margin-top:30px;margin-left:auto;margin-right:auto;clear:both;text-align:center}
 .boardSearch select{height:20px}
-.boardSearch input{height:18px}
+.boardSearch input[type=text]{height:18px}
 /* boardWrite */
 .boardEditor{margin-bottom:10px}
 .commentEditor{margin-top:10px}
@@ -233,7 +229,7 @@ th.date{white-space:nowrap}
 .boardWrite .option input{width:13px;height:13px}
 .boardWrite .option label{margin:0 8px 0 0}
 .boardWrite .tag{margin-top:10px;margin-left:10px}
-.boardWrite .tag .inputTypeText{width:90%;background:#FFFFFF url(../images/common/iconTag.gif) no-repeat 5px 5px;padding-left:30px}
+.boardWrite .tag .iText{width:90%;background:#FFFFFF url(../images/common/iconTag.gif) no-repeat 5px 5px;padding-left:30px}
 .boardWrite .tag .help{vertical-align:middle}
 .boardWrite .tag .info{font-size:.9em;color:#999999;background:url(../images/common/iconArrowD8.gif) no-repeat 0% 40%;margin-top:5px;padding-left:5px}
 .boardWrite .extraVarsList{width:100%;border-top:1px solid #e0e1db;border-bottom:none;margin:10px 0 10px 0;table-layout:fixed}
@@ -242,15 +238,6 @@ th.date{white-space:nowrap}
 .boardWrite .extraVarsList td a{color:#555555}
 .boardWrite .extraVarsList p{margin:5px 0 0 0;padding:0}
 .boardWrite .extraVarsList ul{margin:0;padding:0}
-.smallBox{border:1px solid #e0e1db;margin-left:auto;margin-right:auto;padding-bottom:10px}
-.smallBox.w268{width:268px}
-.smallBox .header{margin:0;padding:0;position:relative;_width:100%;background:#ffffff url(../images/common/bgH3.gif) no-repeat left bottom;overflow:hidden}
-.smallBox .header h3{margin:0;padding:0;clear:both;font-size:1.2em;padding:.8em 2em .6em 1.2em;border-bottom:3px solid #fe3614}
-.smallBox .complex{padding:1.5em 2em 2em 2em}
-.smallBox .inputPassword{position:relative;border:none;padding:2em 2em 1.5em 2em}
-.smallBox .inputPassword .inputTypeText{float:left;margin-right:.5em;width:8em}
-.smallBox .inputPassword legend{position:absolute;overflow:hidden;width:1px;height:1px;font-size:.001em;text-indent:-100em}
-.smallBox .messageBox{background-color:#F3F3F3;padding:10px;border-bottom:1px solid #EEEEEE}
 /* Pagination Reset */
 .pagination{padding:15px 0;margin:0;text-align:center}
 .pagination *{margin:0;padding:0}

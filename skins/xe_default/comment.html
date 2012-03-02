@@ -15,7 +15,7 @@
 				<div class="item <!--@if($comment->get('depth'))-->reply<!--@end-->" id="comment_{$comment->comment_srl}">
 					<div class="indent" <!--@if($comment->get('depth'))--> style="margin-left:{($comment->get('depth'))*15}px" <!--@end-->>
 	
-					<h4 class="header">
+					<h4 class="author">
 					<!--@if(!$comment->member_srl)-->
 						<!--@if($comment->homepage)-->
 							<a href="{$comment->homepage}" onclick="window.open(this.href);return false;">{$comment->getNickName()}</a>
@@ -52,7 +52,7 @@
 							<p>&quot;{$lang->msg_is_secret}&quot;</p>
 							<dl>
 								<dt><label for="cpw">{$lang->password}</label> :</dt>
-								<dd><input type="password" id="cpw" name="password" class="inputText" /><span class="button red"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
+								<dd><input type="password" id="cpw" name="password" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
 							</dl>
 						</form>
 					<!--@else-->
@@ -74,12 +74,12 @@
 					</dl>
 					<!--@end-->
 		
-					<div class="option">
+					<div class="btnArea">
 						<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
-							<a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}" class="button small"><span>{$lang->cmd_delete}</span></a>
-							<a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}" class="button small"><span>{$lang->cmd_modify}</span></a> 
+						<span class="btn"><a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_delete}</a></span>
+						<span class="btn"><a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_modify}...</a></span> 
 						<!--@end-->
-							<a cond="$oDocument->allowComment()" href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}" class="button small green"><span>{$lang->cmd_reply}</span></a> 
+						<span class="btn"><a cond="$oDocument->allowComment()" href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_reply}</a></span> 
 					</div>
 		
 					<!--@if($comment->get('voted_count')!=0 || $comment->get('blamed_count') != 0)-->

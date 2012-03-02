@@ -41,7 +41,7 @@
 				<p>&quot;{$lang->msg_is_secret}&quot;</p>
 				<dl>
 					<dt><label for="cpw">{$lang->password}</label> :</dt>
-					<dd><input type="password" name="password" id="cpw" class="inputText" /><span class="button red"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
+					<dd><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></dd>
 				</dl>
 
 			</form>
@@ -123,19 +123,17 @@
 		
 	</div>
 
-    <div class="boardNavigation">
+    <div class="btnArea">
+        <!--@if($oDocument->isEditable())-->
+		<span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}...</a></span>
+		<span class="btn"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
+        <!--@end-->
 		<!--@if($module_info->default_style != 'blog' || ($module_info->default_style == 'blog' && Context::get('document_srl')))-->
-        <div class="buttonLeft">
-			<a href="{getUrl('document_srl','')}" class="button"><span><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></span></a>
-		</div>
+        <span class="etc">
+			<span class="btn"><a href="{getUrl('document_srl','')}"><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></a></span>
+		</span>
         <!--@end-->
 		
-        <!--@if($oDocument->isEditable())-->
-		<div class="buttonRight">
-			<a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}" class="button"><span>{$lang->cmd_modify}</span></a>
-			<a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="button"><span>{$lang->cmd_delete}</span></a>
-		</div>
-        <!--@end-->
     </div>
 
 </div>
@@ -174,25 +172,25 @@
                 <div class="userNameAndPw">
                     <dl>
                         <dt><label for="userName">{$lang->writer}</label> :</dt>
-                        <dd class="userName"><input type="text" name="nick_name" value="" class="inputText" id="userName"/></dd>
+                        <dd class="userName"><input type="text" name="nick_name" value="" class="iText" id="userName"/></dd>
                     </dl>
                     <dl>
                         <dt><label for="userPw">{$lang->password}</label> :</dt>
-                        <dd class="userPw"><input type="password" name="password" value="" id="userPw" class="inputText" /></dd>
+                        <dd class="userPw"><input type="password" name="password" value="" id="userPw" class="iText" /></dd>
                     </dl>
                     <dl>
                         <dt><label for="emailAddress">{$lang->email_address}</label> :</dt>
-                        <dd class="emailAddress"><input type="text" name="email_address" value="" id="emailAddress" class="inputText"/></dd>
+                        <dd class="emailAddress"><input type="text" name="email_address" value="" id="emailAddress" class="iText"/></dd>
                     </dl>
                     <dl>
                         <dt><label for="homePage">{$lang->homepage}</label> :</dt>
-                        <dd class="homePage"><input type="text" name="homepage" value="" id="homePage" class="inputText"/></dd>
+                        <dd class="homePage"><input type="text" name="homepage" value="" id="homePage" class="iText"/></dd>
                     </dl>
                 </div>
                 <!--@end-->
 
                 <div class="boardNavigation">
-                    <span class="button red strong"><input type="submit" value="{$lang->cmd_comment_registration}" accesskey="s" /></span>
+                    <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
                 </div>
 
             </div>

@@ -61,7 +61,7 @@
 .xev3gallery .list a.title .iefix{position:absolute;top:0;left:0;width:760px;height:138px;cursor:pointer;background:#fff;opacity:0;filter:alpha(opacity=0)}
 .xev3gallery .list .meta{position:absolute;top:40px;left:170px;z-index:1;width:580px}
 .xev3gallery .list .meta li{color:#888;margin:0 20px 0 0;vertical-align:top}
-.xev3gallery .list .meta .comment_count {margin-left:1em}
+.xev3gallery .list .meta .comment_count{margin-left:1em}
 .xev3gallery .list .meta li.reply,
 .xev3gallery .list .meta li.author,
 .xev3gallery .list .meta li.date{display:inline-block;_display:inline;font-size:11px;line-height:14px}
@@ -342,17 +342,3 @@
 .tagList a.rank4{font-size:12px;background:#999}
 .tagList a.rank5{font-size:12px;color:#666;text-decoration:underline}
 .tagFooter{text-align:center;padding:20px 0}
-
-/* Button */
-.xev3gallery .btn25,
-.xev3gallery .btn25 a,
-.xev3gallery .btn25 button,
-.xev3gallery .btn25 input{display:inline-block;height:25px;line-height:25px;padding:0;margin:0;overflow:visible;position:relative;background:url(img/btn25.gif) no-repeat;cursor:pointer;vertical-align:top}
-.xev3gallery .btn25{background-position:0 0;margin:0 2px 0 0;vertical-align:top}
-.xev3gallery .btn25 a,
-.xev3gallery .btn25 button,
-.xev3gallery .btn25 input{padding:0 12px;left:2px;font-size:12px;color:#4a4a4a;font-weight:bold;border:0;background-position:right 0;text-decoration:none !important}
-.xev3gallery .btn25.blue{background-position:0 -30px}
-.xev3gallery .btn25.blue *{background-position:right -30px !important;color:#fff !important}
-.xev3gallery .btn25.black{background-position:0 -60px}
-.xev3gallery .btn25.black *{background-position:right -60px !important;color:#fff !important}

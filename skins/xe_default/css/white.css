@@ -5,9 +5,9 @@
 
 /* Board Reset */
 .board{background:#fff;color:#333}
-.board .inputText,
+.board .iText,
 .board textarea{border-color:#ccc}
-.board .inputText,
+.board .iText,
 .board textarea,
 .board select{background:#fff;color:#333}
 .board a{color:#000}

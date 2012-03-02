@@ -119,8 +119,8 @@
 		<a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}" class="direction next">{$lang->last_page} <span></span><span></span></a>
 	</div>
 	<div class="btnArea">
-		<span class="btn25 blue"><a href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}</a></span>
-		<span class="btn25" cond="$grant->manager"><a href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a></span>
+		<span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}...</a></span>
+		<span class="btn" cond="$grant->manager"><a href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a></span>
 	</div>
 	<button type="button" class="bsToggle" title="{$lang->cmd_search}">{$lang->cmd_search}</button>
 	<form cond="$grant->view" action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="board_search" class="board_search" no-error-return-url="true">
@@ -131,8 +131,8 @@
 		<select name="search_target">
 			<option loop="$search_option=>$key,$val" value="{$key}" selected="selected"|cond="$search_target==$key">{$val}</option>
 		</select>
-		<span class="btn25"><button type="submit" onclick="xGetElementById('board_search').submit();return false;">{$lang->cmd_search}</button></span>
-        <span class="btn25" cond="$last_division"><a href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}">{$lang->cmd_search_next}</a></span>
+		<span class="btn"><button type="submit" onclick="xGetElementById('board_search').submit();return false;">{$lang->cmd_search}</button></span>
+        <span class="btn" cond="$last_division"><a href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}">{$lang->cmd_search_next}</a></span>
 	</form>
 	<a href="{getUrl('act','dispBoardTagList')}" class="tagSearch" title="{$lang->tag}">{$lang->tag}</a>
 </div>

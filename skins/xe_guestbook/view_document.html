@@ -34,13 +34,13 @@
                     <!--@end-->
                 </div>
 
-                <div class="clear"></div>
+                
             </div>
 
-            <div class="clear"></div>
+            
         </div>
 
-        <div class="clear"></div>
+        
 
         <!--@if($oDocument->isExtraVarsExists() && (!$oDocument->isSecret() || $oDocument->isGranted()) )-->
         <table cellspacing="0" summary="" class="extraVarsList">
@@ -67,7 +67,7 @@
                         <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
                             <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
+                            <div class="content"><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></div>
 
                         </form>
                     </div>
@@ -85,7 +85,7 @@
                 <li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename} ({FileHandler::filesize($file->file_size)})({number_format($file->download_count)})</a></li>
                 <!--@end-->
             </ul>
-            <div class="clear"></div>
+            
         </div>
         <!--@end-->
     </div>

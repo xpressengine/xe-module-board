@@ -11,9 +11,9 @@
                 ({$oSourceComment->get('ipaddress')})
             <!--@end-->
         </div>
-        <div class="clear"></div>
+        
 
-        <div class="replyContent gap1">
+        <div class="replyContent">
             {$oSourceComment->getContent(false)}
         </div>
     </div>
@@ -29,9 +29,9 @@
                 ({$oDocument->get('ipaddress')})
             <!--@end-->
         </div>
-        <div class="clear"></div>
+        
 
-        <div class="replyContent gap1">
+        <div class="replyContent">
             {$oDocument->getContent(false)}
         </div>
     </div>
@@ -52,21 +52,21 @@
   <div>
       <div class="inputItem">
           <label for="userName">{$lang->writer}</label>
-          <input type="text" name="nick_name" value="{$oComment->get('nick_name')}" class="userName inputTypeText" id="userName"/>
+          <input type="text" name="nick_name" value="{$oComment->get('nick_name')}" class="userName iText" id="userName"/>
       </div>
       <div class="inputItem">
           <label for="userPw">{$lang->password}</label>
-          <input type="password" name="password" value="" id="userPw" class="userPw inputTypeText" />
+          <input type="password" name="password" value="" id="userPw" class="userPw iText" />
       </div>
       <div class="inputItem">
           <label for="emailAddress">{$lang->email_address}</label>
-          <input type="text" name="email_address" value="{htmlspecialchars($oComment->get('email_address'))}" id="emailAddress" class="emailAddress inputTypeText"/>
+          <input type="text" name="email_address" value="{htmlspecialchars($oComment->get('email_address'))}" id="emailAddress" class="emailAddress iText"/>
       </div>
       <div class="inputItem">
           <label for="homePage">{$lang->homepage}</label>
-          <input type="text" name="homepage" value="{htmlspecialchars($oComment->get('homepage'))}" id="homePage" class="homePage inputTypeText"/>
+          <input type="text" name="homepage" value="{htmlspecialchars($oComment->get('homepage'))}" id="homePage" class="homePage iText"/>
       </div>
-      <div class="clear"></div>
+      
   </div>
   <!--@end-->
   <dl class="option">
@@ -84,13 +84,13 @@
 
   <div class="editor">{$oComment->getEditor()}</div>
 
-  <div class="commentButton tRight">
-      <span class="button"><input type="button" value="{$lang->cmd_back}" onclick="location.href='{getUrl('act','','document_srl','')}'"/></span>
-      <span class="button"><input type="submit" value="{$lang->cmd_comment_registration}" accesskey="s" /></span>
+  <div class="btnArea">
+      <span class="btn"><input type="button" value="{$lang->cmd_back}" onclick="location.href='{getUrl('act','','document_srl','')}'"/></span>
+      <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
   </div>
 
 </div>
-<div class="clear"></div>
+
 </form>
 
 &nbsp;
