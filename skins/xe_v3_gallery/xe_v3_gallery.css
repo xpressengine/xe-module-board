@@ -114,7 +114,7 @@
 .board_list tr:last-child td{border:0}
 .board_list td.notice{text-align:center}
 .board_list td.no{text-align:center;font:11px Tahoma, Geneva, sans-serif}
-.board_list td.title{white-space:normal;word-wrap:break-word}
+.board_list td.title{white-space:normal}
 .board_list td.time,
 .board_list td.readNum,
 .board_list td.voteNum,
