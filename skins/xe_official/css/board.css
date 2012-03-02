@@ -133,8 +133,8 @@ background-repeat:no-repeat;background-position:left 8px}
 .board .boardNavigation{padding:30px 0;margin:-1px 0 0 0;text-align:center;border-top:1px solid;zoom:1;_zoom:0}
 .board .boardNavigation:after{content:"";display:block;float:none;clear:both}
 .board .boardNavigation .pagination{padding:5px 0}
-.board .boardNavigation .buttonLeft{float:left;text-align:left}
-.board .boardNavigation .buttonRight{float:right;text-align:right}
+.board .boardNavigation .btnLeft{float:left;text-align:left}
+.board .boardNavigation .btnRight{float:right;text-align:right}
 /* Search Form */
 .boardSearchForm{position:relative;margin:0;padding:1px 0;line-height:normal}
 .boardSearchForm fieldset{border:0;clear:both;text-align:center;position:relative}

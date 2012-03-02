@@ -16,11 +16,10 @@
 .boardList th{background:#ffffff url(../images/red/lineBoardListTh.gif) no-repeat left bottom}
 .boardList td.recommend{color:#ff6600}
 .boardList td .replyAndTrackback{color:#ff6600}
-.buttonTypeGo{background:url(../images/red/buttonTypeInput24.gif) no-repeat}
 /* pagination */
 .pagenation strong{color:#ff6600}
 /* boardRead */
 .boardRead .fileAttached li{background:url(../images/red/iconFile.gif) no-repeat left top}
 /* replyAndTrackback */
-.buttonBox .replyAndTrackback a strong{color:#ff6600}
+.btnBox .replyAndTrackback a strong{color:#ff6600}
 .replyBox .fileAttached li{background:url(../images/red/iconFile.gif) no-repeat left top}

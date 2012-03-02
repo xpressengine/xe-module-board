@@ -13,11 +13,10 @@
 .boardList th{background:transparent url(../images/black/lineBoardListTh.gif) no-repeat left bottom}
 .boardList td.recommend{color:#ff6600}
 .boardList td .replyAndTrackback{color:#BBBBBB}
-.buttonTypeGo{background:url(../images/black/buttonTypeInput24.gif) no-repeat}
 /* pagination */
 .pagenation strong{color:#BBBBBB}
 /* replyAndTrackback */
-.buttonBox .replyAndTrackback a strong{color:#BBBBBB}
+.btnBox .replyAndTrackback a strong{color:#BBBBBB}
 .replyBox .fileAttached li{background:url(../images/black/iconFile.gif) no-repeat left top}
 /* replace common images */
 .boardHeader{border:1px solid #ABA9B4;border-bottom:0;background:transparent url(../images/black/bgH3.gif) repeat-x left bottom;overflow:hidden}
@@ -76,11 +75,11 @@
 .secretContent .content{background-color:#222222;color:#888888}
 .boardRead .readBody{color:#BBBBBB}
 /* button */
-a.button,
-a.button span,
-span.button,
-span.button button,
-span.button input{background-image:url(../../../../../common/img/buttonBlack.gif);color:#fff}
+a.btn,
+a.btn span,
+span.btn,
+span.btn button,
+span.btn input{background-image:url(../../../../../common/img/buttonBlack.gif);color:#fff}
 .trackbackBox{border:1px solid #444444}
 .viewDocument{border:1px solid #444444}
 .replyBox{border:none}

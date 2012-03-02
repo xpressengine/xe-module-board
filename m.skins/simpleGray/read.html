@@ -21,7 +21,9 @@
                         <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
                             <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" /><span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_input}" /></span></div>
+                            <div class="content">
+								<input type="password" name="password" id="cpw" /><input type="submit" value="{$lang->cmd_input}" />
+                            </div>
 
                         </form>
                     </div>

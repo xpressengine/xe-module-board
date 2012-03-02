@@ -187,8 +187,6 @@ th.date{white-space:nowrap}
 .boardList td.recommend{font:bold .8em Tahoma;text-align:center}
 .boardList td.date{font:.8em Tahoma;color:#999999;text-align:center;white-space:nowrap}
 .boardList td input{_margin:-3px}
-.buttonTypeGo{border:none;cursor:pointer;width:24px;height:20px;_position:relative;_top:3px;font:.75em Tahoma;text-align:center}
-*:first-child+html .buttonTypeGo{position:relative;top:3px}
 .thumbnailBox{margin-top:1em;clear:both;overflow:hidden;border-bottom:1px solid #e0e1db}
 .thumbnailBox div.cell{display:block;float:left;overflow:hidden;margin-bottom:1em;margin-right:1em}
 .thumbnailBox div.cell img.thumb{padding:2px;border:1px solid #e0e1db;display:block;margin-bottom:1em;margin-left:auto;margin-right:auto}
