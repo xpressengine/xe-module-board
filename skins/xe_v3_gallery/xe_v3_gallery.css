@@ -1,5 +1,5 @@
-@charset "utf-8";/* NHN (developers@xpressengine.com) */
-
+@charset "utf-8";
+/* NHN (developers@xpressengine.com) */
 /* xev3 Gallery */
 .xev3gallery img{border:0}
 .xev3gallery,
@@ -10,7 +10,7 @@
 .xev3gallery .iCheck{width:13px;height:13px;margin:0;vertical-align:middle}
 .xev3gallery .iText{position:relative;padding:3px 4px;_margin:-1px 0;height:17px;line-height:17px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8;background:transparent}
 .xev3gallery textarea{margin:0;padding:3px 4px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
-.xev3gallery .fbox{position:relative;clear:both;*zoom:1}
+.xev3gallery .fbox{position:relative;clear:both;zoom:1}
 .xev3gallery .fbox:after{content:"";display:block;clear:both;float:none}
 .xev3gallery .fleft{float:left}
 .xev3gallery .fright{float:right}
@@ -21,13 +21,11 @@
 .xev3gallery ul.flat{list-style:none;margin:0;padding:0}
 .xev3gallery ul.flat li{padding:0;margin:0}
 .xev3gallery .bold{font-weight:bold}
-
 /* Board Header */
 .board_header{position:relative;zoom:1;margin:0 0 22px 0}
 .board_header:after{content:"";display:block;clear:both}
 .board_header h2{margin:0;float:left}
 .board_header .setup{float:right;width:16px;height:0;padding:16px 0 0 0;overflow:hidden;background:url(icoSet.gif) no-repeat 1px -239px}
-
 /* Category Tab */
 .cTab{position:relative;margin:0 0 35px 0;padding:0;list-style:none;zoom:1;border-bottom:1px solid #999}
 .cTab:after{content:"";display:block;clear:both}
@@ -41,7 +39,6 @@
 .cTab li.on ul li{position:relative;left:1px;float:none;display:inline;margin:0;padding:0 15px;list-style:none;border:0;border-right:1px solid #d0d0d0}
 .cTab li.on ul li a{border:0;top:0;float:none;line-height:none;padding:0;font-family:돋움, Dotum;font-weight:normal}
 .cTab li.on ul li.on_ a{font-weight:bold;color:#3912b3}
-
 /* list */
 .xev3gallery .header .title a{font-weight:bold;text-decoration:none;color:#333;font-size:20px}
 .xev3gallery .list form.list-body{border:1px solid #e4e4e4;border-width:1px 0;overflow:hidden}
@@ -102,7 +99,6 @@
 .xev3gallery .list .bosearch input{height:19px;padding:1px 4px;font-size:12px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
 .xev3gallery .list .bosearch select{height:25px;font-size:12px}
 .xev3gallery .list .bosearch button span{display:block;position:relative;top:4px;background:url(img/sprites3.gif) no-repeat 0 -284px;height:23px;width:12px;overflow:hidden;text-indent:-300px}
-
 /* Board List */
 /* list.html */
 .board_list{border:0;border-bottom:1px solid #cdcdcd;color:#4a4a4a;background:url(img/bgListHeader.gif) no-repeat}
@@ -134,7 +130,6 @@
 .list_footer .board_search .iText{height:15px;line-height:15px;padding:4px 100px 4px 4px;width:100px;_margin:-1px 0;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
 .list_footer .board_search select{position:absolute;top:4px;height:18px;left:123px;width:80px}
 .list_footer .tagSearch{display:inline-block;width:25px;height:0;padding:25px 0 0 0;overflow:hidden;background:url(img/btnSearch.gif) no-repeat 0 -25px}
-
 /* Board Write */
 /* write_form.html */
 .board_write{background:url(img/bgHeader.gif) no-repeat 0 0}
@@ -148,7 +143,6 @@
 .write_footer .btnArea{float:right}
 .write_option{margin:10px 0}
 .write_option label{margin:0 10px 0 0}
-
 /* Extra Form */
 .exForm{background:#fff;padding:10px 0}
 .exForm table{border:0;width:100%}
@@ -183,7 +177,6 @@
 .exOut td{border:0;vertical-align:top;border-bottom:1px solid #ddd;padding:8px 15px}
 .exOut th{color:#333;text-align:left;white-space:nowrap}
 .exOut td{color:#666;width:100%}
-
 /* Board Read */
 /* _read.html */
 .board_read{background:#fff url(img/bgHeader.gif) no-repeat 0 -50px;zoom:1}
@@ -229,7 +222,6 @@
 .read_footer .sign .tx{overflow:hidden;line-height:1.3;font-size:11px;border-left:1px dotted #ddd;padding:0 0 0 15px;color:#333}
 .read_footer .sign .tx *{margin:0}
 .read_footer .btnArea{clear:both;text-align:right;padding:10px 0;border-top:1px solid #ddd}
-
 /* Feedback (Trackback+Comment) */
 /* _trackback.html | _comment.html */
 .feedback{position:relative;border:1px solid #ddd;color:#4b4b4b}
@@ -286,7 +278,6 @@
 .feedback .indent11{padding-left:220px;background-position:206px 15px}
 .feedback .indent12{padding-left:240px;background-position:226px 15px}
 .fbFooter{margin:-10px 0 10px 0}
-
 /* Pagination */
 /* comment_form.html */
 .feedbacks .pagination{margin:0;padding:4px 0;text-align:center;line-height:normal}
@@ -305,14 +296,12 @@
 .feedbacks .pagination .direction span{position:relative;display:inline-block;width:0;height:0;font-size:0;line-height:0;vertical-align:top;top:4px}
 .feedbacks .pagination .prev span{border:3px solid;border-top:solid #fff;border-bottom:solid #fff;border-left:0;margin-right:1px;*left:-4px}
 .feedbacks .pagination .next span{border:3px solid;border-top:solid #fff;border-bottom:solid #fff;border-right:0;margin-left:1px}
-
 /* Write Author */
 /* _read.html | write_form.html | comment_form.html */
 .write_author{float:left;margin:0 4px 0 0}
 .write_author .item{position:relative;display:inline-block;_margin:0 4px 0 0}
 .write_author .iLabel{top:6px;left:5px;color:#666}
 .write_author label{margin:0 10px 0 0}
-
 /* Write Comment */
 /* _read.html | comment_form.html */
 .write_comment{position:relative;margin:10px 12px;zoom:1}
@@ -320,7 +309,6 @@
 .write_comment textarea{width:645px;height:37px;margin:0 0 5px 0}
 .write_comment .write_author{padding:0 0 10px 0}
 .write_comment .btnArea{float:right}
-
 /* Context Data | Context Message */
 /* comment_form.html | delete_form.html | delete_comment_form.html | input_password_form.html | message.html */
 .context_data{background:#f8f8f8;border-top:2px solid #666;padding:15px 20px;color:#666}
@@ -332,7 +320,6 @@
 .context_message{text-align:center;border-top:2px solid #666}
 .context_message h1{font-size:16px;margin:20px 0}
 .context_message .btnArea{margin:20px 0}
-
 /* Tag List */
 .tagList{margin:0;padding:25px;border:1px solid #cdcdcd;line-height:1.2;text-align:justify}
 .tagList a{color:#fff;text-decoration:none;white-space:nowrap;margin:0 2px}

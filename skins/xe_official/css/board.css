@@ -1,6 +1,5 @@
 @charset "utf-8";
 /* NHN (developers@xpressengine.com) */
-
 /* Board Reset */
 .board{font-family:Tahoma, Sans-serif;line-height:normal;font-size:12px}
 .board .iText,
@@ -21,7 +20,7 @@
 .boardHeader a:hover,
 .boardHeader a:active,
 .boardHeader a:focus{text-decoration:underline}
-.boardHeader .boardTitle{letter-spacing:-.1em;margin-bottom:10px;border-bottom:3px solid;*zoom:1;
+.boardHeader .boardTitle{letter-spacing:-.1em;margin-bottom:10px;border-bottom:3px solid;zoom:1;
 background-repeat:no-repeat;background-position:left 8px}
 .boardHeader .boardTitle:after{content:"";display:block;clear:both}
 .boardHeader .boardTitleText{font-size:18px;float:left;clear:both;margin-bottom:-3px;padding:5px 15px 5px 5px;border-bottom:3px solid;background-repeat:no-repeat;background-position:right bottom}
@@ -29,7 +28,7 @@ background-repeat:no-repeat;background-position:left 8px}
 .boardHeader .boardTitleText em{font-style:normal;font-weight:normal}
 .boardHeader .boardDescription{padding:7px 15px;-moz-border-radius:3px;-webkit-border-radius:3px;position:relative}
 /* Board Information */
-.boardInformation{width:100%;padding:15px 0;font-size:1em;line-height:normal;*zoom:1}
+.boardInformation{width:100%;padding:15px 0;font-size:1em;line-height:normal;zoom:1}
 .boardInformation *{margin:0;padding:0}
 .boardInformation a{text-decoration:none}
 .boardInformation a:hover,
@@ -110,12 +109,12 @@ background-repeat:no-repeat;background-position:left 8px}
 .boardList.webZine td.title p.summary a{text-decoration:none}
 .boardList.webZine td.title .thumb{float:right;clear:right;border:1px solid;padding:8px;margin-left:50px}
 .boardList.webZine td.title .by{font:9px Tahoma}
-.thumbList{border-bottom:1px solid;border-top:0;*zoom:1;margin-right:-30px;padding:25px 0 0 0}
+.thumbList{border-bottom:1px solid;border-top:0;zoom:1;margin-right:-30px;padding:25px 0 0 0}
 .thumbList:after{content:"";display:block;clear:both}
 .thumbList li{position:relative;margin:0 17px 10px 17px;padding:0;list-style:none;overflow:hidden;float:left;display:inline}
 .thumbList li .num{color:#888;font-size:9px;margin-bottom:6px}
 .thumbList li .thumb{position:relative;float:left;clear:both;overflow:hidden;padding:8px;margin-bottom:14px;border:1px solid}
-.thumbList li .thumb a{display:block;position:relative;*zoom:1;text-decoration:none !important}
+.thumbList li .thumb a{display:block;position:relative;zoom:1;text-decoration:none !important}
 .thumbList li .thumb a *{cursor:pointer}
 .thumbList li .thumb a img{display:block}
 .thumbList li .thumb a .text{position:absolute;left:0;top:50%;margin-top:-.8em;*margin-top:-1.5em;display:block;width:100%;text-align:center;font-size:2em;font-weight:bold;white-space:nowrap;letter-spacing:-1px}
@@ -125,20 +124,19 @@ background-repeat:no-repeat;background-position:left 8px}
 .thumbList li .title input{width:13px;height:13px;vertical-align:middle;white-space:nowrap}
 .thumbList li .summary{line-height:16px;margin-bottom:8px}
 .thumbList li .summary a{text-decoration:none}
-.thumbList li .meta{position:relative;white-space:normal;*zoom:1;text-align:left;overflow:visible}
-.thumbList li .meta li{float:none;display:inline;margin:0;white-space:nowrap;*zoom:1}
+.thumbList li .meta{position:relative;white-space:normal;zoom:1;text-align:left;overflow:visible}
+.thumbList li .meta li{float:none;display:inline;margin:0;white-space:nowrap;zoom:1}
 .thumbList .lastReply{text-align:left;font-size:11px}
 .thumbList .lastReply a{display:block}
 .thumbList .by{font:9px Tahoma}
 /* Board Navigation */
-.board .boardNavigation{padding:30px 0;margin:-1px 0 0 0;text-align:center;border-top:1px solid;*zoom:1;_zoom:0}
+.board .boardNavigation{padding:30px 0;margin:-1px 0 0 0;text-align:center;border-top:1px solid;zoom:1;_zoom:0}
 .board .boardNavigation:after{content:"";display:block;float:none;clear:both}
 .board .boardNavigation .pagination{padding:5px 0}
 .board .boardNavigation .buttonLeft{float:left;text-align:left}
 .board .boardNavigation .buttonRight{float:right;text-align:right}
 /* Search Form */
 .boardSearchForm{position:relative;margin:0;padding:1px 0;line-height:normal}
-.boardSearchForm *{margin:0;padding:0}
 .boardSearchForm fieldset{border:0;clear:both;text-align:center;position:relative}
 .boardSearchForm fieldset:after{content:"";display:block;float:none;clear:both}
 .boardSearchForm fieldset *{vertical-align:top}
@@ -152,14 +150,14 @@ background-repeat:no-repeat;background-position:left 8px}
 .boardSearchForm .infoEtc li.contributors a{width:12px;background-position:0 0}
 .boardSearchForm .infoEtc li.tag a{width:42px;background-position:-11px 0}
 /* Board Read */
-.boardReadHeader{*zoom:1}
+.boardReadHeader{zoom:1}
 .boardReadHeader a{text-decoration:none}
 .boardReadHeader a:hover,
 .boardReadHeader a:active,
 .boardReadHeader a:focus{text-decoration:underline}
 .boardReadHeader:after{content:"";display:block;float:none;clear:both}
 .boardReadHeader *{margin:0;padding:0}
-.boardReadHeader .titleArea{*zoom:1;padding:7px 0;border-top:1px solid;border-bottom:1px solid}
+.boardReadHeader .titleArea{zoom:1;padding:7px 0;border-top:1px solid;border-bottom:1px solid}
 .boardReadHeader .titleArea:after{content:"";display:block;clear:both}
 .boardReadHeader .titleArea .title{float:left;font-size:16px;margin-right:10px}
 .boardReadHeader .titleArea .category{float:left;padding-left:10px;margin-top:4px;font-size:12px;background-repeat:no-repeat;background-position:left center}
@@ -168,15 +166,15 @@ background-repeat:no-repeat;background-position:left 8px}
 .boardReadHeader .titleArea .sum .vote{font-size:11px;margin-right:5px}
 .boardReadHeader .titleArea .sum .num{font-size:9px}
 .boardReadHeader .titleArea .sum .date{padding-left:10px;font-size:9px;background-repeat:no-repeat;background-position:left center}
-.boardReadHeader .authorArea{*zoom:1;padding:10px 0}
+.boardReadHeader .authorArea{zoom:1;padding:10px 0}
 .boardReadHeader .authorArea:after{content:"";display:block;clear:both}
 .boardReadHeader .authorArea .author{float:left;margin-right:10px}
 .boardReadHeader .authorArea .ipAddress{float:left;font-size:9px;margin-top:3px}
 .boardReadHeader .authorArea .permaLink{float:right;font-size:9px;margin-top:3px}
-.boardReadBody{overflow:hidden;*zoom:1}
+.boardReadBody{overflow:hidden;zoom:1}
 .boardReadBody .xe_content{overflow:hidden}
 .boardReadBody .xe_content a{text-decoration:underline}
-.boardReadFooter .memberSignature{border:1px solid;padding:10px;margin:1em 0;overflow:hidden;*zoom:1;clear:both;-moz-border-radius:5px;-webkit-border-radius:5px}
+.boardReadFooter .memberSignature{border:1px solid;padding:10px;margin:1em 0;overflow:hidden;zoom:1;clear:both;-moz-border-radius:5px;-webkit-border-radius:5px}
 .boardReadFooter .memberSignature img.profile{margin:0 1em 0 0;border:1px solid}
 .boardReadFooter .tag{margin:1em 0;clear:both}
 .boardReadFooter .tag *{display:inline;margin:0;padding:0;font-size:11px;vertical-align:middle}
@@ -202,8 +200,8 @@ background-repeat:no-repeat;background-position:left 8px}
 .feedbackList .trackbackURL a:focus{text-decoration:underline}
 .feedbackList .trackbackList,
 .feedbackList .replyList{clear:both}
-.feedbackList .item{position:relative;border-top:1px dashed;*zoom:1}
-.feedbackList .item .indent{position:relative;*zoom:1}
+.feedbackList .item{position:relative;border-top:1px dashed;zoom:1}
+.feedbackList .item .indent{position:relative;zoom:1}
 .feedbackList .item .indent:after{content:"";display:block;clear:both}
 .feedbackList .item.itemReply .indent{padding-left:15px;background-repeat:no-repeat;background-position:0 1.2em}
 .feedbackList .item .author{margin:0 0 5px 0}
@@ -211,12 +209,12 @@ background-repeat:no-repeat;background-position:left 8px}
 .feedbackList .item .author a:hover,
 .feedbackList .item .author a:active,
 .feedbackList .item .author a:focus{text-decoration:underline}
-.feedbackList .item .itemContent{position:relative;padding:1em 0 1em 120px;*zoom:1;z-index:1}
+.feedbackList .item .itemContent{position:relative;padding:1em 0 1em 120px;zoom:1;z-index:1}
 .feedbackList .item .itemContent:after{content:"";display:block;clear:both}
 .feedbackList .item .itemContent .xe_content{width:auto !important}
 .feedbackList .item .itemContent .xe_content *{margin-top:0}
 .feedbackList .item .itemContent .xe_content a{text-decoration:underline}
-.feedbackList .item .itemContent .option{position:relative;margin:1em 0;padding:0;list-style:none;white-space:nowrap;overflow:hidden;*zoom:1;float:right}
+.feedbackList .item .itemContent .option{position:relative;margin:1em 0;padding:0;list-style:none;white-space:nowrap;overflow:hidden;zoom:1;float:right}
 .feedbackList .item .itemContent .option li{position:relative;left:-1px;display:inline;padding:0 0 0 5px;background-repeat:no-repeat;background-position:left center;font-size:11px}
 .feedbackList .item .itemContent .option li.wouldYou{background:none}
 .feedbackList .item .itemContent .option li a{text-decoration:none}
@@ -226,14 +224,14 @@ background-repeat:no-repeat;background-position:left 8px}
 .feedbackList .item .itemContent .delete{position:relative;display:inline-block;width:13px;height:13px;background-repeat:no-repeat;background-position:center center;vertical-align:middle}
 .feedbackList .item .itemContent .delete span{position:absolute;width:0;height:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden}
 .feedbackList .item.itemOnly{border-top:0}
-.feedbackList .item .itemAside{position:relative;float:left;width:100px;margin-right:-100px;padding:1em 0 0 0;*zoom:1;text-align:left;z-index:2}
+.feedbackList .item .itemAside{position:relative;float:left;width:100px;margin-right:-100px;padding:1em 0 0 0;zoom:1;text-align:left;z-index:2}
 .feedbackList .item .itemAside a{text-decoration:none}
 .feedbackList .item .itemAside a:hover,
 .feedbackList .item .itemAside a:active,
 .feedbackList .item .itemAside a:focus{text-decoration:underline}
 .feedbackList .item .itemAside img.profile{display:block;border:1px solid;margin-bottom:5px;width:80px;height:80px }
 .feedbackList .item .itemAside .meta{font-size:9px;margin:0 0 5px 0;white-space:nowrap}
-.feedbackList .item .itemAside .vote{margin:0;*zoom:1;overflow:hidden}
+.feedbackList .item .itemAside .vote{margin:0;zoom:1;overflow:hidden}
 .feedbackList .item .itemAside .vote:after{content:"";display:block;clear:both}
 .feedbackList .item .itemAside .vote *{margin:0;padding:0}
 .feedbackList .item .itemAside .vote dt{position:relative;left:-5px;float:left;width:10px;height:9px;margin-right:2px;padding-left:5px;background-image:url(../img/common/iconLove.gif);background-repeat:no-repeat;overflow:hidden;border-left:1px solid #e5e5e5}
@@ -258,7 +256,7 @@ background-repeat:no-repeat;background-position:left 8px}
 .attachedFile ul.files *{display:inline-block;*display:inline;
 padding:0;margin:0;font-size:11px}
 .attachedFile ul.files li{position:relative;margin:0 10px 0 0}
-.attachedFile ul.files a{position:relative;background-repeat:no-repeat;background-position:left center;*zoom:1;
+.attachedFile ul.files a{position:relative;background-repeat:no-repeat;background-position:left center;zoom:1;
 text-decoration:none !important}
 .attachedFile ul.files a .bubble{display:none;position:absolute;top:-20px;left:0;padding:2px 5px;z-index:100;white-space:nowrap}
 .attachedFile ul.files a:hover .bubble,
@@ -271,13 +269,13 @@ text-decoration:none !important}
 .boardWrite .boardWriteHeader *{vertical-align:middle}
 .boardWrite .boardWriteHeader select{font-size:12px;vertical-align:top;height:23px}
 .boardWrite .boardWriteHeader .iText{width:400px;padding:3px 4px;height:15px;font-size:12px;*margin-top:-1px}
-.boardWrite .tag{clear:both;margin-bottom:10px;*zoom:1}
+.boardWrite .tag{clear:both;margin-bottom:10px;zoom:1}
 .boardWrite .tag:after{content:"";display:block;float:none;clear:both}
 .boardWrite .tag .iText{float:left;width:330px;padding:4px 4px 2px 4px;margin-right:10px;font-size:12px}
 .boardWrite .tag p{float:left;margin:3px 0}
 /* Editor */
 .board .boardEditor{border:1px solid;margin-bottom:20px;-moz-border-radius:5px;-webkit-border-radius:5px}
-.board .boardEditor .commentEditor{margin:15px;*zoom:1;
+.board .boardEditor .commentEditor{margin:15px;zoom:1;
 position:relative}
 /* Editor Option */
 .board .editOption{margin:1em 0;text-align:left}
