@@ -65,7 +65,7 @@
 			<!--@end-->
 		</ul>
 		<!--@endif-->
-		<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
+		<!--@if($oDocument->getCommentCount())-->
 		<h3 class="h3" id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr" title="open/close"></button></h3>
 		<!--@endif-->
 		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
