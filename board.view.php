@@ -745,8 +745,8 @@
          * 오류를 출력하도록 함
          **/
         function alertMessage($message) {
-            $script =  sprintf('<script type="text/javascript"> xAddEventListener(window,"load", function() { alert("%s"); } );</script>', Context::getLang($message));
-            Context::addHtmlHeader( $script );
+            $script =  sprintf('<script type="text/javascript"> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
+            Context::addHtmlFooter( $script );
         }
 
     }
