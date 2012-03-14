@@ -11,7 +11,7 @@
 		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a></h2>
 	</div>
 	<div class="hx h3">
-		<h3>{$lang->cmd_write}</h3>
+		<h3>{$lang->cmd_write}...</h3>
 	</div>
 	<form action="./" method="post" class="ff" onsubmit="return procFilter(this, insert)">
 	<input type="hidden" name="mid" value="{$mid}" />
@@ -43,7 +43,7 @@
 			<!--@end-->
 			<li>
 				<label for="nText">{$lang->content}</label>
-				<textarea name="content" cols="20" rows="8" id="nText"></textarea>
+				<textarea name="content" rows="8" cols="42" id="nText"></textarea>
 			</li>
 			<!--@if(!$is_logged)-->
 			<li>

@@ -27,7 +27,7 @@ select{width:90%}
 .di{display:inline}
 .fb{font-weight:bold}
 .fn{font-weight:normal}
-.sn{margin:10px;*zoom:1}
+.sn{margin:10px;zoom:1}
 .sn:after{content:"";display:block;clear:both}
 .wn{background:#f00;color:#fff;padding:10px;margin:0}
 .mm{text-align:left;width:100%;background:f4f4f4;border:1px solid #6c0;border-top-color:#660;border-left-color:#660;box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;border-radius:0;-moz-border-radius:0;-webkit-border-radius:0}
@@ -59,7 +59,7 @@ select{width:90%}
 .lt li{border-bottom:1px solid #999}
 .lt li:last-child{border:0}
 .lt .notice{background:#000;color:#fff; padding:0 3px}
-.lt a{display:block;text-decoration:none;padding:10px;color:#000;*zoom:1}
+.lt a{display:block;text-decoration:none;padding:10px;color:#000;zoom:1}
 .lt a:after{content:"";display:block;clear:both}
 .lt a:visited{color:#666}
 .lt .title span{color:#f60}
@@ -86,7 +86,7 @@ select{width:90%}
 .bd .h2 a,.bd .h3 a{color:#000}
 .bd .h2 .bn{position:absolute;top:8px;right:10px;font-size:12px;margin:0}
 /* Context */
-.cm{margin:0;padding:10px;background:#777;color:#fff;text-align:center;list-style:none;border-top:1px solid #555;*zoom:1}
+.cm{margin:0;padding:10px;background:#777;color:#fff;text-align:center;list-style:none;border-top:1px solid #555;zoom:1}
 .cm:after{content:"";display:block;clear:both}
 .cm .fl{margin:0 5px 0 0}
 .cm .fr{margin:0 0 0 5px}
@@ -112,5 +112,5 @@ select{width:90%}
 .exvar textarea {border:1px solid #ccc;width:90%;font-size:20px;padding:5px 10px;height:200px;resize:vertical}
 .exvar li { border:0; display:inline; margin-right: 10px; }
 
-.button{display:inline-block;padding:5px 10px;font-weight:normal;font-size:14px;border:1px solid #333;background:#eee;color:#000;text-shadow:1px 1px 0 #fff;box-shadow:0 0 3px #333;-moz-box-shadow:0 0 3px #333;-webkit-box-shadow:0 0 3px #333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none}
+.btn{display:inline-block;padding:5px 10px;font-weight:normal;font-size:14px;border:1px solid #333;background:#eee;color:#000;text-shadow:1px 1px 0 #fff;box-shadow:0 0 3px #333;-moz-box-shadow:0 0 3px #333;-webkit-box-shadow:0 0 3px #333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none}
 .rd .origin{padding:10px;margin:10px 10px 20px 10px;background:#ddd}

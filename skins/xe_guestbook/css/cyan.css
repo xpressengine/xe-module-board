@@ -11,11 +11,10 @@
 .boardList th{background:#ffffff url(../images/cyan/lineBoardListTh.gif) no-repeat left bottom}
 .boardList td.recommend{color:#2895c0}
 .boardList td .replyAndTrackback{color:#2895c0}
-.buttonTypeGo{background:url(../images/cyan/buttonTypeInput24.gif) no-repeat}
 /* pagination */
 .pagenation strong{color:#2895c0}
 /* boardRead */
 boardRead .fileAttached li a{background:url(../images/cyan/iconFile.gif) no-repeat left top}
 /* replyAndTrackback */
-.buttonBox .replyAndTrackback a strong{color:#2895c0}
+.btnBox .replyAndTrackback a strong{color:#2895c0}
 .replyBox .fileAttached li{border:0px;display:inline;margin-right:.75em;line-height:1.5em;padding:.1em 0 .1em 1.5em;background:url(../images/cyan/iconFile.gif) no-repeat left}

@@ -119,16 +119,6 @@
                 <title xml:lang="zh-TW">相簿型</title>
                 <title xml:lang="tr">galeri</title>
             </options>
-            <options value="blog">
-                <title xml:lang="ko">블로그</title>
-                <title xml:lang="en">blog</title>
-				<title xml:lang="vi">Blog</title>
-                <title xml:lang="jp">ブログ型</title>
-                <title xml:lang="zh-CN">博客型</title>
-                <title xml:lang="es">blog</title>
-                <title xml:lang="zh-TW">部落格型</title>
-                <title xml:lang="tr">blog</title>
-            </options>
         </var>
         <var name="display_setup_button" type="select">
             <title xml:lang="ko">설정 표시</title>

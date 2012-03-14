@@ -67,6 +67,17 @@
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'input_password.xml');
             Context::addJsFile($this->module_path.'tpl/js/board.js');
+
+			// remove [document_srl]_cpage from get_vars
+			$args = Context::getRequestVars();
+			foreach($args as $name => $value)
+			{
+				if(preg_match('/[0-9]+_cpage/', $name))
+				{
+					Context::set($name, '', TRUE);
+					Context::set($name, $value);
+				}
+			}
         }
 
         /**
@@ -98,7 +109,7 @@
             Context::set('search_option', $search_option);
 
 			$oDocumentModel = &getModel('document');
-			$statusNameList = $this->_getStatusNameList(&$oDocumentModel);
+			$statusNameList = $this->_getStatusNameList($oDocumentModel);
 			if(count($statusNameList) > 0) Context::set('status_list', $statusNameList);
 
             // 게시글을 가져옴
@@ -343,7 +354,14 @@
 			if(in_array('summary', $configColumList)) array_push($this->columnList, 'content');
 
 			// default column list add
-			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate', 'ipaddress');
+			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate', 'title_bold', 'title_color');
+
+			//TODO 방명록, 블로그 형식을 위한 레거시 지원 코드. 차기 버전에서 다른 방식 고민 필요
+			if($this->module_info->skin == 'xe_guestbook' || $this->module_info->default_style == 'blog')
+			{
+				$defaultColumn = $tableColumnList;
+			}
+
 			if (in_array('last_post', $configColumList)){
 				array_push($this->columnList, 'last_updater');
 			}
@@ -353,6 +371,12 @@
 				array_push($this->columnList, 'is_notice');
 			}
 			$this->columnList = array_merge($this->columnList, $defaultColumn);
+
+			// add table name
+			foreach($this->columnList as $no => $value)
+			{
+				$this->columnList[$no] = 'documents.' . $value;
+			}
 		}
 
         /**
@@ -450,7 +474,7 @@
             }
 			if(!$oDocument->get('status')) $oDocument->add('status', $oDocumentModel->getDefaultStatus());
 
-			$statusList = $this->_getStatusNameList(&$oDocumentModel);
+			$statusList = $this->_getStatusNameList($oDocumentModel);
 			if(count($statusList) > 0) Context::set('status_list', $statusList);
 			// get Document status config value
             Context::set('document_srl',$document_srl);
@@ -539,6 +563,12 @@
             $oDocument = $oDocumentModel->getDocument($document_srl);
             if(!$oDocument->isExists()) return $this->dispBoardMessage('msg_invalid_request');
 
+			// Check allow comment
+			if(!$oDocument->allowComment())
+			{
+				return $this->dispBoardMessage('msg_not_allow_comment');
+			}
+
             // 해당 댓글를 찾아본다 (comment_form을 같이 쓰기 위해서 빈 객체 생성)
             $oCommentModel = &getModel('comment');
             $oSourceComment = $oComment = $oCommentModel->getComment(0);
@@ -578,6 +608,14 @@
             // 댓글이 없다면 오류
             if(!$oSourceComment->isExists()) return $this->dispBoardMessage('msg_invalid_request');
             if(Context::get('document_srl') && $oSourceComment->get('document_srl') != Context::get('document_srl')) return $this->dispBoardMessage('msg_invalid_request');
+
+			// Check allow comment
+			$oDocumentModel = getModel('document');
+			$oDocument = $oDocumentModel->getDocument($oSourceComment->get('document_srl'));
+			if(!$oDocument->allowComment())
+			{
+				return $this->dispBoardMessage('msg_not_allow_comment');
+			}
 
             // 대상 댓글을 생성
             $oComment = $oCommentModel->getComment();
@@ -707,8 +745,8 @@
          * 오류를 출력하도록 함
          **/
         function alertMessage($message) {
-            $script =  sprintf('<script type="text/javascript"> xAddEventListener(window,"load", function() { alert("%s"); } );</script>', Context::getLang($message));
-            Context::addHtmlHeader( $script );
+            $script =  sprintf('<script type="text/javascript"> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
+            Context::addHtmlFooter( $script );
         }
 
     }

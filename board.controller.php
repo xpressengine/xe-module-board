@@ -198,6 +198,7 @@
                     $output = $oCommentController->insertComment($obj, $bAnonymous);
                 }
 
+		/*
                 // 문제가 없고 모듈 설정에 관리자 메일이 등록되어 있으면 메일 발송
                 if($output->toBool() && $this->module_info->admin_mail) {
                     $oMail = new Mail();
@@ -213,7 +214,8 @@
                         $oMail->send();
                     }
                 }
-
+		*/
+				
             // comment_srl이 있으면 수정으로
             } else {
 				// 다시 권한체크

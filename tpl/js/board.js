@@ -113,7 +113,7 @@ function completeDeleteTrackback(ret_obj) {
 /* 카테고리 이동 */
 function doChangeCategory() {
     var category_srl = jQuery('#board_category option:selected').val();
-    location.href = decodeURI(current_url).setQuery('category',category_srl);
+    location.href = decodeURI(current_url).setQuery('category',category_srl).setQuery('page', '');
 }
 
 /* 스크랩 */

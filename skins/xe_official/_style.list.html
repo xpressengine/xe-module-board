@@ -23,7 +23,7 @@
 											<option value="{$val->category_srl}" <!--@if($category==$val->category_srl)-->selected="selected"<!--@end-->>{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} <!--@if($val->document_count)-->({$val->document_count})<!--@end--></option>
 											<!--@end-->
 										</select>
-										<button type="button" name="go_button" id="go_button" onclick="doChangeCategory(); return false;" class="button">Go</button>
+										<button type="button" name="go_button" id="go_button" onclick="doChangeCategory()">Go</button>
 									</span>
 									<!--@end-->
 									{$lang->title}
@@ -42,12 +42,14 @@
 								<th scope="col"><a href="{getUrl('sort_index','readed_count','order_type',$order_type)}">{$lang->readed_count}<!--@if($sort_index=='readed_count')--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@elseif($val->type == 'voted_count')-->
 								<th scope="col"><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}<!--@if($sort_index=='voted_count')--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
+							<!--@elseif($val->type == 'blamed_count')-->
+								<th scope="col"><a href="{getUrl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}<!--@if($sort_index=='blamed_count')--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@elseif($val->type == 'last_post')-->
                                 <th scope="col"><a href="{getUrl('sort_index','last_update','order_type',$order_type)}">{$lang->last_post}<!--@if($sort_index=='last_update')--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@end-->
 							<!--// 사용자 선언 확장변수일 경우 -->
 							<!--@else-->
-								<th scope="col">{$val->name}</th>
+								<th scope="col"><a href="{getUrl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}<!--@if($sort_index == $val->eid)--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@end-->
 						<!--@end-->
 						<!--@if($grant->manager)--><th scope="col"><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true }); return false;" title="Check All" /></th><!--@end-->
@@ -108,6 +110,8 @@
 								<td class="reading">{$document->get('readed_count')>0?$document->get('readed_count'):'&nbsp;'}</td>
 							<!--@elseif($val->type == 'voted_count')-->
 								<td class="recommend">{$document->get('voted_count')!=0?$document->get('voted_count'):'&nbsp;'}</td>
+							<!--@elseif($val->type == 'blamed_count')-->
+								<td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td>
 							<!--@elseif($val->type == 'last_post')-->
                                 <td class="lastReply">
                                     <!--@if((int)($document->get('comment_count'))>0)-->
@@ -176,6 +180,8 @@
 								<td class="reading">{$document->get('readed_count')>0?$document->get('readed_count'):'&nbsp;'}</td>
 							<!--@elseif($val->type == 'voted_count')-->
 								<td class="recommend">{$document->get('voted_count')!=0?$document->get('voted_count'):'&nbsp;'}</td>
+							<!--@elseif($val->type == 'blamed_count')-->
+								<td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td>
 							<!--@elseif($val->type == 'last_post')-->
                                 <td class="lastReply">
                                     <!--@if((int)($document->get('comment_count'))>0)-->

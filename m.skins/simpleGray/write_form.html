@@ -7,7 +7,7 @@
 <!--%import("js/mboard.js")-->
 <!--%import("css/mboard.css")-->
 <div class="bd">
-<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> &rsaquo; {$lang->cmd_write}</h2>
+<h2 class="h2"><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a> &rsaquo; {$lang->cmd_write}...</h2>
 	<form action="./" method="POST" onsubmit="return procFilter(this, insert)">
 	<input type="hidden" name="mid" value="{$mid}" />
 	<input type="hidden" name="document_srl" value="{$document_srl}" />
@@ -38,7 +38,7 @@
 			<!--@end-->
 			<li>
 				<label for="nText" class="db fb">{$lang->content}</label>
-				<textarea name="content" cols="20" rows="8" id="nText" class="itxx" value="{$oDocument->getContentText()}"></textarea>
+				<textarea name="content" rows="8" cols="42" id="nText" class="itxx" value="{$oDocument->getContentText()}"></textarea>
 			</li>
 			<!--@if(!$is_logged)-->
 			<li>

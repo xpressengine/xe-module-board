@@ -1,6 +1,5 @@
 @charset "utf-8";
 /* NHN (developers@xpressengine.com) */
-
 /* board Title */
 .boardHeader{border:1px solid #e1e1dd;border-bottom:0;background:#ffffff url(../images/common/bgH3.gif) repeat-x left bottom;overflow:hidden}
 .boardHeader .boardHeaderBorder{width:100%}
@@ -73,7 +72,6 @@ list-style:none}
 list-style:none}
 .replyBox .fileAttached li a{text-decoration:none;font-size:.9em;white-space:nowrap;color:#444444}
 .replyBox .fileAttached li a:visited{color:#777777}
-.commentButton{margin-top:.5em}
 /* gallery sub menu */
 .boardSubMenu{margin:0 0 .5em 0;padding:1em 0 .5em .5em;border-bottom:1px solid #e0e1db}
 .boardSubMenu a{text-decoration:none;color:#666666;vertical-align:bottom;background:url(../images/common/line_1x10_e0e0e0.gif) no-repeat right 5px;padding-left:10px;padding-right:10px;_padding-top:5px;position:relative;top:5px}
@@ -144,8 +142,6 @@ th.date{white-space:nowrap}
 .boardList td.recommend{font:bold .8em Tahoma;text-align:center}
 .boardList td.date{font:.8em Tahoma;color:#999999;text-align:center;white-space:nowrap}
 .boardList td input{_margin:-3px}
-.buttonTypeGo{border:none;cursor:pointer;width:24px;height:20px;_position:relative;_top:3px;font:.75em Tahoma;text-align:center}
-*:first-child+html .buttonTypeGo{position:relative;top:3px}
 .thumbnailBox{margin-top:1em;clear:both;overflow:hidden;border-bottom:1px solid #e0e1db}
 .thumbnailBox div.cell{display:block;float:left;overflow:hidden;margin-bottom:1em;margin-right:1em}
 .thumbnailBox div.cell img.thumb{padding:2px;border:1px solid #e0e1db;display:block;margin-bottom:1em;margin-left:auto;margin-right:auto}
@@ -162,22 +158,17 @@ th.date{white-space:nowrap}
 .thumbnailBox div.readAndRecommend strong.num{font:bold .8em Tahoma;color:#ff6600}
 /* board Bottom */
 .boardBottom{margin-top:10px}
-/* list button */
-.leftButtonBox{float: left}
-.rightButtonBox{float: right}
 /* Search Form */
 .boardSearch{margin-top:30px;margin-left:auto;margin-right:auto;clear:both;text-align:center}
 .boardSearch select{height:20px}
-.boardSearch input{height:18px}
+.boardSearch input[type=text]{height:18px}
 /* boardWrite */
 .boardEditor{margin-bottom:10px}
 .commentEditor{margin-top:10px;clear:both}
 .boardWrite{border:1px solid #e0e1db;padding-bottom:10px}
 .boardWrite fieldset{border:none}
 .boardWrite .inputItem{margin:10px 0 0 5px;float:left}
-.boardWrite .inputItem label{margin:0 0 3px 0;padding;
-0;
-display:block;white-space:nowrap}
+.boardWrite .inputItem label{margin:0 0 3px 0;padding:0;display:block;white-space:nowrap}
 .boardWrite .inputItem .userName{width:100px;margin-right:10px}
 .boardWrite .inputItem .userPw{width:100px;margin-right:10px}
 .boardWrite .inputItem .emailAddress{width:100px;margin-right:10px}
@@ -189,22 +180,13 @@ display:block;white-space:nowrap}
 .boardWrite .option{margin:10px 0 3px 10px;padding:0}
 .boardWrite .option *{vertical-align:middle}
 .boardWrite .tag{margin-top:10px;margin-left:10px}
-.boardWrite .tag .inputTypeText{width:90%;background:#FFFFFF url(../images/common/iconTag.gif) no-repeat 5px 5px;padding-left:30px}
+.boardWrite .tag .iText{width:90%;background:#FFFFFF url(../images/common/iconTag.gif) no-repeat 5px 5px;padding-left:30px}
 .boardWrite .tag .help{vertical-align:middle}
 .boardWrite .tag .info{font-size:.9em;color:#999999;background:url(../images/common/iconArrowD8.gif) no-repeat left center;margin-top:5px}
 .boardWrite .extraVarsList{width:100%;border-top:1px solid #e0e1db;border-bottom:none;margin:10px 0 10px 0;table-layout:fixed}
 .boardWrite .extraVarsList th{font-weight:normal;color:#555555;text-align:left;padding:4px 0 4px 10px;border-bottom:1px solid #e0e1db;border-right:1px solid #e0e1db}
 .boardWrite .extraVarsList td{color:#555555;border-bottom:1px solid #e0e1db;padding:4px 0 4px 10px}
 .boardWrite .extraVarsList td a{color:#555555}
-.smallBox{border:1px solid #e0e1db;margin-left:auto;margin-right:auto}
-.smallBox.w268{width:268px}
-.smallBox .header{position:relative;_width:100%;background:#ffffff url(../images/normal/bgH3.gif) no-repeat left bottom;overflow:hidden}
-.smallBox .header h3{margin:0;clear:both;font-size:1.2em;padding:.8em 2em .6em 1.2em;border-bottom:3px solid #fe3614}
-.smallBox .complex{padding:1.5em 2em 2em 2em}
-.smallBox .inputPassword{position:relative;border:none;padding:2em 2em 1.5em 2em}
-.smallBox .inputPassword .inputTypeText{float:left;margin-right:.5em;width:8em}
-.smallBox .inputPassword legend{position:absolute;overflow:hidden;width:1px;height:1px;font-size:.001em;text-indent:-100em}
-.smallBox .messageBox{background-color:#F3F3F3;padding:20px;border-bottom:1px solid #EEEEEE}
 /* Pagination Reset */
 .pagination{padding:15px 0;margin:0;text-align:center}
 .pagination *{margin:0;padding:0}

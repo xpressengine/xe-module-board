@@ -28,7 +28,7 @@
                 </div>
                 <!--@end-->
 
-                <div class="clear"></div>
+                
 
             </div>
 
@@ -60,13 +60,13 @@
                 <div class="category" title="{$lang->category}"><a href="{getUrl('category',$oDocument->get('category_srl'), 'document_srl', '')}">{$category_list[$oDocument->get('category_srl')]->title}</a></div>
                 <!--@end-->
 
-                <div class="clear"></div>
+                
             </div>
 
-            <div class="clear"></div>
+            
         </div>
 
-        <div class="clear"></div>
+        
 
         <!--@if($oDocument->isExtraVarsExists() && (!$oDocument->isSecret() || $oDocument->isGranted()) )-->
         <table cellspacing="0" summary="" class="extraVarsList">
@@ -92,7 +92,7 @@
                         <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
                             <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
+                            <div class="content"><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></div>
 
                         </form>
                     </div>
@@ -109,7 +109,7 @@
                     <!--@if($oDocument->getSignature())-->
                         <div class="signature">{$oDocument->getSignature()}</div>
                     <!--@end-->
-                        <div class="clear"></div>
+                        
                     </div>
                 <!--@end-->
             </div>
@@ -135,19 +135,19 @@
                 <li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename} ({FileHandler::filesize($file->file_size)})({number_format($file->download_count)})</a></li>
                 <!--@end-->
             </ul>
-            <div class="clear"></div>
+            
         </div>
         <!--@end-->
     </div>
 
     <!-- 목록, 수정/삭제 버튼 -->
-    <div class="contentButton">
+    <div class="btnArea">
         <!--@if($module_info->default_style != 'blog' || ($module_info->default_style == 'blog' && Context::get('document_srl')))-->
-        <a href="{getUrl('document_srl','')}" class="button {$btn_class}"><span><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></span></a>
+        <span class="btn"><a href="{getUrl('document_srl','')}"><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></a></span>
         <!--@end-->
         <!--@if($oDocument->isEditable())-->
-        <a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}" class="button {$btn_class}"><span>{$lang->cmd_modify}</span></a>
-        <a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="button {$btn_class}"><span>{$lang->cmd_delete}</span></a>
+        <span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}...</a></span>
+        <span class="btn"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
         <!--@end-->
     </div>
 
@@ -173,16 +173,16 @@
             <div class="userNameAndPw">
                 <!--@if(!$is_logged)-->
                 <label for="userName">{$lang->writer}</label>
-                <input type="text" name="nick_name" value="" class="userName inputTypeText" id="userName"/>
+                <input type="text" name="nick_name" value="" class="userName iText" id="userName"/>
 
                 <label for="userPw">{$lang->password}</label>
-                <input type="password" name="password" value="" id="userPw" class="userPw inputTypeText" />
+                <input type="password" name="password" value="" id="userPw" class="userPw iText" />
 
                 <label for="emailAddress">{$lang->email_address}</label>
-                <input type="text" name="email_address" value="" id="emailAddress" class="emailAddress inputTypeText"/>
+                <input type="text" name="email_address" value="" id="emailAddress" class="emailAddress iText"/>
 
                 <label for="homePage">{$lang->homepage}</label>
-                <input type="text" name="homepage" value="" id="homePage" class="homePage inputTypeText"/>
+                <input type="text" name="homepage" value="" id="homePage" class="homePage iText"/>
                 <!--@else-->
                 <input type="checkbox" name="notify_message" value="Y" id="notify_message" />
                 <label for="notify_message">{$lang->notify}</label>
@@ -196,8 +196,8 @@
             <div class="editor">{$oDocument->getCommentEditor()}</div>
         </div>
 
-        <div class="commentButton tRight">
-            <span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_comment_registration}" accesskey="s" /></span>
+        <div class="btnArea">
+            <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
         </div>
     </form>
 <!--@end-->

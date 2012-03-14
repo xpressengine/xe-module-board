@@ -24,7 +24,7 @@
                     <a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl, 'comment_srl','')}"><img src="./images/common/buttonDeleteX.gif" alt="{$lang->cmd_delete}" width="12" height="13" /></a>
                     <a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl, 'comment_srl','')}"><img src="./images/{$module_info->colorset}/buttonModifyE.gif" alt="{$lang->cmd_modify}" width="20" height="17" /></a> 
                     <!--@end-->
-                    <a href="{getUrl('act','dispBoardWriteComment','document_srl',$oDocument->document_srl, 'comment_srl',0)}"><img src="./images/{$module_info->colorset}/buttonReply.gif" alt="{$lang->cmd_reply}" width="20" height="17" /></a> 
+                    <a cond="$oDocument->allowComment()" href="{getUrl('act','dispBoardWriteComment','document_srl',$oDocument->document_srl, 'comment_srl',0)}"><img src="./images/{$module_info->colorset}/buttonReply.gif" alt="{$lang->cmd_reply}" width="20" height="17" /></a> 
                 </div>
 
                 <div class="date" title="{$lang->regdate}">
@@ -34,13 +34,13 @@
                     <!--@end-->
                 </div>
 
-                <div class="clear"></div>
+                
             </div>
 
-            <div class="clear"></div>
+            
         </div>
 
-        <div class="clear"></div>
+        
 
         <!--@if($oDocument->isExtraVarsExists() && (!$oDocument->isSecret() || $oDocument->isGranted()) )-->
         <table cellspacing="0" summary="" class="extraVarsList">
@@ -67,7 +67,7 @@
                         <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
                             <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
+                            <div class="content"><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></div>
 
                         </form>
                     </div>
@@ -85,7 +85,7 @@
                 <li><a href="{getUrl('')}{$file->download_url}">{$file->source_filename} ({FileHandler::filesize($file->file_size)})({number_format($file->download_count)})</a></li>
                 <!--@end-->
             </ul>
-            <div class="clear"></div>
+            
         </div>
         <!--@end-->
     </div>

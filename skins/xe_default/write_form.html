@@ -16,7 +16,7 @@
 			<!--@endforeach-->
 		</select>
 		<!--@endif-->
-		<input type="text" name="title" class="inputText" value="{htmlspecialchars($oDocument->getTitleText())}" title="{$lang->title}" />
+		<input type="text" name="title" class="iText" value="{htmlspecialchars($oDocument->getTitleText())}" title="{$lang->title}" />
 	</div>
 
     <!--@if(count($extra_keys))-->
@@ -34,7 +34,7 @@
     <div class="editor">{$oDocument->getEditor()}</div>
 
     <div class="tag">
-        <input type="text" name="tags" value="{htmlspecialchars($oDocument->get('tags'))}" class="inputText" title="Tag" />
+        <input type="text" name="tags" value="{htmlspecialchars($oDocument->get('tags'))}" class="iText" title="Tag" />
 		<p>{$lang->about_tag}</p>
     </div>
 
@@ -72,19 +72,19 @@
 	<div class="userNameAndPw">
 		<dl>
 			<dt><label for="userName">{$lang->writer}</label> :</dt>
-			<dd class="userName"><input type="text" name="nick_name" value="{$oDocument->getNickName()}" class="inputText" id="userName" title="{$lang->is_required}" /></dd>
+			<dd class="userName"><input type="text" name="nick_name" value="{$oDocument->getNickName()}" class="iText" id="userName" title="{$lang->is_required}" /></dd>
 		</dl>
 		<dl>
 			<dt><label for="userPw">{$lang->password}</label> :</dt>
-			<dd class="userPw"><input type="password" name="password" value="" id="userPw" class="inputText" title="{$lang->is_required}" /></dd>
+			<dd class="userPw"><input type="password" name="password" value="" id="userPw" class="iText" title="{$lang->is_required}" /></dd>
 		</dl>
 		<dl>
 			<dt><label for="emailAddress">{$lang->email_address}</label> :</dt>
-			<dd class="emailAddress"><input type="text" name="email_address" value="{htmlspecialchars($oDocument->get('email_address'))}" id="emailAddress" class="inputText" /></dd>
+			<dd class="emailAddress"><input type="text" name="email_address" value="{htmlspecialchars($oDocument->get('email_address'))}" id="emailAddress" class="iText" /></dd>
 		</dl>
 		<dl>
 			<dt><label for="homePage">{$lang->homepage}</label> :</dt>
-			<dd class="homePage"><input type="text" name="homepage" value="{htmlspecialchars($oDocument->get('homepage'))}" id="homePage" class="inputText" /></dd>
+			<dd class="homePage"><input type="text" name="homepage" value="{htmlspecialchars($oDocument->get('homepage'))}" id="homePage" class="iText" /></dd>
 		</dl>
 	</div>
 	<!--@end-->
@@ -92,11 +92,11 @@
 	<div class="boardNavigation">
         <!--@if($is_logged)-->
 		<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
-        <span class="button"><button type="button" onclick="doDocumentSave(this); return false;">{$lang->cmd_temp_save}</button></span>
-        <span class="button"><button type="button" onclick="doDocumentLoad(this); return false;">{$lang->cmd_load}</button></span>
+        <span class="btn"><button type="button" onclick="doDocumentSave(this); return false;">{$lang->cmd_temp_save}</button></span>
+        <span class="btn"><button type="button" onclick="doDocumentLoad(this); return false;">{$lang->cmd_load}</button></span>
 		<!--@end-->
         <!--@end-->
-		<span class="button red strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+		<span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
 	</div>
 
     </form>

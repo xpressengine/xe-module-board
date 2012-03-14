@@ -14,21 +14,21 @@
         <div>
           <div class="inputItem">
               <label for="userName">{$lang->writer}</label>
-              <input type="text" name="nick_name" value="{$oDocument->getNickName()}" class="userName inputTypeText" id="userName"/>
+              <input type="text" name="nick_name" value="{$oDocument->getNickName()}" class="userName iText" id="userName"/>
           </div>
           <div class="inputItem">
               <label for="userPw">{$lang->password}</label>
-              <input type="password" name="password" value="" id="userPw" class="userPw inputTypeText" />
+              <input type="password" name="password" value="" id="userPw" class="userPw iText" />
           </div>
           <div class="inputItem">
               <label for="emailAddress">{$lang->email_address}</label>
-              <input type="text" name="email_address" value="{htmlspecialchars($oDocument->get('email_address'))}" id="emailAddress" class="emailAddress inputTypeText"/>
+              <input type="text" name="email_address" value="{htmlspecialchars($oDocument->get('email_address'))}" id="emailAddress" class="emailAddress iText"/>
           </div>
           <div class="inputItem">
               <label for="homePage">{$lang->homepage}</label>
-              <input type="text" name="homepage" value="{htmlspecialchars($oDocument->get('homepage'))}" id="homePage" class="homePage inputTypeText"/>
+              <input type="text" name="homepage" value="{htmlspecialchars($oDocument->get('homepage'))}" id="homePage" class="homePage iText"/>
           </div>
-          <div class="clear"></div>
+          
         </div>
         <!--@end-->
 
@@ -75,24 +75,18 @@
 
         <div class="editor">{$oDocument->getEditor()}</div>
 
-        <div class="fl gap1">
-            &nbsp;
-            <!--@if($is_logged)-->
-			<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
-            <span class="button"><input type="button" value="{$lang->cmd_temp_save}"  onclick="doDocumentSave(this); return false;" /></span>
-            <span class="button"><input type="button" value="{$lang->cmd_load}"  onclick="doDocumentLoad(this); return false;" /></span>
-            <!--@end-->
-            <!--@end-->
+        <div class="btnArea">
+            <span class="btn"><input type="button" value="{$lang->cmd_preview}" onclick="doDocumentPreview(this)" /></span>
+            <span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
+			<span class="etc">
+				<!--@if($is_logged)-->
+				<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
+				<span class="btn"><input type="button" value="{$lang->cmd_temp_save}"  onclick="doDocumentSave(this)" /></span>
+				<span class="btn"><input type="button" value="{$lang->cmd_load}"  onclick="doDocumentLoad(this)" /></span>
+				<!--@end-->
+				<!--@end-->
+			</span>
         </div>
-
-        <div class="fr gap1">
-            <span class="button"><input type="button" value="{$lang->cmd_preview}" onclick="doDocumentPreview(this); return false;" /></span>
-            <span class="button"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
-            &nbsp;
-        </div>
-
-        <div class="clear"></div>
-
     </div>
 </form>
 

@@ -58,6 +58,10 @@
 			<p class="desc">{$lang->about_skin}</p>
 		</li>
 		<li>
+			<p class="q">{$lang->skin_fix}</p>
+			<p class="a"><input type="checkbox" name="is_skin_fix" id="is_skin_fix" value="Y" checked="checked"|cond="$module_info->is_skin_fix == 'Y'" /> <label for="is_skin_fix">{$lang->about_skin_fix}</label></p>
+		</li>
+		<li>
 			<p class="q">{$lang->mobile_view}</p>
 			<p class="a"><input type="checkbox" name="use_mobile" id="use_mobile" value="Y" checked="checked"|cond="$module_info->use_mobile == 'Y'" /> <label for="use_mobile">{$lang->about_mobile_view}</label></p>
 		</li>
@@ -148,7 +152,7 @@
 		</li>
 		<li>
 			<p class="q"><label for="description">{$lang->description}</label></p>
-			<p class="a"><textarea name="description" id="description">{htmlspecialchars($module_info->description)}</textarea></p>
+			<p class="a"><textarea name="description" id="description" rows="8" cols="42">{htmlspecialchars($module_info->description)}</textarea></p>
 			<p class="desc">{$lang->about_description}</p>
 		</li>
 		<li>
@@ -156,7 +160,7 @@
 			<p class="a multiLangEdit">
 				{@$use_multilang_textarea = true}
 				<input type="hidden" name="header_text" value="<!--@if(strpos($module_info->header_text, '$user_lang->') === false)-->{$module_info->header_text}<!--@else-->{htmlspecialchars($module_info->header_text)}<!--@end-->" class="vLang" />
-				<textarea id="header_text" class="vLang">{$module_info->header_text}</textarea>
+				<textarea id="header_text" class="vLang" rows="8" cols="42">{$module_info->header_text}</textarea>
 				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
 			</p>
 			<p class="desc">{$lang->about_header_text}</p>
@@ -165,7 +169,7 @@
 			<p class="q"><label for="footer_text">{$lang->footer_text}</label></p>
 			<p class="a multiLangEdit">
 				<input type="hidden" name="footer_text" value="<!--@if(strpos($module_info->footer_text, '$user_lang->') === false)-->{$module_info->footer_text}<!--@else-->{htmlspecialchars($module_info->footer_text)}<!--@end-->" class="vLang" />
-				<textarea id="footer_text" class="vLang">{$module_info->footer_text}</textarea>
+				<textarea id="footer_text" class="vLang" rows="8" cols="42">{$module_info->footer_text}</textarea>
 				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
 			</p>
 			<p class="desc">{$lang->about_footer_text}</p>

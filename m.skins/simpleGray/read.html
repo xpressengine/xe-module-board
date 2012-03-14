@@ -21,7 +21,9 @@
                         <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
                             <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" class="inputTypeText" /><span class="button {$btn_class}"><input type="submit" value="{$lang->cmd_input}" accesskey="s" /></span></div>
+                            <div class="content">
+								<input type="password" name="password" id="cpw" /><input type="submit" value="{$lang->cmd_input}" />
+                            </div>
 
                         </form>
                     </div>
@@ -63,7 +65,7 @@
 			<!--@end-->
 		</ul>
 		<!--@endif-->
-		<!--@if($oDocument->allowComment() && $oDocument->getCommentCount())-->
+		<!--@if($oDocument->getCommentCount())-->
 		<h3 class="h3" id="clb">{$lang->comment} <em>[{$oDocument->getCommentCount()}]</em> <button type="button" class="tg tgr" title="open/close"></button></h3>
 		<!--@endif-->
 		<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
@@ -75,7 +77,7 @@
 		<ul>
 			<li>
 				<label for="rText" class="db fb">{$lang->comment}</label>
-				<textarea name="content" cols="20" rows="5" id="rText" class="itxx"></textarea>
+				<textarea name="content" rows="8" cols="42" id="rText" class="itxx"></textarea>
 			</li>
 			<!--@if(!$is_logged)-->
 			<li>
@@ -104,7 +106,7 @@
 	</div>
 	<ul class="cm">
 		<li class="fl"><a href="{getUrl('document_srl','')}" class="bn">{$lang->cmd_list}</a></li>
-		<li class="fr"><a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}</a></li>
+		<li class="fr"><a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}...</a></li>
         <!--@if($oDocument->isEditable())-->
 		<li class="fr"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="bn">{$lang->cmd_delete}</a></li>
 		<!--@end-->

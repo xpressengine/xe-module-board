@@ -37,7 +37,7 @@
 			<input type="hidden" name="page" value="{$page}" />
 			<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 			<p><label for="cpw">{$lang->msg_is_secret} {$lang->msg_input_password}</label></p>
-			<p><input type="password" name="password" id="cpw" class="iText" /><span class="btn25"><input type="submit" value="{$lang->cmd_input}" /></span></p>
+			<p><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></p>
 		</form>
 		<!--@else-->
 		{$oDocument->getContent(false)}
@@ -93,10 +93,10 @@
 			<div cond="$oDocument->getSignature()" class="tx">{$oDocument->getSignature()}</div>
 		</div>
 		<div class="btnArea">
-			<span class="goList"><span class="btn25 black"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span></span>
-			<span class="goEdit">
-				<span class="btn25"><a cond="$oDocument->isEditable()" class="btn" href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}</a></span>
-				<span class="btn25"><a cond="$oDocument->isEditable()" class="btn" href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
+			<span class="btn"><a cond="$oDocument->isEditable()" href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}...</a></span>
+			<span class="btn"><a cond="$oDocument->isEditable()" href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
+			<span class="etc">
+				<span class="btn"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
 			</span>
 		</div>
 	</div>

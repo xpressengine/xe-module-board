@@ -13,11 +13,10 @@
 .boardList th{background:transparent url(../images/black/lineBoardListTh.gif) no-repeat left bottom}
 .boardList td.recommend{color:#ff6600}
 .boardList td .replyAndTrackback{color:#BBBBBB}
-.buttonTypeGo{background:url(../images/black/buttonTypeInput24.gif) no-repeat}
 /* pagination */
 .pagenation strong{color:#BBBBBB}
 /* replyAndTrackback */
-.buttonBox .replyAndTrackback a strong{color:#BBBBBB}
+.btnBox .replyAndTrackback a strong{color:#BBBBBB}
 .replyBox .fileAttached li{background:url(../images/black/iconFile.gif) no-repeat left top}
 /* replace common images */
 .boardHeader{border:1px solid #ABA9B4;border-bottom:0;background:transparent url(../images/black/bgH3.gif) repeat-x left bottom;overflow:hidden}
@@ -67,28 +66,25 @@
 .replyBox .date{color:#888888}
 .trackbackBox .trackbackItem{background-color:transparent}
 #fo_search select{background-color:transparent;color:#AAAAAA}
-.inputTypeText{background-color:transparent;color:#AAAAAA}
-.inputTypeText:hover,
-.inputTypeText:focus{background-color:transparent;color:#AAAAAA}
-.boardWrite .tag .inputTypeText{background:transparent}
+.iText{background-color:transparent;color:#AAAAAA}
+.iText:hover,
+.iText:focus{background-color:transparent;color:#AAAAAA}
+.boardWrite .tag .iText{background:transparent}
 .secretContent{border:1px solid #888888;width:240px}
 .secretContent .title{background-color:#444444;color:#AAAAAA}
 .secretContent .content{background-color:#222222;color:#888888}
-.smallBox .messageBox{background-color:#444444;border-bottom:1px solid #888888;color:#AAAAAA}
 .boardRead .readBody{color:#BBBBBB}
 /* button */
-a.button,
-a.button span,
-span.button,
-span.button button,
-span.button input{background-image:url(../../../../../common/img/buttonBlack.gif);color:#fff}
+a.btn,
+a.btn span,
+span.btn,
+span.btn button,
+span.btn input{background-image:url(../../../../../common/img/buttonBlack.gif);color:#fff}
 .trackbackBox{border:1px solid #444444}
 .viewDocument{border:1px solid #444444}
 .replyBox{border:none}
 .replyBox .replyItem{border:none;border-top:1px dotted #444444}
 .boardWrite{border:1px solid #555555}
-.smallBox{border:1px solid #555555}
-.smallBox .header{background-color:transparent}
 /* Pagination*/
 .pagination a,
 .pagination strong{color:#888}

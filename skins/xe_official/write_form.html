@@ -19,13 +19,13 @@
 		<!--@endif-->
 		
 		<!--@if($oDocument->getTitleText())-->
-		<input type="text" name="title" id="postTitle" class="inputText" value="{htmlspecialchars($oDocument->getTitleText())}" />
+		<input type="text" name="title" id="postTitle" class="iText" value="{htmlspecialchars($oDocument->getTitleText())}" />
 		<!--@else-->
-		<input type="text" name="title" id="postTitle" class="inputText" value="{$lang->title}" title="{$lang->title}" onfocus="if(this.value==this.title) this.value='';" />
+		<input type="text" name="title" id="postTitle" class="iText" value="{$lang->title}" title="{$lang->title}" onfocus="if(this.value==this.title) this.value='';" />
 		<!--@end-->
 	
         <!--@if($is_logged)-->
-        <span class="buttonOfficial"><button type="button" onclick="doDocumentLoad(this); return false;">{$lang->cmd_load}</button></span>
+        <span class="btn"><button type="button" onclick="doDocumentLoad(this)">{$lang->cmd_load}</button></span>
         <!--@end-->
 		
 	</div>
@@ -45,16 +45,16 @@
     <div class="editor">{$oDocument->getEditor()}</div>
 
     <div class="tag">
-        <input type="text" name="tags" value="{htmlspecialchars($oDocument->get('tags'))}" class="inputText" title="Tag" />
+        <input type="text" name="tags" value="{htmlspecialchars($oDocument->get('tags'))}" class="iText" title="Tag" />
 		<p>{$lang->about_tag}</p>
     </div>
 
 	<div class="editOption">
 		<!--@if(!$is_logged)-->
-		   <input type="text" name="nick_name" class="inputText userName" value="{$lang->writer}" title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
-		   <input type="password" name="password" class="inputText userPw" value="{$lang->password}" title="{$lang->password}"  onfocus="if(this.value==this.title)this.value='';return false;" />
-		   <input type="text" name="email_address" class="inputText emailAddress" value="{$lang->email_address}" title="{$lang->email_address}"  onfocus="if(this.value==this.title)this.value='';return false;" />
-		   <input type="text" name="homepage" class="inputText homePage" value="{$lang->homepage}" title="{$lang->homepage}"  onfocus="if(this.value==this.title)this.value='';return false;" />
+		   <input type="text" name="nick_name" class="iText userName" value="{$lang->writer}" title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
+		   <input type="password" name="password" class="iText userPw" value="{$lang->password}" title="{$lang->password}"  onfocus="if(this.value==this.title)this.value='';return false;" />
+		   <input type="text" name="email_address" class="iText emailAddress" value="{$lang->email_address}" title="{$lang->email_address}"  onfocus="if(this.value==this.title)this.value='';return false;" />
+		   <input type="text" name="homepage" class="iText homePage" value="{$lang->homepage}" title="{$lang->homepage}"  onfocus="if(this.value==this.title)this.value='';return false;" />
 		<!--@end-->
 		
         <!--@if($grant->manager)-->
@@ -86,12 +86,14 @@
 		<!--@end-->
     </div>
 
-	<div class="boardNavigation">
-		<span class="buttonOfficial"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
-		<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
-		<span class="buttonOfficial"><button type="button" onclick="doDocumentSave(this);">{$lang->cmd_temp_save}</button></span>
-		<span class="buttonOfficial"><button type="button" onclick="doDocumentLoad(this);">{$lang->cmd_load}</button></span>
-		<!--@end-->
+	<div class="btnArea">
+		<span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
+		<span class="etc">
+			<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
+			<span class="btn"><button type="button" onclick="doDocumentSave(this)">{$lang->cmd_temp_save}</button></span>
+			<span class="btn"><button type="button" onclick="doDocumentLoad(this)">{$lang->cmd_load}</button></span>
+			<!--@end-->
+		</span>
 	</div>
 
     </form>
