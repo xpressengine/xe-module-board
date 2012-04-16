@@ -1,6 +1,6 @@
 <!--#include("header.html")-->
 
-<!--// 만약 댓글의 답을 다는 것이라면 원문 보여줌 -->
+<!--// display the comment even if it has reply-->
 <!--@if($oSourceComment->isExists())-->
 <div class="replyBox">
     <div class="replyItem">
@@ -20,7 +20,7 @@
 </div>
 <!--@end-->
 
-<!-- 글쓰기 폼 -->
+<!-- edit form -->
 <form action="./" method="post" onsubmit="return procFilter(this, insert_comment)" class="boardEditor" >
 <input type="hidden" name="mid" value="{$mid}" />
 <input type="hidden" name="document_srl" value="{$oComment->get('document_srl')}" />

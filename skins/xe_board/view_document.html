@@ -1,4 +1,4 @@
-<!-- 글 내용 보여주기 -->
+<!-- display the document contents -->
 <!--@if(!$module_info->document_title_format)-->
     {@ $module_info->document_title_format = 'h4'}
 <!--@end-->
@@ -100,7 +100,7 @@
                     {$oDocument->getContent()}
                 <!--@end-->
 
-                <!-- 서명 / 프로필 이미지 출력 -->
+                <!-- display signature / profile image-->
                 <!--@if($module_info->display_sign != 'N' && ($oDocument->getProfileImage() || $oDocument->getSignature()))-->
                     <div class="memberSignature">
                     <!--@if($oDocument->getProfileImage())-->
@@ -140,7 +140,7 @@
         <!--@end-->
     </div>
 
-    <!-- 목록, 수정/삭제 버튼 -->
+    <!-- list, modify/delete button -->
     <div class="btnArea">
         <!--@if($module_info->default_style != 'blog' || ($module_info->default_style == 'blog' && Context::get('document_srl')))-->
         <span class="btn"><a href="{getUrl('document_srl','')}"><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></a></span>
@@ -153,16 +153,16 @@
 
 </div>
 
-<!-- 엮인글 -->
+<!-- trackback -->
 <!--@if($oDocument->allowTrackback())-->
     <!--#include("./trackback.html")-->
 <!--@end-->
 
-<!-- 댓글 -->
+<!-- comments -->
 <a name="comment"></a>
 <!--#include("./comment.html")-->
 
-<!-- 댓글 입력 폼 -->
+<!-- comments form -->
 <!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
     <form action="./" method="post" onsubmit="return procFilter(this, insert_comment)" class="boardEditor" >
     <input type="hidden" name="mid" value="{$mid}" />

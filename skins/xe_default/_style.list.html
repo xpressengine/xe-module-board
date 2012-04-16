@@ -7,12 +7,12 @@
             <tr>
                 <!--@if($grant->manager)--><th scope="col"><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true }); return false;" /></th><!--@end-->
 
-                <!--// 목록 설정으로 table theader 생성 -->
+                <!--// configure table theader  -->
                 <!--@foreach($list_config as $key => $val)-->
-                    <!--// 기본 컨텐츠일 경우 -->
+                    <!--// if it is the default -->
                     <!--@if($val->idx == -1)-->
 
-                        <!--// 컨텐츠 종류에 따라서 출력 -->
+                        <!--// display contents based on the type -->
                         <!--@if($val->type == 'no')-->
                             <th scope="col">{$lang->no}</th>
                         <!--@elseif($val->type == 'title')-->
@@ -47,7 +47,7 @@
                         <!--@elseif($val->type == 'blamed_count')-->
                             <th scope="col"><a href="{geturl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}<!--@if($sort_index=='blamed_count')--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
                         <!--@end-->
-                    <!--// 사용자 선언 확장변수일 경우 -->
+                    <!--// enable user-defined sorting variables -->
                     <!--@else-->
                             <th scope="col"><div><a href="{geturl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}<!--@if($sort_index == $val->eid)--><img src="./images/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></div></th>
                     <!--@end-->
@@ -71,13 +71,13 @@
                         <td class="check"><input type="checkbox" name="cart" value="{$document->document_srl}" onclick="doAddDocumentCart(this)" <!--@if($document->isCarted())-->checked="checked"<!--@end--> /></td>
                     <!--@end-->
 
-                    <!--// 목록 설정으로 table theader 생성 -->
+                    <!--// configure table theader -->
                     <!--@foreach($list_config as $key => $val)-->
 
-                        <!--// 기본 컨텐츠일 경우 -->
+                        <!--// if it is the default -->
                         <!--@if($val->idx == -1)-->
 
-                            <!--// 컨텐츠 종류에 따라서 출력 -->
+                            <!--// display the contents based on the type -->
                             <!--@if($val->type == 'no')-->
                                 <td class="notice"><!--@if($document_srl == $document->document_srl)-->&raquo;<!--@else-->{$lang->notice}<!--@end--></td>
                             <!--@elseif($val->type == 'title')-->
@@ -117,7 +117,7 @@
                                 <td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td>
                             <!--@end-->
 
-                        <!--// 사용자 선언 확장변수일 경우 -->
+                        <!--// display the extra variables -->
                         <!--@else-->
                                 <td>{$document->getExtraValueHTML($val->idx)}&nbsp;</td>
                         <!--@end-->
@@ -128,13 +128,13 @@
             <!--@foreach($document_list as $no => $document)-->
                 <tr class="bg{($no+1)%2+1}">
                     <!--@if($grant->manager)--><td class="checkbox"><input type="checkbox" name="cart" value="{$document->document_srl}" onclick="doAddDocumentCart(this)" <!--@if($document->isCarted())-->checked="checked"<!--@end--> /></td><!--@end-->
-                    <!--// 목록 설정으로 table theader 생성 -->
+                    <!--// conigure table theader -->
                     <!--@foreach($list_config as $key => $val)-->
 
-                        <!--// 기본 컨텐츠일 경우 -->
+                        <!--// if it is the default -->
                         <!--@if($val->idx == -1)-->
 
-                            <!--// 컨텐츠 종류에 따라서 출력 -->
+                            <!--// display the contents based on the type-->
                             <!--@if($val->type == 'no')-->
                                 <td class="num"><!--@if($document_srl == $document->document_srl)-->&raquo;<!--@else-->{$no}<!--@end--></td>
                             <!--@elseif($val->type == 'title')-->
@@ -173,7 +173,7 @@
                                 <td class="recommend">{$document->get('blamed_count')!=0?$document->get('blamed_count'):'&nbsp;'}</td>
                             <!--@end-->
 
-                        <!--// 사용자 선언 확장변수일 경우 -->
+                        <!--// display the extra variables-->
                         <!--@else-->
                                 <td>{$document->getExtraValueHTML($val->idx)}&nbsp;</td>
                         <!--@end-->

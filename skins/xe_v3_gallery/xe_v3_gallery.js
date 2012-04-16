@@ -1,5 +1,5 @@
 jQuery(function($){
-	// 글쓴이 입력창 레이블 토글
+	// user text input focus/blur/change
 	var iText = $('.item .iLabel').next('.iText');
 	$('.item .iLabel').css('position','absolute');
 	iText
@@ -21,11 +21,11 @@ jQuery(function($){
 			}
 		})
 		.blur();
-	// 댓글 첫 번째 요소의 margin-top 지우기
+	// delete margin-top from the first child of commments list
 	$('.feedback .xe_content>*:first-child').css('margin-top','0');
 });
 
-// SNS에 글쓰기
+// SNS Post
 (function($){
 	$.fn.snspost = function(opts) {
 		var loc = '';

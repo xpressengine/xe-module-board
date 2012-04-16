@@ -1,13 +1,13 @@
-<!-- 목록 출력 -->
+<!-- display list -->
 
     <form action="./" method="get">
 
-    <!--// 정렬을 위한 속성과 분류 박스 -->
+    <!--// display categories and sorting options -->
     <div class="boardSubMenu">
         <!--@if($module_info->use_category == "Y")-->
         <div class="fl">
             <!--@if($grant->manager)--><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true }); return false;" /><!--@end-->
-        <!--// 카테고리 사용시 카테고리 선택 표시 -->
+        <!--// display categories if the category is enabled -->
                 <select name="category" id="board_category">
                     <option value="">{$lang->category}</option>
                     <!--@foreach($category_list as $val)-->
@@ -43,7 +43,7 @@
             </table>
         <!--@else-->
 
-            <!--// 공지사항 출력 -->
+            <!--// display notice list -->
             <!--@foreach($notice_list as $no => $document)-->
                 <table cellspacing="0" summary="" class="boardList boardListNoTopBorder">
                 <!--@if($module_info->display_number!='N')--><col width="80" />{@ $_col_count++}<!--@end-->
@@ -87,7 +87,7 @@
                 </table>
             <!--@end-->
 
-            <!--// 갤러리 목록 출력 -->
+            <!--// display gallery list -->
             {@ $height = $module_info->thumbnail_height + 50; }
             <!--@if($module_info->use_category=='Y')-->{@ $height += 20 }<!--@end-->
             <!--@if($module_info->display_author!='N' || $module_info->display_regdate!='N')-->{@ $height += 25 }<!--@end-->
