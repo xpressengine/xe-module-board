@@ -2,7 +2,7 @@
     /**
      * @class  board
      * @author NHN (developers@xpressengine.com)
-     * @brief  board 모듈의 high class
+     * @brief  board module high class
      **/
 
     class board extends ModuleObject {
@@ -11,24 +11,24 @@
 
         var $order_target = array('list_order', 'update_order', 'regdate', 'voted_count', 'blamed_count', 'readed_count', 'comment_count', 'title'); // 정렬 옵션
 
-        var $skin = "default"; ///< 스킨 이름
-        var $list_count = 20; ///< 한 페이지에 나타날 글의 수
-        var $page_count = 10; ///< 페이지의 수
-        var $category_list = NULL; ///< 카테고리 목록
+        var $skin = "default"; ///< skin name
+        var $list_count = 20; ///< the number of documents displayed in a page
+        var $page_count = 10; ///< page number
+        var $category_list = NULL; ///< category list
 
 
         /**
-         * @brief 설치시 추가 작업이 필요할시 구현
+         * @brief install the module
          **/
         function moduleInstall() {
-            // action forward에 등록 (관리자 모드에서 사용하기 위함)
+            // use action forward(enabled in the admin model)
             $oModuleController = &getController('module');
             $oModuleModel = &getModel('module');
 
-            // 2007. 10. 17 아이디 클릭시 나타나는 팝업메뉴에 작성글 보기 기능 추가
+            // 2007. 10. 17 insert member menu trigger
             $oModuleController->insertTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after');
 
-            // 기본 게시판 생성
+            // install board module
             $args->site_srl = 0;
             $output = executeQuery('module.getSite', $args);
             if(!$output->data->index_module_srl) {
@@ -49,12 +49,12 @@
         }
 
         /**
-         * @brief 설치가 이상이 없는지 체크하는 method
+         * @brief chgeck module method
          **/
         function checkUpdate() {
             $oModuleModel = &getModel('module');
 
-            // 2007. 10. 17 아이디 클릭시 나타나는 팝업메뉴에 작성글 보기 기능 추가
+            // 2007. 10. 17 get the member menu trigger
             if(!$oModuleModel->getTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after')) return true;
 
             // 2011. 09. 20 when add new menu in sitemap, custom menu add
@@ -63,13 +63,13 @@
         }
 
         /**
-         * @brief 업데이트 실행
+         * @brief update module
          **/
         function moduleUpdate() {
             $oModuleModel = &getModel('module');
             $oModuleController = &getController('module');
 
-            // 2007. 10. 17 아이디 클릭시 나타나는 팝업메뉴에 작성글 보기 기능 추가
+            // 2007. 10. 17  check the member menu trigger, if it is not existed then insert
             if(!$oModuleModel->getTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after'))
                 $oModuleController->insertTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after');
 
@@ -93,7 +93,7 @@
 		}
 
         /**
-         * @brief 캐시 파일 재생성
+         * @brief re-generate the cache files
          **/
         function recompileCache() {
         }

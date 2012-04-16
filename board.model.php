@@ -2,28 +2,28 @@
     /**
      * @class  boardModel
      * @author NHN (developers@xpressengine.com)
-     * @brief  board 모듈의 Model class
+     * @brief  board module  Model class
      **/
 
     class boardModel extends module {
         /**
-         * @brief 초기화
+         * @brief initialization
          **/
         function init() {
         }
 
         /**
-         * @brief 목록 설정 값을 가져옴
+         * @brief get the list configuration
          **/
         function getListConfig($module_srl) {
             $oModuleModel = &getModel('module');
             $oDocumentModel = &getModel('document');
 
-            // 저장된 목록 설정값을 구하고 없으면 기본 값으로 설정
+            // get the list config value, if it is not exitsted then setup the default value
             $list_config = $oModuleModel->getModulePartConfig('board', $module_srl);
             if(!$list_config || !count($list_config)) $list_config = array( 'no', 'title', 'nick_name','regdate','readed_count');
 
-            // 사용자 선언 확장변수 구해와서 배열 변환후 return
+            // get the extra variables
             $inserted_extra_vars = $oDocumentModel->getExtraKeys($module_srl);
 
             foreach($list_config as $key) {
@@ -34,17 +34,17 @@
         }
 
         /** 
-         * @brief 기본 목록 설정값을 return
+         * @brief return the default list configration value
          **/
         function getDefaultListConfig($module_srl) {
-            // 가상번호, 제목, 등록일, 수정일, 닉네임, 아이디, 이름, 조회수, 추천수 추가
+            // add virtual srl, title, registered date, update date, nickname, ID, name, readed count, voted count etc.
             $virtual_vars = array( 'no', 'title', 'regdate', 'last_update', 'last_post', 'nick_name',
 					'user_id', 'user_name', 'readed_count', 'voted_count', 'blamed_count', 'thumbnail', 'summary');
             foreach($virtual_vars as $key) {
                 $extra_vars[$key] = new ExtraItem($module_srl, -1, Context::getLang($key), $key, 'N', 'N', 'N', null);
             }
 
-            // 사용자 선언 확장변수 정리
+            // get the extra variables from the document model
             $oDocumentModel = &getModel('document');
             $inserted_extra_vars = $oDocumentModel->getExtraKeys($module_srl);
 

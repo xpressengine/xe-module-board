@@ -2,18 +2,18 @@
     /**
      * @class  boardAPI
      * @author sol(sol@ngleader.com)
-     * @brief  board 모듈의 View Action에 대한 API 처리
+     * @brief  board module View Action에 대한 API 처리
      **/
 
     class boardAPI extends board {
 
-/* dispBoardContent 는 사용하지 않는다..
+/* do not use dispBoardContent .
         function dispBoardContent(&$oModule) {
         }
 */
 
         /**
-         * @brief 공지사항 목록
+         * @brief notice list
          **/
         function dispBoardNoticeList(&$oModule) {
              $oModule->add('notice_list',$this->arrangeContentList(Context::get('notice_list')));
@@ -21,7 +21,7 @@
 
 
         /**
-         * @brief 컨텐츠 목록
+         * @brief content list
          **/
         function dispBoardContentList(&$oModule) {
 			$api_type = Context::get('api_type');
@@ -46,14 +46,14 @@
 
 
         /**
-         * @brief 카테고리(분류) 목록
+         * @brief category list
          **/
         function dispBoardCatogoryList(&$oModule) {
             $oModule->add('category_list',Context::get('category_list'));
         }
 
         /**
-         * @brief 게시물 보기
+         * @brief board content view
          **/
         function dispBoardContentView(&$oModule) {
             $oDocument = Context::get('oDocument');
@@ -64,7 +64,7 @@
 
 
         /**
-         * @brief 컨텐츠의 파일 목록
+         * @brief contents file list
          **/
         function dispBoardContentFileList(&$oModule) {
             $oModule->add('file_list',$this->arrangeFile(Context::get('file_list')));
@@ -72,14 +72,14 @@
 
 
         /**
-         * @brief 태그 목록
+         * @brief tag list
          **/
         function dispBoardTagList(&$oModule) {
             $oModule->add('tag_list',Context::get('tag_list'));
         }
 
         /**
-         * @brief 컨텐츠의 코멘트 목록
+         * @brief comments list
          **/
         function dispBoardContentCommentList(&$oModule) {
             $oModule->add('comment_list',$this->arrangeComment(Context::get('comment_list')));

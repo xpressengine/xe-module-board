@@ -2,33 +2,33 @@
     /**
      * @class  boardAdminController
      * @author zero (zero@nzeo.com)
-     * @brief  board 모듈의 admin controller class
+     * @brief  board module admin controller class
      **/
 
     class boardAdminController extends board {
 
         /**
-         * @brief 초기화
+         * @brief initialization
          **/
         function init() {
         }
 
         /**
-         * @brief 게시판 추가
+         * @brief insert borad module
          **/
         function procBoardAdminInsertBoard($args = null) {
-            // module 모듈의 model/controller 객체 생성
+            // igenerate module model/controller object
             $oModuleController = &getController('module');
             $oModuleModel = &getModel('module');
 
-            // 게시판 모듈의 정보 설정
+            // setup the board module infortmation
             $args = Context::getRequestVars();
             $args->module = 'board';
             $args->mid = $args->board_name;
 			if(is_array($args->use_status)) $args->use_status = implode('|@|', $args->use_status);
             unset($args->board_name);
 
-            // 기본 값외의 것들을 정리
+            // setup other variables
             if($args->use_category!='Y') $args->use_category = 'N';
             if($args->except_notice!='Y') $args->except_notice = 'N';
             if($args->use_anonymous!='Y') $args->use_anonymous= 'N';
@@ -36,13 +36,13 @@
             if(!in_array($args->order_target,$this->order_target)) $args->order_target = 'list_order';
             if(!in_array($args->order_type,array('asc','desc'))) $args->order_type = 'asc';
 
-            // module_srl이 넘어오면 원 모듈이 있는지 확인
+            // if there is an existed module
             if($args->module_srl) {
                 $module_info = $oModuleModel->getModuleInfoByModuleSrl($args->module_srl);
                 if($module_info->module_srl != $args->module_srl) unset($args->module_srl);
             }
 
-            // module_srl의 값에 따라 insert/update
+            // insert/update the board module based on module_srl
             if(!$args->module_srl) {
                 $output = $oModuleController->insertModule($args);
                 $msg_code = 'success_registed';
@@ -62,12 +62,12 @@
         }
 
         /**
-         * @brief 게시판 삭제
+         * @brief delete the board module
          **/
         function procBoardAdminDeleteBoard() {
             $module_srl = Context::get('module_srl');
 
-            // 원본을 구해온다
+            // get the current module
             $oModuleController = &getController('module');
             $output = $oModuleController->deleteModule($module_srl);
             if(!$output->toBool()) return $output;
@@ -78,7 +78,7 @@
         }
 
         /**
-         * @brief 게시판 목록 지정
+         * @brief insert board list config 
          **/
         function procBoardAdminInsertListConfig() {
             $module_srl = Context::get('module_srl');

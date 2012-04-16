@@ -2,27 +2,27 @@
     /**
      * @class  boardController
      * @author NHN (developers@xpressengine.com)
-     * @brief  board 모듈의 Controller class
+     * @brief  board module Controller class
      **/
 
     class boardController extends board {
 
         /**
-         * @brief 초기화
+         * @brief initialization
          **/
         function init() {
         }
 
         /**
-         * @brief 문서 입력
+         * @brief insert document
          **/
         function procBoardInsertDocument() {
-            // 권한 체크
+            // check grant
 			if($this->module_info->module != "board") return new Object(-1, "msg_invalid_request");
             if(!$this->grant->write_document) return new Object(-1, 'msg_not_permitted');
             $logged_info = Context::get('logged_info');
 
-            // 글작성시 필요한 변수를 세팅
+            // setup variables
             $obj = Context::getRequestVars();
             $obj->module_srl = $this->module_srl;
             if($obj->is_notice!='Y'||!$this->grant->manager) $obj->is_notice = 'N';
@@ -30,25 +30,25 @@
 
             settype($obj->title, "string");
             if($obj->title == '') $obj->title = cut_str(strip_tags($obj->content),20,'...');
-            //그래도 없으면 Untitled
+            //setup dpcument title tp 'Untitled'
             if($obj->title == '') $obj->title = 'Untitled';
 
-            // 관리자가 아니라면 게시글 색상/굵기 제거
+            // unset document style if the user is not the document manager
             if(!$this->grant->manager) {
                 unset($obj->title_color);
                 unset($obj->title_bold);
             }
 
-            // document module의 model 객체 생성
+            // generate document module model object
             $oDocumentModel = &getModel('document');
 
-            // document module의 controller 객체 생성
+            // generate document module의 controller object
             $oDocumentController = &getController('document');
 
-            // 이미 존재하는 글인지 체크
+            // check if the document is existed
             $oDocument = $oDocumentModel->getDocument($obj->document_srl, $this->grant->manager);
 
-            // 익명 설정일 경우 여러가지 요소를 미리 제거 (알림용 정보들 제거)
+            // if use anonymous is true
             if($this->module_info->use_anonymous == 'Y') {
                 $obj->notify_message = 'N';
                 $this->module_info->admin_mail = '';
@@ -63,19 +63,19 @@
                 $bAnonymous = false;
             }
 
-            // 이미 존재하는 경우 수정
+            // update the document if it is existed
             if($oDocument->isExists() && $oDocument->document_srl == $obj->document_srl) {
 				if(!$oDocument->isGranted()) return new Object(-1,'msg_not_permitted');
                 $output = $oDocumentController->updateDocument($oDocument, $obj);
                 $msg_code = 'success_updated';
 
-            // 그렇지 않으면 신규 등록
+            // insert a new document otherwise
             } else {
                 $output = $oDocumentController->insertDocument($obj, $bAnonymous);
                 $msg_code = 'success_registed';
                 $obj->document_srl = $output->get('document_srl');
 
-                // 문제가 없고 모듈 설정에 관리자 메일이 등록되어 있으면 메일 발송
+                // send an email to admin user
                 if($output->toBool() && $this->module_info->admin_mail) {
                     $oMail = new Mail();
                     $oMail->setTitle($obj->title);
@@ -92,45 +92,45 @@
                 }
             }
 
-            // 오류 발생시 멈춤
+            // if there is an error
             if(!$output->toBool()) return $output;
 
-            // 결과를 리턴
+            // return the results
             $this->add('mid', Context::get('mid'));
             $this->add('document_srl', $output->get('document_srl'));
 
-            // 성공 메세지 등록
+            // alert a message
             $this->setMessage($msg_code);
         }
 
         /**
-         * @brief 문서 삭제
+         * @brief delete the document
          **/
         function procBoardDeleteDocument() {
-            // 문서 번호 확인
+            // get the document_srl 
             $document_srl = Context::get('document_srl');
 
-            // 문서 번호가 없다면 오류 발생
+            // if the document is not existed
             if(!$document_srl) return $this->doError('msg_invalid_document');
 
-            // document module model 객체 생성
+            // generate document module controller object 
             $oDocumentController = &getController('document');
 
-            // 삭제 시도
+            // delete the document
             $output = $oDocumentController->deleteDocument($document_srl, $this->grant->manager);
             if(!$output->toBool()) return $output;
 
-            // 성공 메세지 등록
+            // alert an message
             $this->add('mid', Context::get('mid'));
             $this->add('page', $output->get('page'));
             $this->setMessage('success_deleted');
         }
 
         /**
-         * @brief 추천
+         * @brief vote
          **/
         function procBoardVoteDocument() {
-            // document module controller 객체 생성
+            // generate document module controller object
             $oDocumentController = &getController('document');
 
             $document_srl = Context::get('document_srl');
@@ -138,18 +138,18 @@
         }
 
         /**
-         * @brief 코멘트 추가
+         * @brief insert comments
          **/
         function procBoardInsertComment() {
-            // 권한 체크
+            // check grant
             if(!$this->grant->write_comment) return new Object(-1, 'msg_not_permitted');
             $logged_info = Context::get('logged_info');
 
-            // 댓글 입력에 필요한 데이터 추출
+            // get the relevant data for inserting comment
             $obj = Context::gets('document_srl','comment_srl','parent_srl','content','password','nick_name','member_srl','email_address','homepage','is_secret','notify_message');
             $obj->module_srl = $this->module_srl;
 
-            // 원글이 존재하는지 체크
+            // check if the doument is existed
             $oDocumentModel = &getModel('document');
             $oDocument = $oDocumentModel->getDocument($obj->document_srl);
             if(!$oDocument->isExists()) return new Object(-1,'msg_not_permitted');
@@ -169,37 +169,37 @@
                 $bAnonymous = false;
             }
 
-            // comment 모듈의 model 객체 생성
+            // generate comment  module model object
             $oCommentModel = &getModel('comment');
 
-            // comment 모듈의 controller 객체 생성
+            // generate comment module controller object
             $oCommentController = &getController('comment');
 
-            // comment_srl이 존재하는지 체크
-            // 만일 comment_srl이 n/a라면 getNextSequence()로 값을 얻어온다.
+            // check the comment is existed
+            // if the comment is not existed, then generate a new sequence
             if(!$obj->comment_srl) {
                 $obj->comment_srl = getNextSequence();
             } else {
                 $comment = $oCommentModel->getComment($obj->comment_srl, $this->grant->manager);
             }
 
-            // comment_srl이 없을 경우 신규 입력
+            // if comment_srl is not existed, then insert the comment 
             if($comment->comment_srl != $obj->comment_srl) {
 
-                // parent_srl이 있으면 답변으로
+                // parent_srl is existed
                 if($obj->parent_srl) {
                     $parent_comment = $oCommentModel->getComment($obj->parent_srl);
                     if(!$parent_comment->comment_srl) return new Object(-1, 'msg_invalid_request');
 
                     $output = $oCommentController->insertComment($obj, $bAnonymous);
 
-                // 없으면 신규
+                // parent_srl is not existed
                 } else {
                     $output = $oCommentController->insertComment($obj, $bAnonymous);
                 }
 
 		/*
-                // 문제가 없고 모듈 설정에 관리자 메일이 등록되어 있으면 메일 발송
+                // send an email
                 if($output->toBool() && $this->module_info->admin_mail) {
                     $oMail = new Mail();
                     $oMail->setTitle($oDocument->getTitleText());
@@ -216,9 +216,9 @@
                 }
 		*/
 				
-            // comment_srl이 있으면 수정으로
+            // update the comment if it is not existed
             } else {
-				// 다시 권한체크
+				// check the grant
 				if(!$comment->isGranted()) return new Object(-1,'msg_not_permitted');
 
                 $obj->parent_srl = $comment->parent_srl;
@@ -234,14 +234,14 @@
         }
 
         /**
-         * @brief 코멘트 삭제
+         * @brief delete the comment
          **/
         function procBoardDeleteComment() {
-            // 댓글 번호 확인
+            // get the comment_srl
             $comment_srl = Context::get('comment_srl');
             if(!$comment_srl) return $this->doError('msg_invalid_request');
 
-            // comment 모듈의 controller 객체 생성
+            // generate comment  controller object
             $oCommentController = &getController('comment');
 
             $output = $oCommentController->deleteComment($comment_srl, $this->grant->manager);
@@ -254,12 +254,12 @@
         }
 
         /**
-         * @brief 엮인글 삭제
+         * @brief delete the tracjback
          **/
         function procBoardDeleteTrackback() {
             $trackback_srl = Context::get('trackback_srl');
 
-            // trackback module의 controller 객체 생성
+            // generate trackback module controller object
             $oTrackbackController = &getController('trackback');
             $output = $oTrackbackController->deleteTrackback($trackback_srl, $this->grant->manager);
             if(!$output->toBool()) return $output;
@@ -271,34 +271,34 @@
         }
 
         /**
-         * @brief 문서와 댓글의 비밀번호를 확인
+         * @brief check the password for document and comment
          **/
         function procBoardVerificationPassword() {
-            // 비밀번호와 문서 번호를 받음
+            // get the id number of the document and the comment
             $password = Context::get('password');
             $document_srl = Context::get('document_srl');
             $comment_srl = Context::get('comment_srl');
 
             $oMemberModel = &getModel('member');
 
-            // comment_srl이 있을 경우 댓글이 대상
+            // if the comment exists
             if($comment_srl) {
-                // 문서번호에 해당하는 글이 있는지 확인
+                // get the comment information
                 $oCommentModel = &getModel('comment');
                 $oComment = $oCommentModel->getComment($comment_srl);
                 if(!$oComment->isExists()) return new Object(-1, 'msg_invalid_request');
 
-                // 문서의 비밀번호와 입력한 비밀번호의 비교
+                // compare the comment password and the user input password
                 if(!$oMemberModel->isValidPassword($oComment->get('password'),$password)) return new Object(-1, 'msg_invalid_password');
 
                 $oComment->setGrant();
             } else {
-                // 문서번호에 해당하는 글이 있는지 확인
+                 // get the document information
                 $oDocumentModel = &getModel('document');
                 $oDocument = $oDocumentModel->getDocument($document_srl);
                 if(!$oDocument->isExists()) return new Object(-1, 'msg_invalid_request');
 
-                // 문서의 비밀번호와 입력한 비밀번호의 비교
+                // compare the document password and the user input password
                 if(!$oMemberModel->isValidPassword($oDocument->get('password'),$password)) return new Object(-1, 'msg_invalid_password');
 
                 $oDocument->setGrant();
@@ -306,7 +306,7 @@
         }
 
         /**
-         * @brief 아이디 클릭시 나타나는 팝업메뉴에 "작성글 보기" 메뉴를 추가하는 trigger
+         * @brief the trigger for displaying 'view document' link when click the user ID
          **/
         function triggerMemberMenu(&$obj) {
             $member_srl = Context::get('target_srl');
@@ -316,14 +316,14 @@
 
             $logged_info = Context::get('logged_info');
 
-            // 호출된 모듈의 정보 구함
+            // get the module information
             $oModuleModel = &getModel('module');
 			$columnList = array('module');
             $cur_module_info = $oModuleModel->getModuleInfoByMid($mid, 0, $columnList);
 
             if($cur_module_info->module != 'board') return new Object();
 
-            // 자신의 아이디를 클릭한 경우
+            // get the member information
             if($member_srl == $logged_info->member_srl) {
                 $member_info = $logged_info;
             } else {
@@ -333,7 +333,7 @@
 
             if(!$member_info->user_id) return new Object();
 
-            // 아이디로 검색기능 추가
+            //search
             $url = getUrl('','mid',$mid,'search_target','nick_name','search_keyword',$member_info->nick_name);
             $oMemberController = &getController('member');
             $oMemberController->addMemberPopupMenu($url, 'cmd_view_own_document', '');

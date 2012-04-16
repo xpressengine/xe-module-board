@@ -11,8 +11,8 @@ class boardMobile extends boardView {
             $this->except_notice = $this->module_info->except_notice == 'N' ? false : true;
 
             /**
-             * 상담 기능 체크. 현재 게시판의 관리자이면 상담기능을 off시킴
-             * 현재 사용자가 비로그인 사용자라면 글쓰기/댓글쓰기/목록보기/글보기 권한을 제거함
+             * check the consultation function, if the user is admin then swich off consultation function
+             * if the user is not logged, then disppear write document/write comment./ view document
              **/
             if($this->module_info->consultation == 'Y' && !$this->grant->manager) {
                 $this->consultation = true; 
