@@ -5,7 +5,7 @@
  **/
 
 
-/* 모듈 생성 후 */
+/* complete to insert board module */
 function completeInsertBoard(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -21,7 +21,7 @@ function completeInsertBoard(ret_obj) {
     location.href = url;
 }
 
-/* 모듈 삭제 후 */
+/* delete the board module*/
 function completeDeleteBoard(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -33,7 +33,7 @@ function completeDeleteBoard(ret_obj) {
     location.href = url;
 }
 
-/* 카테고리 관련 작업들 */
+/* update category */
 function doUpdateCategory(category_srl, mode, message) {
     if(typeof(message)!='undefined'&&!confirm(message)) return;
 
@@ -44,7 +44,7 @@ function doUpdateCategory(category_srl, mode, message) {
     procFilter(fo_obj, update_category);
 }
 
-/* 카테고리 정보 수정 후 */
+/* change category */
 function completeUpdateCategory(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -57,7 +57,7 @@ function completeUpdateCategory(ret_obj) {
     location.href = url;
 }
 
-/* 일괄 설정 */
+/* setup all*/
 function doCartSetup(url) {
     var module_srl = new Array();
     jQuery('#fo_list input[name=cart]:checked').each(function() {
@@ -70,7 +70,7 @@ function doCartSetup(url) {
     popopen(url,'modulesSetup');
 }
 
-/* 목록 설정 */
+/* setup index */
 function doInsertItem() {
     var target_obj = xGetElementById('targetItem');
     var display_obj = xGetElementById('displayItem');

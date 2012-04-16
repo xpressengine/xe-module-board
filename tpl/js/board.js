@@ -4,7 +4,7 @@
  * @brief  board 모듈의 javascript
  **/
 
-/* 글쓰기 작성후 */
+/* complete tp insert document */
 function completeDocumentInserted(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -27,7 +27,7 @@ function completeDocumentInserted(ret_obj) {
     location.href = url;
 }
 
-/* 글 삭제 */
+/* delete the document */
 function completeDeleteDocument(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -42,7 +42,7 @@ function completeDeleteDocument(ret_obj) {
     location.href = url;
 }
 
-/* 검색 실행 */
+/* document search */
 function completeSearch(ret_obj, response_tags, params, fo_obj) {
     fo_obj.submit();
 }
@@ -54,7 +54,7 @@ function completeVote(ret_obj) {
     location.href = location.href;
 }
 
-// 현재 페이지 reload
+// current page reload
 function completeReload(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -62,7 +62,7 @@ function completeReload(ret_obj) {
     location.href = location.href;
 }
 
-/* 댓글 글쓰기 작성후 */
+/* complete to insert comment*/
 function completeInsertComment(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -78,7 +78,7 @@ function completeInsertComment(ret_obj) {
     location.href = url;
 }
 
-/* 댓글 삭제 */
+/* delete the comment */
 function completeDeleteComment(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -94,7 +94,7 @@ function completeDeleteComment(ret_obj) {
     location.href = url;
 }
 
-/* 트랙백 삭제 */
+/* delete the trackback */
 function completeDeleteTrackback(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
@@ -110,13 +110,13 @@ function completeDeleteTrackback(ret_obj) {
     location.href = url;
 }
 
-/* 카테고리 이동 */
+/* change category */
 function doChangeCategory() {
     var category_srl = jQuery('#board_category option:selected').val();
     location.href = decodeURI(current_url).setQuery('category',category_srl).setQuery('page', '');
 }
 
-/* 스크랩 */
+/* scrap */
 function doScrap(document_srl) {
     var params = new Array();
     params["document_srl"] = document_srl;
