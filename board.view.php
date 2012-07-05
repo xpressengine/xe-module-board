@@ -378,7 +378,7 @@
 			if ($this->except_notice) {
 				array_push($this->columnList, 'is_notice');
 			}
-			$this->columnList = array_merge($this->columnList, $defaultColumn);
+			$this->columnList = array_unique(array_merge($this->columnList, $defaultColumn));
 
 			// add table name
 			foreach($this->columnList as $no => $value)
