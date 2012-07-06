@@ -315,11 +315,11 @@ th.date{white-space:nowrap}
 .replyBox .xe_content{display:inline}
 .display_date{cursor:pointer;width:80px;border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;height:1em;padding:3px;margin-right:10px}
 /* 확장 변수 폼 */
-.extraVarsList tr td .text{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:90%}
-.extraVarsList tr td .email_address{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
-.extraVarsList tr td .homepage{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
-.extraVarsList tr td .tel{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:40px;margin-right:10px}
-.extraVarsList tr td .textarea{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:90%;height:80px;font-size:12px}
+.extraVarsList tr td.text input{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:90%}
+.extraVarsList tr td.email_address input{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
+.extraVarsList tr td.homepage input{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
+.extraVarsList tr td.tel input{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:40px;margin-right:10px}
+.extraVarsList tr td.textarea textarea{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:90%;height:80px;font-size:12px}
 .extraVarsList tr td ul{margin:0;padding:0;list-style:none}
 .extraVarsList tr td ul li{display:inline-block;margin-right:10px}
 .extraVarsList tr td ul li input{margin-right:5px;vertical-align:middle}
