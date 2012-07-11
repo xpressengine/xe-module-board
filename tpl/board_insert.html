@@ -159,7 +159,7 @@
 			<p class="q"><label for="header_text">{$lang->header_text}</label></p>
 			<p class="a multiLangEdit">
 				{@$use_multilang_textarea = true}
-				<input type="hidden" name="header_text" value="<!--@if(strpos($module_info->header_text, '$user_lang->') === false)-->{$module_info->header_text}<!--@else-->{htmlspecialchars($module_info->header_text)}<!--@end-->" class="vLang" />
+				<input type="hidden" name="header_text" value="{htmlspecialchars($module_info->header_text)}" class="vLang" />
 				<textarea id="header_text" class="vLang" rows="8" cols="42">{$module_info->header_text}</textarea>
 				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
 			</p>
@@ -168,7 +168,7 @@
 		<li>
 			<p class="q"><label for="footer_text">{$lang->footer_text}</label></p>
 			<p class="a multiLangEdit">
-				<input type="hidden" name="footer_text" value="<!--@if(strpos($module_info->footer_text, '$user_lang->') === false)-->{$module_info->footer_text}<!--@else-->{htmlspecialchars($module_info->footer_text)}<!--@end-->" class="vLang" />
+				<input type="hidden" name="footer_text" value="{htmlspecialchars($module_info->footer_text)}" class="vLang" />
 				<textarea id="footer_text" class="vLang" rows="8" cols="42">{$module_info->footer_text}</textarea>
 				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
 			</p>
