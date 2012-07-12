@@ -282,6 +282,17 @@
             $this->setTemplateFile('skin_info');
         }
 
+        /**
+         * Display the module mobile skin information
+         **/
+        function dispBoardAdminMobileSkinInfo() {
+             // get the grant infotmation from admin module 
+            $oModuleAdminModel = &getAdminModel('module');
+            $skin_content = $oModuleAdminModel->getModuleMobileSkinHTML($this->module_info->module_srl);
+            Context::set('skin_content', $skin_content);
+
+            $this->setTemplateFile('skin_info');
+        }
 
         /**
          * @brief board module message
