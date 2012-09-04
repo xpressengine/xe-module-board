@@ -100,18 +100,9 @@
 			$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
 			Context::set('mlayout_list', $mobile_layout_list);
 
-			Context::set('module_srls', 'dummy');
-			// pre-define variables because you can get contents from other module (call by reference)
-            $content = '';
-            // Call a trigger for additional settings
-            // Considering uses in the other modules, trigger name cen be publicly used
-            ModuleHandler::triggerCall('module.dispAdditionSetup', 'before', $content);
-            ModuleHandler::triggerCall('module.dispAdditionSetup', 'after', $content);
-            Context::set('setup_content', $content);
-
 			$oModuleAdminModel = &getAdminModel('module');
-            $grant_content = $oModuleAdminModel->getModuleGrantHTML($this->module_info->module_srl, $this->xml_info->grant);
-            Context::set('grant_content', $grant_content);
+            $selected_manage_content = $oModuleAdminModel->getSelectedManageHTML($this->xml_info->grant);
+            Context::set('selected_manage_content', $selected_manage_content);
 
             // use context::set to setup variables on the templates 
             Context::set('total_count', $output->total_count);
