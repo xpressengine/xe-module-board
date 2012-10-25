@@ -27,7 +27,17 @@
             $inserted_extra_vars = $oDocumentModel->getExtraKeys($module_srl);
 
             foreach($list_config as $key) {
-                if(preg_match('/^([0-9]+)$/',$key)) $output['extra_vars'.$key] = $inserted_extra_vars[$key];
+                if(preg_match('/^([0-9]+)$/',$key))
+				{
+					if($inserted_extra_vars[$key])
+					{
+						$output['extra_vars'.$key] = $inserted_extra_vars[$key];
+					}
+					else
+					{
+						continue;
+					}
+				}
                 else $output[$key] = new ExtraItem($module_srl, -1, Context::getLang($key), $key, 'N', 'N', 'N', null);
             }
             return $output;
