@@ -4,15 +4,14 @@
 	<p>{$XE_VALIDATOR_MESSAGE}</p>
 </div>
 
-<div class="x_clearfix" style="margin-bottom:-48px">
-	<div class="x_btn-group x_pull-right">
-		<a class="x_btn" href="{getUrl('act','dispBoardAdminInsertBoard','module_srl','')}">{$lang->cmd_create_board}...</a>
-		<a class="x_btn modalAnchor" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}...</a>
-	</div>
-</div>
-
 <table class="x_table x_table-striped x_table-hover">
-	<caption><strong>Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}</strong></caption>
+	<caption>
+		Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}
+		<div class="x_btn-group x_pull-right">
+			<a class="x_btn" href="{getUrl('act','dispBoardAdminInsertBoard','module_srl','')}">{$lang->cmd_create_board}...</a>
+			<a class="x_btn modalAnchor" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}...</a>
+		</div>
+	</caption>
 	<thead>
 		<tr>
 			<th scope="col" class="nowr">{$lang->no}</th>
@@ -68,7 +67,7 @@
 </div>
 
 <div class="x_clearfix">
-	<form cond="$page_navigation" action="./" class="x_pagination x_pagination-centered x_pull-left" no-error-return-url="true">
+	<form cond="$page_navigation" action="./" class="x_pagination x_pull-left" no-error-return-url="true">
 		{@
 			$urlInfo = parse_url(getRequestUriByServerEnviroment());
 			parse_str($urlInfo['query'], $param);
@@ -106,17 +105,15 @@
 
 	<form action="" class="search x_input-append x_pull-right" no-error-return-url="true">
 		<input loop="$param => $key, $val" cond="!in_array($key, array('mid', 'vid', 'act', 'page'))" type="hidden" name="{$key}" value="{$val}" />
-		<select  cond="count($module_category)"name="module_category_srl">
-			<option value="">{$lang->module_category}</option>
+		<select cond="count($module_category)" name="module_category_srl" title="{$lang->module_category}" style="margin-right:4px">
 			<option value="0" selected="selected"|cond="$module_category_srl==='0'">{$lang->not_exists}</option>
 			<option value="{$key}" loop="$module_category => $key,$val"  selected="selected"|cond="$module_category==$key">{$val->title}</option>
 		</select>
-		<select name="search_target">
-			<option value="">{$lang->search_target}</option>
+		<select name="search_target" title="{$lang->search_target}" style="margin-right:4px">
 			<option value="mid" selected="selected"|cond="$search_target=='mid'">{$lang->mid}</option>
 			<option value="browser_title" selected="selected"|cond="$search_target=='browser_title'">{$lang->browser_title}</option>
 		</select>
-		<input type="search" required="" name="search_keyword" value="{htmlspecialchars($search_keyword)}" />
+		<input type="search" required name="search_keyword" value="{htmlspecialchars($search_keyword)}" />
 		<button class="x_btn x_btn-inverse" type="submit">{$lang->cmd_search}</button>
 		<a class="x_btn" href="{getUrl('', 'module', $module, 'act', $act)}">{$lang->cmd_cancel}</a>
 	</form>

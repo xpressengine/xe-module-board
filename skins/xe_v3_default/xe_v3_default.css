@@ -11,6 +11,7 @@
 .xev3board .iCheck+label{vertical-align:middle}
 .xev3board .iText{position:relative;padding:3px 4px;_margin:-1px 0;height:17px;line-height:17px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8;background:transparent}
 .xev3board textarea{margin:0;padding:3px 4px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
+.xev3board label{display:inline-block;margin:0}
 /* Board Header */
 .board_header{position:relative;zoom:1;margin:0 0 22px 0}
 .board_header:after{content:"";display:block;clear:both}

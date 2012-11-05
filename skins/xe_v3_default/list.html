@@ -1,8 +1,7 @@
 <include target="_header.html" />
 <include cond="$oDocument->isExists()" target="_read.html" />
-<p cond="!$document_list && !$notice_list" class="no_ducument">{$lang->no_documents}</p>
 <div class="board_list" id="board_list">
-	<table width="100%" border="1" cellspacing="0" summary="List of Articles" cond="$document_list || $notice_list">
+	<table width="100%" border="1" cellspacing="0" summary="List of Articles">
 		<thead>
 			<!-- LIST HEADER -->
 			<tr>
@@ -20,11 +19,18 @@
 				<th scope="col" cond="$val->type=='blamed_count' && $val->idx==-1"><span><a href="{getUrl('sort_index','blamed_count','order_type',$order_type)}">{$lang->blamed_count}</a></span></th>
 				<th scope="col" cond="$val->idx!=-1"><span><a href="{getUrl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}</a></span></th>
 				</block>
-				<th scope="col" cond="$grant->manager"><span><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true });" class="iCheck" title="Check All" /></span></th>
+				<th scope="col" cond="$grant->manager" style="width:44px"><span><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true });" class="iCheck" title="Check All" /></span></th>
 			</tr>
 			<!-- /LIST HEADER -->
 		</thead>
-		<tbody>
+		<tbody cond="!$document_list && !$notice_list">
+			<tr>
+				<td colspan="{count($list_config)}"|cond="!$grant->manager" colspan="{count($list_config)+1}"|cond="$grant->manager">
+					<p style="text-align:center">{$lang->no_documents}</p>
+				</td>
+			</tr>
+		</tbody>
+		<tbody cond="$document_list || $notice_list">
 			<!-- NOTICE -->
 			<tr class="notice" loop="$notice_list=>$no,$document">
 				<block loop="$list_config=>$key,$val">
