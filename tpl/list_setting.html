@@ -1,4 +1,4 @@
-<!--#include("./header.html")-->
+<include target="./header.html" />
 <load target="../../module/tpl/js/multi_order.js" />
 
 <section class="section">
@@ -21,15 +21,17 @@
 			<select class="multiorder_show" size="8" multiple="multiple" style="width:290px;vertical-align:top">
 				<option loop="$extra_vars => $key, $val" cond="!$list_config[$key]" value="{$key}">{$val->name}</option>
 			</select><br />
-			<button type="button" class="x_btn x_btn-mini multiorder_add" style="vertical-align:top">{$lang->cmd_insert}</button>
+			<button type="button" class="x_btn multiorder_add" style="vertical-align:top">{$lang->cmd_insert}</button>
 		</div>
 		<div style="display:inline-block">
 			<select class="multiorder_selected" size="8" multiple="multiple" style="width:290px;vertical-align:top">
 				<option loop="$list_config => $key, $val" value="{$key}">{$val->name}</option>
 			</select><br />
-			<button type="button" class="x_btn x_btn-mini multiorder_up" style="vertical-align:top">{$lang->cmd_move_up}</button>
-			<button type="button" class="x_btn x_btn-mini multiorder_down" style="vertical-align:top">{$lang->cmd_move_down}</button>
-			<button type="button" class="x_btn x_btn-mini x_btn-danger multiorder_del" style="vertical-align:top">{$lang->cmd_delete}</button>
+			<span class="x_btn-group">
+				<button type="button" class="x_btn multiorder_up" style="vertical-align:top">{$lang->cmd_move_up}</button>
+				<button type="button" class="x_btn multiorder_down" style="vertical-align:top">{$lang->cmd_move_down}</button>
+				<button type="button" class="x_btn multiorder_del" style="vertical-align:top">{$lang->cmd_delete}</button>
+			</span>
 		</div>
 		<script type="text/javascript">
 			xe.registerApp(new xe.MultiOrderManager('list'));
