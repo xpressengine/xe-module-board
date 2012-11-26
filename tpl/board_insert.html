@@ -213,48 +213,6 @@
 				<p id="description_help" hidden style="margin:8px 0 0 0">{$lang->about_description}</p>
 			</div>
 		</div>
-		<div class="x_control-group">
-			<label class="x_control-label">{$lang->use_category}</label>
-			<div class="x_controls">
-				<label class="x_inline" for="use_category"><input type="checkbox" name="use_category" id="use_category" class="exFunction" value="Y" checked="checked"|cond="$module_info->use_category == 'Y'" /> {$lang->about_use_category}</label>
-				<a href="{getUrl('act','dispBoardAdminCategoryInfo', 'selected_var_idx', '', 'type', '')}" hidden>{$lang->cmd_manage_category}</a>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label">{$lang->cmd_manage_grant}</label>
-			<div class="x_controls">
-				<label class="x_inline" for="use_grant_setup"><input type="checkbox" name="use_grant_setup" id="use_grant_setup" class="exFunction" value="Y" checked="checked"|cond="$module_info->use_grant_setup == 'Y'" /> {$lang->about_use_grant_setup}</label>
-				<a href="{getUrl('act','dispBoardAdminGrantInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_grant}</a>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label">{$lang->cmd_addition_setup}</label>
-			<div class="x_controls">
-				<label class="x_inline" for="use_addition_setup"><input type="checkbox" name="use_addition_setup" id="use_addition_setup" class="exFunction" value="Y" checked="checked"|cond="$module_info->use_grant_setup == 'Y'" /> {$lang->about_use_addition_setup}</label>
-				<a href="{getUrl('act','dispBoardAdminBoardAdditionSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_addition_setup}</a>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label">{$lang->extra_vars}</label>
-			<div class="x_controls">
-				<label class="x_inline" for="use_content_exvars"><input type="checkbox" name="use_content_exvars" id="use_content_exvars" class="exFunction" value="Y" checked="checked"|cond="$module_info->use_extra_vars == 'Y'" /> {$lang->about_use_extra_vars}</label>
-				<a href="{getUrl('act','dispBoardAdminExtraVars', 'selected_var_idx', '', 'type', '')}">{$lang->extra_vars}</a>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label">{$lang->cmd_manage_skin}</label>
-			<div class="x_controls">
-				<label class="x_inline" for="use_skin_exvars"><input type="checkbox" name="use_skin_exvars" id="use_skin_exvars" class="exFunction" value="Y" checked="checked"|cond="$module_info->use_extra_vars == 'Y'" /> {$lang->about_use_skin_extra_vars}</label>
-				<a href="{getUrl('act','dispBoardAdminSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_skin}</a>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label">{$lang->cmd_manage_mobile_skin}</label>
-			<div class="x_controls">
-				<label class="x_inline" for="use_mskin_exvars"><input type="checkbox" name="use_mskin_exvars" id="use_mskin_exvars" class="exFunction" value="Y" checked="checked"|cond="$module_info->use_extra_vars == 'Y'" /> {$lang->about_use_mobile_skin_extra_vars}</label>
-				<a href="{getUrl('act','dispBoardAdminMobileSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_mobile_skin}</a>
-			</div>
-		</div>
 	</section>
 	<div class="x_clearfix btnArea">
 		<div class="x_pull-left">
@@ -266,43 +224,3 @@
 	</div>
 </form>
 <style>.g11n{vertical-align:top !important}</style>
-<script>
-jQuery(function($){
-	$('.exFunction').change(function(){
-		$this = $(this);
-		$link = $this.parent().next();
-		if($this.is(':checked')){
-			$link.show();
-			if($this.is('#use_category')){
-				$('li[data-use_category]').show();
-			} else if($this.is('#use_content_exvars')){
-				$('li[data-use_content_exvars]').show();
-			} else if($this.is('#use_grant_setup')){
-				$('li[data-use_grant_setup]').show();
-			} else if($this.is('#use_addition_setup')){
-				$('li[data-use_addition_setup]').show();
-			} else if($this.is('#use_skin_exvars')){
-				$('li[data-use_skin_exvars]').show();
-			} else if($this.is('#use_mskin_exvars')){
-				$('li[data-use_mskin_exvars]').show();
-			}
-		} else {
-			$link.hide();
-			if($this.is('#use_category')){
-				$('li[data-use_category]').hide();
-			} else if($this.is('#use_content_exvars')){
-				$('li[data-use_content_exvars]').hide();
-			} else if($this.is('#use_grant_setup')){
-				$('li[data-use_grant_setup]').hide();
-			} else if($this.is('#use_addition_setup')){
-				$('li[data-use_addition_setup]').hide();
-			} else if($this.is('#use_skin_exvars')){
-				$('li[data-use_skin_exvars]').hide();
-			} else if($this.is('#use_mskin_exvars')){
-				$('li[data-use_mskin_exvars]').hide();
-			}
-		}
-	
-	}).change();	
-});
-</script>

@@ -12,11 +12,11 @@
 	<li cond="$module=='admin'" class="x_active"|cond="$act=='dispBoardAdminContent'"><a href="{getUrl('act','dispBoardAdminContent','module_srl','', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_board_list}</a></li>
 	<li class="x_active"|cond="$act=='dispBoardAdminBoardInfo'||$act=='dispBoardAdminInsertBoard'"><a href="{getUrl('act','dispBoardAdminBoardInfo', 'selected_var_idx', '', 'type', '')}"><!--@if($module_srl)-->{$lang->cmd_view_info}<!--@else-->{$lang->cmd_create_board}<!--@end--></a></li>
 	<block cond="$module_srl">
-		<li class="x_active"|cond="$act=='dispBoardAdminCategoryInfo'" 			data-use_category 			hidden|cond="$module_info->use_category != 'Y'"><a href="{getUrl('act','dispBoardAdminCategoryInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_category}</a></li>
-		<li class="x_active"|cond="$act=='dispBoardAdminExtraVars'" 			data-use_content_exvars	 	hidden|cond="$module_info->use_content_exvars != 'Y'"><a href="{getUrl('act','dispBoardAdminExtraVars', 'selected_var_idx', '', 'type', '')}">{$lang->extra_vars}</a></li>
-		<li class="x_active"|cond="$act=='dispBoardAdminGrantInfo'" 			data-use_grant_setup		hidden|cond="$module_info->use_grant_setup != 'Y'"><a href="{getUrl('act','dispBoardAdminGrantInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_grant}</a></li>
-		<li class="x_active"|cond="$act=='dispBoardAdminBoardAdditionSetup'" 	data-use_addition_setup		hidden|cond="$module_info->use_addition_setup != 'Y'"><a href="{getUrl('act','dispBoardAdminBoardAdditionSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_addition_setup}</a></li>
-		<li class="x_active"|cond="$act=='dispBoardAdminSkinInfo'" 				data-use_skin_exvars		hidden|cond="$module_info->use_skin_exvars != 'Y'"><a href="{getUrl('act','dispBoardAdminSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_skin}</a></li>
-		<li class="x_active"|cond="$act=='dispBoardAdminMobileSkinInfo'" 		data-use_mskin_exvars		hidden|cond="$module_info->use_mskin_exvars != 'Y'"><a href="{getUrl('act','dispBoardAdminMobileSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_mobile_skin}</a></li>
+		<li class="x_active"|cond="$act=='dispBoardAdminCategoryInfo'"><a href="{getUrl('act','dispBoardAdminCategoryInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_category}</a></li>
+		<li class="x_active"|cond="$act=='dispBoardAdminExtraVars'"><a href="{getUrl('act','dispBoardAdminExtraVars', 'selected_var_idx', '', 'type', '')}">{$lang->extra_vars}</a></li>
+		<li class="x_active"|cond="$act=='dispBoardAdminGrantInfo'"><a href="{getUrl('act','dispBoardAdminGrantInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_grant}</a></li>
+		<li class="x_active"|cond="$act=='dispBoardAdminBoardAdditionSetup'"><a href="{getUrl('act','dispBoardAdminBoardAdditionSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_addition_setup}</a></li>
+		<li class="x_active"|cond="$act=='dispBoardAdminSkinInfo'"><a href="{getUrl('act','dispBoardAdminSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_skin}</a></li>
+		<li class="x_active"|cond="$act=='dispBoardAdminMobileSkinInfo'"><a href="{getUrl('act','dispBoardAdminMobileSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_mobile_skin}</a></li>
 	</block>
 </ul>
