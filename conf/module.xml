@@ -52,6 +52,8 @@
 
         <permission action="procBoardAdminInsertBoard" target="manager" />
         <permission action="procBoardAdminInsertListConfig" target="manager" />
+
+        <permission action="getBoardAdminSimpleSetup" target="manager" />
     </permissions>
     <actions>
         <action name="dispBoardContent" type="view" index="true" />
@@ -97,6 +99,8 @@
         <action name="procBoardAdminInsertBoard" type="controller" standalone="true" ruleset="insertBoard" />
         <action name="procBoardAdminDeleteBoard" type="controller" standalone="true" />
         <action name="procBoardAdminInsertListConfig" type="controller" standalone="true" />
+
+        <action name="getBoardAdminSimpleSetup" type="model" standalone="true" simple_setup_index="true" />
 
 		<action name="dispBoardCategory" type="mobile" />
 		<action name="getBoardCommentPage" type="mobile" />
