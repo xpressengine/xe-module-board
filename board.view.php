@@ -34,7 +34,7 @@
 				$this->module_info->secret = 'Y';
 			}
 
-			//If category are exsisted, set value 'use_category' to 'Y'
+			//If category are exsist, set value 'use_category' to 'Y'
 			if(count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
 				$this->module_info->use_category = 'Y';
 			else 

@@ -162,6 +162,17 @@
 			$documentStatusList = $oDocumentModel->getStatusNameList();
 			Context::set('document_status_list', $documentStatusList);
 
+            $oBoardModel = &getModel('board');
+
+            // setup the extra vaiables
+            Context::set('extra_vars', $oBoardModel->getDefaultListConfig($this->module_info->module_srl));
+
+            // setup the list config (install the default value if there is no list config)
+            Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
+
+			$security = new Security();
+			$security->encodeHTML('extra_vars..name','list_config..name');
+
             // set the template file
             $this->setTemplateFile('board_insert');
         }
@@ -206,24 +217,6 @@
 
             // setup the template file
             $this->setTemplateFile('board_delete');
-        }
-
-        /**
-         * @brief setup the board list
-         **/
-        function dispBoardAdminListSetup() {
-            $oBoardModel = &getModel('board');
-
-            // setup the extra vaiables
-            Context::set('extra_vars', $oBoardModel->getDefaultListConfig($this->module_info->module_srl));
-
-            // setup the list config (install the default value if there is no list config)
-            Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
-
-			$security = new Security();
-			$security->encodeHTML('extra_vars..name','list_config..name');
-
-            $this->setTemplateFile('list_setting');
         }
 
         /**
