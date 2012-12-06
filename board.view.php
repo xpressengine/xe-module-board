@@ -25,13 +25,20 @@
             if($this->module_info->page_count) $this->page_count = $this->module_info->page_count;
             $this->except_notice = $this->module_info->except_notice == 'N' ? false : true;
 
-			// s$this->_getStatusNameListecret option backward compatibility
+			// $this->_getStatusNameListecret option backward compatibility
 			$oDocumentModel = &getModel('document');
+
 			$statusList = $this->_getStatusNameList($oDocumentModel);
 			if(isset($statusList['SECRET']))
 			{
 				$this->module_info->secret = 'Y';
 			}
+
+			//If category are exsisted, set value 'use_category' to 'Y'
+			if(count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
+				$this->module_info->use_category = 'Y';
+			else 
+				$this->module_info->use_category = 'N';
 
             /**
              * check the consultation function, if the user is admin then swich off consultation function

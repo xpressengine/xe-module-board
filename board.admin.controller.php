@@ -29,7 +29,6 @@
             unset($args->board_name);
 
             // setup other variables
-            if($args->use_category!='Y') $args->use_category = 'N';
             if($args->except_notice!='Y') $args->except_notice = 'N';
             if($args->use_anonymous!='Y') $args->use_anonymous= 'N';
             if($args->consultation!='Y') $args->consultation = 'N';
