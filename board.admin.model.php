@@ -21,7 +21,7 @@ class boardAdminModel extends board
 	 * Get the board module admin simple setting page
 	 * @return void
 	 */
-	public function getBoardAdminSimpleSetup($moduleSrl)
+	public function getBoardAdminSimpleSetup($moduleSrl, $setupUrl)
 	{
 		if(!$moduleSrl)
 		{
@@ -40,6 +40,19 @@ class boardAdminModel extends board
 		$oDocumentModel = &getModel('document');
 		$documentStatusList = $oDocumentModel->getStatusNameList();
 		Context::set('document_status_list', $documentStatusList);
+
+		// set order target list
+		foreach($this->order_target AS $key)
+		{
+			$order_target[$key] = Context::getLang($key);
+		}
+		$order_target['list_order'] = Context::getLang('document_srl');
+		$order_target['update_order'] = Context::getLang('last_update');
+		Context::set('order_target', $order_target);
+
+		// for advanced language & url
+		$oAdmin = &getClass('admin');
+		Context::set('setupUrl', $setupUrl);
 
 		$oTemplate = &TemplateHandler::getInstance();
 		$html = $oTemplate->compile($this->module_path.'tpl/', 'board_setup_basic');

@@ -1,3 +1,4 @@
+<script src="modules/board/tpl/js/board_admin.js"></script>
 <form ruleset="insertBoard" class="x_form-horizontal" action="./" method="post" enctype="multipart/form-data">
 	<div class="x_control-group">
 		<label class="x_control-label" for="header_text">{$lang->header_text}</label>
@@ -72,5 +73,5 @@
 			<span id="adminListHelp" hidden>{$lang->about_admin_id}</span>
 		</div>
 	</div>
-	<p style="text-align:right">&rsaquo; <a href="#">{$lang->config_advanced}</a></p>
+	<p style="text-align:right">&rsaquo; <a href="{$setupUrl}">{$lang->config_advanced}</a></p>
 </form>
