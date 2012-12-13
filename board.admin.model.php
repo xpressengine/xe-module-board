@@ -27,10 +27,12 @@ class boardAdminModel extends board
 		{
 			return;
 		}
+		Context::set('module_srl', $moduleSrl);
 
 		// default module info setting
 		$oModuleModel = &getModel('module');
 		$moduleInfo = $oModuleModel->getModuleInfoByModuleSrl($moduleSrl);
+		$moduleInfo->use_status = explode('|@|', $moduleInfo->use_status);
 		if($moduleInfo)
 		{
 			Context::set('module_info', $moduleInfo);
