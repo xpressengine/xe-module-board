@@ -56,6 +56,10 @@ class boardAdminModel extends board
 		$oAdmin = &getClass('admin');
 		Context::set('setupUrl', $setupUrl);
 
+		// Extract admin ID set in the current module
+		$admin_member = $oModuleModel->getAdminId($moduleSrl);
+		Context::set('admin_member', $admin_member);
+
 		$oTemplate = &TemplateHandler::getInstance();
 		$html = $oTemplate->compile($this->module_path.'tpl/', 'board_setup_basic');
 
