@@ -76,6 +76,49 @@
 			}
         }
 
+		/**
+		 * Board info update in basic setup page
+		 * @return void
+		 */
+		public function procBoardAdminUpdateBoardFroBasic()
+		{
+			$args = Context::getRequestVars();
+
+			// for board info
+			$args->module = 'board';
+			$args->mid = $args->board_name;
+			if(is_array($args->use_status))
+			{
+				$args->use_status = implode('|@|', $args->use_status);
+			}
+			unset($args->board_name);
+
+			if(!in_array($args->order_target, $this->order_target))
+			{
+				$args->order_target = 'list_order';
+			}
+			if(!in_array($args->order_type, array('asc', 'desc')))
+			{
+				$args->order_type = 'asc';
+			}
+
+			$oModuleController = &getController('module');
+			$output = $oModuleController->updateModule($args);
+
+			// for grant info, Register Admin ID
+			$oModuleController->deleteAdminId($args->module_srl);
+			if($args->admin_member)
+			{
+				$admin_members = explode(',',$args->admin_member);
+				for($i=0;$i<count($admin_members);$i++)
+				{
+					$admin_id = trim($admin_members[$i]);
+					if(!$admin_id) continue;
+					$oModuleController->insertAdminId($args->module_srl, $admin_id);
+				}
+			}
+		}
+
         /**
          * @brief delete the board module
          **/

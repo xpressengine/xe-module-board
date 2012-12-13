@@ -50,6 +50,7 @@
         <permission action="dispBoardAdminSkinInfo" target="manager" />
 
         <permission action="procBoardAdminInsertBoard" target="manager" />
+        <permission action="procBoardAdminUpdateBoardFroBasic" target="manager" />
 
         <permission action="getBoardAdminSimpleSetup" target="manager" />
     </permissions>
@@ -95,6 +96,7 @@
         <action name="dispBoardAdminCategoryInfo" type="view" menu_name="board"  />
         <action name="procBoardAdminInsertBoard" type="controller" standalone="true" ruleset="insertBoard" />
         <action name="procBoardAdminDeleteBoard" type="controller" standalone="true" />
+        <action name="procBoardAdminUpdateBoardFroBasic" type="controller" standalone="true" ruleset="insertBoardForBasic" />
 
         <action name="getBoardAdminSimpleSetup" type="model" standalone="true" simple_setup_index="true" />
 
