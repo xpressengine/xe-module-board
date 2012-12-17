@@ -9,9 +9,9 @@
     <title xml:lang="ru">Форум</title>
     <title xml:lang="zh-TW">討論板</title>
     <title xml:lang="tr">Pano</title>
-    <description xml:lang="ko">게시판의 기능을 담당하는 모듈. 게시판의 생성/추가 관리등의 관리자 기능도 포함합니다.</description>
+    <description xml:lang="ko">게시판의 기능을 담당. 게시판의 생성/추가 관리등의 관리자 기능도 포함합니다.</description>
     <description xml:lang="zh-CN">给用户提供相应版面功能，将包含版面的生成/添加及版面管理等管理员功能。</description>
-    <description xml:lang="en">Module in charge of function of the board. Also includes administrator functions such as creating/managing boards.</description>
+    <description xml:lang="en">In charge of function of the board. Also includes administrator functions such as creating/managing boards.</description>
 	<description xml:lang="vi">Module tích hợp những chức năng của Board. Bao gồm những chức năng của Administrator cho việc tạo và quản lý Board.</description>
     <description xml:lang="es">Módulo para la función del tablero. Incluye funciones de administración como crear/ agregar o el manejo de los tableros.</description>
     <description xml:lang="jp">掲示板の機能を担うモジュールです。掲示板の生成・追加・管理などの管理者機能も含まれています。</description>
