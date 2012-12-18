@@ -64,7 +64,7 @@
         <!--// display the signup button if it is not logged -->
         <!--@elseif(!$is_logged && !$module_info->layout_srl)-->
             <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
-            <li class="loginAndLogout"><a href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}...</a></li>
+            <li class="loginAndLogout"><a href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>
         <!--@end-->
 
             <li class="skin_info"><a href="{getUrl('','module','module','act','dispModuleSkinInfo','selected_module',$module_info->module, 'skin', $module_info->skin)}" onclick="popopen(this.href,'skinInfo'); return false;"><img src="./images/common/buttonHelp.gif" alt="Skin Info" width="13" height="13"/></a></li>

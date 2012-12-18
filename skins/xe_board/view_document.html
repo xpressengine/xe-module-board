@@ -146,7 +146,7 @@
         <span class="btn"><a href="{getUrl('document_srl','')}"><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></a></span>
         <!--@end-->
         <!--@if($oDocument->isEditable())-->
-        <span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}...</a></span>
+        <span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}</a></span>
         <span class="btn"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
         <!--@end-->
     </div>

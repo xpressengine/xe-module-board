@@ -77,7 +77,7 @@
 					<div class="btnArea">
 						<!--@if($comment->isGranted() || !$comment->get('member_srl'))-->
 						<span class="btn"><a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_delete}</a></span>
-						<span class="btn"><a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_modify}...</a></span> 
+						<span class="btn"><a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_modify}</a></span> 
 						<!--@end-->
 						<span class="btn"><a cond="$oDocument->allowComment()" href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}">{$lang->cmd_reply}</a></span> 
 					</div>

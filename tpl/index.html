@@ -7,7 +7,7 @@
 <table class="x_table x_table-striped x_table-hover">
 	<caption>
 		Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}
-		<a class="x_btn modalAnchor x_pull-right" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}...</a>
+		<a class="x_btn modalAnchor x_pull-right" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
 	</caption>
 	<thead>
 		<tr>
@@ -22,19 +22,6 @@
 			<th scope="col" style="width:20px"><input type="checkbox" data-name="cart" title="Check All" /></th>
 		</tr>
 	</thead>
-	<tfoot>
-		<tr>
-			<th scope="col" class="nowr">{$lang->no}</th>
-			<th scope="col" class="nowr">{$lang->module_category}</th>
-			<th scope="col" class="nowr">{$lang->mid}</th>
-			<th scope="col" class="title">{$lang->browser_title}</th>
-			<th scope="col" class="nowr">{$lang->regdate}</th>
-			<th scope="col" class="nowr">{$lang->cmd_setup}</th>
-			<th scope="col" class="nowr">{$lang->cmd_copy}</th>
-			<th scope="col" class="nowr">{$lang->cmd_delete}</th>
-			<th scope="col" style="width:20px"><input type="checkbox" data-name="cart" title="Check All" /></th>
-		</tr>
-	</tfoot>
 	<tbody>
 		<tr loop="$board_list => $no,$val">
 			<td class="nowr">{$no}</td>
@@ -57,7 +44,7 @@
 </table>
 
 <div class="x_clearfix">
-	<a class="x_btn modalAnchor x_pull-right" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}...</a>
+	<a class="x_btn modalAnchor x_pull-right" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
 </div>
 
 <div class="x_clearfix">
