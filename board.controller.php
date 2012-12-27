@@ -146,7 +146,7 @@
             $logged_info = Context::get('logged_info');
 
             // get the relevant data for inserting comment
-            $obj = Context::gets('document_srl','comment_srl','parent_srl','content','password','nick_name','member_srl','email_address','homepage','is_secret','notify_message');
+            $obj = Context::gets('document_srl','comment_srl','parent_srl','content','password','nick_name','member_srl','email_address','homepage','is_secret','notify_message','use_html');
             $obj->module_srl = $this->module_srl;
 
             // check if the doument is existed
