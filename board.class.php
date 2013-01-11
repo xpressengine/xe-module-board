@@ -35,7 +35,7 @@
                 $args->mid = 'board';
                 $args->module = 'board';
                 $args->browser_title = 'XpressEngine';
-                $args->skin = 'xe_default';
+                $args->skin = 'default';
                 $args->site_srl = 0;
                 $output = $oModuleController->insertModule($args);
                 $module_srl = $output->get('module_srl');
