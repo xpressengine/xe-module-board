@@ -109,7 +109,7 @@ jQuery(function($){
 	var $docTable = $('#boardList');
 	$docTable.find(':checkbox').change(function(){
 		var $modalAnchor = $('a.modalAnchor');
-		if($docTable.find(':checked').length == 0){
+		if($docTable.find('tbody :checked').length == 0){
 			$modalAnchor.removeAttr('href').addClass('x_disabled');
 		} else {
 			$modalAnchor.attr('href','#manageSelectedModule').removeClass('x_disabled');
@@ -117,7 +117,7 @@ jQuery(function($){
 	}).change();
 	// Button action
 	$('a.modalAnchor').click(function(){
-		if($docTable.find(':checked').length == 0){
+		if($docTable.find('tbody :checked').length == 0){
 			$('body').css('overflow','auto');
 			alert('{$lang->choose_board_instance}');
 			return false;
