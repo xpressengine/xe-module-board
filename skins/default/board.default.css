@@ -64,7 +64,7 @@
 .list_footer .board_search{float:left;position:relative;margin:0 4px 0 0}
 .list_footer .board_search *{vertical-align:top}
 .list_footer .board_search .iText{height:15px;line-height:15px;padding:4px 100px 4px 4px;width:100px;_margin:-1px 0;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
-.list_footer .board_search select{position:absolute;top:4px;height:18px;left:123px;width:80px}
+.list_footer .board_search select{position:absolute;top:4px;height:18px;left:123px;width:80px;padding:0}
 .list_footer .tagSearch{display:inline-block;width:25px;height:0;padding:25px 0 0 0;overflow:hidden;background:url(btnSearch.gif) no-repeat 0 -25px}
 /* Board Write */
 /* write_form.html */
