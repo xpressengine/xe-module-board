@@ -1,17 +1,17 @@
 @charset "utf-8";
 /* NHN (developers@xpressengine.com) */
-/* xev3 Board */
-.xev3board img{border:0}
-.xev3board,
-.xev3board table,
-.xev3board input,
-.xev3board textarea,
-.xev3board select{font-size:12px;font-family:돋움, Dotum, Tahoma, Geneva, sans-serif}
-.xev3board .iCheck{width:13px;height:13px;margin:0;vertical-align:middle}
-.xev3board .iCheck+label{vertical-align:middle}
-.xev3board .iText{position:relative;padding:3px 4px;_margin:-1px 0;height:17px;line-height:17px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8;background:transparent}
-.xev3board textarea{margin:0;padding:3px 4px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
-.xev3board label{display:inline-block;margin:0}
+/* Board */
+.board img{border:0}
+.board,
+.board table,
+.board input,
+.board textarea,
+.board select{font-size:12px;font-family:돋움, Dotum, Tahoma, Geneva, sans-serif}
+.board .iCheck{width:13px;height:13px;margin:0;vertical-align:middle}
+.board .iCheck+label{vertical-align:middle}
+.board .iText{position:relative;padding:3px 4px;_margin:-1px 0;height:17px;line-height:17px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8;background:transparent}
+.board textarea{margin:0;padding:3px 4px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}
+.board label{display:inline-block;margin:0}
 /* Board Header */
 .board_header{position:relative;zoom:1;margin:0 0 22px 0}
 .board_header:after{content:"";display:block;clear:both}

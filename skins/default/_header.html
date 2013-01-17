@@ -1,5 +1,5 @@
-<load target="xe_v3_default.css" />
-<load target="xe_v3_default.js" type="body" />
+<load target="board.default.css" />
+<load target="board.default.js" type="body" />
 <!--@if($order_type == "desc")-->
     {@ $order_type = "asc"; }
 <!--@else-->
@@ -18,7 +18,7 @@
 		{@ $cate_list[$current_key]->children[] = $val }
 	<!--@end-->
 <!--@end-->
-<div class="xev3board">
+<div class="board">
 	{$module_info->header_text}
 	<div class="board_header" cond="$module_info->title_image || $grant->manager">
 		<h2 cond="$module_info->title_image"><a href="{getUrl('','mid',$mid)}"><img src="{$module_info->title_image}" alt="{$module_info->title_alt}" /></a></h2>

@@ -69,11 +69,11 @@
 			</span>		
 		</div>
 		<div class="btnArea">
-			<span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
-			<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
-			<span cond="$is_logged" class="btn"><button type="button" onclick="doDocumentSave(this);">{$lang->cmd_temp_save}</button></span>
-			<span cond="$is_logged" class="btn"><button type="button" onclick="doDocumentLoad(this);">{$lang->cmd_load}</button></span>
-			<!--@end-->
+			<input type="submit" value="{$lang->cmd_registration}" class="btn" />
+			<block cond="!$oDocument->isExists() || $oDocument->get('status') == 'TEMP'">
+			<button cond="$is_logged" class="btn" type="button" onclick="doDocumentSave(this);">{$lang->cmd_temp_save}</button>
+			<button cond="$is_logged" class="btn" type="button" onclick="doDocumentLoad(this);">{$lang->cmd_load}</button>
+			</block>
 		</div>
 	</div>
 </form>
