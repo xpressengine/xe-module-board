@@ -112,7 +112,7 @@
 .boardSubMenu a{text-decoration:none;color:#666666;vertical-align:bottom;background:url(../images/common/line_1x10_e0e0e0.gif) no-repeat right 5px;padding-left:10px;padding-right:10px;_padding-top:5px;position:relative;top:5px}
 .boardSubMenu img.sort{vertical-align:middle}
 /* list */
-.boardList{width:100%;border:1px solid #e0e1db;border-top:none;overflow:hidden}
+.boardList{width:100%;border:1px solid #e0e1db;border-top:none;overflow:hidden;border-collapse:separate}
 .boardList thead tr th div{white-space:nowrap;margin:0 5px}
 .boardList thead tr th.title,
 .boardList thead tr th.category,
@@ -122,8 +122,7 @@
 .boardList tbody td.webzineTitle{white-space:normal}
 .boardList tbody td.wrap{white-space:normal}
 .boardListNoTopBorder{border:none}
-.boardList th{color:#3e3f3e;font-weight:normal;border-top:1px solid #e0e1db;border-bottom:1px solid #ffffff;white-space:nowrap;padding-top:5px;height:28px;overflow:hidden}
-html:not([lang*=""]) .boardList th{height:33px}
+.boardList th{color:#3e3f3e;font-weight:normal;border-top:1px solid #e0e1db;border-bottom:1px solid #ffffff;white-space:nowrap;padding:5px;height:25px;overflow:hidden}
 .boardList th.no_line{background-position:-3px bottom}
 .boardList th a{color:#3e3f3e;text-decoration:none}
 .boardList th.num{border-left:1px solid #ffffff}
@@ -205,12 +204,14 @@ th.date{white-space:nowrap}
 .boardBottom{margin-top:10px}
 /* Search Form */
 .boardSearch{margin-top:30px;margin-left:auto;margin-right:auto;clear:both;text-align:center}
-.boardSearch select{height:20px}
-.boardSearch input[type=text]{height:18px}
+.boardSearch select{width:auto;margin:0}
+.boardSearch input[type=text]{height:18px;margin:0}
 /* boardWrite */
 .boardEditor{margin-bottom:10px}
 .commentEditor{margin-top:10px}
 .boardWrite{border:1px solid #e0e1db;padding-bottom:10px}
+.boardWrite label{display:inline-block}
+.boardWrite select{margin:0;width:auto}
 .boardWrite fieldset{border:none}
 .boardWrite .userNameAndPw{margin:10px 10px 0 10px}
 .boardWrite .userNameAndPw .userName{width:60px;margin-right:10px}
@@ -327,3 +328,8 @@ th.date{white-space:nowrap}
 .extraVarsList tr td .address{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
 .layer_voted_member{position:relative;overflow:hidden;margin:0;padding:0;list-style:none;background:#eee;border:2px solid #999}
 .layer_voted_member li{position:relative;top:-1px;padding:2px 10px;border-top:1px dotted #999;font-size:12px}
+/* Button */
+.btn{text-decoration:none !important;font-weight:bold;display:inline-block;*display:inline;padding:0 12px;margin-bottom:0;*margin-left:.3em;font-size:12px;line-height:23px;color:#333333;text-align:center;text-shadow:0 1px 1px rgba(255, 255, 255, 0.75);vertical-align:middle;cursor:pointer;background-color:#f5f5f5;*background-color:#e6e6e6;background-image:-moz-linear-gradient(top, #ffffff, #e6e6e6);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image:-webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image:-o-linear-gradient(top, #ffffff, #e6e6e6);background-image:linear-gradient(to bottom, #ffffff, #e6e6e6);background-repeat:repeat-x;border:1px solid #bbbbbb;*border:0;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border-bottom-color:#a2a2a2;border-radius:2px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);*zoom:1;-webkit-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)}
+.btn:hover,
+.btn:active,
+.btn[disabled]{color:#333333;background-color:#e6e6e6;*background-color:#d9d9d9}

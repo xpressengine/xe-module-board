@@ -92,7 +92,7 @@
                         <input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 
                             <div class="title">{$lang->msg_is_secret}</div>
-                            <div class="content"><input type="password" name="password" id="cpw" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></div>
+                            <div class="content"><input type="password" name="password" id="cpw" class="iText" /><input class="btn" type="submit" value="{$lang->cmd_input}" /></div>
 
                         </form>
                     </div>
@@ -143,11 +143,11 @@
     <!-- list, modify/delete button -->
     <div class="btnArea">
         <!--@if($module_info->default_style != 'blog' || ($module_info->default_style == 'blog' && Context::get('document_srl')))-->
-        <span class="btn"><a href="{getUrl('document_srl','')}"><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></a></span>
+        <a class="btn" href="{getUrl('document_srl','')}"><!--@if($module_info->default_style != 'blog')-->{$lang->cmd_list}<!--@else-->{$lang->cmd_view_all}<!--@end--></a>
         <!--@end-->
         <!--@if($oDocument->isEditable())-->
-        <span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}</a></span>
-        <span class="btn"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a></span>
+        <a class="btn" href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}</a>
+        <a class="btn" href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a>
         <!--@end-->
     </div>
 
@@ -197,7 +197,7 @@
         </div>
 
         <div class="btnArea">
-            <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
+            <input class="btn" type="submit" value="{$lang->cmd_comment_registration}" />
         </div>
     </form>
 <!--@end-->
