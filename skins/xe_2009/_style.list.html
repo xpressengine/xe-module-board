@@ -52,7 +52,7 @@
 								<th scope="col"><a href="{getUrl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}<!--@if($sort_index == $val->eid)--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@end-->
 						<!--@end-->
-						<!--@if($grant->manager)--><th scope="col"><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true }); return false;" title="Check All" /></th><!--@end-->
+						<!--@if($grant->manager)--><th scope="col"><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true })" title="Check All" /></th><!--@end-->
 				</tr>
 			</thead>
 	
@@ -201,7 +201,7 @@
 								<td>{$document->getExtraValueHTML($val->idx)}&nbsp;</td>
 						<!--@end-->
 					<!--@end-->
-					<!--@if($grant->manager)--><td class="checkbox"><input type="checkbox" name="cart" value="{$document->document_srl}" title="Check this" onclick="doAddDocumentCart(this)" <!--@if($document->isCarted())-->checked="checked"<!--@end--> /></td><!--@end-->
+					<!--@if($grant->manager)--><td><input type="checkbox" name="cart" value="{$document->document_srl}" title="Check this" onclick="doAddDocumentCart(this)" <!--@if($document->isCarted())-->checked="checked"<!--@end--> /></td><!--@end-->
 				</tr>
 				<!--@end-->
 				
