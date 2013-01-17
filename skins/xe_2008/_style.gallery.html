@@ -43,7 +43,7 @@
             <tbody>
                 <tr class="notice">
                 <!--@if($module_info->display_number!='N')--><td class="notice">{$lang->notice}</td><!--@end-->
-                <!--@if($grant->manager)--><td class="checkbox"><input type="checkbox" name="cart" value="{$document->document_srl}" onclick="doAddDocumentCart(this)" <!--@if($document->isCarted())-->checked="checked"<!--@end--> /></td><!--@end-->
+                <!--@if($grant->manager)--><td><input type="checkbox" name="cart" value="{$document->document_srl}" onclick="doAddDocumentCart(this)" <!--@if($document->isCarted())-->checked="checked"<!--@end--> /></td><!--@end-->
                 <td class="title">
                     <!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->
                     <strong class="category">{$category_list[$document->get('category_srl')]->title}</strong>

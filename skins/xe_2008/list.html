@@ -21,13 +21,13 @@
 <div class="boardNavigation">
 
     <div class="btnArea">
-		<span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}</a></span>
+		<a class="btn" href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}</a>
 		<span class="etc">
 		<!--@if($grant->manager)-->
-		<span class="btn"><a href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a></span>
+		<a class="btn" href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a>
 		<!--@end-->
 		<!--@if($module_info->default_style != 'blog')-->
-		<span class="btn"><a href="{getUrl('','mid',$mid,'page',$page,'document_srl','','listStyle',$listStyle)}">{$lang->cmd_list}</a></span>
+		<a class="btn" href="{getUrl('','mid',$mid,'page',$page,'document_srl','','listStyle',$listStyle)}">{$lang->cmd_list}</a>
 		<!--@end-->
 		</span>
     </div>
@@ -64,9 +64,9 @@
         </select>
         <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="iText" title="{$lang->cmd_search}" />
         <!--@if($last_division)-->
-        <span class="btn"><a href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}">{$lang->cmd_search_next}</a></span>
+        <a class="btn" href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}">{$lang->cmd_search_next}</a>
         <!--@end-->
-        <span class="btn"><button type="submit">{$lang->cmd_search}</button></span>
+        <button class="btn" type="submit">{$lang->cmd_search}</button>
     </fieldset>
 </form>
 <!--@end-->

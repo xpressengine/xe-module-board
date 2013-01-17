@@ -12,8 +12,7 @@
 .board a:focus{text-decoration:underline}
 /* Board Header */
 .boardHeader *{margin:0 0 20px 0;padding:0}
-.boardHeader .boardTitle{font-size:1em;letter-spacing:-.1em;margin-bottom:10px;border-bottom:3px solid;zoom:1;
-background-repeat:no-repeat;background-position:left center}
+.boardHeader .boardTitle{font-size:1em;letter-spacing:-.1em;margin-bottom:10px;border-bottom:3px solid;zoom:1;background-repeat:no-repeat;background-position:left center}
 .boardHeader .boardTitle:after{content:"";display:block;clear:both}
 .boardHeader .boardTitleText{float:left;clear:both;margin-bottom:-3px;padding:5px 15px 5px 22px;border-bottom:3px solid;background-repeat:no-repeat;background-position:right bottom}
 .boardHeader .boardTitleText a{text-decoration:none}
@@ -47,7 +46,7 @@ background-repeat:no-repeat;background-position:left center}
 .boardListForm strong{font-style:normal}
 .boardListForm strong.trackback{color:#423CC4}
 /* Board List */
-.boardList{border:0;border-top:1px solid;border-bottom:1px solid;width:100%}
+.boardList{border:0;border-top:1px solid;border-bottom:1px solid;width:100%;border-collapse:separate}
 .boardList .inputCheck{width:13px;height:13px}
 .boardList .jumpTo{float:left}
 .boardList .jumpTo *{vertical-align:middle;*vertical-align:top}
@@ -56,7 +55,7 @@ background-repeat:no-repeat;background-position:left center}
 .boardList th{border:0;border-bottom:1px solid;border-top:1px solid;padding:7px;white-space:nowrap;text-align:center;background-repeat:repeat-x;background-position:left bottom;line-height:normal}
 .boardList th.title{width:100%}
 .boardList th a .sort{vertical-align:middle;margin:0 5px}
-.boardList td{border:0;border-top:1px solid;padding:6px;white-space:nowrap;text-align:center;line-height:normal;vertical-align:top}
+.boardList td{border:0;border-top:1px solid;padding:8px 5px;white-space:nowrap;text-align:center;line-height:normal;vertical-align:top}
 .boardList td.num{font:11px Tahoma}
 .boardList td.check{font:11px Tahoma}
 .boardList td .category{padding-right:7px;margin-right:2px;background-repeat:no-repeat;background-position:right center}
@@ -97,8 +96,7 @@ background-repeat:no-repeat;background-position:left center}
 .thumbList li .thumb a{display:block}
 .thumbList li .thumb a *{cursor:pointer}
 .thumbList li .thumb a img{display:block}
-.thumbList li .thumb a .text{position:absolute;left:0;top:50%;margin-top:-.8em;*margin-top:-1.5em;
-display:block;width:100%;text-align:center;font-size:2em;font-weight:bold;white-space:nowrap;letter-spacing:-1px}
+.thumbList li .thumb a .text{position:absolute;left:0;top:50%;margin-top:-.8em;*margin-top:-1.5em;display:block;width:100%;text-align:center;font-size:2em;font-weight:bold;white-space:nowrap;letter-spacing:-1px}
 .thumbList li .thumb a .category{position:absolute;left:0;bottom:0;width:100%;padding:2px 0;white-space:nowrap;text-indent:4px}
 .thumbList li .title{clear:both;white-space:nowrap;margin-bottom:3px}
 .thumbList li .title input{width:13px;height:13px;vertical-align:middle;white-space:nowrap}
@@ -107,8 +105,7 @@ display:block;width:100%;text-align:center;font-size:2em;font-weight:bold;white-
 .thumbList li .recommend{font:11px Tahoma}
 .thumbList li .date{font:11px Tahoma}
 /* Board Navigation */
-.board .boardNavigation{padding:10px 0;zoom:1;
-text-align:center}
+.board .boardNavigation{padding:10px 0;zoom:1;text-align:center}
 .board .boardNavigation:after{content:"";display:block;float:none;clear:both}
 .board .boardNavigation .pagination{padding:5px 0}
 .board .boardNavigation .btnLeft{float:left;text-align:left}
@@ -119,12 +116,11 @@ text-align:center}
 .boardSearchForm fieldset:after{content:"";display:block;float:none;clear:both}
 .boardSearchForm fieldset *{vertical-align:middle}
 .boardSearchForm legend{position:absolute;width:0;height:0;overflow:hidden;font:0/0 Sans-serif;visibility:hidden}
-.boardSearchForm select{font-size:12px;height:23px}
-.boardSearchForm .iText{width:140px;height:15px;padding:4px 4px 2px 4px;font-size:12px;*margin:-1px 0}
+.boardSearchForm select{font-size:12px;width:auto;margin:0;padding:0}
+.boardSearchForm .iText{font-size:12px;margin:0;width:140px}
+.boardSearchForm .btn{line-height:28px}
 /* Board Read */
-.boardRead{}
-.boardReadHeader{padding-bottom:5px;margin-bottom:15px;zoom:1;
-border-bottom:2px solid}
+.boardReadHeader{padding-bottom:5px;margin-bottom:15px;zoom:1;border-bottom:2px solid}
 .boardReadHeader:after{content:"";display:block;float:none;clear:both}
 .boardReadHeader *{margin:0;padding:0}
 .boardReadHeader .title{float:left;font-size:1.5em}
@@ -140,8 +136,7 @@ border-bottom:2px solid}
 .boardReadBody .memberSignature .signature{float:left}
 .boardReadBody .memberSignature .signature p{margin:0;padding:0}
 .boardReadBody .memberSignature .signature p a{text-decoration:underline}
-.boardReadFooter{padding:10px 0;zoom:1;
-line-height:1em;font:12px Tahoma}
+.boardReadFooter{padding:10px 0;zoom:1;line-height:1em;font:12px Tahoma}
 .boardReadFooter:after{content:"";display:block;float:none;clear:both}
 .boardReadFooter *{margin:0;padding:0}
 .boardReadFooter a{text-decoration:underline}
@@ -181,8 +176,7 @@ line-height:1em;font:12px Tahoma}
 .attachedFile{margin:0;padding:0;border:none;clear:both}
 .attachedFile *{font-family:Tahoma;display:inline;padding:0;margin:0}
 .attachedFile dt{z-index:2;display:inline;font-weight:bold}
-.attachedFile dd{z-index:1;left:-5px;display:inline;padding-left:12px;zoom:1;
-background:url(../images/common/iconFile.gif) no-repeat left 3px;margin-right:5px}
+.attachedFile dd{z-index:1;left:-5px;display:inline;padding-left:12px;zoom:1;background:url(../images/common/iconFile.gif) no-repeat left 3px;margin-right:5px}
 .attachedFile dd a{position:relative;text-decoration:underline}
 .attachedFile dd a .bubble{position:absolute;display:none;text-decoration:none;white-space:nowrap;border:1px solid;padding:2px 5px;left:0;top:-20px;cursor:pointer}
 .attachedFile dd a:hover .bubble,
@@ -200,15 +194,17 @@ background:url(../images/common/iconFile.gif) no-repeat left 3px;margin-right:5p
 .replyForm dt{width:80px;float:left;padding-top:6px;font-weight:bold}
 .replyForm dd{margin-bottom:5px}
 /* Board Write */
+.boardWrite label{display:inline-block}
+.boardWrite select{width:auto;height:auto;margin:0;padding:0}
 .boardWrite li{list-style:none}
 .boardWrite fieldset{border:0}
 .boardWrite legend{position:absolute;width:0;height:0;overflow:hidden;font:0/0 Sans-serif;visibility:hidden}
-.boardWrite .boardWriteHeader{padding:5px 0;border-top:1px solid #ddd}
-.boardWrite .boardWriteHeader .iText{padding:3px 4px;height:15px;margin-bottom:5px;font-size:12px;*margin-top:-1px;width:60%}
+.boardWrite .boardWriteHeader{padding:8px 0;border-top:1px solid #ddd}
+.boardWrite .boardWriteHeader .iText{height:15px;margin-bottom:5px;font-size:12px;margin:0;width:60%}
 .boardWrite .tag{clear:both;margin-bottom:10px;zoom:1}
 .boardWrite .tag:after{content:"";display:block;float:none;clear:both}
-.boardWrite .tag .iText{float:left;width:330px;padding:4px 4px 2px 4px;margin-right:10px;font-size:12px}
-.boardWrite .tag p{float:left}
+.boardWrite .tag .iText{width:330px;padding:4px 4px 2px 4px;margin:0 10px 0 0;font-size:12px}
+.boardWrite .tag p{display:inline-block;vertical-align:middle;margin:0;font-size:12px}
 .boardWrite .boardNavigation,
 .boardEditor .boardNavigation{border-top:1px solid}
 /* UserName & Password */
@@ -220,15 +216,15 @@ background:url(../images/common/iconFile.gif) no-repeat left 3px;margin-right:5p
 .board .userNameAndPw dd.userPw .iText{width:50px;font:11px Tahoma}
 .board .userNameAndPw dd.emailAddress .iText{width:110px;font:11px Tahoma}
 .board .userNameAndPw dd.homePage .iText{width:110px;font:11px Tahoma}
-.board .userNameAndPw dd .iText{padding:3px 4px;height:15px;margin-bottom:5px;font-size:12px;*margin-top:-1px;
-vertical-align:middle}
+.board .userNameAndPw dd .iText{padding:3px 4px;height:15px;margin-bottom:5px;font-size:12px;*margin-top:-1px;vertical-align:middle}
 /* Comment */
-.board .editOption{padding:8px 10px;border-top:1px solid}
+.board .editOption{padding:8px 10px;border-top:1px solid;margin:0}
 .board .editOption *{vertical-align:middle}
-.board .editOption label{margin:0 8px 0 0 }
+.board .editOption dt,
+.board .editOption dd{display:inline-block}
+.board .editOption label{margin:0 8px 0 0;font-size:12px}
 .board .boardEditor{border:1px solid;margin-bottom:20px}
-.board .boardEditor .commentEditor{margin:10px 15px;zoom:1;
-position:relative}
+.board .boardEditor .commentEditor{margin:10px 15px;zoom:1;position:relative}
 .board .commentEditor .commentHeader{;border-bottom:1px solid;font-weight:bold;padding-bottom:5px;margin-bottom:10px;font-size:1.5em}
 /* Secret Message */
 .board .secretMessage{margin:0;clear:both}
@@ -245,8 +241,7 @@ position:relative}
 .extraVarsList td{border:0;padding:5px 10px;text-align:left;border-top:1px solid;vertical-align:top}
 .extraVarsList th{white-space:nowrap}
 .extraVarsList td{width:100%}
-.extraVarsList td p{display:block;*display:block;
-margin:3px 0}
+.extraVarsList td p{display:block;*display:block;margin:3px 0}
 .extraVarsList td *{vertical-align:middle}
 .extraVarsList td li{display:inline;margin-right:10px}
 .extraVarsList td .iText{padding:3px 4px;font-size:12px;width:96%;display:block}
@@ -332,3 +327,8 @@ margin:3px 0}
 .pagination.c2 a.next{display:inline-block;width:13px;height:14px;padding:3px 4px;margin:0;font-size:0;line-height:0}
 .pagination.c2 a.prev{background:url(../images/common/arrowPrevC1.gif) no-repeat center}
 .pagination.c2 a.next{background:url(../images/common/arrowNextC1.gif) no-repeat center}
+/* Button */
+.btn{text-decoration:none !important;font-weight:bold;display:inline-block;*display:inline;padding:0 12px;margin-bottom:0;*margin-left:.3em;font-size:12px;line-height:23px;color:#333333;text-align:center;text-shadow:0 1px 1px rgba(255, 255, 255, 0.75);vertical-align:middle;cursor:pointer;background-color:#f5f5f5;*background-color:#e6e6e6;background-image:-moz-linear-gradient(top, #ffffff, #e6e6e6);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image:-webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image:-o-linear-gradient(top, #ffffff, #e6e6e6);background-image:linear-gradient(to bottom, #ffffff, #e6e6e6);background-repeat:repeat-x;border:1px solid #bbbbbb;*border:0;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border-bottom-color:#a2a2a2;border-radius:2px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);*zoom:1;-webkit-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)}
+.btn:hover,
+.btn:active,
+.btn[disabled]{color:#333333;background-color:#e6e6e6;*background-color:#d9d9d9}

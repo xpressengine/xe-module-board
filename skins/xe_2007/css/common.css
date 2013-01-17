@@ -205,13 +205,14 @@ th.date{white-space:nowrap}
 /* Search Form */
 .boardSearch{margin-top:30px;margin-left:auto;margin-right:auto;clear:both;text-align:center}
 .boardSearch select{width:auto;margin:0}
-.boardSearch input[type=text]{height:18px;margin:0}
+.boardSearch input[type=text]{margin:0;width:140px}
+.boardSearch .btn{line-height:28px}
 /* boardWrite */
 .boardEditor{margin-bottom:10px}
 .commentEditor{margin-top:10px}
 .boardWrite{border:1px solid #e0e1db;padding-bottom:10px}
 .boardWrite label{display:inline-block}
-.boardWrite select{margin:0;width:auto}
+.boardWrite select{margin:0;width:auto;height:auto;padding:0}
 .boardWrite fieldset{border:none}
 .boardWrite .userNameAndPw{margin:10px 10px 0 10px}
 .boardWrite .userNameAndPw .userName{width:60px;margin-right:10px}
@@ -222,7 +223,7 @@ th.date{white-space:nowrap}
 .boardWrite .title .category{margin-left:10px}
 .boardWrite .title label.title{margin:0 10px 0 10px}
 .boardWrite .title input.title{width:60%}
-.boardWrite .option{margin:10px 0 3px 10px;padding:0}
+.boardWrite .option{margin:0 0 10px 10px;padding:0}
 .boardWrite .option *{vertical-align:middle}
 .boardWrite .option input{width:13px;height:13px}
 .boardWrite .option label{margin:0 8px 0 0}
