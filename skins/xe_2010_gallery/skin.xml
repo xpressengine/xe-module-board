@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skin version="0.2">
-    <title xml:lang="ko">XE Official v3 Gallery</title>
-    <title xml:lang="zh-CN">XE Official v3 Gallery</title>
-    <title xml:lang="zh-TW">XE Official v3 Gallery</title>
-    <title xml:lang="jp">XE Official v3 Gallery</title>
-	<title xml:lang="vi">XE Official v3 Gallery</title>
-    <description xml:lang="ko">XE Official v3 Gallery</description>
-	<description xml:lang="vi">XE Official v3 Gallery</description>
-    <description xml:lang="jp">XE Official v3 Gallery</description>
-    <description xml:lang="zh-CN">XE Official v3 Gallery</description>
-    <description xml:lang="en">XE Official v3 Gallery</description>
-    <description xml:lang="es">XE Official v3 Gallery</description>
-    <description xml:lang="zh-TW">XE Official v3 Gallery</description>
+    <title xml:lang="ko">XE 2010 Gallery</title>
+    <title xml:lang="zh-CN">XE 2010 Gallery</title>
+    <title xml:lang="zh-TW">XE 2010 Gallery</title>
+    <title xml:lang="jp">XE 2010 Gallery</title>
+	<title xml:lang="vi">XE 2010 Gallery</title>
+    <description xml:lang="ko">XE 2010 Gallery</description>
+	<description xml:lang="vi">XE 2010 Gallery</description>
+    <description xml:lang="jp">XE 2010 Gallery</description>
+    <description xml:lang="zh-CN">XE 2010 Gallery</description>
+    <description xml:lang="en">XE 2010 Gallery</description>
+    <description xml:lang="es">XE 2010 Gallery</description>
+    <description xml:lang="zh-TW">XE 2010 Gallery</description>
     <version>0.3</version>
     <date>2010-12-01</date>
     <author email_address="developers@xpressengine.com" link="http://www.xpressengine.com">

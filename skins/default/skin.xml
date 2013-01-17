@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skin version="0.2">
-    <title xml:lang="ko">Default</title>
-    <description xml:lang="ko">XE 기본 게시판.</description>
+    <title xml:lang="ko">XE 2010</title>
+    <description xml:lang="ko">XE 2010 기본 게시판.</description>
     <version>1.0</version>
     <date>2010-12-24</date>
     <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
