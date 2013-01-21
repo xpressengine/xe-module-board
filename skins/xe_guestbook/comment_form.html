@@ -49,7 +49,7 @@
 <div class="boardWrite commentEditor">
 
   <!--@if(!$is_logged)-->
-  <div>
+  <div class="authorInfo">
       <div class="inputItem">
           <label for="userName">{$lang->writer}</label>
           <input type="text" name="nick_name" value="{$oComment->get('nick_name')}" class="userName iText" id="userName"/>
@@ -85,8 +85,8 @@
   <div class="editor">{$oComment->getEditor()}</div>
 
   <div class="btnArea">
-      <span class="btn"><input type="button" value="{$lang->cmd_back}" onclick="location.href='{getUrl('act','','document_srl','')}'"/></span>
-      <span class="btn"><input type="submit" value="{$lang->cmd_comment_registration}" /></span>
+	  <a class="btn" href="{getUrl('act','','document_srl','')}">{$lang->cmd_back}</a>
+      <input class="btn" type="submit" value="{$lang->cmd_comment_registration}" />
   </div>
 
 </div>

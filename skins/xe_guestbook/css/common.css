@@ -1,5 +1,7 @@
 @charset "utf-8";
 /* NHN (developers@xpressengine.com) */
+.board label{display:inline-block;font-size:12px;line-height:normal;margin:0}
+.board select{width:auto;height:auto;padding:0;margin:0}
 /* board Title */
 .boardHeader{border:1px solid #e1e1dd;border-bottom:0;background:#ffffff url(../images/common/bgH3.gif) repeat-x left bottom;overflow:hidden}
 .boardHeader .boardHeaderBorder{width:100%}
@@ -160,25 +162,25 @@ th.date{white-space:nowrap}
 .boardBottom{margin-top:10px}
 /* Search Form */
 .boardSearch{margin-top:30px;margin-left:auto;margin-right:auto;clear:both;text-align:center}
-.boardSearch select{height:20px}
-.boardSearch input[type=text]{height:18px}
+.boardSearch select{height:26px;vertical-align:middle}
+.boardSearch input[type=text]{height:16px;margin:0;padding:4px 6px;vertical-align:middle}
 /* boardWrite */
 .boardEditor{margin-bottom:10px}
 .commentEditor{margin-top:10px;clear:both}
-.boardWrite{border:1px solid #e0e1db;padding-bottom:10px}
+.boardWrite{border:1px solid #e0e1db;padding:10px}
 .boardWrite fieldset{border:none}
-.boardWrite .inputItem{margin:10px 0 0 5px;float:left}
+.boardWrite .authorInfo{margin:0 0 5px 0}
+.boardWrite .authorInfo:after{content:"";display:block;clear:both}
+.boardWrite .inputItem{float:left;margin:0 10px 0 0}
 .boardWrite .inputItem label{margin:0 0 3px 0;padding:0;display:block;white-space:nowrap}
-.boardWrite .inputItem .userName{width:100px;margin-right:10px}
-.boardWrite .inputItem .userPw{width:100px;margin-right:10px}
-.boardWrite .inputItem .emailAddress{width:100px;margin-right:10px}
-.boardWrite .inputItem .homePage{width:100px;margin-right:10px}
+.boardWrite .inputItem input{margin:0 0 10px 0}
 .boardWrite .title{margin-top:5px}
 .boardWrite .title .category{margin-left:10px}
 .boardWrite .title label.title{padding:0;margin:0 10px 0 10px}
 .boardWrite .title input.title{width:60%}
-.boardWrite .option{margin:10px 0 3px 10px;padding:0}
-.boardWrite .option *{vertical-align:middle}
+.boardWrite .option{margin:0 0 5px 0;padding:0}
+.boardWrite .option dd{display:inline-block;vertical-align:middle;margin:0 5px 0 0}
+.boardWrite .option label{margin:0 5px 0 0}
 .boardWrite .tag{margin-top:10px;margin-left:10px}
 .boardWrite .tag .iText{width:90%;background:#FFFFFF url(../images/common/iconTag.gif) no-repeat 5px 5px;padding-left:30px}
 .boardWrite .tag .help{vertical-align:middle}
@@ -272,3 +274,8 @@ h5{padding:2px}
 .extraVarsList tr td ul li{display:inline-block;margin-right:10px}
 .extraVarsList tr td .date{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:100px}
 .extraVarsList tr td .address{border:1px solid;border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6;padding:3px;margin-right:10px;width:300px}
+/* Button */
+.board .btn{text-decoration:none !important;font-weight:bold;display:inline-block;*display:inline;padding:0 12px;margin-bottom:0;*margin-left:.3em;font-size:12px;line-height:23px;color:#333333;text-align:center;text-shadow:0 1px 1px rgba(255, 255, 255, 0.75);vertical-align:middle;cursor:pointer;background-color:#f5f5f5;*background-color:#e6e6e6;background-image:-moz-linear-gradient(top, #ffffff, #e6e6e6);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image:-webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image:-o-linear-gradient(top, #ffffff, #e6e6e6);background-image:linear-gradient(to bottom, #ffffff, #e6e6e6);background-repeat:repeat-x;border:1px solid #bbbbbb;*border:0;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border-bottom-color:#a2a2a2;border-radius:2px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);*zoom:1;-webkit-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)}
+.board .btn:hover,
+.board .btn:active,
+.board .btn[disabled]{color:#333333;background-color:#e6e6e6;*background-color:#d9d9d9}

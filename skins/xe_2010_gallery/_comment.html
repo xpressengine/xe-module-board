@@ -18,7 +18,7 @@
 			<!--@if(!$comment->isAccessible())-->
 			<form action="./" method="get" class="xe_content" onsubmit="return procFilter(this, input_password)">
 				<p><label for="cpw_{$comment->comment_srl}">{$lang->msg_is_secret} {$lang->msg_input_password}</label></p>
-				<p><input type="password" name="password" id="cpw_{$comment->comment_srl}" class="iText" /><span class="btn"><input type="submit" value="{$lang->cmd_input}" /></span></p>
+				<p><input type="password" name="password" id="cpw_{$comment->comment_srl}" class="iText" /><input class="btn" type="submit" value="{$lang->cmd_input}" /></p>
 				<input type="hidden" name="mid" value="{$mid}" />
 				<input type="hidden" name="page" value="{$page}" />
 				<input type="hidden" name="document_srl" value="{$comment->get('document_srl')}" />
@@ -75,12 +75,9 @@
 			<label cond="$module_info->secret=='Y'" for="is_secret">{$lang->secret}</label>
 		</div>
 		<div class="btnArea">
-			<span class="btn"><button type="submit">{$lang->cmd_comment_registration}</button></span>
-			<span class="btn"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
+			<button class="btn" type="submit">{$lang->cmd_comment_registration}</button>
+			<a class="btn" href="{getUrl('document_srl','')}">{$lang->cmd_list}</a>
 		</div>
 	</form>
-</div>
-<div class="fbFooter">
-	<span class="btn"><a href="{getUrl('document_srl','')}">{$lang->cmd_list}</a></span>
 </div>
 <!-- /COMMENT -->
