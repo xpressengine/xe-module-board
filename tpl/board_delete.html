@@ -4,9 +4,8 @@
 <form action="./" method="get" onsubmit="return procFilter(this, delete_board)">
 	<input type="hidden" name="page" value="{$page}" />
 	<input type="hidden" name="module_srl" value="{$module_info->module_srl}" />
-    <h2 class="h2">{$lang->confirm_delete}</h2>
-	<div class="table">
-		<table width="100%" border="1" cellspacing="0">
+    <h1>{$lang->confirm_delete}</h1>
+	<table class="x_table x_table-striped x_table-hover">
 		<tr>
 			<th scope="row">{$lang->module_name}</th>
 			<td >{$module_info->mid}</td>
@@ -19,9 +18,8 @@
 			<th scope="row">{$lang->document_count}</th>
 			<td>{$module_info->document_count}</td>
 		</tr>
-		</table>
-	</div>
+	</table>
 	<div class="btnArea">
-		<span class="btn"><input type="submit" value="{$lang->cmd_delete}" /></span>
+		<input class="btn" type="submit" value="{$lang->cmd_delete}" />
 	</div>
 </form>
