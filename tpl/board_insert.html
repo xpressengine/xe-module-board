@@ -43,7 +43,7 @@
 			<label class="x_control-label" for="skin">{$lang->skin}</label>
 			<div class="x_controls">
 				<select name="skin" id="skin" style="width:auto">
-					<option loop="$skin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->skin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
+					<option loop="$skin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->skin== $key || (!$module_info->skin && $key=='default')">{$val->title}</option>
 				</select>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 			<label class="x_control-label" for="mskin">{$lang->mobile_skin}</label>
 			<div class="x_controls">
 				<select name="mskin" id="mskin">
-					<option loop="$mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->mskin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
+					<option loop="$mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->mskin== $key || (!$module_info->skin && $key=='default')">{$val->title}</option>
 				</select>
 				<a href="#mobile_skin_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
 				<p id="mobile_skin_help" class="x_help-block" hidden>{$lang->about_skin}</p>

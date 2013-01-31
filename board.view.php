@@ -53,11 +53,11 @@
 
             /**
              * setup the template path based on the skin
-             * the default skin is xe_board
+             * the default skin is default 
              **/
             $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
             if(!is_dir($template_path)||!$this->module_info->skin) {
-                $this->module_info->skin = 'xe_board';
+                $this->module_info->skin = 'default';
                 $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
             }
             $this->setTemplatePath($template_path);
