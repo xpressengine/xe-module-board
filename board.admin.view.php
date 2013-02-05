@@ -62,7 +62,8 @@
          * @brief display the board module admin contents
          **/
         function dispBoardAdminContent() {
-            // setup the board module general information 
+            // setup the board module general information
+			$args = new stdClass();
             $args->sort_index = "module_srl";
             $args->page = Context::get('page');
             $args->list_count = 20;

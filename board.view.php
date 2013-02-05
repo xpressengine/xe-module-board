@@ -284,6 +284,7 @@
          **/
         function dispBoardNoticeList(){
             $oDocumentModel = &getModel('document');
+			$args = new stdClass();
             $args->module_srl = $this->module_srl; 
             $notice_output = $oDocumentModel->getNoticeList($args, $this->columnList);
             Context::set('notice_list', $notice_output->data);
@@ -306,6 +307,7 @@
             $oDocumentModel = &getModel('document');
 
             // setup module_srl/page number/ list number/ page count
+			$args = new stdClass();
             $args->module_srl = $this->module_srl; 
             $args->page = Context::get('page');
             $args->list_count = $this->list_count; 
