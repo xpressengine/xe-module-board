@@ -8,7 +8,7 @@
 	<caption>
 		<strong>Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}</strong>
 		<div class="x_btn-gruop x_pull-right">
-			<a class="x_btn modalAnchor" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
+			<a class="x_btn modalAnchor _manage_selected" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
 		</div>
 	</caption>
 	<thead>
@@ -84,7 +84,7 @@
 		<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
 		</ul>
 	</form>
-	<a class="x_btn modalAnchor x_pull-right" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
+	<a class="x_btn modalAnchor x_pull-right _manage_selected" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
 </div>
 <form action="" class="search x_input-append center" no-error-return-url="true">
 	<input loop="$param => $key, $val" cond="!in_array($key, array('mid', 'vid', 'act', 'page'))" type="hidden" name="{$key}" value="{$val}" />
@@ -108,7 +108,7 @@ jQuery(function($){
 	// Modal anchor activation
 	var $docTable = $('#boardList');
 	$docTable.find(':checkbox').change(function(){
-		var $modalAnchor = $('a.modalAnchor');
+		var $modalAnchor = $('a.modalAnchor._manage_selected');
 		if($docTable.find('tbody :checked').length == 0){
 			$modalAnchor.removeAttr('href').addClass('x_disabled');
 		} else {
@@ -116,7 +116,7 @@ jQuery(function($){
 		}
 	}).change();
 	// Button action
-	$('a.modalAnchor').click(function(){
+	$('a.modalAnchor._manage_selected').click(function(){
 		if($docTable.find('tbody :checked').length == 0){
 			$('body').css('overflow','auto');
 			alert('{$lang->choose_board_instance}');
