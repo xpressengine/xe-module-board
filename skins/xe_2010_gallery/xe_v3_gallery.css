@@ -7,6 +7,7 @@
 .xev3gallery input,
 .xev3gallery textarea,
 .xev3gallery select{font-size:12px;font-family:돋움, Dotum, Tahoma, Geneva, sans-serif}
+.xev3gallery select{margin:0}
 .xev3gallery .iCheck{width:13px;height:13px;margin:0;vertical-align:middle}
 .xev3gallery .iText{position:relative;padding:3px 4px;margin:0;height:17px;line-height:17px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8;background:transparent}
 .xev3gallery textarea{margin:0;padding:3px 4px;border:1px solid #a6a6a6;border-right-color:#d8d8d8;border-bottom-color:#d8d8d8}

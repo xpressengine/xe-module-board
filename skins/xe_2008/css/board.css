@@ -5,6 +5,7 @@
 .board .iText,
 .board select,
 .board textarea{border:1px solid #ccc;padding:4px 6px;margin:0}
+.board select{margin:0}
 .board label{cursor:pointer}
 .board img{border:0}
 .board a{text-decoration:none}
