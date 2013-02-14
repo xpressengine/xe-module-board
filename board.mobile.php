@@ -5,10 +5,28 @@ require_once(_XE_PATH_.'modules/board/board.view.php');
 class boardMobile extends boardView {
 		function init()
 		{
+			$oSecurity = new Security();
+			$oSecurity->encodeHTML('document_srl', 'comment_srl', 'vid', 'mid', 'page', 'category', 'search_target', 'search_keyword', 'sort_index', 'order_type', 'trackback_srl');
+
             if($this->module_info->list_count) $this->list_count = $this->module_info->list_count;
             if($this->module_info->search_list_count) $this->search_list_count = $this->module_info->search_list_count;
             if($this->module_info->page_count) $this->page_count = $this->module_info->page_count;
             $this->except_notice = $this->module_info->except_notice == 'N' ? false : true;
+
+			// $this->_getStatusNameListecret option backward compatibility
+			$oDocumentModel = &getModel('document');
+
+			$statusList = $this->_getStatusNameList($oDocumentModel);
+			if(isset($statusList['SECRET']))
+			{
+				$this->module_info->secret = 'Y';
+			}
+
+			//If category are exsist, set value 'use_category' to 'Y'
+			if(count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
+				$this->module_info->use_category = 'Y';
+			else 
+				$this->module_info->use_category = 'N';
 
             /**
              * check the consultation function, if the user is admin then swich off consultation function
