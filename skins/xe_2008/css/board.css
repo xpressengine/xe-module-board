@@ -196,7 +196,7 @@
 .replyForm dd{margin-bottom:5px}
 /* Board Write */
 .boardWrite label{display:inline-block}
-.boardWrite select{width:auto;height:auto;margin:0;padding:0}
+.boardWrite select{width:auto;height:25px;margin:0;padding:0}
 .boardWrite li{list-style:none}
 .boardWrite fieldset{border:0}
 .boardWrite legend{position:absolute;width:0;height:0;overflow:hidden;font:0/0 Sans-serif;visibility:hidden}

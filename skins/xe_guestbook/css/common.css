@@ -179,7 +179,9 @@ th.date{white-space:nowrap}
 .boardWrite .title label.title{padding:0;margin:0 10px 0 10px}
 .boardWrite .title input.title{width:60%}
 .boardWrite .option{margin:0 0 5px 0;padding:0}
-.boardWrite .option dd{display:inline-block;vertical-align:middle;margin:0 5px 0 0}
+.boardWrite .option *{vertical-align:middle}
+.boardWrite .option select{margin:0 4px 0 0}
+.boardWrite .option input{width:13px;height:13px;margin:0 4px 0 0}
 .boardWrite .option label{margin:0 5px 0 0}
 .boardWrite .tag{margin-top:10px;margin-left:10px}
 .boardWrite .tag .iText{width:90%;background:#FFFFFF url(../images/common/iconTag.gif) no-repeat 5px 5px;padding-left:30px}

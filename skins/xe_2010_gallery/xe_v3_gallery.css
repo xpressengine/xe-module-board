@@ -138,7 +138,7 @@
 .write_header{padding:9px 10px 9px 10px;background:url(img/bgHeader.gif) no-repeat right 0}
 .write_header *{vertical-align:middle}
 .write_header select{height:23px;width:140px}
-.write_header .iText{width:500px;margin:0 10px 0 0;background:#fff}
+.write_header .iText{width:360px;margin:0 10px 0 0;background:#fff}
 .write_editor .xd{margin-top:-3px}
 .write_footer{overflow:hidden;display:inline}
 .write_footer:after{content:"";display:block;clear:both}
