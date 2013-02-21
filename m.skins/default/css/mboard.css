@@ -96,10 +96,14 @@ input[type=radio]{width:13px;height:13px;margin:0;padding:0}
 .ff li{margin:0 0 5px 0;padding:0}
 .ff label{margin-right:10px}
 .ff label+input[type=text],
+.ff label+input[type=email],
+.ff label+input[type=url],
 .ff label+input[type=password],
 .ff label+textarea,
 .ff label+select{display:block;width:96%;font-size:14px;margin:0 0 5px 0}
 .ff label+input[type=text],
+.ff label+input[type=email],
+.ff label+input[type=url],
 .ff label+input[type=password],
 .ff label+textarea{padding:5px}
 /* Button Area */
@@ -121,5 +125,5 @@ input[type=radio]{width:13px;height:13px;margin:0;padding:0}
 .sh{border:1px solid #bfbfbf;border-left:0;border-right:0;background:#e8e8e8;padding:10px;text-align:center}
 .sh *{vertical-align:top}
 .sh select{width:80px;font-size:14px;margin:0 0 5px 0}
-.sh input[type=text]{width:160px;margin:0;font-size:14px;padding:5px}
+.sh input[type=search]{width:160px;margin:0;font-size:14px;padding:5px}
 .sh .shbn{width:28px;height:28px;border:1px solid #666;background:#777 url(../img/mx.png) no-repeat 5px -60px;box-shadow:0 0 1px #fff inset;-moz-box-shadow:0 0 1px #fff inset;-webkit-box-shadow:0 0 1px #fff inset;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;cursor:pointer}
