@@ -70,6 +70,7 @@
 
             $this->setMessage($msg_code);
 			if (Context::get('success_return_url')){
+				changeValueInUrl('mid', $args->mid, $module_info->mid);
 				$this->setRedirectUrl(Context::get('success_return_url'));
 			}else{
 				$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
