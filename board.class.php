@@ -38,11 +38,14 @@
                 $args->skin = 'default';
                 $args->site_srl = 0;
                 $output = $oModuleController->insertModule($args);
-                $module_srl = $output->get('module_srl');
-                $site_args->site_srl = 0;
-                $site_args->index_module_srl = $module_srl;
-                $oModuleController = &getController('module');
-                $oModuleController->updateSite($site_args);
+                if($output->toBool())
+                {
+	                $module_srl = $output->get('module_srl');
+	                $site_args->site_srl = 0;
+	                $site_args->index_module_srl = $module_srl;
+	                $oModuleController = &getController('module');
+	                $oModuleController->updateSite($site_args);
+                }
             }
 
             return new Object();
