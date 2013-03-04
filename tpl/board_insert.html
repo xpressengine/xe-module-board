@@ -22,9 +22,9 @@
 			</div>
 		</div>
 		<div class="x_control-group">
-			<label class="x_control-label" for="browser_title">{$lang->browser_title}</label>
+			<label class="x_control-label" for="lang_browser_title">{$lang->browser_title}</label>
 			<div class="x_controls">
-				<input type="text" name="browser_title" value="<!--@if(strpos($module_info->browser_title, '$user_lang->') === false)-->{$module_info->browser_title}<!--@else-->{htmlspecialchars($module_info->browser_title)}<!--@end-->" class="lang_code" />
+				<input type="text" name="browser_title" id="browser_title" value="<!--@if(strpos($module_info->browser_title, '$user_lang->') === false)-->{$module_info->browser_title}<!--@else-->{htmlspecialchars($module_info->browser_title)}<!--@end-->" class="lang_code" />
 				<a href="#browser_title_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
 				<p id="browser_title_help" class="x_help-block" hidden>{$lang->about_browser_title}</p>
 			</div>
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="x_control-group">
-			<label class="x_control-label" for="header_text">{$lang->header_text}</label>
+			<label class="x_control-label" for="lang_header_text">{$lang->header_text}</label>
 			<div class="x_controls">
 				<textarea name="header_text" id="header_text" class="lang_code" rows="8" cols="42" placeholder="{$lang->about_header_text}"><!--@if(strpos($module_info->header_text, '$user_lang->') === false)-->{$module_info->header_text}<!--@else-->{htmlspecialchars($module_info->header_text)}<!--@end--></textarea>
 				<a href="#header_text_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<div class="x_control-group">
-			<label class="x_control-label" for="footer_text">{$lang->footer_text}</label>
+			<label class="x_control-label" for="lang_footer_text">{$lang->footer_text}</label>
 			<div class="x_controls">
 				<textarea name="footer_text" id="footer_text" class="lang_code" rows="8" cols="42" placeholder="{$lang->about_footer_text}"><!--@if(strpos($module_info->footer_text, '$user_lang->') === false)-->{$module_info->footer_text}<!--@else-->{htmlspecialchars($module_info->footer_text)}<!--@end--></textarea>
 				<a href="#footer_text_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
