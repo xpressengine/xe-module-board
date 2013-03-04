@@ -53,7 +53,7 @@
 
             <!--// display the admin buttom if the logged user is a  super admin -->
             <!--@if($logged_info->is_admin == 'Y')-->
-            <li class="admin"><a href="{getUrl('','module','admin','act','dispBoardAdminContent')}" onclick="window.open(this.href); return false;">{$lang->cmd_management}</a></li>
+            <li class="admin"><a href="{getUrl('','module','admin','act','dispBoardAdminContent')}">{$lang->cmd_management}</a></li>
             <!--@end-->
 
             <!--// 레이아웃이 없으면 회원정보 버튼 출력 -->

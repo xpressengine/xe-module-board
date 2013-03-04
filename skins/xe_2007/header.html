@@ -88,7 +88,7 @@
 
             <!--// display the admin link if the logged user is a super administrator -->
             <!--@if($logged_info->is_admin == 'Y' && $module_info->display_setup_button != 'N')-->
-            <li class="admin"><a href="{getUrl('','module','admin','act','dispBoardAdminContent')}" onclick="window.open(this.href); return false;">{$lang->cmd_management}</a></li>
+            <li class="admin"><a href="{getUrl('','module','admin','act','dispBoardAdminContent')}">{$lang->cmd_management}</a></li>
             <!--@end-->
 
             <!--// link to the member information  -->

@@ -122,7 +122,7 @@
 .read_header h1 a{text-decoration:none;color:#fff}
 .read_header h1 .category{font-weight:normal;border-right:1px solid #7e7e7e;padding:0 10px 0 0;margin:0 5px 0 0}
 .read_header .time{margin:0;position:absolute;top:11px;right:12px;color:#bfbfbf;font-size:11px}
-.read_header .meta{margin:0;padding:8px 12px 8px 15px;background:#f6f6f6;border-bottom:1px solid #ddd;zoom:1}
+.read_header .meta{margin:0;padding:8px 12px 8px 15px;background:#f6f6f6;border-bottom:1px solid #ddd;zoom:1;white-space:nowrap}
 .read_header .meta:after{content:"";display:block;clear:both}
 .read_header .meta .author{float:left;text-decoration:none;color:#666;font-weight:bold}
 .read_header .meta .author img{margin-top:-1px}
