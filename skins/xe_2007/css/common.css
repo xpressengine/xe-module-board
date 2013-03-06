@@ -311,7 +311,7 @@ th.date{white-space:nowrap}
 .tags .tagTypeD a{font-weight:bold;margin:0;background-color:#EFEFEF}
 .tags .tagTypeE a{font-weight:normal;margin:0}
 /* 회원 서명 및 프로필 이미지 출력 */
-.memberSignature{border:1px solid #e0e1db;padding:10px;margin-top:20px;clear:both}
+.memberSignature{border:1px solid #e0e1db;padding:10px;margin-top:20px;clear:both;overflow:hidden}
 .memberSignature .profile{float:left;margin-right:20px}
 .commentProfileImage{margin:0 10px 10px 0;float:left}
 .replyBox .xe_content{display:inline}
