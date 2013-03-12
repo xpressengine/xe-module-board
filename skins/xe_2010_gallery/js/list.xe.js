@@ -1,6 +1,6 @@
 jQuery(function($){
 	// get template
-	var $list_body = $('form.list-body'), $tpl = $list_body.find('.container:first').remove(), $paging = $('form.pagination ul'), animating=false;
+	var $list_body = $('form.list-body'), $tpl = $list_body.find('.list-container:first').remove(), $paging = $('form.pagination ul'), animating=false;
 
 	function load(page, params) {
 		page = parseInt(page, 10) || xe_v3.page;
@@ -42,7 +42,7 @@ jQuery(function($){
 		$box = $tpl.clone(true).removeClass('hide');
 		$ul  = $box.find('>ul');
 		$item_tpl = $ul.find('>li:first').remove();
-		$current  = $list_body.find('div.container');
+		$current  = $list_body.find('div.list-container');
 
 		for(i=0,c=xe_v3.list_count; i < c; i++) {
 			item  = list[i];
@@ -119,7 +119,7 @@ jQuery(function($){
 					info = data.point_info[i];
 
 					$ul.find('a.member_'+info.member_srl)
-						.prepend('<img src="%request_uri%/modules/point/icons/xe_v3/%level%.gif" alt="[레벨:%level%]" title="포인트:%point%point, 레벨:%level%/30" style="vertical-align:middle;margin-right:3px" />'.replace(/%point%/g, info.point).replace(/%level%/g, info.level).replace(/%request_uri%/g, request_uri));
+						.prepend('<img src="%request_uri%/modules/point/icons/default/%level%.gif" alt="[레벨:%level%]" title="포인트:%point%point, 레벨:%level%/30" style="vertical-align:middle;margin-right:3px" />'.replace(/%point%/g, info.point).replace(/%level%/g, info.level).replace(/%request_uri%/g, request_uri));
 				}
 			}
 		);

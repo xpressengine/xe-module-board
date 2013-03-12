@@ -52,18 +52,17 @@
 .xev3gallery .list .thumb{display:block;width:130px;padding:3px;background:#fff;border:1px solid #ddd;margin:0 22px 0 0}
 .xev3gallery .list .thumb img{display:block}
 .xev3gallery .list a{text-decoration:none;color:#4a4a4a;font-weight:bold}
-.xev3gallery .list a.title{position:absolute;top:0;left:0;padding:19px 0 0 170px;width:590px;height:119px;z-index:2;zoom:1;background:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xev3gallery .list a.title{position:absolute;top:0;left:0;right:0;bottom:0;padding:19px 0 0 170px;z-index:2;zoom:1;background:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .xev3gallery .list a.title:hover,
 .xev3gallery .list a.title:active,
-.xev3gallery .list a.title:focus{border:2px solid #8a7adb;padding:17px 0 0 168px;width:588px;height:117px}
+.xev3gallery .list a.title:focus{border:2px solid #8a7adb;padding:17px 0 0 168px}
 .xev3gallery .list a.title em{font-style:normal;font-weight:normal}
-.xev3gallery .list a.title .iefix{position:absolute;top:0;left:0;width:760px;height:138px;cursor:pointer;background:#fff;opacity:0;filter:alpha(opacity=0)}
-.xev3gallery .list .meta{position:absolute;top:40px;left:170px;z-index:1;width:580px}
+.xev3gallery .list .meta{position:absolute;top:40px;left:170px;right:10px;bottom:15px;z-index:1}
 .xev3gallery .list .meta li{color:#888;margin:0 20px 0 0;vertical-align:top}
 .xev3gallery .list .meta .comment_count{margin-left:1em}
 .xev3gallery .list .meta li.reply,
 .xev3gallery .list .meta li.author,
-.xev3gallery .list .meta li.date{display:inline-block;_display:inline;font-size:11px;line-height:14px}
+.xev3gallery .list .meta li.date{display:inline-block;*display:inline;font-size:11px;line-height:14px;zoom:1}
 .xev3gallery .list .meta li.reply{padding:0 0 0 16px;background:url(img/icoSet.gif) no-repeat 0 -270px}
 .xev3gallery .list .meta li.author a{color:#888;font-weight:normal}
 .xev3gallery .list .meta li.date{padding:0 0 0 18px;background:url(img/icoSet.gif) no-repeat 0 -300px}
