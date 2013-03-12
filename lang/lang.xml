@@ -337,4 +337,8 @@
 		<value xml:lang="ko"><![CDATA[관리할 게시판을 선택해 주세요.]]></value>
 		<value xml:lang="en"><![CDATA[Please choose one or more board instance.]]></value>
 	</item>
+	<item name="comment_status">
+		<value xml:lang="ko"><![CDATA[댓글]]></value>
+		<value xml:lang="en"><![CDATA[Comments]]></value>
+	</item>
 </lang>
