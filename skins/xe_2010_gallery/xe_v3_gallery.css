@@ -231,7 +231,7 @@
 #trackback .fbHeader{background-position:11px -84px}
 #comment .fbHeader{background-position:11px -112px}
 #comment .fbHeader .wComment{position:absolute;top:10px;right:15px;padding:0 0 0 18px;text-decoration:none;color:#666;line-height:1;background:url(img/icoSet.gif) no-repeat 0 -150px}
-.feedback .fbHeader h2{margin:0;font-size:14px}
+.feedback .fbHeader h2{margin:0;font-size:14px;display:inline}
 .feedback .fbHeader h2 em{font-style:normal;color:#4736ac;text-decoration:underline}
 .feedback .fbHeader .trackbackURL{position:absolute;top:8px;right:10px;margin:0;line-height:1;color:#666;font:11px Tahoma, Geneva, sans-serif}
 .feedback .fbHeader .trackbackURL a{text-decoration:none;color:#666}
