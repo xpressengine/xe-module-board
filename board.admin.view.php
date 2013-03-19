@@ -2,28 +2,28 @@
     /**
      * @class  boardAdminView
      * @author zero (zero@nzeo.com)
-     * @brief  board 모듈의 admin view class
+     * @brief  board module admin view class
      **/
 
     class boardAdminView extends board {
 
         /**
-         * @brief 초기화
+         * @brief initialization
          *
-         * board 모듈은 일반 사용과 관리자용으로 나누어진다.\n
+         * board module can be divided into general use and admin use.\n
          **/
         function init() {
-            // module_srl이 있으면 미리 체크하여 존재하는 모듈이면 module_info 세팅
+            // check module_srl is existed or not
             $module_srl = Context::get('module_srl');
             if(!$module_srl && $this->module_srl) {
                 $module_srl = $this->module_srl;
                 Context::set('module_srl', $module_srl);
             }
 
-            // module model 객체 생성
+            // generate module model object
             $oModuleModel = &getModel('module');
 
-            // module_srl이 넘어오면 해당 모듈의 정보를 미리 구해 놓음
+            // get the module infomation based on the module_srl
             if($module_srl) {
                 $module_info = $oModuleModel->getModuleInfoByModuleSrl($module_srl);
                 if(!$module_info) {
@@ -39,7 +39,7 @@
 
             if($module_info && $module_info->module != 'board') return $this->stop("msg_invalid_request");
 
-            // 모듈 카테고리 목록을 구함
+            // get the module category list
             $module_category = $oModuleModel->getModuleCategories();
             Context::set('module_category', $module_category);
 
@@ -47,11 +47,11 @@
 			$security->encodeHTML('module_info.');
 			$security->encodeHTML('module_category..');
 
-            // 템플릿 경로 지정 (board의 경우 tpl에 관리자용 템플릿 모아놓음)
+            // setup template path (board admin panel templates is resided in the tpl folder)
             $template_path = sprintf("%stpl/",$this->module_path);
             $this->setTemplatePath($template_path);
 
-            // 정렬 옵션을 세팅
+            // install order (sorting) options
             foreach($this->order_target as $key) $order_target[$key] = Context::getLang($key);
             $order_target['list_order'] = Context::getLang('document_srl');
             $order_target['update_order'] = Context::getLang('last_update');
@@ -59,10 +59,10 @@
         }
 
         /**
-         * @brief 게시판 관리 목록 보여줌
+         * @brief display the board module admin contents
          **/
         function dispBoardAdminContent() {
-            // 등록된 board 모듈을 불러와 세팅
+            // setup the board module general information 
             $args->sort_index = "module_srl";
             $args->page = Context::get('page');
             $args->list_count = 20;
@@ -84,7 +84,7 @@
             $output = executeQueryArray('board.getBoardList', $args);
             ModuleModel::syncModuleToSite($output->data);
 
-			// 스킨 목록을 구해옴
+			// get the skins path
             $oModuleModel = &getModel('module');
             $skin_list = $oModuleModel->getSkins($this->module_path);
             Context::set('skin_list',$skin_list);
@@ -92,7 +92,7 @@
 			$mskin_list = $oModuleModel->getSkins($this->module_path, "m.skins");
 			Context::set('mskin_list', $mskin_list);
 
-            // 레이아웃 목록을 구해옴
+            // get the layouts path
             $oLayoutModel = &getModel('layout');
             $layout_list = $oLayoutModel->getLayoutList();
             Context::set('layout_list', $layout_list);
@@ -100,20 +100,11 @@
 			$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
 			Context::set('mlayout_list', $mobile_layout_list);
 
-			Context::set('module_srls', 'dummy');
-			// pre-define variables because you can get contents from other module (call by reference)
-            $content = '';
-            // Call a trigger for additional settings
-            // Considering uses in the other modules, trigger name cen be publicly used
-            ModuleHandler::triggerCall('module.dispAdditionSetup', 'before', $content);
-            ModuleHandler::triggerCall('module.dispAdditionSetup', 'after', $content);
-            Context::set('setup_content', $content);
-
 			$oModuleAdminModel = &getAdminModel('module');
-            $grant_content = $oModuleAdminModel->getModuleGrantHTML($this->module_info->module_srl, $this->xml_info->grant);
-            Context::set('grant_content', $grant_content);
+            $selected_manage_content = $oModuleAdminModel->getSelectedManageHTML($this->xml_info->grant);
+            Context::set('selected_manage_content', $selected_manage_content);
 
-            // 템플릿에 쓰기 위해서 context::set
+            // use context::set to setup variables on the templates 
             Context::set('total_count', $output->total_count);
             Context::set('total_page', $output->total_page);
             Context::set('page', $output->page);
@@ -131,21 +122,21 @@
         }
 
         /**
-         * @brief 선택된 게시판의 정보 출력 (바로 정보 입력으로 변경)
+         * @brief display the selected board module admin information 
          **/
         function dispBoardAdminBoardInfo() {
             $this->dispBoardAdminInsertBoard();
         }
 
         /**
-         * @brief 게시판 추가 폼 출력
+         * @brief display the module insert form
          **/
         function dispBoardAdminInsertBoard() {
             if(!in_array($this->module_info->module, array('admin', 'board','blog','guestbook'))) {
                 return $this->alertMessage('msg_invalid_request');
             }
 
-            // 스킨 목록을 구해옴
+            // get the skins list
             $oModuleModel = &getModel('module');
             $skin_list = $oModuleModel->getSkins($this->module_path);
             Context::set('skin_list',$skin_list);
@@ -153,7 +144,7 @@
 			$mskin_list = $oModuleModel->getSkins($this->module_path, "m.skins");
 			Context::set('mskin_list', $mskin_list);
 
-            // 레이아웃 목록을 구해옴
+            // get the layouts list
             $oLayoutModel = &getModel('layout');
             $layout_list = $oLayoutModel->getLayoutList();
             Context::set('layout_list', $layout_list);
@@ -171,30 +162,30 @@
 			$documentStatusList = $oDocumentModel->getStatusNameList();
 			Context::set('document_status_list', $documentStatusList);
 
-            // 템플릿 파일 지정
+            // set the template file
             $this->setTemplateFile('board_insert');
         }
 
         /**
-         * @brief 게시판 추가 설정 보여줌
-         * 추가설정은 서비스형 모듈들에서 다른 모듈과의 연계를 위해서 설정하는 페이지임
+         * @brief display the additional setup panel
+         * additonal setup panel is for connecting the service modules with other modules
          **/
         function dispBoardAdminBoardAdditionSetup() {
-            // content는 다른 모듈에서 call by reference로 받아오기에 미리 변수 선언만 해 놓음
+            // sice content is obtained from other modules via call by reference, declare it first
             $content = '';
 
-            // 추가 설정을 위한 트리거 호출
-            // 게시판 모듈이지만 차후 다른 모듈에서의 사용도 고려하여 trigger 이름을 공용으로 사용할 수 있도록 하였음
+            // get the addtional setup trigger
+            // the additional setup triggers can be used in many modules
             $output = ModuleHandler::triggerCall('module.dispAdditionSetup', 'before', $content);
             $output = ModuleHandler::triggerCall('module.dispAdditionSetup', 'after', $content);
             Context::set('setup_content', $content);
 
-            // 템플릿 파일 지정
+            // setup the template file
             $this->setTemplateFile('addition_setup');
         }
 
         /**
-         * @brief 게시판 삭제 화면 출력
+         * @brief display the board mdoule delete page
          **/
         function dispBoardAdminDeleteBoard() {
             if(!Context::get('module_srl')) return $this->dispBoardAdminContent();
@@ -213,20 +204,20 @@
 			$security = new Security();
 			$security->encodeHTML('module_info..mid','module_info..module','module_info..document_count');
 
-            // 템플릿 파일 지정
+            // setup the template file
             $this->setTemplateFile('board_delete');
         }
 
         /**
-         * @brief 게시판의 목록 설정
+         * @brief setup the board list
          **/
         function dispBoardAdminListSetup() {
             $oBoardModel = &getModel('board');
 
-            // 대상 항목을 구함
+            // setup the extra vaiables
             Context::set('extra_vars', $oBoardModel->getDefaultListConfig($this->module_info->module_srl));
 
-            // 설정 항목 추출 (설정항목이 없을 경우 기본 값을 세팅)
+            // setup the list config (install the default value if there is no list config)
             Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
 
 			$security = new Security();
@@ -236,7 +227,7 @@
         }
 
         /**
-         * @brief 카테고리의 정보 출력
+         * @brief display category information
          **/
         function dispBoardAdminCategoryInfo() {
             $oDocumentModel = &getModel('document');
@@ -248,10 +239,10 @@
         }
 
         /**
-         * @brief 권한 목록 출력
+         * @brief display the grant information
          **/
         function dispBoardAdminGrantInfo() {
-            // 공통 모듈 권한 설정 페이지 호출
+            // get the grant infotmation from admin module 
             $oModuleAdminModel = &getAdminModel('module');
             $grant_content = $oModuleAdminModel->getModuleGrantHTML($this->module_info->module_srl, $this->xml_info->grant);
             Context::set('grant_content', $grant_content);
@@ -260,7 +251,7 @@
         }
 
         /**
-         * @brief 확장 변수 설정
+         * @brief display extra variables
          **/
         function dispBoardAdminExtraVars() {
             $oDocumentAdminModel = &getModel('document');
@@ -271,10 +262,10 @@
         }
 
         /**
-         * @brief 스킨 정보 보여줌
+         * @brief display the module skin information
          **/
         function dispBoardAdminSkinInfo() {
-            // 공통 모듈 권한 설정 페이지 호출
+             // get the grant infotmation from admin module 
             $oModuleAdminModel = &getAdminModel('module');
             $skin_content = $oModuleAdminModel->getModuleSkinHTML($this->module_info->module_srl);
             Context::set('skin_content', $skin_content);
@@ -282,9 +273,20 @@
             $this->setTemplateFile('skin_info');
         }
 
+        /**
+         * Display the module mobile skin information
+         **/
+        function dispBoardAdminMobileSkinInfo() {
+             // get the grant infotmation from admin module 
+            $oModuleAdminModel = &getAdminModel('module');
+            $skin_content = $oModuleAdminModel->getModuleMobileSkinHTML($this->module_info->module_srl);
+            Context::set('skin_content', $skin_content);
+
+            $this->setTemplateFile('skin_info');
+        }
 
         /**
-         * @brief board module용 메시지 출력
+         * @brief board module message
          **/
         function alertMessage($message) {
             $script =  sprintf('<script type="text/javascript"> xAddEventListener(window,"load", function() { alert("%s"); } );</script>', Context::getLang($message));

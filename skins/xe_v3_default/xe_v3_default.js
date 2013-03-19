@@ -1,9 +1,9 @@
 jQuery(function($){
-	// 목록 마지막 행에 보더 지우기
+	// delete the border for the last row
 	$('.board_list tr:last-child>td').css('border','0');
-	// 태그 마지막 쉼표 지우기
+	// hide last tag
 	$('.read_footer .tags span:last-child').hide();
-	// 검색창 토글
+	// display/hide serach box
 	var bs = $('.board_search');
 	bs.hide().addClass('off');
 	$('.bsToggle').click(function(){
@@ -13,7 +13,7 @@ jQuery(function($){
 			bs.hide().addClass('off');
 		};
 	});
-	// 글쓴이 입력창 레이블 토글
+	// user input text blur/focus/change
 	var iText = $('.item .iLabel').next('.iText');
 	$('.item .iLabel').css('position','absolute');
 	iText
@@ -35,13 +35,13 @@ jQuery(function($){
 			}
 		})
 		.blur();
-	// 하위 카테고리 선택시 상위 카테고리 선택 클래스 추가
+	// add class to the parent category 
 	$('.cTab>li>ul>li.on_').parents('li:first').addClass('on');
-	// 댓글 첫 번째 요소의 margin-top 지우기
+	// delete the margin-top for the first child of the ccomments
 	$('.feedback .xe_content>*:first-child').css('margin-top','0');
 });
 
-// SNS에 글쓰기
+// SNS post
 (function($){
 	$.fn.snspost = function(opts) {
 		var loc = '';

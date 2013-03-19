@@ -90,6 +90,7 @@
         <action name="dispBoardAdminInsertBoard" type="view" standalone="true" setup_index="true" menu_name="board"  />
         <action name="dispBoardAdminDeleteBoard" type="view" standalone="true" menu_name="board"  />
         <action name="dispBoardAdminSkinInfo" type="view" standalone="true" menu_name="board"  />
+        <action name="dispBoardAdminMobileSkinInfo" type="view" standalone="true" menu_name="board"  />
         <action name="dispBoardAdminGrantInfo" type="view" standalone="true" menu_name="board"  />
         <action name="dispBoardAdminListSetup" type="view" standalone="true" menu_name="board"  />
         <action name="dispBoardAdminCategoryInfo" type="view" menu_name="board"  />

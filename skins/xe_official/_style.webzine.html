@@ -6,12 +6,12 @@
         <table cellspacing="0" border="1" summary="List of Articles" class="boardList webZine">
 			<thead>
                 <tr>
-					<!--// 목록 설정으로 table theader 생성 -->
+					<!--// configure table theader -->
 					<!--@foreach($list_config as $key => $val)-->
-						<!--// 기본 컨텐츠일 경우 -->
+						<!--// if it is the default -->
 						<!--@if($val->idx == -1)-->
 	
-							<!--// 컨텐츠 종류에 따라서 출력 -->
+							<!--// display the contents based on type -->
 							<!--@if($val->type == 'no')-->
 							    {@$list_count++}							
 								<th scope="col">{$lang->no}</th>
@@ -59,7 +59,7 @@
 							    {@$list_count++}														
                                 <th scope="col"><a href="{getUrl('sort_index','last_update','order_type',$order_type)}">{$lang->last_post}<!--@if($sort_index=='last_update')--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
 							<!--@end-->
-							<!--// 사용자 선언 확장변수일 경우 -->
+							<!--// enable user-defined sorting variables -->
 							<!--@else-->
 							    {@$list_count++}														
 								<th scope="col"><a href="{getUrl('sort_index', $val->eid, 'order_type', $order_type)}">{$val->name}<!--@if($sort_index == $val->eid)--><img src="./img/common/{$order_icon}" alt="sort" width="5" height="3" class="sort" /><!--@end--></a></th>
@@ -81,13 +81,13 @@
 			
 				<!--@foreach($notice_list as $no => $document)-->
 				<tr class="notice">
-					<!--// 목록 설정으로 table theader 생성 -->
+					<!--// configure table theader -->
 					<!--@foreach($list_config as $key => $val)-->
 	
-						<!--// 기본 컨텐츠일 경우 -->
+						<!--// if it is the default -->
 						<!--@if($val->idx == -1)-->
 	
-							<!--// 컨텐츠 종류에 따라서 출력 -->
+							<!--// display the contents based on type -->
 							<!--@if($val->type == 'no')-->
 								<td class="notice"><!--@if($document_srl == $document->document_srl)-->&raquo;<!--@else-->{$lang->notice}<!--@end--></td>
 							<!--@elseif($val->type == 'title')-->
@@ -139,7 +139,7 @@
                                 </td>
 							<!--@end-->
 	
-						<!--// 사용자 선언 확장변수일 경우 -->
+						<!--// display extra variables -->
 						<!--@else-->
 								<td>{$document->getExtraValueHTML($val->idx)}&nbsp;</td>
 						<!--@end-->
@@ -150,7 +150,7 @@
 				</tr>
 				<!--@end-->
 	
-				<!--// 일반 글 출력 -->
+				<!--// display document list -->
 				<!--@foreach($document_list as $no => $document)-->
 				<tr class="bg{($no+1)%2+1}">
 					<td class="title" colspan="{$list_count}">
@@ -161,7 +161,7 @@
                         {@$_meta_display = false}
                         <!--@foreach($list_config as $key => $val)-->
         
-                            <!--// 기본 컨텐츠일 경우 -->
+                            <!--// if it is the default -->
                             <!--@if($val->idx == -1)-->
                                 <!--@if($val->type == 'title')-->
                                     <!--@if($_meta_display)--></ul>{@$_meta_display = false}<!--@end-->

@@ -1,6 +1,6 @@
 <!--#include("header.html")-->
 
-<!-- 게시물 작성 폼 -->
+<!-- display the document written form -->
 <form action="./" method="post" onsubmit="return procFilter(this, insert)" id="fo_write">
 	<input type="hidden" name="mid" value="{$mid}" />
 	<input type="hidden" name="content" value="{$oDocument->getContentText()}" />
@@ -76,7 +76,7 @@
 		<!--@foreach($extra_keys as $key => $val)-->
 		<tr>
 			<th scope="row">{$val->name} <!--@if($val->is_required=='Y')-->*<!--@end--></th>
-			<td>{$val->getFormHTML()}</td>
+			<td class="{$val->type}">{$val->getFormHTML()}</td>
 		</tr>
 		<!--@endforeach-->
 		</table>

@@ -1,4 +1,4 @@
-<!-- 목록 출력 -->
+<!-- display list -->
     <form action="./" method="get">
 
         <table cellspacing="0" summary="" class="boardList">
@@ -15,7 +15,7 @@
                 <th scope="col" class="topic{$no_line_class}"><div>
                     
                     <!--@if($module_info->use_category == "Y")-->
-                    <!--// 카테고리 사용시 카테고리 선택 표시 -->
+                    <!--// display the categories if the category is enabled -->
                         <select name="category" id="board_category">
                             <option value="">{$lang->category}</option>
                             <!--@foreach($category_list as $val)-->
@@ -49,7 +49,7 @@
         <tbody>
 
         <!--@if(!$document_list && !$notice_list)-->
-            <!--// 게시물이 없으면 등록된 글이 없음을 표시 -->
+            <!--// display no documents message if there aren't documents -->
             <tr class="bg0 tCenter">
                 <td colspan="<!--@if($grant->manager)-->5<!--@else-->4<!--@end-->" class="title">
                     {$lang->no_documents}
@@ -57,7 +57,7 @@
             </tr>
         <!--@else-->
 
-            <!--// 공지사항 출력 -->
+            <!--// display notice list -->
             <!--@foreach($notice_list as $no => $document)-->
                 <tr class="notice">
                     <!--@if($grant->manager)-->
@@ -97,7 +97,7 @@
                 </tr>
             <!--@end-->
 
-            <!--// 일반 글 출력 -->
+            <!--// display document list-->
             <!--@foreach($document_list as $no => $document)-->
                 <tr class="bg{($no+1)%2+1}">
                     <!--@if($grant->manager)-->
