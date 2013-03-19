@@ -11,7 +11,7 @@
 		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a></h2>
 	</div>
 	<div class="hx h3">
-		<h3>{$lang->cmd_write}...</h3>
+		<h3>{$lang->cmd_write}</h3>
 	</div>
 	<form action="./" method="post" class="ff" onsubmit="return procFilter(this, insert)">
 	<input type="hidden" name="mid" value="{$mid}" />
@@ -52,7 +52,7 @@
 			</li>
 			<li>
 				<label for="uMail">{$lang->email_address}</label>
-				<input name="email_address" type="text" id="uMail" />
+				<input name="email_address" type="email" id="uMail" />
 			</li>
 			<li>
 				<label for="uPw">{$lang->password}</label>
@@ -60,7 +60,7 @@
 			</li>
 			<li>
 				<label for="uSite">{$lang->homepage}</label>
-				<input name="homepage" type="text" id="uSite" value="" />
+				<input name="homepage" type="url" id="uSite" value="" />
 			</li>
 			<!--@endif-->
 			<li>

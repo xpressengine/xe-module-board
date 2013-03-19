@@ -212,7 +212,7 @@
 		<value xml:lang="vi"><![CDATA[Bạn có thể tự sửa đổi code trong giao diện của Board. Chèn hay tùy chỉnh vị trí, code của các Widget nếu bạn muốn.]]></value>
 	</item>
 	<item name="about_board_category">
-		<value xml:lang="ko"><![CDATA[분류를 만드실 수 있습니다. 분류가 오동작을 할 경우 캐시파일 재생성을 수동으로 해주시면 해결이 될 수 있습니다.]]></value>
+		<value xml:lang="ko"><![CDATA[분류를 만들 수 있습니다. 분류가 오동작을 할 경우 캐시파일 재생성을 수동으로 해주시면 해결이 될 수 있습니다.]]></value>
 		<value xml:lang="en"><![CDATA[You can make board categories. When board category is broken, try rebuilding the cache file manually.]]></value>
 		<value xml:lang="jp"><![CDATA[ブログのカテゴリを作成します。 ブログのカテゴリが誤作動する場合、「キャッシュファイルの再生性」を手動で行うことで解決出来ます。]]></value>
 		<value xml:lang="zh-CN"><![CDATA[可以添加/删除分类项 分类有异常情况时，可以尝试重新生成缓冲文件。]]></value>
@@ -247,7 +247,7 @@
 		<value xml:lang="vi"><![CDATA[Tạo Board ẩn danh sẽ ẩn những thông tin của người sử dụng.]]></value>
 	</item>
 	<item name="about_board">
-		<value xml:lang="ko"><![CDATA[게시판을 생성하고 관리할 수 있는 게시판 모듈입니다.]]></value>
+		<value xml:lang="ko"><![CDATA[게시판을 생성하고 관리할 수 있습니다.]]></value>
 		<value xml:lang="en"><![CDATA[This module is for creating and managing boards.]]></value>
 		<value xml:lang="jp"><![CDATA[掲示板の生成、および管理するモジュールです。]]></value>
 		<value xml:lang="zh-CN"><![CDATA[可生成及管理版面的模块。]]></value>
@@ -260,23 +260,15 @@
 	</item>
 	<item name="about_consultation">
 		<value xml:lang="ko"><![CDATA[상담 기능은 관리권한이 없는 회원은 자신이 쓴 글만 보이도록 하는 기능입니다. 단 상담기능 사용시 비회원 글쓰기는 자동으로 금지됩니다.]]></value>
-		<value xml:lang="en"><![CDATA[Non-administrator members would see their own articles.
-Non-members would not be able to write articles when using consultation.]]></value>
-		<value xml:lang="jp"><![CDATA[相談機能とは、管理権限のない会員に本人の書き込みだけを表示する機能です。
-但し、相談機能を使用する際は、非会員の書き込みは自動的に禁止されます。]]></value>
-		<value xml:lang="zh-CN"><![CDATA[咨询功能是指除有管理权限的会员以外，其他会员只能浏览自己发表的主题。
-使用咨询功能时系统将自动禁止非会员的发表主题权限。]]></value>
-		<value xml:lang="zh-TW"><![CDATA[咨詢功能是指除有管理權限的會員以外，其他會員只能瀏覽自己發表的主題。
-使用咨詢功能時系統將自動禁止非會員的發表主題權限。]]></value>
-		<value xml:lang="fr"><![CDATA[Les membres non-administratifs verront seulement les ariticles d'eux-même.
-Non-membres ne pourraient pas écrire des articles quand la Consultation est appliqué.]]></value>
-		<value xml:lang="ru"><![CDATA[상담 기능은 관리권한이 없는 회원은 자신이 쓴 글만 보이도록 하는 기능입니다
-단 상담기능 사용시 비회원 글쓰기는 자동으로 금지됩니다.]]></value>
+		<value xml:lang="en"><![CDATA[Non-administrator members would see their own articles. Non-members would not be able to write articles when using consultation.]]></value>
+		<value xml:lang="jp"><![CDATA[相談機能とは、管理権限のない会員に本人の書き込みだけを表示する機能です。但し、相談機能を使用する際は、非会員の書き込みは自動的に禁止されます。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[咨询功能是指除有管理权限的会员以外，其他会员只能浏览自己发表的主题。使用咨询功能时系统将自动禁止非会员的发表主题权限。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[咨詢功能是指除有管理權限的會員以外，其他會員只能瀏覽自己發表的主題。使用咨詢功能時系統將自動禁止非會員的發表主題權限。]]></value>
+		<value xml:lang="fr"><![CDATA[Les membres non-administratifs verront seulement les ariticles d'eux-même. Non-membres ne pourraient pas écrire des articles quand la Consultation est appliqué.]]></value>
+		<value xml:lang="ru"><![CDATA[상담 기능은 관리권한이 없는 회원은 자신이 쓴 글만 보이도록 하는 기능입니다. 단 상담기능 사용시 비회원 글쓰기는 자동으로 금지됩니다.]]></value>
 		<value xml:lang="es"><![CDATA[No administrador de los miembros que consideran que su propia artocles. \ NNon miembros no serían capaces de escribir artículos al utilizar la consulta.]]></value>
-		<value xml:lang="tr"><![CDATA[Yönetici olmayan üyeler, kendi makalelerini görebileceklerdir.
-Üye olmayan kullanıcılar başvuruyu kullanıp, makale yazamayacaklardır.]]></value>
-		<value xml:lang="vi"><![CDATA[Người không phải là Admin, thành viên họ cũng có thể xem được bài viết.
-Không phải là thành viên thì không thể gửi bài hay bình luận.]]></value>
+		<value xml:lang="tr"><![CDATA[Yönetici olmayan üyeler, kendi makalelerini görebileceklerdir.Üye olmayan kullanıcılar başvuruyu kullanıp, makale yazamayacaklardır.]]></value>
+		<value xml:lang="vi"><![CDATA[Người không phải là Admin, thành viên họ cũng có thể xem được bài viết. Không phải là thành viên thì không thể gửi bài hay bình luận.]]></value>
 	</item>
 	<item name="about_secret">
 		<value xml:lang="ko"><![CDATA[게시판 및 댓글의 비밀글 사용할 수 있도록 합니다.]]></value>
@@ -336,5 +328,17 @@ Không phải là thành viên thì không thể gửi bài hay bình luận.]]>
 	<item name="msg_not_allow_comment">
 		<value xml:lang="ko"><![CDATA[해당 글의 댓글 쓰기가 잠겨있습니다.]]></value>
 		<value xml:lang="en"><![CDATA[This article does not allow write comment.]]></value>
+	</item>
+	<item name="no_board_instance">
+		<value xml:lang="ko"><![CDATA[생성된 게시판이 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[There is no board created.]]></value>
+	</item>
+	<item name="choose_board_instance">
+		<value xml:lang="ko"><![CDATA[관리할 게시판을 선택해 주세요.]]></value>
+		<value xml:lang="en"><![CDATA[Please choose one or more board instance.]]></value>
+	</item>
+	<item name="comment_status">
+		<value xml:lang="ko"><![CDATA[댓글]]></value>
+		<value xml:lang="en"><![CDATA[Comments]]></value>
 	</item>
 </lang>

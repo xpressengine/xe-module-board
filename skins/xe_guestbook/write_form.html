@@ -11,7 +11,7 @@
 
     <div class="boardWrite">
         <!--@if(!$is_logged)-->
-        <div>
+        <div class="authorInfo">
           <div class="inputItem">
               <label for="userName">{$lang->writer}</label>
               <input type="text" name="nick_name" value="{$oDocument->getNickName()}" class="userName iText" id="userName"/>
@@ -76,13 +76,13 @@
         <div class="editor">{$oDocument->getEditor()}</div>
 
         <div class="btnArea">
-            <span class="btn"><input type="button" value="{$lang->cmd_preview}" onclick="doDocumentPreview(this)" /></span>
-            <span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
+            <input class="btn" type="button" value="{$lang->cmd_preview}" onclick="doDocumentPreview(this)" />
+            <input class="btn" type="submit" value="{$lang->cmd_registration}" />
 			<span class="etc">
 				<!--@if($is_logged)-->
 				<!--@if(!$oDocument->isExists() || $oDocument->get('status') == 'TEMP')-->
-				<span class="btn"><input type="button" value="{$lang->cmd_temp_save}"  onclick="doDocumentSave(this)" /></span>
-				<span class="btn"><input type="button" value="{$lang->cmd_load}"  onclick="doDocumentLoad(this)" /></span>
+				<input class="btn" type="button" value="{$lang->cmd_temp_save}"  onclick="doDocumentSave(this)" />
+				<input class="btn" type="button" value="{$lang->cmd_load}"  onclick="doDocumentLoad(this)" />
 				<!--@end-->
 				<!--@end-->
 			</span>

@@ -29,7 +29,6 @@
             unset($args->board_name);
 
             // setup other variables
-            if($args->use_category!='Y') $args->use_category = 'N';
             if($args->except_notice!='Y') $args->except_notice = 'N';
             if($args->use_anonymous!='Y') $args->use_anonymous= 'N';
             if($args->consultation!='Y') $args->consultation = 'N';
@@ -53,13 +52,73 @@
 
             if(!$output->toBool()) return $output;
 
+			// setup list config
+			$list = explode(',',Context::get('list'));
+			if(count($list))
+			{
+				$list_arr = array();
+				foreach($list as $val) 
+				{
+					$val = trim($val);
+					if(!$val) continue;
+					if(substr($val,0,10)=='extra_vars') $val = substr($val,10);
+					$list_arr[] = $val;
+				}
+				$oModuleController = &getController('module');
+				$oModuleController->insertModulePartConfig('board', $output->get('module_srl'), $list_arr);
+			}
+
             $this->setMessage($msg_code);
 			if (Context::get('success_return_url')){
+				changeValueInUrl('mid', $args->mid, $module_info->mid);
 				$this->setRedirectUrl(Context::get('success_return_url'));
 			}else{
 				$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
 			}
         }
+
+		/**
+		 * Board info update in basic setup page
+		 * @return void
+		 */
+		public function procBoardAdminUpdateBoardFroBasic()
+		{
+			$args = Context::getRequestVars();
+
+			// for board info
+			$args->module = 'board';
+			$args->mid = $args->board_name;
+			if(is_array($args->use_status))
+			{
+				$args->use_status = implode('|@|', $args->use_status);
+			}
+			unset($args->board_name);
+
+			if(!in_array($args->order_target, $this->order_target))
+			{
+				$args->order_target = 'list_order';
+			}
+			if(!in_array($args->order_type, array('asc', 'desc')))
+			{
+				$args->order_type = 'asc';
+			}
+
+			$oModuleController = &getController('module');
+			$output = $oModuleController->updateModule($args);
+
+			// for grant info, Register Admin ID
+			$oModuleController->deleteAdminId($args->module_srl);
+			if($args->admin_member)
+			{
+				$admin_members = explode(',',$args->admin_member);
+				for($i=0;$i<count($admin_members);$i++)
+				{
+					$admin_id = trim($admin_members[$i]);
+					if(!$admin_id) continue;
+					$oModuleController->insertAdminId($args->module_srl, $admin_id);
+				}
+			}
+		}
 
         /**
          * @brief delete the board module
@@ -77,26 +136,5 @@
             $this->setMessage('success_deleted');
         }
 
-        /**
-         * @brief insert board list config 
-         **/
-        function procBoardAdminInsertListConfig() {
-            $module_srl = Context::get('module_srl');
-            $list = explode(',',Context::get('list'));
-            if(!count($list)) return new Object(-1, 'msg_invalid_request');
-
-            $list_arr = array();
-            foreach($list as $val) {
-                $val = trim($val);
-                if(!$val) continue;
-                if(substr($val,0,10)=='extra_vars') $val = substr($val,10);
-                $list_arr[] = $val;
-            }
-
-            $oModuleController = &getController('module');
-            $oModuleController->insertModulePartConfig('board', $module_srl, $list_arr);
-
-			$this->setRedirectUrl(Context::get('success_return_url'));
-        }
     }
 ?>

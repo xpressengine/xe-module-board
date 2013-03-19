@@ -86,7 +86,7 @@
 			</li>
 			<li>
 				<label for="uMail" class="db fb">{$lang->email_address}</label>
-				<input name="email_address" type="text" id="uMail" class="itx" />
+				<input name="email_address" type="email" id="uMail" class="itx" />
 			</li>
 			<li>
 				<label for="uPw" class="db fb">{$lang->password}</label>
@@ -94,7 +94,7 @@
 			</li>
 			<li>
 				<label for="uSite" class="db fb">{$lang->homepage}</label>
-				<input name="homepage" type="text" id="uSite" class="itx" value="" />
+				<input name="homepage" type="url" id="uSite" class="itx" value="" />
 			</li>
 			<!--@endif-->
 		</ul>
@@ -106,12 +106,12 @@
 	</div>
 	<ul class="cm">
 		<li class="fl"><a href="{getUrl('document_srl','')}" class="bn">{$lang->cmd_list}</a></li>
-		<li class="fr"><a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}...</a></li>
+		<li class="fr"><a href="{getUrl('act','dispBoardWrite','document_srl','')}" class="bn">{$lang->cmd_write}</a></li>
         <!--@if($oDocument->isEditable())-->
 		<li class="fr"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}" class="bn">{$lang->cmd_delete}</a></li>
 		<!--@end-->
 	</ul>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 jQuery(function($){
 	$('.co .mm').next().hide();

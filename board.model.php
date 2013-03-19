@@ -43,13 +43,13 @@
             return $output;
         }
 
-        /** 
+        /**
          * @brief return the default list configration value
          **/
         function getDefaultListConfig($module_srl) {
             // add virtual srl, title, registered date, update date, nickname, ID, name, readed count, voted count etc.
             $virtual_vars = array( 'no', 'title', 'regdate', 'last_update', 'last_post', 'nick_name',
-					'user_id', 'user_name', 'readed_count', 'voted_count', 'blamed_count', 'thumbnail', 'summary');
+					'user_id', 'user_name', 'readed_count', 'voted_count', 'blamed_count', 'thumbnail', 'summary', 'comment_status');
             foreach($virtual_vars as $key) {
                 $extra_vars[$key] = new ExtraItem($module_srl, -1, Context::getLang($key), $key, 'N', 'N', 'N', null);
             }
@@ -64,7 +64,7 @@
 
         }
 
-        /** 
+        /**
          * @brief return module name in sitemap
          **/
 		function triggerModuleListInSitemap(&$obj)

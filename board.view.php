@@ -25,13 +25,20 @@
             if($this->module_info->page_count) $this->page_count = $this->module_info->page_count;
             $this->except_notice = $this->module_info->except_notice == 'N' ? false : true;
 
-			// s$this->_getStatusNameListecret option backward compatibility
+			// $this->_getStatusNameListecret option backward compatibility
 			$oDocumentModel = &getModel('document');
+
 			$statusList = $this->_getStatusNameList($oDocumentModel);
 			if(isset($statusList['SECRET']))
 			{
 				$this->module_info->secret = 'Y';
 			}
+
+			//If category are exsist, set value 'use_category' to 'Y'
+			if(count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
+				$this->module_info->use_category = 'Y';
+			else 
+				$this->module_info->use_category = 'N';
 
             /**
              * check the consultation function, if the user is admin then swich off consultation function
@@ -46,11 +53,11 @@
 
             /**
              * setup the template path based on the skin
-             * the default skin is xe_board
+             * the default skin is default 
              **/
             $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
             if(!is_dir($template_path)||!$this->module_info->skin) {
-                $this->module_info->skin = 'xe_board';
+                $this->module_info->skin = 'default';
                 $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
             }
             $this->setTemplatePath($template_path);
@@ -277,6 +284,7 @@
          **/
         function dispBoardNoticeList(){
             $oDocumentModel = &getModel('document');
+			$args = new stdClass();
             $args->module_srl = $this->module_srl; 
             $notice_output = $oDocumentModel->getNoticeList($args, $this->columnList);
             Context::set('notice_list', $notice_output->data);
@@ -299,6 +307,7 @@
             $oDocumentModel = &getModel('document');
 
             // setup module_srl/page number/ list number/ page count
+			$args = new stdClass();
             $args->module_srl = $this->module_srl; 
             $args->page = Context::get('page');
             $args->list_count = $this->list_count; 
@@ -752,7 +761,7 @@
          * display an error message if it has not  a special design  
          **/
         function alertMessage($message) {
-            $script =  sprintf('<script type="text/javascript"> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
+            $script =  sprintf('<script> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
             Context::addHtmlFooter( $script );
         }
 

@@ -62,7 +62,8 @@
          * @brief display the board module admin contents
          **/
         function dispBoardAdminContent() {
-            // setup the board module general information 
+            // setup the board module general information
+			$args = new stdClass();
             $args->sort_index = "module_srl";
             $args->page = Context::get('page');
             $args->list_count = 20;
@@ -104,7 +105,7 @@
             $selected_manage_content = $oModuleAdminModel->getSelectedManageHTML($this->xml_info->grant);
             Context::set('selected_manage_content', $selected_manage_content);
 
-            // use context::set to setup variables on the templates 
+            // use context::set to setup variables on the templates
             Context::set('total_count', $output->total_count);
             Context::set('total_page', $output->total_page);
             Context::set('page', $output->page);
@@ -122,7 +123,7 @@
         }
 
         /**
-         * @brief display the selected board module admin information 
+         * @brief display the selected board module admin information
          **/
         function dispBoardAdminBoardInfo() {
             $this->dispBoardAdminInsertBoard();
@@ -161,6 +162,17 @@
 			$oDocumentModel = &getModel('document');
 			$documentStatusList = $oDocumentModel->getStatusNameList();
 			Context::set('document_status_list', $documentStatusList);
+
+            $oBoardModel = &getModel('board');
+
+            // setup the extra vaiables
+            Context::set('extra_vars', $oBoardModel->getDefaultListConfig($this->module_info->module_srl));
+
+            // setup the list config (install the default value if there is no list config)
+            Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
+
+			$security = new Security();
+			$security->encodeHTML('extra_vars..name','list_config..name');
 
             // set the template file
             $this->setTemplateFile('board_insert');
@@ -209,30 +221,12 @@
         }
 
         /**
-         * @brief setup the board list
-         **/
-        function dispBoardAdminListSetup() {
-            $oBoardModel = &getModel('board');
-
-            // setup the extra vaiables
-            Context::set('extra_vars', $oBoardModel->getDefaultListConfig($this->module_info->module_srl));
-
-            // setup the list config (install the default value if there is no list config)
-            Context::set('list_config', $oBoardModel->getListConfig($this->module_info->module_srl));
-
-			$security = new Security();
-			$security->encodeHTML('extra_vars..name','list_config..name');
-
-            $this->setTemplateFile('list_setting');
-        }
-
-        /**
          * @brief display category information
          **/
         function dispBoardAdminCategoryInfo() {
             $oDocumentModel = &getModel('document');
-            $catgegory_content = $oDocumentModel->getCategoryHTML($this->module_info->module_srl);
-            Context::set('category_content', $catgegory_content);
+            $category_content = $oDocumentModel->getCategoryHTML($this->module_info->module_srl);
+            Context::set('category_content', $category_content);
 
             Context::set('module_info', $this->module_info);
             $this->setTemplateFile('category_list');
@@ -242,7 +236,7 @@
          * @brief display the grant information
          **/
         function dispBoardAdminGrantInfo() {
-            // get the grant infotmation from admin module 
+            // get the grant infotmation from admin module
             $oModuleAdminModel = &getAdminModel('module');
             $grant_content = $oModuleAdminModel->getModuleGrantHTML($this->module_info->module_srl, $this->xml_info->grant);
             Context::set('grant_content', $grant_content);
@@ -265,7 +259,7 @@
          * @brief display the module skin information
          **/
         function dispBoardAdminSkinInfo() {
-             // get the grant infotmation from admin module 
+             // get the grant infotmation from admin module
             $oModuleAdminModel = &getAdminModel('module');
             $skin_content = $oModuleAdminModel->getModuleSkinHTML($this->module_info->module_srl);
             Context::set('skin_content', $skin_content);
@@ -277,7 +271,7 @@
          * Display the module mobile skin information
          **/
         function dispBoardAdminMobileSkinInfo() {
-             // get the grant infotmation from admin module 
+             // get the grant infotmation from admin module
             $oModuleAdminModel = &getAdminModel('module');
             $skin_content = $oModuleAdminModel->getModuleMobileSkinHTML($this->module_info->module_srl);
             Context::set('skin_content', $skin_content);
@@ -289,7 +283,7 @@
          * @brief board module message
          **/
         function alertMessage($message) {
-            $script =  sprintf('<script type="text/javascript"> xAddEventListener(window,"load", function() { alert("%s"); } );</script>', Context::getLang($message));
+            $script =  sprintf('<script> xAddEventListener(window,"load", function() { alert("%s"); } );</script>', Context::getLang($message));
             Context::addHtmlHeader( $script );
         }
     }
