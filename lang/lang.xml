@@ -166,7 +166,7 @@
 		<value xml:lang="tr"><![CDATA[Genel Pano Ayarları]]></value>
 		<value xml:lang="vi"><![CDATA[Thiết lập Module]]></value>
 	</item>
-	<item name="cmd_view_info">
+	<item name="cmd_board_info">
 		<value xml:lang="ko"><![CDATA[게시판 정보]]></value>
 		<value xml:lang="en"><![CDATA[Board Info]]></value>
 		<value xml:lang="jp"><![CDATA[掲示板情報]]></value>
