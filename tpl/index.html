@@ -7,39 +7,36 @@
 <table id="boardList" class="x_table x_table-striped x_table-hover">
 	<caption>
 		<strong>Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}</strong>
-		<div class="x_btn-gruop x_pull-right">
-			<a class="x_btn modalAnchor _manage_selected" href="#manageSelectedModule">{$lang->cmd_manage_selected_board}</a>
-		</div>
 	</caption>
 	<thead>
 		<tr>
-			<th scope="col" class="nowr">{$lang->no}</th>
-			<th scope="col" class="nowr">{$lang->module_category}</th>
-			<th scope="col" class="nowr">{$lang->mid}</th>
-			<th scope="col" class="title">{$lang->browser_title}</th>
-			<th scope="col" class="nowr">{$lang->regdate}</th>
-			<th scope="col" class="nowr">{$lang->cmd_setup}</th>
-			<th scope="col" class="nowr">{$lang->cmd_copy}</th>
-			<th scope="col" class="nowr">{$lang->cmd_delete}</th>
-			<th scope="col" style="width:20px"><input type="checkbox" data-name="cart" title="Check All" /></th>
+			<th scope="col">{$lang->no}</th>
+			<th scope="col">{$lang->module_category}</th>
+			<th scope="col">{$lang->mid}</th>
+			<th scope="col">{$lang->browser_title}</th>
+			<th scope="col">{$lang->regdate}</th>
+			<th scope="col">{$lang->cmd_edit}</th>
+			<th scope="col"><input type="checkbox" data-name="cart" title="Check All" /></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr loop="$board_list => $no,$val">
-			<td class="nowr">{$no}</td>
-			<td class="nowr">
+			<td>{$no}</td>
+			<td>
 				<block cond="!$val->module_category_srl">
 					<block cond="$val->site_srl">{$lang->virtual_site}</block>
 					<block cond="!$val->site_srl">{$lang->not_exists}</block>
 				</block>
 				<block cond="$val->module_category_srl">{$module_category[$val->module_category_srl]->title}</block>
 			</td>
-			<td class="nowr">{$val->mid}</td>
-			<td class="title"><a href="{getSiteUrl($val->domain,'','mid',$val->mid)}">{$val->browser_title}</a></td>
-			<td class="nowr">{zdate($val->regdate,"Y-m-d")}</td>
-			<td class="nowr"><a href="{getUrl('act','dispBoardAdminBoardInfo','module_srl',$val->module_srl)}" title="{$lang->cmd_setup}">{$lang->cmd_setup}</a></td>
-			<td class="nowr"><a href="{getUrl('','module','module','act','dispModuleAdminCopyModule','module_srl',$val->module_srl)}" onclick="popopen(this.href);return false;" title="{$lang->cmd_copy}">{$lang->cmd_copy}</a></td>
-			<td class="nowr"><a href="{getUrl('act','dispBoardAdminDeleteBoard','module_srl', $val->module_srl)}" title="{$lang->cmd_delete}">{$lang->cmd_delete}</a></td>
+			<td>{$val->mid}</td>
+			<td><a href="{getSiteUrl($val->domain,'','mid',$val->mid)}">{$val->browser_title}</a></td>
+			<td>{zdate($val->regdate,"Y-m-d")}</td>
+			<td>
+				<a href="{getUrl('act','dispBoardAdminBoardInfo','module_srl',$val->module_srl)}" class="x_icon-cog" title="{$lang->cmd_setup}">{$lang->cmd_setup}</a>
+				<a href="{getUrl('','module','module','act','dispModuleAdminCopyModule','module_srl',$val->module_srl)}" class="x_icon-plus" onclick="popopen(this.href);return false;" title="{$lang->cmd_copy}">{$lang->cmd_copy}</a>
+				<a href="{getUrl('act','dispBoardAdminDeleteBoard','module_srl', $val->module_srl)}" class="x_icon-remove" title="{$lang->cmd_delete}">{$lang->cmd_delete}</a>
+			</td>
 			<td><input type="checkbox" name="cart" value="{$val->module_srl}" class="selectedModule" data-mid="{$val->mid}" data-browser_title="{$val->browser_title}" /></td>
 		</tr>
 		<tr cond="!$board_list">
