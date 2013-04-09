@@ -341,4 +341,16 @@
 		<value xml:lang="ko"><![CDATA[댓글]]></value>
 		<value xml:lang="en"><![CDATA[Comments]]></value>
 	</item>
+	<item name="category_settings">
+		<value xml:lang="ko"><![CDATA[분류 설정]]></value>
+		<value xml:lang="en"><![CDATA[Category settings]]></value>
+	</item>
+	<item name="hide_category">
+		<value xml:lang="ko"><![CDATA[분류 숨기기]]></value>
+		<value xml:lang="en"><![CDATA[Hide categories]]></value>
+	</item>
+	<item name="about_hide_category">
+		<value xml:lang="ko"><![CDATA[임시로 분류를 사용하지 않으려면 체크하세요.]]></value>
+		<value xml:lang="en"><![CDATA[You can disable a category feature.]]></value>
+	</item>
 </lang>
