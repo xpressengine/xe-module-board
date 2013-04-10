@@ -166,7 +166,7 @@
 		<value xml:lang="tr"><![CDATA[Genel Pano Ayarları]]></value>
 		<value xml:lang="vi"><![CDATA[Thiết lập Module]]></value>
 	</item>
-	<item name="cmd_view_info">
+	<item name="cmd_board_info">
 		<value xml:lang="ko"><![CDATA[게시판 정보]]></value>
 		<value xml:lang="en"><![CDATA[Board Info]]></value>
 		<value xml:lang="jp"><![CDATA[掲示板情報]]></value>
@@ -340,5 +340,17 @@
 	<item name="comment_status">
 		<value xml:lang="ko"><![CDATA[댓글]]></value>
 		<value xml:lang="en"><![CDATA[Comments]]></value>
+	</item>
+	<item name="category_settings">
+		<value xml:lang="ko"><![CDATA[분류 설정]]></value>
+		<value xml:lang="en"><![CDATA[Category settings]]></value>
+	</item>
+	<item name="hide_category">
+		<value xml:lang="ko"><![CDATA[분류 숨기기]]></value>
+		<value xml:lang="en"><![CDATA[Hide categories]]></value>
+	</item>
+	<item name="about_hide_category">
+		<value xml:lang="ko"><![CDATA[임시로 분류를 사용하지 않으려면 체크하세요.]]></value>
+		<value xml:lang="en"><![CDATA[You can disable a category feature.]]></value>
 	</item>
 </lang>

@@ -51,6 +51,7 @@
 
         <permission action="procBoardAdminInsertBoard" target="manager" />
         <permission action="procBoardAdminUpdateBoardFroBasic" target="manager" />
+        <permission action="procBoardAdminSaveCategorySettings" target="manager" />
 
         <permission action="getBoardAdminSimpleSetup" target="manager" />
     </permissions>
@@ -97,6 +98,7 @@
         <action name="procBoardAdminInsertBoard" type="controller" standalone="true" ruleset="insertBoard" />
         <action name="procBoardAdminDeleteBoard" type="controller" standalone="true" />
         <action name="procBoardAdminUpdateBoardFroBasic" type="controller" standalone="true" ruleset="insertBoardForBasic" />
+        <action name="procBoardAdminSaveCategorySettings" type="controller" standalone="true" ruleset="saveCategorySettings" />
 
         <action name="getBoardAdminSimpleSetup" type="model" standalone="true" simple_setup_index="true" />
 

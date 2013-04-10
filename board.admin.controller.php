@@ -43,9 +43,11 @@
 
             // insert/update the board module based on module_srl
             if(!$args->module_srl) {
+            	$args->hide_category = 'N';
                 $output = $oModuleController->insertModule($args);
                 $msg_code = 'success_registed';
             } else {
+            	$args->hide_category = $module_info->hide_category;
                 $output = $oModuleController->updateModule($args);
                 $msg_code = 'success_updated';
             }
@@ -57,7 +59,7 @@
 			if(count($list))
 			{
 				$list_arr = array();
-				foreach($list as $val) 
+				foreach($list as $val)
 				{
 					$val = trim($val);
 					if(!$val) continue;
@@ -136,5 +138,35 @@
             $this->setMessage('success_deleted');
         }
 
+		function procBoardAdminSaveCategorySettings()
+		{
+			$module_srl = Context::get('module_srl');
+			$mid = Context::get('mid');
+
+			$oModuleModel = getModel('module');
+			$module_info = $oModuleModel->getModuleInfoByModuleSrl($module_srl);
+			if($module_info->mid != $mid)
+			{
+				return new Object(-1, 'msg_invalid_request');
+			}
+
+			$module_info->hide_category = Context::get('hide_category') == 'Y' ? 'Y' : 'N';
+			$oModuleController = getController('module'); /* @var $oModuleController moduleController */
+			$output = $oModuleController->updateModule($module_info);
+			if(!$output->toBool())
+			{
+				return $output;
+			}
+
+			$this->setMessage('success_updated');
+			if (Context::get('success_return_url'))
+			{
+				$this->setRedirectUrl(Context::get('success_return_url'));
+			}
+			else
+			{
+				$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminCategoryInfo', 'module_srl', $output->get('module_srl')));
+			}
+		}
     }
 ?>

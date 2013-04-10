@@ -1,25 +1,20 @@
 <load target="filter/delete_board.xml" />
 <load target="js/board_admin.js" />
 <include target="header.html" />
-<form action="./" method="get" onsubmit="return procFilter(this, delete_board)">
+<form action="./" method="get" onsubmit="return procFilter(this, delete_board)" class="section">
 	<input type="hidden" name="page" value="{$page}" />
 	<input type="hidden" name="module_srl" value="{$module_info->module_srl}" />
     <h1>{$lang->confirm_delete}</h1>
-	<table class="x_table x_table-striped x_table-hover">
-		<tr>
-			<th scope="row">{$lang->module_name}</th>
-			<td >{$module_info->mid}</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->module}</th>
-			<td>{$module_info->module}</td>
-		</tr>
-		<tr>
-			<th scope="row">{$lang->document_count}</th>
-			<td>{$module_info->document_count}</td>
-		</tr>
-	</table>
+	<dl class="x_dl-horizontal">
+		<dt>{$lang->module_name}</dt>
+		<dd>{$module_info->mid}</dd>
+		<dt>{$lang->module}</dt>
+		<dd>{$module_info->module}</dd>
+		<dt>{$lang->document_count}</dt>
+		<dd>{$module_info->document_count}</dd>
+	</dl>
 	<div class="btnArea">
-		<input class="btn" type="submit" value="{$lang->cmd_delete}" />
+		<a href="{getUrl('act','dispBoardAdminContent')}" class="x_btn x_pull-left">{$lang->cmd_back}</a>
+		<span><input class="x_btn x_btn-danger" type="submit" value="{$lang->cmd_delete}" /></span>
 	</div>
 </form>

@@ -35,9 +35,9 @@
 			}
 
 			//If category are exsist, set value 'use_category' to 'Y'
-			if(count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
+			if($this->module_info->hide_category != 'Y' && count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
 				$this->module_info->use_category = 'Y';
-			else 
+			else
 				$this->module_info->use_category = 'N';
 
             /**
@@ -45,7 +45,7 @@
              * if the user is not logged, then disppear write document/write comment./ view document
              **/
             if($this->module_info->consultation == 'Y' && !$this->grant->manager) {
-                $this->consultation = true; 
+                $this->consultation = true;
                 if(!Context::get('is_logged')) $this->grant->list = $this->grant->write_document = $this->grant->write_comment = $this->grant->view = false;
             } else {
                 $this->consultation = false;
@@ -53,7 +53,7 @@
 
             /**
              * setup the template path based on the skin
-             * the default skin is default 
+             * the default skin is default
              **/
             $template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
             if(!is_dir($template_path)||!$this->module_info->skin) {
@@ -77,7 +77,7 @@
 					$this->order_target[] = $val->eid;
 				}
 			}
-            /** 
+            /**
              * load javascript, JS filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'input_password.xml');
@@ -141,7 +141,7 @@
             // list
             $this->dispBoardContentList();
 
-            /** 
+            /**
              * add javascript filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'search.xml');
@@ -175,14 +175,14 @@
             $document_srl = Context::get('document_srl');
             $page = Context::get('page');
 
-            // generate document model object 
+            // generate document model object
             $oDocumentModel = &getModel('document');
 
             /**
              * if the document exists, then get the document information
              **/
             if($document_srl) {
-                $oDocument = $oDocumentModel->getDocument($document_srl, false, true); 
+                $oDocument = $oDocumentModel->getDocument($document_srl, false, true);
 
                 // if the document is existed
                 if($oDocument->isExists()) {
@@ -190,7 +190,7 @@
                     // if the module srl is not consistent
                     if($oDocument->get('module_srl')!=$this->module_info->module_srl ) return $this->stop('msg_invalid_request');
 
-                    // check the manage grant 
+                    // check the manage grant
                     if($this->grant->manager) $oDocument->setGrant();
 
                     // if the consultation function is enabled, and the document is not a notice
@@ -236,11 +236,11 @@
             $oDocument->add('module_srl', $this->module_srl);
             Context::set('oDocument', $oDocument);
 
-            /** 
+            /**
              * add javascript filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert_comment.xml');
-        
+
 //            return new Object();
         }
 
@@ -285,7 +285,7 @@
         function dispBoardNoticeList(){
             $oDocumentModel = &getModel('document');
 			$args = new stdClass();
-            $args->module_srl = $this->module_srl; 
+            $args->module_srl = $this->module_srl;
             $notice_output = $oDocumentModel->getNoticeList($args, $this->columnList);
             Context::set('notice_list', $notice_output->data);
         }
@@ -303,22 +303,22 @@
                 Context::set('page_navigation', new PageHandler(0,0,1,10));
                 return;
             }
-	
+
             $oDocumentModel = &getModel('document');
 
             // setup module_srl/page number/ list number/ page count
 			$args = new stdClass();
-            $args->module_srl = $this->module_srl; 
+            $args->module_srl = $this->module_srl;
             $args->page = Context::get('page');
-            $args->list_count = $this->list_count; 
-            $args->page_count = $this->page_count; 
+            $args->list_count = $this->list_count;
+            $args->page_count = $this->page_count;
 
             // get the search target and keyword
-            $args->search_target = Context::get('search_target'); 
-            $args->search_keyword = Context::get('search_keyword'); 
+            $args->search_target = Context::get('search_target');
+            $args->search_keyword = Context::get('search_keyword');
 
             // if the category is enabled, then get the category
-            if($this->module_info->use_category=='Y') $args->category_srl = Context::get('category'); 
+            if($this->module_info->use_category=='Y') $args->category_srl = Context::get('category');
 
             // setup the sort index and order index
             $args->sort_index = Context::get('sort_index');
@@ -326,7 +326,7 @@
             if(!in_array($args->sort_index, $this->order_target)) $args->sort_index = $this->module_info->order_target?$this->module_info->order_target:'list_order';
             if(!in_array($args->order_type, array('asc','desc'))) $args->order_type = $this->module_info->order_type?$this->module_info->order_type:'asc';
 
-            // set the current page of documents  
+            // set the current page of documents
             $_get = $_GET;
             if(!$args->page && ($_GET['document_srl'] || $_GET['entry'])) {
                 $oDocument = $oDocumentModel->getDocument(Context::get('document_srl'));
@@ -348,7 +348,7 @@
 
             // setup the list config variable on context
             Context::set('list_config', $this->listConfig);
-            // setup document list variables on context 
+            // setup document list variables on context
             $output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $this->columnList);
             Context::set('document_list', $output->data);
             Context::set('total_count', $output->total_count);
@@ -361,7 +361,7 @@
 		{
 			$configColumList = array_keys($this->listConfig);
 			$tableColumnList = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'is_notice',
-					'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count', 
+					'title', 'title_bold', 'title_color', 'content', 'readed_count', 'voted_count',
 					'blamed_count', 'comment_count', 'trackback_count', 'uploaded_count', 'password', 'user_id',
 					'user_name', 'nick_name', 'member_srl', 'email_address', 'homepage', 'tags', 'extra_vars',
 					'regdate', 'last_update', 'last_updater', 'ipaddress', 'list_order', 'update_order',
@@ -373,7 +373,7 @@
 			// default column list add
 			$defaultColumn = array('document_srl', 'module_srl', 'category_srl', 'lang_code', 'member_srl', 'last_update', 'comment_count', 'trackback_count', 'uploaded_count', 'status', 'regdate', 'title_bold', 'title_color');
 
-			//TODO guestbook, blog style supports legacy codes. 
+			//TODO guestbook, blog style supports legacy codes.
 			if($this->module_info->skin == 'xe_guestbook' || $this->module_info->default_style == 'blog')
 			{
 				$defaultColumn = $tableColumnList;
@@ -429,7 +429,7 @@
 
             $this->setTemplateFile('tag_list');
         }
-        
+
         /**
          * @brief display document write form
          **/
@@ -460,7 +460,7 @@
                         if($category->group_srls) {
                             $category_group_srls = explode(',',$category->group_srls);
                             $is_granted = false;
-                            if(count(array_intersect($group_srls, $category_group_srls))) $is_granted = true; 
+                            if(count(array_intersect($group_srls, $category_group_srls))) $is_granted = true;
 
                         }
                         if($is_granted) $category_list[$category_srl] = $category;
@@ -501,10 +501,10 @@
             $oDocumentController = &getController('document');
             $oDocumentController->addXmlJsFilter($this->module_info->module_srl);
 
-            // if the document exists, then setup extra variabels on context 
+            // if the document exists, then setup extra variabels on context
             if($oDocument->isExists() && !$savedDoc) Context::set('extra_keys', $oDocument->getExtraVars());
 
-            /** 
+            /**
              * add JS filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert.xml');
@@ -558,7 +558,7 @@
 
             Context::set('oDocument',$oDocument);
 
-            /** 
+            /**
              * add JS filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'delete_document.xml');
@@ -597,7 +597,7 @@
             Context::set('oSourceComment',$oSourceComment);
             Context::set('oComment',$oComment);
 
-            /** 
+            /**
              * add JS filter
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert_comment.xml');
@@ -644,7 +644,7 @@
             Context::set('oComment',$oComment);
             Context::set('module_srl',$this->module_info->module_srl);
 
-            /** 
+            /**
              * add JS filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert_comment.xml');
@@ -670,7 +670,7 @@
             $oCommentModel = &getModel('comment');
             $oComment = $oCommentModel->getComment($comment_srl, $this->grant->manager);
 
-            // if the comment is not exited, alert an error message 
+            // if the comment is not exited, alert an error message
             if(!$oComment->isExists()) return $this->dispBoardMessage('msg_invalid_request');
 
 			// if the comment is not granted, then back to the password input form
@@ -680,7 +680,7 @@
             Context::set('oSourceComment', $oCommentModel->getComment());
             Context::set('oComment', $oComment);
 
-            /** 
+            /**
              * add JS fitlers
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'insert_comment.xml');
@@ -712,7 +712,7 @@
 
             Context::set('oComment',$oComment);
 
-            /** 
+            /**
              * add JS filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'delete_comment.xml');
@@ -738,7 +738,7 @@
 
             //Context::set('trackback',$trackback);	//perhaps trackback variables not use in UI
 
-            /** 
+            /**
              * add JS filters
              **/
             Context::addJsFilter($this->module_path.'tpl/filter', 'delete_trackback.xml');
@@ -758,7 +758,7 @@
 
         /**
          * @brief the method for displaying the warning messages
-         * display an error message if it has not  a special design  
+         * display an error message if it has not  a special design
          **/
         function alertMessage($message) {
             $script =  sprintf('<script> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));

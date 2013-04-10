@@ -86,7 +86,7 @@
 		function moduleUninstall() {
 			$output = executeQueryArray("board.getAllBoard");
 			if(!$output->data) return new Object();
-			set_time_limit(0);
+			@set_time_limit(0);
 			$oModuleController =& getController('module');
 			foreach($output->data as $board)
 			{
