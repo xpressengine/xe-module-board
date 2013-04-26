@@ -18,7 +18,7 @@
 					<h4 class="author">
 					<!--@if(!$comment->member_srl)-->
 						<!--@if($comment->homepage)-->
-							<a href="{$comment->homepage}" onclick="window.open(this.href);return false;">{$comment->getNickName()}</a>
+							<a href="{$comment->getHomepageUrl()}" onclick="window.open(this.href);return false;">{$comment->getNickName()}</a>
 						<!--@else-->
 							{$comment->getNickName()}
 						<!--@end-->
