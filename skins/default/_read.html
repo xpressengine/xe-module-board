@@ -72,19 +72,19 @@
 				jQuery(function($){
 					$('.twitter>a').snspost({
 						type : 'twitter',
-						content : '{$oDocument->getTitle()} {$oDocument->getPermanentUrl()}'
+						content : '{addslashes($oDocument->getTitleText())} {$oDocument->getPermanentUrl()}'
 					});
 					$('.me2day>a').snspost({
 						type : 'me2day',
-						content : '\"{$oDocument->getTitle()}\":{$oDocument->getPermanentUrl()}'
+						content : '\"{addslashes($oDocument->getTitleText())}\":{$oDocument->getPermanentUrl()}'
 					});
 					$('.facebook>a').snspost({
 						type : 'facebook',
-						content : '{$oDocument->getTitle()}'
+						content : '{addslashes($oDocument->getTitleText())}'
 					});
 					$('.delicious>a').snspost({
 						type : 'delicious',
-						content : '{$oDocument->getTitle()}'
+						content : '{addslashes($oDocument->getTitleText())}'
 					});
 				});
 			</script>
