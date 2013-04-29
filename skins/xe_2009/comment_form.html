@@ -35,7 +35,7 @@
 	
 	<div class="editOption">
 	<!--@if(!$is_logged)-->
-	   <input type="text" name="nick_name" class="iText userName" value="{htmlspecialchars($oComment->get('nick_name'))}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
+	   <input type="text" name="nick_name" class="iText userName" value="{$oComment->getNickName()}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
 	   <input type="password" name="password" class="iText userPw" value="" title="{$lang->password}" onfocus="if(this.value==this.title)this.value='';return false;" />
 	   <input type="text" name="email_address" class="iText emailAddress" value="{htmlspecialchars($oComment->get('email_address'))}" title="{$lang->email_address}" onfocus="if(this.value==this.title)this.value='';return false;" />
 	   <input type="text" name="homepage" class="iText homePage" value="{htmlspecialchars($oComment->get('homepage'))}" title="{$lang->homepage}" onfocus="if(this.value==this.title)this.value='';return false;" />

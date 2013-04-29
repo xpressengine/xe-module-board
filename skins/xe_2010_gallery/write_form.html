@@ -53,7 +53,7 @@
 		<div class="write_author">
 			<span class="item" cond="!$is_logged">
 				<label for="userName" class="iLabel">{$lang->writer}</label>
-				<input type="text" name="nick_name" id="userName" class="iText userName" style="width:80px" value="{htmlspecialchars($oDocument->get('nick_name'))}" />
+				<input type="text" name="nick_name" id="userName" class="iText userName" style="width:80px" value="{$oDocument->getNickName()}" />
 			</span>
 			<span class="item" cond="!$is_logged">
 				<label for="userPw" class="iLabel">{$lang->password}</label>

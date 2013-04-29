@@ -116,9 +116,9 @@
                                 <td class="lastReply">
                                     <!--@if((int)($document->get('comment_count'))>0)-->
                                         <a href="{$document->getPermanentUrl()}#comment" class="replyAnchor">{zdate($document->get('last_update'),'Y-m-d')} {zdate($document->get('last_update'),'H:i')}</a>
-                                        <!--@if($document->get('last_updater'))-->
+                                        <!--@if($document->getLastUpdater())-->
                                             <sub class="by">by</sub>
-                                            {htmlspecialchars($document->get('last_updater'))}
+                                            {$document->getLastUpdater()}
                                         <!--@end-->
                                     <!--@else-->
                                         &nbsp;
@@ -186,9 +186,9 @@
                                 <td class="lastReply">
                                     <!--@if((int)($document->get('comment_count'))>0)-->
                                         <a href="{$document->getPermanentUrl()}#comment" class="replyAnchor">{zdate($document->get('last_update'),'Y-m-d')} {zdate($document->get('last_update'),'H:i')}</a>
-                                        <!--@if($document->get('last_updater'))-->
+                                        <!--@if($document->getLastUpdater())-->
                                             <sub class="by">by</sub>
-                                            {htmlspecialchars($document->get('last_updater'))}
+                                            {$document->getLastUpdater()}
                                         <!--@end-->
                                     <!--@else-->
                                         &nbsp;
