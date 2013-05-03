@@ -69,22 +69,23 @@
 				<li class="delicious link"><a href="http://delicious.com/">Delicious</a></li>
 			</ul>
 			<script>
+				var sTitle = '{str_ireplace(array('<script', '</script'), array("<scr'+'ipt", "</scr'+'ipt"), addslashes($oDocument->getTitleText()))}';
 				jQuery(function($){
 					$('.twitter>a').snspost({
 						type : 'twitter',
-						content : '{addslashes($oDocument->getTitleText())} {$oDocument->getPermanentUrl()}'
+						content : sTitle + ' {$oDocument->getPermanentUrl()}'
 					});
 					$('.me2day>a').snspost({
 						type : 'me2day',
-						content : '\"{addslashes($oDocument->getTitleText())}\":{$oDocument->getPermanentUrl()}'
+						content : '\"' + sTitle + '\":{$oDocument->getPermanentUrl()}'
 					});
 					$('.facebook>a').snspost({
 						type : 'facebook',
-						content : '{addslashes($oDocument->getTitleText())}'
+						content : sTitle
 					});
 					$('.delicious>a').snspost({
 						type : 'delicious',
-						content : '{addslashes($oDocument->getTitleText())}'
+						content : sTitle
 					});
 				});
 			</script>
