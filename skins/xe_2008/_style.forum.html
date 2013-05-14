@@ -68,8 +68,8 @@
 					<a href="#" class="replyAnchor">{zdate($document->get('last_update'),'Y-m-d')}
 						<span class="bubble">{zdate($document->get('last_update'),'H:i')}</span>
 					</a>
-					<!--@if($document->get('last_updater'))-->
-						{htmlspecialchars($document->get('last_updater'))}
+					<!--@if($document->getLastUpdater())-->
+						{$document->getLastUpdater()}
 					<!--@else-->
 						<a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a>
 					<!--@end-->
@@ -104,8 +104,8 @@
 					<a href="#" class="replyAnchor">{zdate($document->get('last_update'),'Y-m-d')}
 						<span class="bubble">{zdate($document->get('last_update'),'H:i')}</span>
 					</a>
-					<!--@if($document->get('last_updater'))-->
-						{htmlspecialchars($document->get('last_updater'))}
+					<!--@if($document->getLastUpdater())-->
+						{$document->getLastUpdater()}
 					<!--@else-->
 						<a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a>
 					<!--@end-->

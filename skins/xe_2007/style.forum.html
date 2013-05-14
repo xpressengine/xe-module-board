@@ -84,8 +84,8 @@
                     <td class="reading">{(int)($document->get('readed_count'))}</td>
                     <td class="latestPost">
                         <div class="author">
-                            <!--@if($document->get('last_updater'))-->
-                                by <strong>{htmlspecialchars($document->get('last_updater'))}</strong>
+                            <!--@if($document->getLastUpdater())-->
+                                by <strong>{$document->getLastUpdater()}</strong>
                             <!--@else-->
                                 by <strong><span class="member_{$document->get('member_srl')}">{$document->getNickName()}</span></strong>
                             <!--@end-->
@@ -124,8 +124,8 @@
                     <td class="reading">{(int)($document->get('readed_count'))}</td>
                     <td class="latestPost">
                         <div class="author">
-                            <!--@if($document->get('last_updater'))-->
-                                by <strong>{htmlspecialchars($document->get('last_updater'))}</strong>
+                            <!--@if($document->getLastUpdater())-->
+                                by <strong>{$document->getLastUpdater()}</strong>
                             <!--@else-->
                                 by <strong><span class="member_{$document->get('member_srl')}">{$document->getNickName()}</span></strong>
                             <!--@end-->

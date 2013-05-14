@@ -2,6 +2,9 @@
 /* NHN (developers@xpressengine.com) */
 /* Board Reset */
 .board{font-family:Tahoma, Sans-serif;line-height:normal;font-size:12px}
+.board .btnArea{text-align:right;margin:10px 0}
+.board .commentEditor .btnArea,
+.board .boardWrite .btnArea{text-align:center}
 .board .iText,
 .board textarea{border:1px solid;padding:4px 6px;margin:0}
 .board select{padding:0}

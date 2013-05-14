@@ -59,9 +59,9 @@
 						<a href="{$document->getPermanentUrl()}#comment" title="Last Reply">
 							{zdate($document->get('last_update'),'Y.m.d')}
 						</a>
-						<span cond="$document->get('last_updater')">
+						<span cond="$document->getLastUpdater()">
 							<sub>by</sub>
-							{htmlspecialchars($document->get('last_updater'))}
+							{$document->getLastUpdater()}
 						</span>
 					</block>
 					<block cond="(int)($document->get('comment_count'))==0">&nbsp;</block>
@@ -97,9 +97,9 @@
 						<a href="{$document->getPermanentUrl()}#comment" title="Last Reply">
 							{zdate($document->get('last_update'),'Y.m.d')}
 						</a>
-						<span cond="$document->get('last_updater')">
+						<span cond="$document->getLastUpdater()">
 							<sub>by</sub>
-							{htmlspecialchars($document->get('last_updater'))}
+							{$document->getLastUpdater()}
 						</span>
 					</block>
 					<block cond="(int)($document->get('comment_count'))==0">&nbsp;</block>
