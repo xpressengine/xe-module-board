@@ -34,18 +34,19 @@ class boardView extends board {
 			$this->module_info->secret = 'Y';
 		}
 
-		//If category are exsist, set value 'use_category' to 'Y'
 		if($this->module_info->use_category && !$this->module_info->hide_category)
 		{
 			if($this->module_info->use_category == 'Y') $this->module_info->hide_category = 'N';
 			else $this->module_info->hide_category = 'Y';
 		}
-		else if($this->module_info->hide_category != 'Y')
+		else if($this->module_info->hide_category && $this->module_info->hide_category != 'Y')
 		{
+			$this->module_info->hide_category = 'N';
 			$this->module_info->use_category = 'Y';
 		}
 		else
 		{
+			$this->module_info->hide_category = 'N';
 			$this->module_info->use_category = 'N';
 		}
 
