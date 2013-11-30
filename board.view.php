@@ -416,6 +416,7 @@ class boardView extends board {
 		// generate the tag module model object
 		$oTagModel = &getModel('tag');
 
+		$obj = new stdClass;
 		$obj->mid = $this->module_info->mid;
 		$obj->list_count = 10000;
 		$output = $oTagModel->getTagList($obj);
