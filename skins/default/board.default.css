@@ -152,7 +152,6 @@
 .read_footer .sns a{display:inline-block;height:16px;line-height:16px}
 .read_footer .sns .link a{width:16px;height:0;padding:16px 0 0 0;overflow:hidden;background:url(icoSet.gif) no-repeat}
 .read_footer .sns .twitter a{background-position:0 -270px}
-.read_footer .sns .me2day a{background-position:0 -300px}
 .read_footer .sns .facebook a{background-position:0 -330px}
 .read_footer .sns .delicious a{background-position:0 -360px}
 .read_footer .sign{clear:both;border:1px solid #ddd;margin:0 0 -1px 0;padding:10px 15px;overflow:hidden;zoom:1}
