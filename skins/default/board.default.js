@@ -1,4 +1,4 @@
-jQuery(function($){
+jQuery(function($) {
 	// delete the border for the last row
 	$('.board_list tr:last-child>td').css('border','0');
 	// hide last tag
@@ -6,29 +6,29 @@ jQuery(function($){
 	// display/hide serach box
 	var bs = $('.board_search');
 	bs.hide().addClass('off');
-	$('.bsToggle').click(function(){
-		if(bs.hasClass('off')){
+	$('.bsToggle').click(function() {
+		if(bs.hasClass('off')) {
 			bs.show().removeClass('off').find('.iText').focus();
 		} else {
 			bs.hide().addClass('off');
-		};
+		}
 	});
 	// user input text blur/focus/change
 	var iText = $('.item .iLabel').next('.iText');
 	$('.item .iLabel').css('position','absolute');
 	iText
-		.focus(function(){
+		.focus(function() {
 			$(this).prev('.iLabel').css('visibility','hidden');
 		})
-		.blur(function(){
-			if($(this).val() == ''){
+		.blur(function() {
+			if(!$(this).val()) {
 				$(this).prev('.iLabel').css('visibility','visible');
 			} else {
 				$(this).prev('.iLabel').css('visibility','hidden');
 			}
 		})
-		.change(function(){
-			if($(this).val() == ''){
+		.change(function() {
+			if(!$(this).val()) {
 				$(this).prev('.iLabel').css('visibility','visible');
 			} else {
 				$(this).prev('.iLabel').css('visibility','hidden');
@@ -42,7 +42,7 @@ jQuery(function($){
 });
 
 // SNS post
-(function($){
+(function($) {
 	$.fn.snspost = function(opts) {
 		var loc = '';
 		opts = $.extend({}, {type:'twitter', event:'click', content:''}, opts);
@@ -55,11 +55,10 @@ jQuery(function($){
 				loc = 'http://www.delicious.com/save?v=5&noui&jump=close&url='+encodeURIComponent(opts.url||location.href)+'&title='+opts.content;
 				break;
 			case 'twitter':
-			default:
 				loc = 'http://twitter.com/home?status='+opts.content;
 				break;
 		}
-		this.bind(opts.event, function(){
+		this.bind(opts.event, function() {
 			window.open(loc);
 			return false;
 		});
