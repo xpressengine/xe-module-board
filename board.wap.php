@@ -1,45 +1,61 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
+
 /**
  * @class  boardWAP
- * @author NHN (developers@xpressengine.com)
+ * @author NAVER (developers@xpressengine.com)
  * @brief  board module WAP class
  **/
 
-class boardWAP extends board {
-
+class boardWAP extends board
+{
 	/**
 	 * @brief wap procedure method
 	 **/
-	function procWAP(&$oMobile) {
+	function procWAP(&$oMobile)
+	{
 		// check grant
-		if(!$this->grant->list || $this->module_info->consultation == 'Y') return $oMobile->setContent(Context::getLang('msg_not_permitted'));
+		if(!$this->grant->list || $this->module_info->consultation == 'Y')
+		{
+			return $oMobile->setContent(Context::getLang('msg_not_permitted'));
+		}
 
 		// generate document model object
 		$oDocumentModel = &getModel('document');
 
 		// if the doument is existed
 		$document_srl = Context::get('document_srl');
-		if($document_srl) {
+		if($document_srl)
+		{
 			$oDocument = $oDocumentModel->getDocument($document_srl);
-			if($oDocument->isExists()) {
+			if($oDocument->isExists())
+			{
 				// check the grant
-				if(!$this->grant->view) return $oMobile->setContent(Context::getLang('msg_not_permitted'));
+				if(!$this->grant->view)
+				{
+					return $oMobile->setContent(Context::getLang('msg_not_permitted'));
+				}
 
 				// setup the browser title
 				Context::setBrowserTitle($oDocument->getTitleText());
 
 				// if the act is display comment list
-				if($this->act=='dispBoardContentCommentList') {
+				if($this->act=='dispBoardContentCommentList')
+				{
 
 					$oCommentModel = &getModel('comment');
 					$output = $oCommentModel->getCommentList($oDocument->document_srl, 0, false, $oDocument->getCommentCount());
 
 					$content = '';
-					if(count($output->data)) {
-						foreach($output->data as $key => $val){
+					if(count($output->data))
+					{
+						foreach($output->data as $key => $val)
+						{
 							$oComment = new commentItem();
 							$oComment->setAttribute($val);
+
 							if(!$oComment->isAccessible()) continue;
+
 							$content .= "<b>".$oComment->getNickName()."</b> (".$oComment->getRegdate("Y-m-d").")<br>\r\n".$oComment->getContent(false,false)."<br>\r\n";
 						}
 					}
@@ -85,8 +101,10 @@ class boardWAP extends board {
 		$page_navigation = $output->page_navigation;
 
 		$childs = array();
-		if($document_list && count($document_list)) {
-			foreach($document_list as $key => $val) {
+		if($document_list && count($document_list))
+		{
+			foreach($document_list as $key => $val)
+			{
 				$href = getUrl('mid',$_GET['mid'],'document_srl',$val->document_srl);
 				$obj = null;
 				$obj['href'] = $val->getPermanentUrl();
@@ -104,9 +122,15 @@ class boardWAP extends board {
 		if(!$page) $page = 1;
 
 		// next/prevUrl specification
-		if($page>1) $oMobile->setPrevUrl(getUrl('mid',$_GET['mid'],'page',$page-1), sprintf('%s (%d/%d)', Context::getLang('cmd_prev'), $page-1, $totalPage));
+		if($page > 1)
+		{
+			$oMobile->setPrevUrl(getUrl('mid',$_GET['mid'],'page',$page-1), sprintf('%s (%d/%d)', Context::getLang('cmd_prev'), $page-1, $totalPage));
+		}
 
-		if($page<$totalPage) $oMobile->setNextUrl(getUrl('mid',$_GET['mid'],'page',$page+1), sprintf('%s (%d/%d)', Context::getLang('cmd_next'), $page+1, $totalPage));
+		if($page < $totalPage)
+		{
+			$oMobile->setNextUrl(getUrl('mid',$_GET['mid'],'page',$page+1), sprintf('%s (%d/%d)', Context::getLang('cmd_next'), $page+1, $totalPage));
+		}
 
 		$oMobile->mobilePage = $page;
 		$oMobile->totalPage = $totalPage;

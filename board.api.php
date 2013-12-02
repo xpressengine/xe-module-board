@@ -1,7 +1,9 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
+
 /**
  * @class  boardAPI
- * @author sol(sol@ngleader.com)
+ * @author NAVER (developers@xpressengine.com)
  * @brief  board module View Action에 대한 API 처리
  **/
 

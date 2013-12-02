@@ -1,7 +1,9 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
+
 /**
  * @class  boardAdminView
- * @author zero (zero@nzeo.com)
+ * @author NAVER (developers@xpressengine.com)
  * @brief  board module admin view class
  **/
 

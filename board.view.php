@@ -1,11 +1,13 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
+
 /**
  * @class  boardView
- * @author NHN (developers@xpressengine.com)
+ * @author NAVER (developers@xpressengine.com)
  * @brief  board module View class
  **/
-
-class boardView extends board {
+class boardView extends board
+{
 	var $listConfig;
 	var $columnList;
 
@@ -13,17 +15,27 @@ class boardView extends board {
 	 * @brief initialization
 	 * board module can be used in either normal mode or admin mode.\n
 	 **/
-	function init() {
+	function init()
+	{
 		$oSecurity = new Security();
 		$oSecurity->encodeHTML('document_srl', 'comment_srl', 'vid', 'mid', 'page', 'category', 'search_target', 'search_keyword', 'sort_index', 'order_type', 'trackback_srl');
 
 		/**
 		 * setup the module general information
 		 **/
-		if($this->module_info->list_count) $this->list_count = $this->module_info->list_count;
-		if($this->module_info->search_list_count) $this->search_list_count = $this->module_info->search_list_count;
-		if($this->module_info->page_count) $this->page_count = $this->module_info->page_count;
-		$this->except_notice = $this->module_info->except_notice == 'N' ? false : true;
+		if($this->module_info->list_count)
+		{
+			$this->list_count = $this->module_info->list_count;
+		}
+		if($this->module_info->search_list_count)
+		{
+			$this->search_list_count = $this->module_info->search_list_count;
+		}
+		if($this->module_info->page_count)
+		{
+			$this->page_count = $this->module_info->page_count;
+		}
+		$this->except_notice = $this->module_info->except_notice == 'N' ? FALSE : TRUE;
 
 		// $this->_getStatusNameListecret option backward compatibility
 		$oDocumentModel = &getModel('document');
@@ -36,8 +48,14 @@ class boardView extends board {
 
 		if($this->module_info->use_category && !$this->module_info->hide_category)
 		{
-			if($this->module_info->use_category == 'Y') $this->module_info->hide_category = 'N';
-			else $this->module_info->hide_category = 'Y';
+			if($this->module_info->use_category == 'Y')
+			{
+				$this->module_info->hide_category = 'N';
+			}
+			else
+			{
+				$this->module_info->hide_category = 'Y';
+			}
 		}
 		else if($this->module_info->hide_category && $this->module_info->hide_category != 'Y')
 		{
@@ -54,11 +72,20 @@ class boardView extends board {
 		 * check the consultation function, if the user is admin then swich off consultation function
 		 * if the user is not logged, then disppear write document/write comment./ view document
 		 **/
-		if($this->module_info->consultation == 'Y' && !$this->grant->manager) {
-			$this->consultation = true;
-			if(!Context::get('is_logged')) $this->grant->list = $this->grant->write_document = $this->grant->write_comment = $this->grant->view = false;
-		} else {
-			$this->consultation = false;
+		if($this->module_info->consultation == 'Y' && !$this->grant->manager)
+		{
+			$this->consultation = TRUE;
+			if(!Context::get('is_logged'))
+			{
+				$this->grant->list = FALSE;
+				$this->grant->write_document = FALSE;
+				$this->grant->write_comment = FALSE;
+				$this->grant->view = FALSE;
+			}
+		}
+		else
+		{
+			$this->consultation = FALSE;
 		}
 
 		/**
@@ -66,7 +93,8 @@ class boardView extends board {
 		 * the default skin is default
 		 **/
 		$template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
-		if(!is_dir($template_path)||!$this->module_info->skin) {
+		if(!is_dir($template_path)||!$this->module_info->skin)
+		{
 			$this->module_info->skin = 'default';
 			$template_path = sprintf("%sskins/%s/",$this->module_path, $this->module_info->skin);
 		}
@@ -82,8 +110,10 @@ class boardView extends board {
 		/**
 		 * add extra variables to order(sorting) target
 		 **/
-		if (is_array($extra_keys)){
-			foreach($extra_keys as $val){
+		if (is_array($extra_keys))
+		{
+			foreach($extra_keys as $val)
+			{
 				$this->order_target[] = $val->eid;
 			}
 		}
@@ -108,11 +138,15 @@ class boardView extends board {
 	/**
 	 * @brief display board contents
 	 **/
-	function dispBoardContent() {
+	function dispBoardContent()
+	{
 		/**
 		 * check the access grant (all the grant has been set by the module object)
 		 **/
-		if(!$this->grant->access || !$this->grant->list) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->access || !$this->grant->list)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		/**
 		 * display the category list, and then setup the category list on context
@@ -126,8 +160,10 @@ class boardView extends board {
 		// use search options on the template (the search options key has been declared, based on the language selected)
 		foreach($this->search_option as $opt) $search_option[$opt] = Context::getLang($opt);
 		$extra_keys = Context::get('extra_keys');
-		if($extra_keys) {
-			foreach($extra_keys as $key => $val) {
+		if($extra_keys)
+		{
+			foreach($extra_keys as $key => $val)
+			{
 				if($val->search == 'Y') $search_option['extra_vars'.$val->idx] = $val->name;
 			}
 		}
@@ -135,7 +171,10 @@ class boardView extends board {
 
 		$oDocumentModel = &getModel('document');
 		$statusNameList = $this->_getStatusNameList($oDocumentModel);
-		if(count($statusNameList) > 0) Context::set('status_list', $statusNameList);
+		if(count($statusNameList) > 0)
+		{
+			Context::set('status_list', $statusNameList);
+		}
 
 		// display the board content
 		$this->dispBoardContentView();
@@ -168,7 +207,8 @@ class boardView extends board {
 	 **/
 	function dispBoardCategoryList(){
 		// check if the use_category option is enabled
-		if($this->module_info->use_category=='Y') {
+		if($this->module_info->use_category=='Y')
+		{
 			$oDocumentModel = &getModel('document');
 			Context::set('category_list', $oDocumentModel->getCategoryList($this->module_srl));
 
@@ -191,26 +231,36 @@ class boardView extends board {
 		/**
 		 * if the document exists, then get the document information
 		 **/
-		if($document_srl) {
+		if($document_srl)
+		{
 			$oDocument = $oDocumentModel->getDocument($document_srl, false, true);
 
 			// if the document is existed
-			if($oDocument->isExists()) {
-
+			if($oDocument->isExists())
+			{
 				// if the module srl is not consistent
-				if($oDocument->get('module_srl')!=$this->module_info->module_srl ) return $this->stop('msg_invalid_request');
+				if($oDocument->get('module_srl')!=$this->module_info->module_srl )
+				{
+					return $this->stop('msg_invalid_request');
+				}
 
 				// check the manage grant
 				if($this->grant->manager) $oDocument->setGrant();
 
 				// if the consultation function is enabled, and the document is not a notice
-				if($this->consultation && !$oDocument->isNotice()) {
+				if($this->consultation && !$oDocument->isNotice())
+				{
 					$logged_info = Context::get('logged_info');
-					if($oDocument->get('member_srl')!=$logged_info->member_srl) $oDocument = $oDocumentModel->getDocument(0);
+					if($oDocument->get('member_srl')!=$logged_info->member_srl)
+					{
+						$oDocument = $oDocumentModel->getDocument(0);
+					}
 				}
 
-			// if the document is not existed, then alert a warning message
-			} else {
+			}
+			else
+			{
+				// if the document is not existed, then alert a warning message
 				Context::set('document_srl','',true);
 				$this->alertMessage('msg_not_founded');
 			}
@@ -218,27 +268,39 @@ class boardView extends board {
 		/**
 		 * if the document is not existed, get an empty document
 		 **/
-		} else {
+		}
+		else
+		{
 			$oDocument = $oDocumentModel->getDocument(0);
 		}
 
 		/**
 		 *check the document view grant
 		 **/
-		if($oDocument->isExists()) {
-			if(!$this->grant->view && !$oDocument->isGranted()) {
+		if($oDocument->isExists())
+		{
+			if(!$this->grant->view && !$oDocument->isGranted())
+			{
 				$oDocument = $oDocumentModel->getDocument(0);
 				Context::set('document_srl','',true);
 				$this->alertMessage('msg_not_permitted');
-			} else {
+			}
+			else
+			{
 				// add the document title to the browser
 				Context::addBrowserTitle($oDocument->getTitleText());
 
 				// update the document view count (if the document is not secret)
-				if(!$oDocument->isSecret() || $oDocument->isGranted()) $oDocument->updateReadedCount();
+				if(!$oDocument->isSecret() || $oDocument->isGranted())
+				{
+					$oDocument->updateReadedCount();
+				}
 
 				// disappear the document if it is secret
-				if($oDocument->isSecret() && !$oDocument->isGranted()) $oDocument->add('content',Context::getLang('thisissecret'));
+				if($oDocument->isSecret() && !$oDocument->isGranted())
+				{
+					$oDocument->add('content',Context::getLang('thisissecret'));
+				}
 			}
 		}
 
@@ -279,8 +341,10 @@ class boardView extends board {
 		// setup the comment list
 		if(is_array($comment_list))
 		{
-			foreach($comment_list as $key => $val){
-				if(!$val->isAccessible()){
+			foreach($comment_list as $key => $val)
+			{
+				if(!$val->isAccessible())
+				{
 					$val->add('content',Context::getLang('thisissecret'));
 				}
 			}
@@ -305,7 +369,8 @@ class boardView extends board {
 	 **/
 	function dispBoardContentList(){
 		// check the grant
-		if(!$this->grant->list) {
+		if(!$this->grant->list)
+		{
 			Context::set('document_list', array());
 			Context::set('total_count', 0);
 			Context::set('total_page', 1);
@@ -328,19 +393,30 @@ class boardView extends board {
 		$args->search_keyword = Context::get('search_keyword');
 
 		// if the category is enabled, then get the category
-		if($this->module_info->use_category=='Y') $args->category_srl = Context::get('category');
+		if($this->module_info->use_category=='Y')
+		{
+			$args->category_srl = Context::get('category');
+		}
 
 		// setup the sort index and order index
 		$args->sort_index = Context::get('sort_index');
 		$args->order_type = Context::get('order_type');
-		if(!in_array($args->sort_index, $this->order_target)) $args->sort_index = $this->module_info->order_target?$this->module_info->order_target:'list_order';
-		if(!in_array($args->order_type, array('asc','desc'))) $args->order_type = $this->module_info->order_type?$this->module_info->order_type:'asc';
+		if(!in_array($args->sort_index, $this->order_target))
+		{
+			$args->sort_index = $this->module_info->order_target?$this->module_info->order_target:'list_order';
+		}
+		if(!in_array($args->order_type, array('asc','desc')))
+		{
+			$args->order_type = $this->module_info->order_type?$this->module_info->order_type:'asc';
+		}
 
 		// set the current page of documents
 		$_get = $_GET;
-		if(!$args->page && ($_GET['document_srl'] || $_GET['entry'])) {
+		if(!$args->page && ($_GET['document_srl'] || $_GET['entry']))
+		{
 			$oDocument = $oDocumentModel->getDocument(Context::get('document_srl'));
-			if($oDocument->isExists() && !$oDocument->isNotice()) {
+			if($oDocument->isExists() && !$oDocument->isNotice())
+			{
 				$page = $oDocumentModel->getDocumentPage($oDocument, $args);
 				Context::set('page', $page);
 				$args->page = $page;
@@ -348,10 +424,14 @@ class boardView extends board {
 		}
 
 		// setup the list count to be serach list count, if the category or search keyword has been set
-		if($args->category_srl || $args->search_keyword) $args->list_count = $this->search_list_count;
+		if($args->category_srl || $args->search_keyword)
+		{
+			$args->list_count = $this->search_list_count;
+		}
 
 		// if the consultation function is enabled,  the get the logged user information
-		if($this->consultation) {
+		if($this->consultation)
+		{
 			$logged_info = Context::get('logged_info');
 			$args->member_srl = $logged_info->member_srl;
 		}
@@ -359,7 +439,7 @@ class boardView extends board {
 		// setup the list config variable on context
 		Context::set('list_config', $this->listConfig);
 		// setup document list variables on context
-		$output = $oDocumentModel->getDocumentList($args, $this->except_notice, true, $this->columnList);
+		$output = $oDocumentModel->getDocumentList($args, $this->except_notice, TRUE, $this->columnList);
 		Context::set('document_list', $output->data);
 		Context::set('total_count', $output->total_count);
 		Context::set('total_page', $output->total_page);
@@ -394,7 +474,8 @@ class boardView extends board {
 		}
 
 		// add is_notice
-		if ($this->except_notice) {
+		if ($this->except_notice)
+		{
 			array_push($this->columnList, 'is_notice');
 		}
 		$this->columnList = array_unique(array_merge($this->columnList, $defaultColumn));
@@ -409,9 +490,13 @@ class boardView extends board {
 	/**
 	 * @brief display tag list
 	 **/
-	function dispBoardTagList() {
+	function dispBoardTagList()
+	{
 		// check if there is not grant fot view list, then alert an warning message
-		if(!$this->grant->list) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->list)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		// generate the tag module model object
 		$oTagModel = &getModel('tag');
@@ -422,12 +507,15 @@ class boardView extends board {
 		$output = $oTagModel->getTagList($obj);
 
 		// automatically order
-		if(count($output->data)) {
+		if(count($output->data))
+		{
 			$numbers = array_keys($output->data);
 			shuffle($numbers);
 
-			if(count($output->data)) {
-				foreach($numbers as $k => $v) {
+			if(count($output->data))
+			{
+				foreach($numbers as $k => $v)
+				{
 					$tag_list[] = $output->data[$v];
 				}
 			}
@@ -444,34 +532,45 @@ class boardView extends board {
 	/**
 	 * @brief display document write form
 	 **/
-	function dispBoardWrite() {
+	function dispBoardWrite()
+	{
 		// check grant
-		if(!$this->grant->write_document) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->write_document)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		$oDocumentModel = &getModel('document');
 
 		/**
 		 * check if the category option is enabled not not
 		 **/
-		if($this->module_info->use_category=='Y') {
+		if($this->module_info->use_category=='Y')
+		{
 			// get the user group information
-			if(Context::get('is_logged')) {
+			if(Context::get('is_logged'))
+			{
 				$logged_info = Context::get('logged_info');
 				$group_srls = array_keys($logged_info->group_list);
-			} else {
+			}
+			else
+			{
 				$group_srls = array();
 			}
 			$group_srls_count = count($group_srls);
 
 			// check the grant after obtained the category list
 			$normal_category_list = $oDocumentModel->getCategoryList($this->module_srl);
-			if(count($normal_category_list)) {
-				foreach($normal_category_list as $category_srl => $category) {
-					$is_granted = true;
-					if($category->group_srls) {
+			if(count($normal_category_list))
+			{
+				foreach($normal_category_list as $category_srl => $category)
+				{
+					$is_granted = TRUE;
+					if($category->group_srls)
+					{
 						$category_group_srls = explode(',',$category->group_srls);
-						$is_granted = false;
-						if(count(array_intersect($group_srls, $category_group_srls))) $is_granted = true;
+						$is_granted = FALSE;
+						if(count(array_intersect($group_srls, $category_group_srls))) $is_granted = TRUE;
 
 					}
 					if($is_granted) $category_list[$category_srl] = $category;
@@ -484,26 +583,40 @@ class boardView extends board {
 		$document_srl = Context::get('document_srl');
 		$oDocument = $oDocumentModel->getDocument(0, $this->grant->manager);
 		$oDocument->setDocument($document_srl);
-		if($oDocument->get('module_srl') == $oDocument->get('member_srl')) $savedDoc = true;
+
+		if($oDocument->get('module_srl') == $oDocument->get('member_srl')) $savedDoc = TRUE;
 		$oDocument->add('module_srl', $this->module_srl);
 
 		// if the document is not granted, then back to the password input form
 		$oModuleModel = &getModel('module');
-		if($oDocument->isExists()&&!$oDocument->isGranted()) return $this->setTemplateFile('input_password_form');
-		if(!$oDocument->isExists()) {
+		if($oDocument->isExists()&&!$oDocument->isGranted())
+		{
+			return $this->setTemplateFile('input_password_form');
+		}
+
+		if(!$oDocument->isExists())
+		{
 			$point_config = $oModuleModel->getModulePartConfig('point',$this->module_srl);
 			$logged_info = Context::get('logged_info');
 			$oPointModel = &getModel('point');
 			$pointForInsert = $point_config["insert_document"];
-			if($pointForInsert < 0) {
-				if( !$logged_info ) return $this->dispBoardMessage('msg_not_permitted');
-				else if (($oPointModel->getPoint($logged_info->member_srl) + $pointForInsert )< 0 ) return $this->dispBoardMessage('msg_not_enough_point');
+			if($pointForInsert < 0)
+			{
+				if( !$logged_info )
+				{
+					return $this->dispBoardMessage('msg_not_permitted');
+				}
+				else if (($oPointModel->getPoint($logged_info->member_srl) + $pointForInsert )< 0 )
+				{
+					return $this->dispBoardMessage('msg_not_enough_point');
+				}
 			}
 		}
 		if(!$oDocument->get('status')) $oDocument->add('status', $oDocumentModel->getDefaultStatus());
 
 		$statusList = $this->_getStatusNameList($oDocumentModel);
 		if(count($statusList) > 0) Context::set('status_list', $statusList);
+
 		// get Document status config value
 		Context::set('document_srl',$document_srl);
 		Context::set('oDocument', $oDocument);
@@ -536,7 +649,7 @@ class boardView extends board {
 
 			if(is_array($statusList))
 			{
-				foreach($statusList AS $key=>$value)
+				foreach($statusList as $key => $value)
 				{
 					$resultList[$value] = $statusNameList[$value];
 				}
@@ -548,24 +661,35 @@ class boardView extends board {
 	/**
 	 * @brief display board module deletion form
 	 **/
-	function dispBoardDelete() {
+	function dispBoardDelete()
+	{
 		// check grant
-		if(!$this->grant->write_document) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->write_document)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		// get the document_srl from request
 		$document_srl = Context::get('document_srl');
 
 		// if document exists, get the document information
-		if($document_srl) {
+		if($document_srl)
+		{
 			$oDocumentModel = &getModel('document');
 			$oDocument = $oDocumentModel->getDocument($document_srl);
 		}
 
 		// if the document is not existed, then back to the board content page
-		if(!$oDocument->isExists()) return $this->dispBoardContent();
+		if(!$oDocument->isExists())
+		{
+			return $this->dispBoardContent();
+		}
 
 		// if the document is not granted, then back to the password input form
-		if(!$oDocument->isGranted()) return $this->setTemplateFile('input_password_form');
+		if(!$oDocument->isGranted())
+		{
+			return $this->setTemplateFile('input_password_form');
+		}
 
 		Context::set('oDocument',$oDocument);
 
@@ -580,16 +704,23 @@ class boardView extends board {
 	/**
 	 * @brief display comment wirte form
 	 **/
-	function dispBoardWriteComment() {
+	function dispBoardWriteComment()
+	{
 		$document_srl = Context::get('document_srl');
 
 		// check grant
-		if(!$this->grant->write_comment) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->write_comment)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		// get the document information
 		$oDocumentModel = &getModel('document');
 		$oDocument = $oDocumentModel->getDocument($document_srl);
-		if(!$oDocument->isExists()) return $this->dispBoardMessage('msg_invalid_request');
+		if(!$oDocument->isExists())
+		{
+			return $this->dispBoardMessage('msg_invalid_request');
+		}
 
 		// Check allow comment
 		if(!$oDocument->allowComment())
@@ -619,23 +750,36 @@ class boardView extends board {
 	/**
 	 * @brief display comment replies page
 	 **/
-	function dispBoardReplyComment() {
+	function dispBoardReplyComment()
+	{
 		// check grant
-		if(!$this->grant->write_comment) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->write_comment)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		// get the parent comment ID
 		$parent_srl = Context::get('comment_srl');
 
 		// if the parent comment is not existed
-		if(!$parent_srl) return new Object(-1, 'msg_invalid_request');
+		if(!$parent_srl)
+		{
+			return new Object(-1, 'msg_invalid_request');
+		}
 
 		// get the comment
 		$oCommentModel = &getModel('comment');
 		$oSourceComment = $oCommentModel->getComment($parent_srl, $this->grant->manager);
 
 		// if the comment is not existed, opoup an error message
-		if(!$oSourceComment->isExists()) return $this->dispBoardMessage('msg_invalid_request');
-		if(Context::get('document_srl') && $oSourceComment->get('document_srl') != Context::get('document_srl')) return $this->dispBoardMessage('msg_invalid_request');
+		if(!$oSourceComment->isExists())
+		{
+			return $this->dispBoardMessage('msg_invalid_request');
+		}
+		if(Context::get('document_srl') && $oSourceComment->get('document_srl') != Context::get('document_srl'))
+		{
+			return $this->dispBoardMessage('msg_invalid_request');
+		}
 
 		// Check allow comment
 		$oDocumentModel = getModel('document');
@@ -666,26 +810,39 @@ class boardView extends board {
 	/**
 	 * @brief display the comment modification from
 	 **/
-	function dispBoardModifyComment() {
+	function dispBoardModifyComment()
+	{
 		// check grant
-		if(!$this->grant->write_comment) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->write_comment)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		// get the document_srl and comment_srl
 		$document_srl = Context::get('document_srl');
 		$comment_srl = Context::get('comment_srl');
 
 		// if the comment is not existed
-		if(!$comment_srl) return new Object(-1, 'msg_invalid_request');
+		if(!$comment_srl)
+		{
+			return new Object(-1, 'msg_invalid_request');
+		}
 
 		// get comment information
 		$oCommentModel = &getModel('comment');
 		$oComment = $oCommentModel->getComment($comment_srl, $this->grant->manager);
 
 		// if the comment is not exited, alert an error message
-		if(!$oComment->isExists()) return $this->dispBoardMessage('msg_invalid_request');
+		if(!$oComment->isExists())
+		{
+			return $this->dispBoardMessage('msg_invalid_request');
+		}
 
 		// if the comment is not granted, then back to the password input form
-		if(!$oComment->isGranted()) return $this->setTemplateFile('input_password_form');
+		if(!$oComment->isGranted())
+		{
+			return $this->setTemplateFile('input_password_form');
+		}
 
 		// setup the comment variables on context
 		Context::set('oSourceComment', $oCommentModel->getComment());
@@ -702,24 +859,35 @@ class boardView extends board {
 	/**
 	 * @brief display the delete comment  form
 	 **/
-	function dispBoardDeleteComment() {
+	function dispBoardDeleteComment()
+	{
 		// check grant
-		if(!$this->grant->write_comment) return $this->dispBoardMessage('msg_not_permitted');
+		if(!$this->grant->write_comment)
+		{
+			return $this->dispBoardMessage('msg_not_permitted');
+		}
 
 		// get the comment_srl to be deleted
 		$comment_srl = Context::get('comment_srl');
 
 		// if the comment exists, then get the comment information
-		if($comment_srl) {
+		if($comment_srl)
+		{
 			$oCommentModel = &getModel('comment');
 			$oComment = $oCommentModel->getComment($comment_srl, $this->grant->manager);
 		}
 
 		// if the comment is not existed, then back to the board content page
-		if(!$oComment->isExists() ) return $this->dispBoardContent();
+		if(!$oComment->isExists() )
+		{
+			return $this->dispBoardContent();
+		}
 
 		// if the comment is not granted, then back to the password input form
-		if(!$oComment->isGranted()) return $this->setTemplateFile('input_password_form');
+		if(!$oComment->isGranted())
+		{
+			return $this->setTemplateFile('input_password_form');
+		}
 
 		Context::set('oComment',$oComment);
 
@@ -734,7 +902,8 @@ class boardView extends board {
 	/**
 	 * @brief display the delete trackback form
 	 **/
-	function dispBoardDeleteTrackback() {
+	function dispBoardDeleteTrackback()
+	{
 		// get the trackback_srl
 		$trackback_srl = Context::get('trackback_srl');
 
@@ -745,7 +914,10 @@ class boardView extends board {
 		$trackback = $output->data;
 
 		// if no trackback, then display the board content
-		if(!$trackback) return $this->dispBoardContent();
+		if(!$trackback)
+		{
+			return $this->dispBoardContent();
+		}
 
 		//Context::set('trackback',$trackback);	//perhaps trackback variables not use in UI
 
@@ -760,7 +932,8 @@ class boardView extends board {
 	/**
 	 * @brief display board message
 	 **/
-	function dispBoardMessage($msg_code) {
+	function dispBoardMessage($msg_code)
+	{
 		$msg = Context::getLang($msg_code);
 		if(!$msg) $msg = $msg_code;
 		Context::set('message', $msg);
@@ -771,7 +944,8 @@ class boardView extends board {
 	 * @brief the method for displaying the warning messages
 	 * display an error message if it has not  a special design
 	 **/
-	function alertMessage($message) {
+	function alertMessage($message)
+	{
 		$script =  sprintf('<script> jQuery(function(){ alert("%s"); } );</script>', Context::getLang($message));
 		Context::addHtmlFooter( $script );
 	}

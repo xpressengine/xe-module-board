@@ -1,7 +1,9 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
+
 /**
  * @class  boardAdminController
- * @author zero (zero@nzeo.com)
+ * @author NAVER (developers@xpressengine.com)
  * @brief  board module admin controller class
  **/
 
@@ -29,11 +31,11 @@ class boardAdminController extends board {
 		unset($args->board_name);
 
 		// setup other variables
-		if($args->except_notice!='Y') $args->except_notice = 'N';
-		if($args->use_anonymous!='Y') $args->use_anonymous= 'N';
-		if($args->consultation!='Y') $args->consultation = 'N';
+		if($args->except_notice != 'Y') $args->except_notice = 'N';
+		if($args->use_anonymous != 'Y') $args->use_anonymous = 'N';
+		if($args->consultation != 'Y') $args->consultation = 'N';
 		if(!in_array($args->order_target,$this->order_target)) $args->order_target = 'list_order';
-		if(!in_array($args->order_type,array('asc','desc'))) $args->order_type = 'asc';
+		if(!in_array($args->order_type, array('asc', 'desc'))) $args->order_type = 'asc';
 
 		// if there is an existed module
 		if($args->module_srl) {

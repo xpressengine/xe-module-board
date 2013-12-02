@@ -1,4 +1,5 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
 
 require_once(_XE_PATH_.'modules/board/board.view.php');
 
@@ -33,7 +34,8 @@ class boardMobile extends boardView
 		 * check the consultation function, if the user is admin then swich off consultation function
 		 * if the user is not logged, then disppear write document/write comment./ view document
 		 **/
-		if($this->module_info->consultation == 'Y' && !$this->grant->manager) {
+		if($this->module_info->consultation == 'Y' && !$this->grant->manager)
+		{
 			$this->consultation = true;
 			if(!Context::get('is_logged')) $this->grant->list = $this->grant->write_document = $this->grant->write_comment = $this->grant->view = false;
 		} else {
@@ -45,7 +47,8 @@ class boardMobile extends boardView
 		Context::set('extra_keys', $extra_keys);
 
 		$template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
-		if(!is_dir($template_path)||!$this->module_info->mskin) {
+		if(!is_dir($template_path)||!$this->module_info->mskin)
+		{
 			$this->module_info->mskin = 'default';
 			$template_path = sprintf("%sm.skins/%s/",$this->module_path, $this->module_info->mskin);
 		}
@@ -60,19 +63,27 @@ class boardMobile extends boardView
 		$this->setTemplateFile('category.html');
 	}
 
-	function getBoardCommentPage() {
+	function getBoardCommentPage()
+	{
 		$document_srl = Context::get('document_srl');
 		$oDocumentModel =& getModel('document');
-		if(!$document_srl) return new Object(-1, "msg_invalid_request");
+		if(!$document_srl)
+		{
+			return new Object(-1, "msg_invalid_request");
+		}
 		$oDocument = $oDocumentModel->getDocument($document_srl);
-		if(!$oDocument->isExists()) return new Object(-1, "msg_invalid_request");
+		if(!$oDocument->isExists())
+		{
+			return new Object(-1, "msg_invalid_request");
+		}
 		Context::set('oDocument', $oDocument);
 		$oTemplate = TemplateHandler::getInstance();
 		$html = $oTemplate->compile($this->getTemplatePath(), "comment.html");
 		$this->add("html", $html);
 	}
 
-	function dispBoardMessage($msg_code) {
+	function dispBoardMessage($msg_code)
+	{
 		$msg = Context::getLang($msg_code);
 		$oMessageObject = &ModuleHandler::getModuleInstance('message','mobile');
 		$oMessageObject->setError(-1);
