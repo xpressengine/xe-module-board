@@ -904,11 +904,17 @@ class boardView extends board
 	 **/
 	function dispBoardDeleteTrackback()
 	{
+		$oTrackbackModel = &getModel('trackback');
+
+		if(!$oTrackbackModel)
+		{
+			return;
+		}
+
 		// get the trackback_srl
 		$trackback_srl = Context::get('trackback_srl');
 
 		// get the trackback data
-		$oTrackbackModel = &getModel('trackback');
 		$columnList = array('trackback_srl');
 		$output = $oTrackbackModel->getTrackback($trackback_srl, $columnList);
 		$trackback = $output->data;

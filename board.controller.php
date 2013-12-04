@@ -309,6 +309,9 @@ class boardController extends board
 
 		// generate trackback module controller object
 		$oTrackbackController = &getController('trackback');
+
+		if(!$oTrackbackController) return;
+
 		$output = $oTrackbackController->deleteTrackback($trackback_srl, $this->grant->manager);
 		if(!$output->toBool())
 		{
