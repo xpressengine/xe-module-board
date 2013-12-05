@@ -65,7 +65,7 @@ class boardView extends board
 		else
 		{
 			$this->module_info->hide_category = 'N';
-			$this->module_info->use_category = 'N';
+			$this->module_info->use_category = 'Y';
 		}
 
 		/**
@@ -210,6 +210,7 @@ class boardView extends board
 		if($this->module_info->use_category=='Y')
 		{
 			$oDocumentModel = &getModel('document');
+			debugPrint($oDocumentModel->getCategoryList($this->module_srl));
 			Context::set('category_list', $oDocumentModel->getCategoryList($this->module_srl));
 
 			$oSecurity = new Security();
