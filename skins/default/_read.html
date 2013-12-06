@@ -64,7 +64,6 @@
 			<a class="document_{$oDocument->document_srl} action" href="#popup_menu_area" onclick="return false">{$lang->cmd_document_do}</a>
 			<ul class="sns">
 				<li class="twitter link"><a href="http://twitter.com/">Twitter</a></li>
-				<li class="me2day link"><a href="http://me2day.net/">Me2day</a></li>
 				<li class="facebook link"><a href="http://facebook.com/">Facebook</a></li>
 				<li class="delicious link"><a href="http://delicious.com/">Delicious</a></li>
 			</ul>
@@ -74,10 +73,6 @@
 					$('.twitter>a').snspost({
 						type : 'twitter',
 						content : sTitle + ' {$oDocument->getPermanentUrl()}'
-					});
-					$('.me2day>a').snspost({
-						type : 'me2day',
-						content : '\"' + sTitle + '\":{$oDocument->getPermanentUrl()}'
 					});
 					$('.facebook>a').snspost({
 						type : 'facebook',

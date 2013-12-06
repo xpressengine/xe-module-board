@@ -1,9 +1,11 @@
 <?php
+/* Copyright (C) NAVER <http://www.navercorp.com> */
+
 /**
  * boardAdminModel class
  * Board the module's admin model class
  *
- * @author NHN (developers@xpressengine.com)
+ * @author NAVER (developers@xpressengine.com)
  * @package /modules/board
  * @version 0.1
  */
