@@ -57,15 +57,15 @@ class boardView extends board
 				$this->module_info->hide_category = 'Y';
 			}
 		}
-		else if($this->module_info->hide_category && $this->module_info->hide_category != 'Y')
+		else if($this->module_info->hide_category && $this->module_info->hide_category != 'Y' && count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
 		{
 			$this->module_info->hide_category = 'N';
 			$this->module_info->use_category = 'Y';
 		}
 		else
 		{
-			$this->module_info->hide_category = 'N';
-			$this->module_info->use_category = 'Y';
+			$this->module_info->hide_category = 'Y';
+			$this->module_info->use_category = 'N';
 		}
 
 		/**
