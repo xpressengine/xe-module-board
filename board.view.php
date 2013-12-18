@@ -46,26 +46,17 @@ class boardView extends board
 			$this->module_info->secret = 'Y';
 		}
 
-		if($this->module_info->use_category && !$this->module_info->hide_category)
-		{
-			if($this->module_info->use_category == 'Y')
-			{
-				$this->module_info->hide_category = 'N';
-			}
-			else
-			{
-				$this->module_info->hide_category = 'Y';
-			}
-		}
-		else if($this->module_info->hide_category && $this->module_info->hide_category != 'Y' && count($oDocumentModel->getCategoryList($this->module_info->module_srl)))
-		{
-			$this->module_info->hide_category = 'N';
-			$this->module_info->use_category = 'Y';
-		}
-		else
+		// use_category <=1.5.x, hide_category >=1.7.x
+		$count_category = count($oDocumentModel->getCategoryList($this->module_info->module_srl));
+		if($count_category && ($this->module_info->hide_category == 'Y' || $this->module_info->use_category == 'N'))
 		{
 			$this->module_info->hide_category = 'Y';
 			$this->module_info->use_category = 'N';
+		}
+		else
+		{
+			$this->module_info->hide_category = 'N';
+			$this->module_info->use_category = 'Y';
 		}
 
 		/**
@@ -210,7 +201,6 @@ class boardView extends board
 		if($this->module_info->use_category=='Y')
 		{
 			$oDocumentModel = &getModel('document');
-			debugPrint($oDocumentModel->getCategoryList($this->module_srl));
 			Context::set('category_list', $oDocumentModel->getCategoryList($this->module_srl));
 
 			$oSecurity = new Security();
