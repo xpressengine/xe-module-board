@@ -48,15 +48,15 @@ class boardView extends board
 
 		// use_category <=1.5.x, hide_category >=1.7.x
 		$count_category = count($oDocumentModel->getCategoryList($this->module_info->module_srl));
-		if($count_category && ($this->module_info->hide_category == 'Y' || $this->module_info->use_category == 'N'))
-		{
-			$this->module_info->hide_category = 'Y';
-			$this->module_info->use_category = 'N';
-		}
-		else
+		if($count_category && ($this->module_info->hide_category != 'Y' || $this->module_info->use_category != 'N'))
 		{
 			$this->module_info->hide_category = 'N';
 			$this->module_info->use_category = 'Y';
+		}
+		else
+		{
+			$this->module_info->hide_category = 'Y';
+			$this->module_info->use_category = 'N';
 		}
 
 		/**
