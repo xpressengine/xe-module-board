@@ -32,7 +32,7 @@ class boardAdminModel extends board
 		Context::set('module_srl', $moduleSrl);
 
 		// default module info setting
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 		$moduleInfo = $oModuleModel->getModuleInfoByModuleSrl($moduleSrl);
 		$moduleInfo->use_status = explode('|@|', $moduleInfo->use_status);
 		if($moduleInfo)
@@ -41,7 +41,7 @@ class boardAdminModel extends board
 		}
 
 		// get document status list
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$documentStatusList = $oDocumentModel->getStatusNameList();
 		Context::set('document_status_list', $documentStatusList);
 
@@ -55,7 +55,7 @@ class boardAdminModel extends board
 		Context::set('order_target', $order_target);
 
 		// for advanced language & url
-		$oAdmin = &getClass('admin');
+		$oAdmin = getClass('admin');
 		Context::set('setupUrl', $setupUrl);
 
 		// Extract admin ID set in the current module

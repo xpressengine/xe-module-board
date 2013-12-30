@@ -52,10 +52,10 @@ class boardController extends board
 		}
 
 		// generate document module model object
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		// generate document module의 controller object
-		$oDocumentController = &getController('document');
+		$oDocumentController = getController('document');
 
 		// check if the document is existed
 		$oDocument = $oDocumentModel->getDocument($obj->document_srl, $this->grant->manager);
@@ -162,7 +162,7 @@ class boardController extends board
 		}
 
 		// generate document module controller object
-		$oDocumentController = &getController('document');
+		$oDocumentController = getController('document');
 
 		// delete the document
 		$output = $oDocumentController->deleteDocument($document_srl, $this->grant->manager);
@@ -183,7 +183,7 @@ class boardController extends board
 	function procBoardVoteDocument()
 	{
 		// generate document module controller object
-		$oDocumentController = &getController('document');
+		$oDocumentController = getController('document');
 
 		$document_srl = Context::get('document_srl');
 		return $oDocumentController->updateVotedCount($document_srl);
@@ -206,7 +206,7 @@ class boardController extends board
 		$obj->module_srl = $this->module_srl;
 
 		// check if the doument is existed
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$oDocument = $oDocumentModel->getDocument($obj->document_srl);
 		if(!$oDocument->isExists())
 		{
@@ -229,10 +229,10 @@ class boardController extends board
 		}
 
 		// generate comment  module model object
-		$oCommentModel = &getModel('comment');
+		$oCommentModel = getModel('comment');
 
 		// generate comment module controller object
-		$oCommentController = &getController('comment');
+		$oCommentController = getController('comment');
 
 		// check the comment is existed
 		// if the comment is not existed, then generate a new sequence
@@ -299,7 +299,7 @@ class boardController extends board
 		}
 
 		// generate comment  controller object
-		$oCommentController = &getController('comment');
+		$oCommentController = getController('comment');
 
 		$output = $oCommentController->deleteComment($comment_srl, $this->grant->manager);
 		if(!$output->toBool())
@@ -321,7 +321,7 @@ class boardController extends board
 		$trackback_srl = Context::get('trackback_srl');
 
 		// generate trackback module controller object
-		$oTrackbackController = &getController('trackback');
+		$oTrackbackController = getController('trackback');
 
 		if(!$oTrackbackController) return;
 
@@ -347,13 +347,13 @@ class boardController extends board
 		$document_srl = Context::get('document_srl');
 		$comment_srl = Context::get('comment_srl');
 
-		$oMemberModel = &getModel('member');
+		$oMemberModel = getModel('member');
 
 		// if the comment exists
 		if($comment_srl)
 		{
 			// get the comment information
-			$oCommentModel = &getModel('comment');
+			$oCommentModel = getModel('comment');
 			$oComment = $oCommentModel->getComment($comment_srl);
 			if(!$oComment->isExists())
 			{
@@ -369,7 +369,7 @@ class boardController extends board
 			$oComment->setGrant();
 		} else {
 			 // get the document information
-			$oDocumentModel = &getModel('document');
+			$oDocumentModel = getModel('document');
 			$oDocument = $oDocumentModel->getDocument($document_srl);
 			if(!$oDocument->isExists())
 			{
@@ -402,7 +402,7 @@ class boardController extends board
 		$logged_info = Context::get('logged_info');
 
 		// get the module information
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 		$columnList = array('module');
 		$cur_module_info = $oModuleModel->getModuleInfoByMid($mid, 0, $columnList);
 
@@ -416,7 +416,7 @@ class boardController extends board
 		{
 			$member_info = $logged_info;
 		} else {
-			$oMemberModel = &getModel('member');
+			$oMemberModel = getModel('member');
 			$member_info = $oMemberModel->getMemberInfoByMemberSrl($member_srl);
 		}
 
@@ -427,7 +427,7 @@ class boardController extends board
 
 		//search
 		$url = getUrl('','mid',$mid,'search_target','nick_name','search_keyword',$member_info->nick_name);
-		$oMemberController = &getController('member');
+		$oMemberController = getController('member');
 		$oMemberController->addMemberPopupMenu($url, 'cmd_view_own_document', '');
 
 		return new Object();

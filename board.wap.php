@@ -21,7 +21,7 @@ class boardWAP extends board
 		}
 
 		// generate document model object
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		// if the doument is existed
 		$document_srl = Context::get('document_srl');
@@ -43,7 +43,7 @@ class boardWAP extends board
 				if($this->act=='dispBoardContentCommentList')
 				{
 
-					$oCommentModel = &getModel('comment');
+					$oCommentModel = getModel('comment');
 					$output = $oCommentModel->getCommentList($oDocument->document_srl, 0, false, $oDocument->getCommentCount());
 
 					$content = '';
