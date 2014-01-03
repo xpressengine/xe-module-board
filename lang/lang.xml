@@ -353,4 +353,16 @@
 		<value xml:lang="ko"><![CDATA[임시로 분류를 사용하지 않으려면 체크하세요.]]></value>
 		<value xml:lang="en"><![CDATA[You can disable a category feature.]]></value>
 	</item>
+	<item name="protect_content">
+		<value xml:lang="ko"><![CDATA[글 보호 기능]]></value>
+		<value xml:lang="en"><![CDATA[Protect contents]]></value>
+	</item>
+	<item name="about_protect_content">
+		<value xml:lang="ko"><![CDATA[작성된 글에 댓글이 작성된 경우 글 작성자는 해당 글을 수정하거나 삭제 할 수 없습니다.]]> </value>
+		<value xml:lang="en"><![CDATA[If there is comment on document, document's owner cannot modify or delete that.]]></value>
+	</item>
+	<item name="msg_protect_content">
+		<value xml:lang="ko"><![CDATA[댓글이 작성된 게시물의 글을 수정 또는 삭제 할 수 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[Cannot modify or delete document. Because there is comments.]]></value>
+	</item>
 </lang>
