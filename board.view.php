@@ -38,7 +38,7 @@ class boardView extends board
 		$this->except_notice = $this->module_info->except_notice == 'N' ? FALSE : TRUE;
 
 		// $this->_getStatusNameListecret option backward compatibility
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		$statusList = $this->_getStatusNameList($oDocumentModel);
 		if(isset($statusList['SECRET']))
@@ -94,7 +94,7 @@ class boardView extends board
 		/**
 		 * use context::set to setup extra variables
 		 **/
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$extra_keys = $oDocumentModel->getExtraKeys($this->module_info->module_srl);
 		Context::set('extra_keys', $extra_keys);
 
@@ -160,7 +160,7 @@ class boardView extends board
 		}
 		Context::set('search_option', $search_option);
 
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$statusNameList = $this->_getStatusNameList($oDocumentModel);
 		if(count($statusNameList) > 0)
 		{
@@ -171,7 +171,7 @@ class boardView extends board
 		$this->dispBoardContentView();
 
 		// list config, columnList setting
-		$oBoardModel = &getModel('board');
+		$oBoardModel = getModel('board');
 		$this->listConfig = $oBoardModel->getListConfig($this->module_info->module_srl);
 		$this->_makeListColumnList();
 
@@ -200,7 +200,7 @@ class boardView extends board
 		// check if the use_category option is enabled
 		if($this->module_info->use_category=='Y')
 		{
-			$oDocumentModel = &getModel('document');
+			$oDocumentModel = getModel('document');
 			Context::set('category_list', $oDocumentModel->getCategoryList($this->module_srl));
 
 			$oSecurity = new Security();
@@ -217,7 +217,7 @@ class boardView extends board
 		$page = Context::get('page');
 
 		// generate document model object
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		/**
 		 * if the document exists, then get the document information
@@ -311,7 +311,7 @@ class boardView extends board
 	 * @brief  display the document file list (can be used by API)
 	 **/
 	function dispBoardContentFileList(){
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$document_srl = Context::get('document_srl');
 		$oDocument = $oDocumentModel->getDocument($document_srl);
 		Context::set('file_list',$oDocument->getUploadedFiles());
@@ -324,7 +324,7 @@ class boardView extends board
 	 * @brief display the document comment list (can be used by API)
 	 **/
 	function dispBoardContentCommentList(){
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$document_srl = Context::get('document_srl');
 		$oDocument = $oDocumentModel->getDocument($document_srl);
 		$comment_list = $oDocument->getComments();
@@ -348,7 +348,7 @@ class boardView extends board
 	 * @brief display notice list (can be used by API)
 	 **/
 	function dispBoardNoticeList(){
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$args = new stdClass();
 		$args->module_srl = $this->module_srl;
 		$notice_output = $oDocumentModel->getNoticeList($args, $this->columnList);
@@ -370,7 +370,7 @@ class boardView extends board
 			return;
 		}
 
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		// setup module_srl/page number/ list number/ page count
 		$args = new stdClass();
@@ -490,7 +490,7 @@ class boardView extends board
 		}
 
 		// generate the tag module model object
-		$oTagModel = &getModel('tag');
+		$oTagModel = getModel('tag');
 
 		$obj = new stdClass;
 		$obj->mid = $this->module_info->mid;
@@ -531,7 +531,7 @@ class boardView extends board
 			return $this->dispBoardMessage('msg_not_permitted');
 		}
 
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		/**
 		 * check if the category option is enabled not not
@@ -578,8 +578,13 @@ class boardView extends board
 		if($oDocument->get('module_srl') == $oDocument->get('member_srl')) $savedDoc = TRUE;
 		$oDocument->add('module_srl', $this->module_srl);
 
+		if($oDocument->isExists() && $this->module_info->protect_content=="Y" && $oDocument->get('comment_count')>0 && $this->grant->manager==false)
+		{
+			return new Object(-1, 'msg_protect_content');
+		}
+
 		// if the document is not granted, then back to the password input form
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 		if($oDocument->isExists()&&!$oDocument->isGranted())
 		{
 			return $this->setTemplateFile('input_password_form');
@@ -589,8 +594,8 @@ class boardView extends board
 		{
 			$point_config = $oModuleModel->getModulePartConfig('point',$this->module_srl);
 			$logged_info = Context::get('logged_info');
-			$oPointModel = &getModel('point');
-			$pointForInsert = $point_config["insert_document"];
+			$oPointModel = getModel('point');
+			$pointForInsert = $point_config->insert_document;
 			if($pointForInsert < 0)
 			{
 				if( !$logged_info )
@@ -613,7 +618,7 @@ class boardView extends board
 		Context::set('oDocument', $oDocument);
 
 		// apply xml_js_filter on header
-		$oDocumentController = &getController('document');
+		$oDocumentController = getController('document');
 		$oDocumentController->addXmlJsFilter($this->module_info->module_srl);
 
 		// if the document exists, then setup extra variabels on context
@@ -666,7 +671,7 @@ class boardView extends board
 		// if document exists, get the document information
 		if($document_srl)
 		{
-			$oDocumentModel = &getModel('document');
+			$oDocumentModel = getModel('document');
 			$oDocument = $oDocumentModel->getDocument($document_srl);
 		}
 
@@ -680,6 +685,11 @@ class boardView extends board
 		if(!$oDocument->isGranted())
 		{
 			return $this->setTemplateFile('input_password_form');
+		}
+
+		if($this->module_info->protect_content=="Y" && $oDocument->get('comment_count')>0 && $this->grant->manager==false)
+		{
+			return $this->dispBoardMessage('msg_protect_content');
 		}
 
 		Context::set('oDocument',$oDocument);
@@ -706,7 +716,7 @@ class boardView extends board
 		}
 
 		// get the document information
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$oDocument = $oDocumentModel->getDocument($document_srl);
 		if(!$oDocument->isExists())
 		{
@@ -720,7 +730,7 @@ class boardView extends board
 		}
 
 		// obtain the comment (create an empty comment document for comment_form usage)
-		$oCommentModel = &getModel('comment');
+		$oCommentModel = getModel('comment');
 		$oSourceComment = $oComment = $oCommentModel->getComment(0);
 		$oComment->add('document_srl', $document_srl);
 		$oComment->add('module_srl', $this->module_srl);
@@ -759,7 +769,7 @@ class boardView extends board
 		}
 
 		// get the comment
-		$oCommentModel = &getModel('comment');
+		$oCommentModel = getModel('comment');
 		$oSourceComment = $oCommentModel->getComment($parent_srl, $this->grant->manager);
 
 		// if the comment is not existed, opoup an error message
@@ -820,7 +830,7 @@ class boardView extends board
 		}
 
 		// get comment information
-		$oCommentModel = &getModel('comment');
+		$oCommentModel = getModel('comment');
 		$oComment = $oCommentModel->getComment($comment_srl, $this->grant->manager);
 
 		// if the comment is not exited, alert an error message
@@ -864,7 +874,7 @@ class boardView extends board
 		// if the comment exists, then get the comment information
 		if($comment_srl)
 		{
-			$oCommentModel = &getModel('comment');
+			$oCommentModel = getModel('comment');
 			$oComment = $oCommentModel->getComment($comment_srl, $this->grant->manager);
 		}
 
@@ -895,7 +905,7 @@ class boardView extends board
 	 **/
 	function dispBoardDeleteTrackback()
 	{
-		$oTrackbackModel = &getModel('trackback');
+		$oTrackbackModel = getModel('trackback');
 
 		if(!$oTrackbackModel)
 		{

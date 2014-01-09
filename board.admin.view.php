@@ -23,7 +23,7 @@ class boardAdminView extends board {
 		}
 
 		// generate module model object
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 
 		// get the module infomation based on the module_srl
 		if($module_srl) {
@@ -88,7 +88,7 @@ class boardAdminView extends board {
 		ModuleModel::syncModuleToSite($output->data);
 
 		// get the skins path
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 		$skin_list = $oModuleModel->getSkins($this->module_path);
 		Context::set('skin_list',$skin_list);
 
@@ -96,14 +96,14 @@ class boardAdminView extends board {
 		Context::set('mskin_list', $mskin_list);
 
 		// get the layouts path
-		$oLayoutModel = &getModel('layout');
+		$oLayoutModel = getModel('layout');
 		$layout_list = $oLayoutModel->getLayoutList();
 		Context::set('layout_list', $layout_list);
 
 		$mobile_layout_list = $oLayoutModel->getLayoutList(0,"M");
 		Context::set('mlayout_list', $mobile_layout_list);
 
-		$oModuleAdminModel = &getAdminModel('module');
+		$oModuleAdminModel = getAdminModel('module');
 		$selected_manage_content = $oModuleAdminModel->getSelectedManageHTML($this->xml_info->grant);
 		Context::set('selected_manage_content', $selected_manage_content);
 
@@ -140,7 +140,7 @@ class boardAdminView extends board {
 		}
 
 		// get the skins list
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 		$skin_list = $oModuleModel->getSkins($this->module_path);
 		Context::set('skin_list',$skin_list);
 
@@ -148,7 +148,7 @@ class boardAdminView extends board {
 		Context::set('mskin_list', $mskin_list);
 
 		// get the layouts list
-		$oLayoutModel = &getModel('layout');
+		$oLayoutModel = getModel('layout');
 		$layout_list = $oLayoutModel->getLayoutList();
 		Context::set('layout_list', $layout_list);
 
@@ -161,11 +161,11 @@ class boardAdminView extends board {
 		$security->encodeHTML('mlayout_list..title','mlayout_list..layout');
 
 		// get document status list
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$documentStatusList = $oDocumentModel->getStatusNameList();
 		Context::set('document_status_list', $documentStatusList);
 
-		$oBoardModel = &getModel('board');
+		$oBoardModel = getModel('board');
 
 		// setup the extra vaiables
 		Context::set('extra_vars', $oBoardModel->getDefaultListConfig($this->module_info->module_srl));
@@ -209,7 +209,7 @@ class boardAdminView extends board {
 
 		$module_info = Context::get('module_info');
 
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$document_count = $oDocumentModel->getDocumentCount($module_info->module_srl);
 		$module_info->document_count = $document_count;
 
@@ -226,7 +226,7 @@ class boardAdminView extends board {
 	 * @brief display category information
 	 **/
 	function dispBoardAdminCategoryInfo() {
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$category_content = $oDocumentModel->getCategoryHTML($this->module_info->module_srl);
 		Context::set('category_content', $category_content);
 
@@ -239,7 +239,7 @@ class boardAdminView extends board {
 	 **/
 	function dispBoardAdminGrantInfo() {
 		// get the grant infotmation from admin module
-		$oModuleAdminModel = &getAdminModel('module');
+		$oModuleAdminModel = getAdminModel('module');
 		$grant_content = $oModuleAdminModel->getModuleGrantHTML($this->module_info->module_srl, $this->xml_info->grant);
 		Context::set('grant_content', $grant_content);
 
@@ -250,7 +250,7 @@ class boardAdminView extends board {
 	 * @brief display extra variables
 	 **/
 	function dispBoardAdminExtraVars() {
-		$oDocumentAdminModel = &getModel('document');
+		$oDocumentAdminModel = getModel('document');
 		$extra_vars_content = $oDocumentAdminModel->getExtraVarsHTML($this->module_info->module_srl);
 		Context::set('extra_vars_content', $extra_vars_content);
 
@@ -262,7 +262,7 @@ class boardAdminView extends board {
 	 **/
 	function dispBoardAdminSkinInfo() {
 		 // get the grant infotmation from admin module
-		$oModuleAdminModel = &getAdminModel('module');
+		$oModuleAdminModel = getAdminModel('module');
 		$skin_content = $oModuleAdminModel->getModuleSkinHTML($this->module_info->module_srl);
 		Context::set('skin_content', $skin_content);
 
@@ -274,7 +274,7 @@ class boardAdminView extends board {
 	 **/
 	function dispBoardAdminMobileSkinInfo() {
 		 // get the grant infotmation from admin module
-		$oModuleAdminModel = &getAdminModel('module');
+		$oModuleAdminModel = getAdminModel('module');
 		$skin_content = $oModuleAdminModel->getModuleMobileSkinHTML($this->module_info->module_srl);
 		Context::set('skin_content', $skin_content);
 

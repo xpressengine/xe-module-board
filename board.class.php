@@ -25,8 +25,8 @@ class board extends ModuleObject
 	function moduleInstall()
 	{
 		// use action forward(enabled in the admin model)
-		$oModuleController = &getController('module');
-		$oModuleModel = &getModel('module');
+		$oModuleController = getController('module');
+		$oModuleModel = getModel('module');
 
 		// 2007. 10. 17 insert member menu trigger
 		$oModuleController->insertTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after');
@@ -52,7 +52,7 @@ class board extends ModuleObject
 				$site_args->site_srl = 0;
 				$site_args->index_module_srl = $module_srl;
 
-				$oModuleController = &getController('module');
+				$oModuleController = getController('module');
 				$oModuleController->updateSite($site_args);
 			}
 		}
@@ -65,7 +65,7 @@ class board extends ModuleObject
 	 **/
 	function checkUpdate()
 	{
-		$oModuleModel = &getModel('module');
+		$oModuleModel = getModel('module');
 
 		// 2007. 10. 17 get the member menu trigger
 		if(!$oModuleModel->getTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after')) return true;
@@ -80,8 +80,8 @@ class board extends ModuleObject
 	 **/
 	function moduleUpdate()
 	{
-		$oModuleModel = &getModel('module');
-		$oModuleController = &getController('module');
+		$oModuleModel = getModel('module');
+		$oModuleController = getController('module');
 
 		// 2007. 10. 17  check the member menu trigger, if it is not existed then insert
 		if(!$oModuleModel->getTrigger('member.getMemberMenu', 'board', 'controller', 'triggerMemberMenu', 'after'))
@@ -104,7 +104,7 @@ class board extends ModuleObject
 		if(!$output->data) return new Object();
 		@set_time_limit(0);
 
-		$oModuleController = &getController('module');
+		$oModuleController = getController('module');
 
 		foreach($output->data as $board)
 		{

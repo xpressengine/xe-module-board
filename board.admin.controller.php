@@ -20,8 +20,8 @@ class boardAdminController extends board {
 	 **/
 	function procBoardAdminInsertBoard($args = null) {
 		// igenerate module model/controller object
-		$oModuleController = &getController('module');
-		$oModuleModel = &getModel('module');
+		$oModuleController = getController('module');
+		$oModuleModel = getModel('module');
 
 		// setup the board module infortmation
 		$args = Context::getRequestVars();
@@ -34,6 +34,7 @@ class boardAdminController extends board {
 		if($args->except_notice != 'Y') $args->except_notice = 'N';
 		if($args->use_anonymous != 'Y') $args->use_anonymous = 'N';
 		if($args->consultation != 'Y') $args->consultation = 'N';
+		if($args->protect_content!= 'Y') $args->protect_content = 'N';
 		if(!in_array($args->order_target,$this->order_target)) $args->order_target = 'list_order';
 		if(!in_array($args->order_type, array('asc', 'desc'))) $args->order_type = 'asc';
 
@@ -68,7 +69,7 @@ class boardAdminController extends board {
 				if(substr($val,0,10)=='extra_vars') $val = substr($val,10);
 				$list_arr[] = $val;
 			}
-			$oModuleController = &getController('module');
+			$oModuleController = getController('module');
 			$oModuleController->insertModulePartConfig('board', $output->get('module_srl'), $list_arr);
 		}
 
@@ -107,7 +108,7 @@ class boardAdminController extends board {
 			$args->order_type = 'asc';
 		}
 
-		$oModuleController = &getController('module');
+		$oModuleController = getController('module');
 		$output = $oModuleController->updateModule($args);
 
 		// for grant info, Register Admin ID
@@ -131,7 +132,7 @@ class boardAdminController extends board {
 		$module_srl = Context::get('module_srl');
 
 		// get the current module
-		$oModuleController = &getController('module');
+		$oModuleController = getController('module');
 		$output = $oModuleController->deleteModule($module_srl);
 		if(!$output->toBool()) return $output;
 

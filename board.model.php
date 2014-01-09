@@ -20,8 +20,8 @@ class boardModel extends module
 	 **/
 	function getListConfig($module_srl)
 	{
-		$oModuleModel = &getModel('module');
-		$oDocumentModel = &getModel('document');
+		$oModuleModel = getModel('module');
+		$oDocumentModel = getModel('document');
 
 		// get the list config value, if it is not exitsted then setup the default value
 		$list_config = $oModuleModel->getModulePartConfig('board', $module_srl);
@@ -68,7 +68,7 @@ class boardModel extends module
 		}
 
 		// get the extra variables from the document model
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$inserted_extra_vars = $oDocumentModel->getExtraKeys($module_srl);
 
 		if(count($inserted_extra_vars))

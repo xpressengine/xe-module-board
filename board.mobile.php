@@ -16,7 +16,7 @@ class boardMobile extends boardView
 		$this->except_notice = $this->module_info->except_notice == 'N' ? false : true;
 
 		// $this->_getStatusNameListecret option backward compatibility
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 
 		$statusList = $this->_getStatusNameList($oDocumentModel);
 		if(isset($statusList['SECRET']))
@@ -42,7 +42,7 @@ class boardMobile extends boardView
 			$this->consultation = false;
 		}
 
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$extra_keys = $oDocumentModel->getExtraKeys($this->module_info->module_srl);
 		Context::set('extra_keys', $extra_keys);
 
