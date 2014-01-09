@@ -595,7 +595,7 @@ class boardView extends board
 			$point_config = $oModuleModel->getModulePartConfig('point',$this->module_srl);
 			$logged_info = Context::get('logged_info');
 			$oPointModel = getModel('point');
-			$pointForInsert = $point_config->insert_document;
+			$pointForInsert = $point_config["insert_document"];
 			if($pointForInsert < 0)
 			{
 				if( !$logged_info )
